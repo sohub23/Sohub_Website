@@ -18,10 +18,27 @@ import filmicLogo from '@/assets/carousel/filmic-navbar.png';
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
+import smartLightImage from '@/assets/light.png';
+import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
 
+
+// Menu data types
+interface SubMenuItem {
+  title: string;
+  description?: string;
+  href: string;
+  image: string;
+}
+
+interface MenuItem {
+  label: string;
+  href: string;
+  submenu: SubMenuItem[];
+  links: { label: string; href: string }[];
+}
 
 // Menu data with images
-const menuItems = [
+const menuItems: MenuItem[] = [
   {
     label: 'Initiatives',
     href: '#initiatives',
@@ -73,14 +90,14 @@ const menuItems = [
     label: 'Discover',
     href: '#discover',
     submenu: [
-      { title: 'About Us', href: '#about', image: '' },
-      { title: 'Careers', href: '#careers', image: '' },
-      { title: 'Impact Stories', href: '#impact', image: '' },
-      { title: 'Events', href: '#events', image: '' },
-      { title: 'Newsroom', href: '#news', image: '' },
-      { title: 'Contact', href: '#contact', image: '' },
-      { title: 'Help Center', href: '#help', image: '' },
-      { title: 'Community', href: '#community', image: '' },
+      { title: 'About Us', href: '#about', image: '', description: '' },
+      { title: 'Careers', href: '#careers', image: '', description: '' },
+      { title: 'Impact Stories', href: '#impact', image: '', description: '' },
+      { title: 'Events', href: '#events', image: '', description: '' },
+      { title: 'Newsroom', href: '#news', image: '', description: '' },
+      { title: 'Contact', href: '#contact', image: '', description: '' },
+      { title: 'Help Center', href: '#help', image: '', description: '' },
+      { title: 'Community', href: '#community', image: '', description: '' },
     ],
     links: []
   },
@@ -92,6 +109,8 @@ const menuItems = [
       { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
       { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
       { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
+      { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
+      { title: 'Sohub Protect', description: 'Security', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
     ],
     links: []
   },
@@ -101,7 +120,38 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
   const [mobileMenuView, setMobileMenuView] = useState<'main' | string>('main');
+  const [shopIndex, setShopIndex] = useState(0);
+  const [shopDirection, setShopDirection] = useState(0); // 0: none, 1: next (slide left), -1: prev (slide right)
+  const SHOP_VISIBLE_COUNT = 4;
+
+  const nextShopItems = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const shopItem = menuItems.find(item => item.label === 'Shop');
+    const totalItems = shopItem?.submenu.length || 0;
+
+    if (shopIndex + SHOP_VISIBLE_COUNT < totalItems) {
+      setShopDirection(1);
+      setShopIndex(prev => prev + 1);
+    }
+  };
+
+  const prevShopItems = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (shopIndex > 0) {
+      setShopDirection(-1);
+      setShopIndex(prev => prev - 1);
+    }
+  };
+
+  // Reset shop index when menu closes
+  useEffect(() => {
+    if (!activeMenu) {
+      setShopIndex(0);
+      setShopDirection(0);
+    }
+  }, [activeMenu]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -252,38 +302,89 @@ export const Navbar = () => {
                             </div>
                           </div>
                         ) : (
-                          <div className={`${item.label === 'Shop' ? 'flex justify-center gap-12' : item.label === 'Initiatives' ? 'grid grid-cols-3 gap-x-4 gap-y-5 px-8 mt-4' : `grid ${item.submenu.length === 2 ? 'grid-cols-2' : item.submenu.length === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-x-8 gap-y-5`}`}>
-                            {item.submenu.map((subItem, index) => (
-                              <motion.a
-                                key={subItem.title}
-                                href={subItem.href}
-                                target={subItem.href.startsWith('http') ? '_blank' : undefined}
-                                rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.04, duration: 0.4, ease: [0.5, 0, 0, 0.75] }}
-                                className={`group flex flex-col items-center ${item.label === 'Shop' ? 'text-center' : ''}`}
+                          <div className={`${item.label === 'Shop' ? 'flex items-center justify-center gap-4' : item.label === 'Initiatives' ? 'grid grid-cols-3 gap-x-4 gap-y-5 px-8 mt-4' : `grid ${item.submenu.length === 2 ? 'grid-cols-2' : item.submenu.length === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-x-8 gap-y-5`}`}>
+                            {item.label === 'Shop' && (
+                              <button
+                                onClick={prevShopItems}
+                                disabled={shopIndex === 0}
+                                className={`p-2 rounded-full hover:bg-black/5 transition-colors disabled:opacity-0 disabled:pointer-events-none`}
                               >
-                                <div className={`relative rounded-xl mb-3 ${item.label === 'Shop' ? 'overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent' : item.label === 'Initiatives' ? 'h-[85px] w-full flex items-center justify-center bg-transparent' : 'overflow-hidden bg-background-subtle'}`}>
-                                  <img
-                                    src={subItem.image}
-                                    alt={subItem.title}
-                                    className={`${item.label === 'Shop' ? 'w-full h-full object-contain p-2' : item.label === 'Initiatives' ? 'max-h-[65px] max-w-[100px] w-auto h-auto object-contain' : 'w-full aspect-[3/2] object-cover transition-transform duration-500 group-hover:scale-105'} relative z-10`}
-                                  />
-                                </div>
-                                <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
-                                  {subItem.title}
-                                </h3>
-                                {item.label === 'Initiatives' ? (
-                                  <span className="text-[14px] font-normal text-[#393c41] dark:text-white/70 mt-1.5 text-center hover:underline transition-all">
-                                  </span>
-                                ) : item.label !== 'Shop' ? (
-                                  <p className="text-[14px] text-[#5c5e62] mt-1 text-center">
-                                    {subItem.description}
-                                  </p>
-                                ) : null}
-                              </motion.a>
-                            ))}
+                                <ChevronLeft className="w-6 h-6 text-foreground" />
+                              </button>
+                            )}
+
+                            {item.label === 'Shop' ? (
+                              <div className="w-[944px] overflow-hidden">
+                                <motion.div
+                                  className="flex gap-4"
+                                  animate={{ x: -shopIndex * 240 }}
+                                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                >
+                                  {item.submenu.map((subItem) => (
+                                    <a
+                                      key={subItem.title}
+                                      href={subItem.href}
+                                      target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                                      rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                      className="group flex flex-col items-center text-center w-56 shrink-0"
+                                    >
+                                      <div className="relative rounded-xl mb-3 overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent">
+                                        <img
+                                          src={subItem.image}
+                                          alt={subItem.title}
+                                          className="w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105"
+                                        />                              </div>
+                                      <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
+                                        {subItem.title}
+                                      </h3>
+                                    </a>
+                                  ))}
+                                </motion.div>
+                              </div>
+                            ) : (
+                              item.submenu.map((subItem, index) => (
+                                <motion.a
+                                  key={subItem.title}
+                                  href={subItem.href}
+                                  target={subItem.href.startsWith('http') ? '_blank' : undefined}
+
+                                  rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                  initial={{ opacity: 0, y: 12 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: index * 0.04, duration: 0.4, ease: [0.5, 0, 0, 0.75] }}
+                                  className="group flex flex-col items-center"
+                                >
+                                  <div className={`relative rounded-xl mb-3 ${item.label === 'Initiatives' ? 'h-[85px] w-full flex items-center justify-center bg-transparent' : 'overflow-hidden bg-background-subtle'}`}>
+                                    <img
+                                      src={subItem.image}
+                                      alt={subItem.title}
+                                      className={`${item.label === 'Initiatives' ? 'max-h-[65px] max-w-[100px] w-auto h-auto object-contain' : 'w-full aspect-[3/2] object-cover transition-transform duration-500 group-hover:scale-105'} relative z-10`}
+                                    />
+                                  </div>
+                                  <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
+                                    {subItem.title}
+                                  </h3>
+                                  {item.label === 'Initiatives' ? (
+                                    <span className="text-[14px] font-normal text-[#393c41] dark:text-white/70 mt-1.5 text-center hover:underline transition-all">
+                                    </span>
+                                  ) : (
+                                    <p className="text-[14px] text-[#5c5e62] mt-1 text-center">
+                                      {subItem.description}
+                                    </p>
+                                  )}
+                                </motion.a>
+                              ))
+                            )}
+
+                            {item.label === 'Shop' && (
+                              <button
+                                onClick={nextShopItems}
+                                disabled={shopIndex + SHOP_VISIBLE_COUNT >= item.submenu.length}
+                                className={`p-2 rounded-full hover:bg-black/5 transition-colors disabled:opacity-0 disabled:pointer-events-none`}
+                              >
+                                <ChevronRight className="w-6 h-6 text-foreground" />
+                              </button>
+                            )}
                           </div>
                         )}
                       </div>

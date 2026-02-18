@@ -44,16 +44,16 @@ export const Audience = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     {audiences.map((item, index) => (
-                        <AnimatedSection key={index} delay={index * 0.1}>
+                        <AnimatedSection key={index} delay={index * 0.1} className="h-full">
                             <motion.div
                                 whileHover={{ y: -4 }}
-                                className="p-8 rounded-3xl bg-secondary/30 border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300"
+                                className="p-8 rounded-3xl bg-secondary/30 border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300 h-full flex flex-col"
                             >
                                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
                                     <item.icon className="w-5 h-5" />
                                 </div>
                                 <h3 className="text-xl font-medium text-foreground mb-2">{item.title}</h3>
-                                <p className="text-foreground-muted">{item.desc}</p>
+                                <p className="text-foreground-muted mt-auto">{item.desc}</p>
                             </motion.div>
                         </AnimatedSection>
                     ))}
