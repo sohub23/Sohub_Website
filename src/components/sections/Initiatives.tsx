@@ -5,9 +5,21 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
 import XimpulVideo from '../../assets/Ximpul3.mp4';
 import OMamaImage from '../../assets/O-mama-initiatives.png';
+import FilmicStationVideo from '../../assets/Filmic_Station_Brand_Video_Creation.mp4';
+import OMamaVideo from '../../assets/omama.mp4';
 
 // Initiative data based on SOHUB ecosystem
 const initiatives = [
+    {
+        id: 'omama',
+        label: 'O-MAMA',
+        title: 'Hygienic food access',
+        description: 'Quality food where people work and study. Healthy, accessible, reliable.',
+        bgColor: 'bg-[#FFF4E6]', // Warm orange/SOHUB Orange tint
+        // Add your image URL here
+        media: { type: 'video' as const, src: OMamaVideo },
+        size: 'large',
+    },
     {
         id: 'connect',
         label: 'CONNECT',
@@ -16,16 +28,6 @@ const initiatives = [
         bgColor: 'bg-[#E3F2FD]', // Soft blue/Google Blue tint
         // Add your video URL here
         media: { type: 'video' as const, src: '' },
-        size: 'large',
-    },
-    {
-        id: 'omama',
-        label: 'O-MAMA',
-        title: 'Hygienic food access',
-        description: 'Quality food where people work and study. Healthy, accessible, reliable.',
-        bgColor: 'bg-[#FFF4E6]', // Warm orange/SOHUB Orange tint
-        // Add your image URL here
-        media: { type: 'image' as const, src: OMamaImage },
         size: 'medium',
     },
     {
@@ -70,7 +72,7 @@ const initiatives = [
         title: 'Content that moves culture',
         description: 'Creative content and community building for the next generation.',
         bgColor: 'bg-[#FFF8E1]', // Soft yellow/Google Yellow tint
-        media: { type: 'video' as const, src: '' },
+        media: { type: 'video' as const, src: FilmicStationVideo },
         size: 'medium',
     },
     {
@@ -194,7 +196,7 @@ export const Initiatives = () => {
 
                 {/* Bento Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                    {/* Card 1 - CONNECT (Large with Video) */}
+                    {/* Card 1 - O-MAMA (Large with Video - Constrained Height) */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -206,8 +208,8 @@ export const Initiatives = () => {
                             {initiatives[0].label}
                         </span>
 
-                        {/* Video placeholder */}
-                        <div className="flex-1 mb-8">
+                        {/* Video placeholder - Constrained Height */}
+                        <div className="w-full h-[400px] mb-8">
                             <VideoCard src={initiatives[0].media?.src || ''} />
                         </div>
 
@@ -226,7 +228,7 @@ export const Initiatives = () => {
                         </div>
                     </motion.div>
 
-                    {/* Card 2 - O-MAMA (Image) */}
+                    {/* Card 2 - CONNECT (Video) */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -239,7 +241,7 @@ export const Initiatives = () => {
                         </span>
 
                         <div className="flex-1 mb-6">
-                            <ImageCard src={initiatives[1].media?.src || ''} alt={initiatives[1].title} />
+                            <VideoCard src={initiatives[1].media?.src || ''} />
                         </div>
 
                         <div>
