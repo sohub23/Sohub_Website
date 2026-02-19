@@ -2,6 +2,9 @@ import { Navbar } from '@/components/layout/Navbar';
 
 import { SocialProof } from '@/components/sections/SocialProof';
 import { Initiatives } from '@/components/sections/Initiatives';
+import { FeatureShowcase } from '@/components/sections/FeatureShowcase';
+import { ShopShowcase } from '@/components/sections/ShopShowcase';
+import { AIExperiments } from '@/components/sections/AIExperiments';
 import { WhyWeExist } from '@/components/sections/WhyWeExist';
 import { WhatSohubIs } from '@/components/sections/WhatSohubIs';
 import { SohubStandard } from '@/components/sections/SohubStandard';
@@ -21,6 +24,9 @@ const Index = () => {
         <WhyWeExist />
         <WhatSohubIs />
         <Initiatives />
+        <FeatureShowcase />
+        <ShopShowcase />
+        <AIExperiments />
         <SohubStandard />
         <OurApproach />
         <Audience />

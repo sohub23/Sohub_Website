@@ -6,9 +6,9 @@ import logoOrange from '@/assets/logo-orange.svg';
 import { CompactBackgroundPaths } from '@/components/ui/background-paths';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 
-import aloImage from '@/assets/Alo.png';
-import pdlcImage from '@/assets/pdlc.png';
-import switchImage from '@/assets/Switch.png';
+import aloImage from '@/assets/Alo_transparent.png';
+import pdlcImage from '@/assets/pdlc_transparent.png';
+import switchImage from '@/assets/Switch_transparent.png';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
@@ -18,7 +18,7 @@ import filmicLogo from '@/assets/carousel/filmic-navbar.png';
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
-import smartLightImage from '@/assets/light.png';
+import smartLightImage from '@/assets/light_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
 
 
@@ -230,13 +230,43 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block z-10">
+          {/* Social Media Icons */}
+          <div className="hidden lg:flex items-center gap-4 z-10">
             <a
-              href="#contact"
-              className="px-6 py-2.5 font-semibold text-[15px] rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 bg-primary text-primary-foreground"
+              href="https://www.facebook.com/solutionhubtechnologies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:opacity-70"
+              aria-label="Facebook"
             >
-              Contact Us
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a
+              href="https://bd.linkedin.com/company/solution-hub-technologie-sohub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:opacity-70"
+              aria-label="LinkedIn"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="4" stroke="#fb8a09" strokeWidth="2" fill="none" />
+                <path d="M7 10v7M7 7v.01" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" />
+                <path d="M11 10v7M11 13.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5V17" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@solutionhubtechnologysohub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:opacity-70"
+              aria-label="YouTube"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
             </a>
           </div>
 
@@ -262,7 +292,7 @@ export const Navbar = () => {
               onMouseEnter={() => setActiveMenu(activeMenu)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="container-main pt-6 pb-8 max-h-[420px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-[4px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-zinc-600">
+              <div className="container-main pt-6 pb-8 max-h-[600px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-[4px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-zinc-600">
                 {menuItems
                   .filter((item) => item.label === activeMenu)
                   .map((item) => (
@@ -303,43 +333,28 @@ export const Navbar = () => {
                           </div>
                         ) : (
                           <div className={`${item.label === 'Shop' ? 'flex items-center justify-center gap-4' : item.label === 'Initiatives' ? 'grid grid-cols-3 gap-x-4 gap-y-5 px-8 mt-4' : `grid ${item.submenu.length === 2 ? 'grid-cols-2' : item.submenu.length === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-x-8 gap-y-5`}`}>
-                            {item.label === 'Shop' && (
-                              <button
-                                onClick={prevShopItems}
-                                disabled={shopIndex === 0}
-                                className={`p-2 rounded-full hover:bg-black/5 transition-colors disabled:opacity-0 disabled:pointer-events-none`}
-                              >
-                                <ChevronLeft className="w-6 h-6 text-foreground" />
-                              </button>
-                            )}
-
                             {item.label === 'Shop' ? (
-                              <div className="w-[944px] overflow-hidden">
-                                <motion.div
-                                  className="flex gap-4"
-                                  animate={{ x: -shopIndex * 240 }}
-                                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                >
-                                  {item.submenu.map((subItem) => (
-                                    <a
-                                      key={subItem.title}
-                                      href={subItem.href}
-                                      target={subItem.href.startsWith('http') ? '_blank' : undefined}
-                                      rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                      className="group flex flex-col items-center text-center w-56 shrink-0"
-                                    >
-                                      <div className="relative rounded-xl mb-3 overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent">
-                                        <img
-                                          src={subItem.image}
-                                          alt={subItem.title}
-                                          className="w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105"
-                                        />                              </div>
-                                      <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
-                                        {subItem.title}
-                                      </h3>
-                                    </a>
-                                  ))}
-                                </motion.div>
+                              <div className="grid grid-cols-4 gap-4">
+                                {item.submenu.map((subItem, idx) => (
+                                  <a
+                                    key={subItem.title}
+                                    href={subItem.href}
+                                    target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                                    rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                    className="group flex flex-col items-center text-center w-56"
+                                  >
+                                    <div className="relative rounded-xl mb-1 overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent">
+                                      <img
+                                        src={subItem.image}
+                                        alt={subItem.title}
+                                        className="w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105"
+                                      />
+                                    </div>
+                                    <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
+                                      {subItem.title}
+                                    </h3>
+                                  </a>
+                                ))}
                               </div>
                             ) : (
                               item.submenu.map((subItem, index) => (
@@ -374,16 +389,6 @@ export const Navbar = () => {
                                   )}
                                 </motion.a>
                               ))
-                            )}
-
-                            {item.label === 'Shop' && (
-                              <button
-                                onClick={nextShopItems}
-                                disabled={shopIndex + SHOP_VISIBLE_COUNT >= item.submenu.length}
-                                className={`p-2 rounded-full hover:bg-black/5 transition-colors disabled:opacity-0 disabled:pointer-events-none`}
-                              >
-                                <ChevronRight className="w-6 h-6 text-foreground" />
-                              </button>
                             )}
                           </div>
                         )}

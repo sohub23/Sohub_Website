@@ -13,11 +13,11 @@ export const TVLoader = ({ onComplete }: TVLoaderProps) => {
 
   useEffect(() => {
     // Simple TV timeline
-    setTimeout(() => setPhase('line'), 400);
-    setTimeout(() => setPhase('on'), 800);
-    setTimeout(() => setPhase('off'), 4000);
-    setTimeout(() => setPhase('done'), 4500);
-    setTimeout(onComplete, 4600);
+    setTimeout(() => setPhase('line'), 200);
+    setTimeout(() => setPhase('on'), 400);
+    setTimeout(() => setPhase('off'), 2000);
+    setTimeout(() => setPhase('done'), 2300);
+    setTimeout(onComplete, 2500);
   }, [onComplete]);
 
   return (

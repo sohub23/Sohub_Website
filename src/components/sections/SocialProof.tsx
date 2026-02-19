@@ -83,15 +83,40 @@ export const SocialProof = () => {
                         blurIntensity={1}
                     />
                 </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 px-8 sm:px-6 w-full sm:w-auto mt-16">
+                    <a
+                        href="#initiatives"
+                        className="group w-auto sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#F97316] px-8 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#EA580C] hover:shadow-xl hover:-translate-y-0.5"
+                    >
+                        Initiatives
+                        <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </a>
+                    <div className="flex gap-3 w-full sm:w-auto">
+                        <a
+                            href="#why"
+                            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-foreground transition-all duration-300 hover:bg-white hover:border-border hover:shadow-sm hover:-translate-y-0.5"
+                        >
+                            Why we exist
+                        </a>
+                        <a
+                            href="#approach"
+                            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-foreground transition-all duration-300 hover:bg-white hover:border-border hover:shadow-sm hover:-translate-y-0.5"
+                        >
+                            Our approach
+                        </a>
+                    </div>
+                </div>
             </div>
 
             {/* Bottom Visual Area with CTAs */}
-            <div className="relative -mt-36 md:-mt-24 h-[500px] w-full overflow-hidden z-20 flex flex-col justify-end pb-14 md:pb-12 [mask-image:linear-gradient(to_bottom,transparent,black_20%)]">
+            <div className="relative -mt-42 md:-mt-32 h-[500px] w-full overflow-hidden z-20 flex flex-col justify-end pb-44 md:pb-40 [mask-image:linear-gradient(to_bottom,transparent,black_20%)]">
 
                 {/* Visuals (Background) */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,var(--gradient-color),transparent_70%)] before:opacity-20" />
-                    <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/10 dark:border-white/10 bg-background" />
+                    <div className="absolute -left-1/2 top-[40%] aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/10 dark:border-white/10 bg-background" />
                     <Sparkles
                         density={1200}
                         className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
@@ -101,30 +126,6 @@ export const SocialProof = () => {
 
                 {/* CTAs and Content (Foreground) */}
                 <div className="relative z-30 w-full flex flex-col items-center gap-10">
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 px-8 sm:px-6 w-full sm:w-auto">
-                        <a
-                            href="#initiatives"
-                            className="group w-auto sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#F97316] px-8 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#EA580C] hover:shadow-xl hover:-translate-y-0.5"
-                        >
-                            Initiatives
-                            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                        </a>
-                        <div className="flex gap-3 w-full sm:w-auto">
-                            <a
-                                href="#why"
-                                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-foreground transition-all duration-300 hover:bg-white hover:border-border hover:shadow-sm hover:-translate-y-0.5"
-                            >
-                                Why we exist
-                            </a>
-                            <a
-                                href="#approach"
-                                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-foreground transition-all duration-300 hover:bg-white hover:border-border hover:shadow-sm hover:-translate-y-0.5"
-                            >
-                                Our approach
-                            </a>
-                        </div>
-                    </div>
-
                     <div className="text-center">
                         <p className="mb-3 sm:mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/60">
                             Our Focus
