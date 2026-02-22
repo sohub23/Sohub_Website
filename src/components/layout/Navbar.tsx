@@ -16,6 +16,8 @@ import oMamaLogo from '@/assets/carousel/omama-navbar.png';
 import empLogo from '@/assets/emp.png';
 import filmicLogo from '@/assets/carousel/filmic-navbar.png';
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
+import controlsLogo from '@/assets/carousel/controls-navbar.png';
+import machineLogo from '@/assets/carousel/machine-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
 import smartLightImage from '@/assets/light_transparent.png';
@@ -49,6 +51,8 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'The SOHUB superapp', href: '#initiatives', image: tolparLogo },
       { title: '', description: 'Automation that scales', href: '#initiatives', image: sohubAILogo },
       { title: '', description: 'Safety & trust initiatives', href: '#initiatives', image: protectLogo },
+      { title: '', description: 'Smart control solutions', href: '#initiatives', image: controlsLogo },
+      { title: '', description: 'Industrial automation', href: '#initiatives', image: machineLogo },
       { title: '', description: 'Content that moves culture', href: '#initiatives', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: '#initiatives', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: '#initiatives', image: smartHomeLogo },
@@ -239,7 +243,7 @@ export const Navbar = () => {
               className="transition-colors hover:opacity-70"
               aria-label="Facebook"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
@@ -250,7 +254,7 @@ export const Navbar = () => {
               className="transition-colors hover:opacity-70"
               aria-label="LinkedIn"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="2" width="20" height="20" rx="4" stroke="#fb8a09" strokeWidth="2" fill="none" />
                 <path d="M7 10v7M7 7v.01" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" />
                 <path d="M11 10v7M11 13.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5V17" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -263,7 +267,7 @@ export const Navbar = () => {
               className="transition-colors hover:opacity-70"
               aria-label="YouTube"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
               </svg>

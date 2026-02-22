@@ -54,11 +54,7 @@ export const WhatSohubIs = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto">
           {/* 1. The Solution Hub Card (Glass Tech) */}
           <AnimatedSection className="h-full">
-            <motion.div
-              whileHover={{ y: -4, scale: 1.005 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="h-full rounded-3xl p-8 md:p-10 shadow-xl shadow-primary/10 relative overflow-hidden group border border-primary/10 bg-white/70 backdrop-blur-md"
-            >
+            <div className="h-full rounded-3xl p-8 md:p-10 shadow-xl shadow-primary/10 relative overflow-hidden border border-primary/10 bg-white/70 backdrop-blur-md">
               {/* Internal Glow */}
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
 
@@ -87,17 +83,17 @@ export const WhatSohubIs = () => {
                   </li>
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-primary/10 flex items-center gap-2 text-primary text-sm font-bold tracking-wide uppercase group-hover:gap-3 transition-all cursor-pointer">
-                  <span>See our solutions</span>
+                <div className="mt-8 pt-6 border-t border-primary/10 flex items-center gap-2 text-primary text-sm font-bold tracking-wide uppercase cursor-pointer">
+                  <span>See our initiatives</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </AnimatedSection>
 
           {/* 2. The Anti-Pattern Card (Subtle) */}
           <AnimatedSection delay={0.1} className="h-full">
-            <div className="h-full bg-secondary/10 rounded-3xl p-8 md:p-10 border border-transparent hover:border-black/5 transition-colors relative overflow-hidden group backdrop-blur-sm">
+            <div className="h-full bg-secondary/10 rounded-3xl p-8 md:p-10 border border-black/5 relative overflow-hidden backdrop-blur-sm">
 
               <div className="relative z-10 h-full flex flex-col">
                 <div className="w-14 h-14 bg-black/5 rounded-2xl flex items-center justify-center mb-6 text-foreground-muted/70">
@@ -112,7 +108,7 @@ export const WhatSohubIs = () => {
                   We define ourselves by what we avoid.
                 </p>
 
-                <div className="space-y-4 mt-auto opacity-70 group-hover:opacity-100 transition-opacity">
+                <div className="space-y-4 mt-auto opacity-70">
                   <p className="flex items-center gap-3 text-foreground-muted">
                     <Grip className="w-4 h-4 opacity-50" />
                     No random products.

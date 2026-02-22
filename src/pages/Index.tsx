@@ -5,6 +5,10 @@ import { Initiatives } from '@/components/sections/Initiatives';
 import { FeatureShowcase } from '@/components/sections/FeatureShowcase';
 import { ShopShowcase } from '@/components/sections/ShopShowcase';
 import { AIExperiments } from '@/components/sections/AIExperiments';
+import { SmartLife } from '@/components/sections/SmartLife';
+import { SmartHomeSolutions } from '@/components/sections/SmartHomeSolutions';
+import { SuccessfulProjects } from '@/components/sections/SuccessfulProjects';
+import { WhyWeAreUnique } from '@/components/sections/WhyWeAreUnique';
 import { WhyWeExist } from '@/components/sections/WhyWeExist';
 import { WhatSohubIs } from '@/components/sections/WhatSohubIs';
 import { SohubStandard } from '@/components/sections/SohubStandard';
@@ -27,6 +31,10 @@ const Index = () => {
         <FeatureShowcase />
         <ShopShowcase />
         <AIExperiments />
+        <SmartLife />
+        <SmartHomeSolutions />
+        <SuccessfulProjects />
+        <WhyWeAreUnique />
         <SohubStandard />
         <OurApproach />
         <Audience />

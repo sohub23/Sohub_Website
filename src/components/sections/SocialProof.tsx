@@ -12,6 +12,8 @@ import carouselFilmic from '@/assets/carousel/filmic-carousel.png';
 import carouselTolpar from '@/assets/carousel/tolpar-carousel.png';
 import carouselAI from '@/assets/carousel/ai-carousel.png';
 import carouselProtect from '@/assets/carousel/protect-carousel.png';
+import carouselControls from '@/assets/carousel/controls-carousel.png';
+import carouselMachine from '@/assets/carousel/machine-carousel.png';
 import carouselXimpul from '@/assets/carousel/ximpul-carousel.png';
 
 const initiatives = [
@@ -21,6 +23,8 @@ const initiatives = [
     { name: 'TOLPAR', src: carouselTolpar },
     { name: 'AI', src: carouselAI },
     { name: 'PROTECT', src: carouselProtect },
+    { name: 'CONTROLS', src: carouselControls },
+    { name: 'MACHINE', src: carouselMachine },
     { name: 'FILMIC STATION', src: carouselFilmic },
     { name: 'XIMPUL', src: carouselXimpul },
 ]
@@ -53,7 +57,7 @@ export const SocialProof = () => {
                 </div>
 
                 {/* Carousel */}
-                <div className="relative mt-12 md:mt-24 h-[60px] w-full">
+                <div className="relative mt-12 md:mt-24 h-[60px] w-full bg-transparent">
                     <InfiniteSlider
                         className='flex h-full w-full items-center'
                         duration={200}
@@ -85,7 +89,7 @@ export const SocialProof = () => {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 px-8 sm:px-6 w-full sm:w-auto mt-16">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 px-8 sm:px-6 w-full sm:w-auto mt-10 mb-6">
                     <a
                         href="#initiatives"
                         className="group w-auto sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#F97316] px-8 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#EA580C] hover:shadow-xl hover:-translate-y-0.5"
@@ -100,12 +104,7 @@ export const SocialProof = () => {
                         >
                             Why we exist
                         </a>
-                        <a
-                            href="#approach"
-                            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border/50 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-foreground transition-all duration-300 hover:bg-white hover:border-border hover:shadow-sm hover:-translate-y-0.5"
-                        >
-                            Our approach
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -119,7 +118,7 @@ export const SocialProof = () => {
                     <div className="absolute -left-1/2 top-[40%] aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/10 dark:border-white/10 bg-background" />
                     <Sparkles
                         density={1200}
-                        className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
+                        className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(50%_300%,white,transparent_85%)]"
                         color={theme === "dark" ? "#ffffff" : "#000000"}
                     />
                 </div>

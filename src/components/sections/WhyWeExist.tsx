@@ -54,7 +54,7 @@ export const WhyWeExist = () => {
                 <div className="h-12 w-[1px] bg-border" />
                 <div className="flex flex-col">
                   <span className="text-xs text-foreground-muted uppercase tracking-wider">Est.</span>
-                  <span className="font-bold text-foreground">2026</span>
+                  <span className="font-bold text-foreground">2022</span>
                 </div>
               </div>
             </div>
