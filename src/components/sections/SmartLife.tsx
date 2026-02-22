@@ -1,23 +1,37 @@
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
+import smartLockImg from '@/assets/compressed/Smart_Lock.png';
+import lightingImg from '@/assets/compressed/Lighting.png';
+import sensorsImg from '@/assets/compressed/Sensors.png';
+import majorApplianceImg from '@/assets/compressed/Major_appliance.png';
+import smallApplianceImg from '@/assets/compressed/Small_appliance.png';
+import kitchenApplianceImg from '@/assets/compressed/kitchen_appliance.png';
+import petsImg from '@/assets/compressed/For_pets.png';
+import electricalsImg from '@/assets/compressed/Electricals.png';
+import cleaningRobotsImg from '@/assets/compressed/Smart_cleaning_robots.png';
+import camerasImg from '@/assets/compressed/Smart_cameras.png';
+import gatewayImg from '@/assets/compressed/Smart_gateway.png';
+import savingsImg from '@/assets/compressed/Smart_savings.png';
+import entertainmentImg from '@/assets/compressed/Entartainments.png';
+
 const products = [
-    { name: 'Smart Lock', src: '/src/assets/compressed/Smart_Lock.png' },
-    { name: 'Lighting', src: '/src/assets/compressed/Lighting.png' },
-    { name: 'Sensor', src: '/src/assets/compressed/Sensors.png' },
-    { name: 'Major Appliance', src: '/src/assets/compressed/Major_appliance.png' },
-    { name: 'Small Appliance', src: '/src/assets/compressed/Small_appliance.png' },
-    { name: 'Kitchen Appliance', src: '/src/assets/compressed/kitchen_appliance.png' },
-    { name: 'Pets', src: '/src/assets/compressed/For_pets.png' },
-    { name: 'Electrical', src: '/src/assets/compressed/Electricals.png' },
+    { name: 'Smart Lock', src: smartLockImg },
+    { name: 'Lighting', src: lightingImg },
+    { name: 'Sensor', src: sensorsImg },
+    { name: 'Major Appliance', src: majorApplianceImg },
+    { name: 'Small Appliance', src: smallApplianceImg },
+    { name: 'Kitchen Appliance', src: kitchenApplianceImg },
+    { name: 'Pets', src: petsImg },
+    { name: 'Electrical', src: electricalsImg },
 ];
 
 const productsRow2 = [
-    { name: 'Cleaning Robot', src: '/src/assets/compressed/Smart_cleaning_robots.png' },
-    { name: 'Camera', src: '/src/assets/compressed/Smart_cameras.png' },
-    { name: 'Smart Lock', src: '/src/assets/compressed/Smart_Lock.png' },
-    { name: 'Gateway', src: '/src/assets/compressed/Smart_gateway.png' },
-    { name: 'Energy-Saving', src: '/src/assets/compressed/Smart_savings.png' },
-    { name: 'Entertainment', src: '/src/assets/compressed/Entartainments.png' },
+    { name: 'Cleaning Robot', src: cleaningRobotsImg },
+    { name: 'Camera', src: camerasImg },
+    { name: 'Smart Lock', src: smartLockImg },
+    { name: 'Gateway', src: gatewayImg },
+    { name: 'Energy-Saving', src: savingsImg },
+    { name: 'Entertainment', src: entertainmentImg },
 ];
 
 export const SmartLife = () => {
