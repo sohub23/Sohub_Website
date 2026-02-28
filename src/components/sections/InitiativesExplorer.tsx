@@ -73,7 +73,7 @@ export const InitiativesExplorer = () => {
         <AnimatedSection>
           <div className="text-center mb-12 lg:mb-16">
             <p className="text-overline mb-4">Our Initiatives</p>
-            <h2 className="text-headline mb-6">
+            <h2 className="text-[48px] mb-6">
               One vision. Many focused initiatives.
             </h2>
             <p className="text-body-xl max-w-xl mx-auto">

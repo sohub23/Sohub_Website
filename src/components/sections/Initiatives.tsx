@@ -186,7 +186,7 @@ export const Initiatives = () => {
                     <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-4">
                         Our Ecosystem
                     </p>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-foreground mb-4">
+                    <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-4">
                         One ecosystem. Many focused systems.
                     </h2>
                     <p className="text-lg text-foreground-muted max-w-2xl mx-auto font-normal">

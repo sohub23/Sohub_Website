@@ -7,11 +7,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TVLoader } from "@/components/ui/TVLoader";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CompanyInfo from "./pages/CompanyInfo";
+
+import JoinUs from "./pages/JoinUs";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  // Only show the loader if we are on the homepage initially
+  const [isLoading, setIsLoading] = useState(window.location.pathname === "/");
 
   const handleLoaderComplete = () => {
     setIsLoading(false);
@@ -20,7 +24,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* TV Loader - shows on every page load */}
+        {/* TV Loader - shows only on homepage load */}
         {isLoading && <TVLoader onComplete={handleLoaderComplete} />}
 
         <Toaster />
@@ -28,6 +32,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/company-info" element={<CompanyInfo />} />
+            <Route path="/join-us" element={<JoinUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

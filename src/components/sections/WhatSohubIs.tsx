@@ -43,7 +43,7 @@ export const WhatSohubIs = () => {
         <AnimatedSection>
           <div className="text-center mb-16">
             <p className="text-overline mb-4 text-foreground-muted">The Definition</p>
-            <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-foreground flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <h2 className="text-[48px] font-normal tracking-tight text-foreground flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
               <span>What does</span>
               <img src={logoOrange} alt="SOHUB" className="h-10 md:h-14 w-auto -mt-1" />
               <span>mean?</span>

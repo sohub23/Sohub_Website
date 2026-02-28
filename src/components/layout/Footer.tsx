@@ -1,24 +1,31 @@
 import { AnimatedSection } from '../ui/AnimatedSection';
 import logoOrange from '@/assets/logo-orange.svg';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="bg-footer-bg relative overflow-hidden py-24 md:py-32">
+    <footer id="contact" className="bg-footer-bg relative overflow-hidden py-12 md:py-16">
       {/* Subtle top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-black/5 to-transparent" />
 
       <div className="container-main relative z-10 text-center md:text-left">
         <AnimatedSection>
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-20">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-10">
             <div>
-              <img src={logoOrange} alt="SOHUB" className="h-8 w-auto mb-8 mx-auto md:mx-0" />
+              <img src={logoOrange} alt="SOHUB" className="h-8 w-auto mb-5 mx-auto md:mx-0" />
               <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-footer-text mb-4 uppercase">
                 Begin Different.<br /> Win Different.
               </h2>
-              <p className="text-footer-text/60 max-w-md text-lg">
+              <p className="text-footer-text/60 max-w-md text-lg mb-8">
                 We’re not here to follow trends. We’re here to raise standards.
               </p>
+              <Link
+                to="/join-us"
+                className="inline-flex items-center justify-center px-8 py-3 bg-[#fb8a09] text-white rounded-full font-medium hover:bg-[#e07a00] transition-colors"
+              >
+                Join with us
+              </Link>
             </div>
 
             <div className="flex flex-col gap-4 mx-auto md:mx-0">
@@ -34,10 +41,14 @@ export const Footer = () => {
                 Contact
                 <ArrowUpRight className="w-5 h-5" />
               </a>
+              <a href="https://www.facebook.com/solutionhubtechnologies" target="_blank" rel="noopener noreferrer" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
+                Social Media
+                <ArrowUpRight className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
-          <div className="pt-10 border-t border-footer-text/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-6 border-t border-footer-text/10 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-footer-text/50">
               © {new Date().getFullYear()} SOHUB — Solution Hub Technologies.
             </p>

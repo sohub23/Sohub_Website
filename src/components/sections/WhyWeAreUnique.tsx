@@ -92,7 +92,7 @@ export const WhyWeAreUnique = () => {
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="max-w-2xl mx-auto text-center mb-12"
                 >
-                    <h2 className="text-[36px] md:text-[44px] font-normal tracking-tight text-[#0d0925] dark:text-white leading-[1.15] mb-5">
+                    <h2 className="text-[48px] font-normal tracking-tight text-[#0d0925] dark:text-white leading-[1.15] mb-5">
                         Why we are{' '}
                         <span className="font-semibold text-primary">Unique?</span>
                     </h2>

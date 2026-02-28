@@ -36,7 +36,7 @@ export const Audience = () => {
             <div className="container-main">
                 <AnimatedSection>
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-4">
+                        <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-4">
                             Built for people who want real progress.
                         </h2>
                     </div>

@@ -7,7 +7,7 @@ export const People = () => {
       <div className="container-main text-center">
         <AnimatedSection>
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-6">
+            <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-6">
               For people who want to build — not just work.
             </h2>
             <p className="text-lg text-foreground-muted mb-8 text-balance">

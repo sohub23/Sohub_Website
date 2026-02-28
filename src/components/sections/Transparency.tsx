@@ -16,7 +16,7 @@ export const Transparency = () => {
         <div className="max-w-4xl mx-auto bg-white/60 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-16 border border-white shadow-2xl shadow-primary/5 text-center">
 
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-6">
+            <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-6">
               Open by design.
             </h2>
             <p className="text-xl text-foreground-muted mb-12 max-w-2xl mx-auto">

@@ -87,7 +87,7 @@ export const QuietClosing = () => {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
             >
-              <h2 className="text-headline text-foreground mb-6">
+              <h2 className="text-[48px] text-foreground mb-6">
                 Begin different.
                 <br />
                 <span className="text-foreground-muted">Win different.</span>

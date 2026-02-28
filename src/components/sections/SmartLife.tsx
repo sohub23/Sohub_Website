@@ -38,7 +38,7 @@ export const SmartLife = () => {
     return (
         <section className="py-16 md:py-24 bg-background">
             <div className="w-full">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-foreground text-center mb-16 px-6">
+                <h2 className="text-[48px] font-normal tracking-tight text-foreground text-center mb-16 px-6">
                     Make Your Life Smart
                 </h2>
 

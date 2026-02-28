@@ -100,7 +100,7 @@ export const EcosystemExplorer = () => {
             <div className="container-main">
                 <AnimatedSection>
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-foreground mb-4">
+                        <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-4">
                             One ecosystem. Many focused systems.
                         </h2>
                         <p className="text-xl text-foreground-muted">

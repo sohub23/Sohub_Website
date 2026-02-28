@@ -35,8 +35,8 @@ export const SohubStandard = () => {
       <div className="container-main">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <p className="text-overline mb-4 text-foreground-muted">The Standard</p>
-            <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-foreground">
+
+            <h2 className="text-[48px] font-normal tracking-tight text-foreground">
               Principles we live by.
             </h2>
           </div>

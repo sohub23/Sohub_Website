@@ -34,8 +34,8 @@ export const OurApproach = () => {
             <div className="container-main">
                 <AnimatedSection>
                     <div className="text-center mb-12 max-w-2xl mx-auto">
-                        <p className="text-overline mb-3">Our Approach</p>
-                        <h2 className="text-heading-2 mb-4">
+
+                        <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-6">
                             From reality to results.
                         </h2>
                     </div>

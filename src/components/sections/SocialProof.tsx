@@ -47,7 +47,7 @@ export const SocialProof = () => {
                         </span>
                         <span className="text-xs sm:text-sm font-medium text-foreground-muted">Solution Hub Technologies</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-foreground">
+                    <h2 className="text-[48px] font-medium tracking-tight text-foreground">
                         We build technology that helps <br className="hidden sm:block" />
                         Bangladesh work better.
                     </h2>

@@ -36,7 +36,7 @@ export const WhoItsFor = () => {
         <AnimatedSection>
           <div className="text-center mb-16">
             <p className="text-overline mb-4">Who we serve</p>
-            <h2 className="text-headline">Built for those who build</h2>
+            <h2 className="text-[48px]">Built for those who build</h2>
           </div>
         </AnimatedSection>
 
