@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
     Cpu,
@@ -39,6 +39,9 @@ const uniqueItems: { icon: LucideIcon; label: string }[] = [
     { icon: MapPin, label: 'Global Reach' },
 ];
 
+/* ──────────────────────────────────────────────
+   SHARED — CheckItem (used by both versions)
+   ────────────────────────────────────────────── */
 const CheckItem = ({ icon: Icon, label, index }: { icon: LucideIcon; label: string; index: number }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-5%' });
@@ -72,7 +75,48 @@ const CheckItem = ({ icon: Icon, label, index }: { icon: LucideIcon; label: stri
     );
 };
 
-export const WhyWeAreUnique = () => {
+/* ──────────────────────────────────────────────
+   MOBILE — compact single column check item
+   ────────────────────────────────────────────── */
+const MobileCheckItem = ({ icon: Icon, label, index }: { icon: LucideIcon; label: string; index: number }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-5%' });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 8 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+                duration: 0.3,
+                delay: index * 0.03,
+                ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex items-center gap-3 py-2.5 px-3"
+        >
+            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon
+                    className="w-4 h-4 text-primary"
+                    strokeWidth={2.2}
+                />
+            </div>
+            <span
+                className="text-[13px] text-[#0d0925] dark:text-white/90 font-medium"
+                style={{
+                    fontFamily:
+                        '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                }}
+            >
+                {label}
+            </span>
+        </motion.div>
+    );
+};
+
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% original, untouched
+   ────────────────────────────────────────────── */
+const DesktopWhyWeAreUnique = () => {
     const headerRef = useRef(null);
     const headerInView = useInView(headerRef, { once: true, margin: '-10%' });
 
@@ -137,4 +181,97 @@ export const WhyWeAreUnique = () => {
             </div>
         </section>
     );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — compact, single-scroll list
+   with icon badges, smaller text, tighter spacing
+   ────────────────────────────────────────────── */
+const MobileWhyWeAreUnique = () => {
+    const headerRef = useRef(null);
+    const headerInView = useInView(headerRef, { once: true, margin: '-5%' });
+
+    // Split into two columns for mobile too (2-col grid)
+    const midpoint = Math.ceil(uniqueItems.length / 2);
+    const leftColumn = uniqueItems.slice(0, midpoint);
+    const rightColumn = uniqueItems.slice(midpoint);
+
+    return (
+        <section className="py-10 bg-[#f8f9fa] dark:bg-zinc-950">
+            <div className="px-4">
+                {/* Header */}
+                <motion.div
+                    ref={headerRef}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={headerInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-center mb-6"
+                >
+                    <h2
+                        className="text-[22px] font-medium tracking-tight text-[#0d0925] dark:text-white leading-[1.2] mb-3"
+                        style={{
+                            fontFamily:
+                                '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        Why we are{' '}
+                        <span className="font-semibold text-primary">Unique?</span>
+                    </h2>
+                    <p
+                        className="text-[13px] leading-[1.6] text-[#4e4a67] dark:text-foreground/60 font-medium px-2"
+                        style={{
+                            fontFamily:
+                                '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        From our innovative products to our exceptional customer service,
+                        we're dedicated to providing an unparalleled smart solution!
+                    </p>
+                </motion.div>
+
+                {/* Checklist — compact card */}
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={headerInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                    className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 py-3 px-2"
+                    style={{ boxShadow: '0 4px 20px rgba(34, 35, 58, 0.06)' }}
+                >
+                    <div className="grid grid-cols-2 gap-x-1">
+                        <div>
+                            {leftColumn.map((item, i) => (
+                                <MobileCheckItem key={i} icon={item.icon} label={item.label} index={i} />
+                            ))}
+                        </div>
+                        <div>
+                            {rightColumn.map((item, i) => (
+                                <MobileCheckItem key={i + midpoint} icon={item.icon} label={item.label} index={i + midpoint} />
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT — switches between mobile/desktop
+   ────────────────────────────────────────────── */
+export const WhyWeAreUnique = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+        mq.addEventListener('change', update);
+        return () => mq.removeEventListener('change', update);
+    }, []);
+
+    if (isMobile) {
+        return <MobileWhyWeAreUnique />;
+    }
+
+    return <DesktopWhyWeAreUnique />;
 };

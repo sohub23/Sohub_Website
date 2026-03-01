@@ -694,8 +694,41 @@ export const Navbar = () => {
                           </div>
                         )}
 
+                        {/* Discover Logic - Mobile View */}
+                        {mobileMenuView === 'Discover' && (
+                          <div className="flex flex-col space-y-8 px-2 py-4">
+                            {['Quick Links', 'Company', 'Legal'].map((category) => {
+                              const categoryItems = menuItems
+                                .find((m) => m.label === 'Discover')
+                                ?.submenu.filter((item) => item.description === category);
+
+                              if (!categoryItems || categoryItems.length === 0) return null;
+
+                              return (
+                                <div key={category} className="flex flex-col space-y-3">
+                                  <h3 className="text-[12px] font-bold tracking-widest text-[#fb8a09] uppercase mb-2 border-b border-gray-100 dark:border-zinc-800 pb-2">
+                                    {category}
+                                  </h3>
+                                  <div className="flex flex-col space-y-4 pt-1">
+                                    {categoryItems.map((item) => (
+                                      <a
+                                        key={item.title}
+                                        href={item.href}
+                                        className="text-[16px] font-medium text-zinc-800 dark:text-zinc-200 hover:text-[#fb8a09] dark:hover:text-[#fb8a09] transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                      >
+                                        {item.title}
+                                      </a>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+
                         {/* Default List Logic (Other Menus) */}
-                        {mobileMenuView !== 'Initiatives' && mobileMenuView !== 'Shop' && (
+                        {mobileMenuView !== 'Initiatives' && mobileMenuView !== 'Shop' && mobileMenuView !== 'Discover' && (
                           <div className="flex flex-col">
                             {menuItems.find((m) => m.label === mobileMenuView)?.submenu.map((subItem) => (
                               <a

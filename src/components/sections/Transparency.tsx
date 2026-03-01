@@ -1,5 +1,6 @@
 import { AnimatedSection } from '../ui/AnimatedSection';
 import { ArrowUpRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const links = [
   "Vision & Syllabus",
@@ -9,7 +10,10 @@ const links = [
   "Resources"
 ];
 
-export const Transparency = () => {
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% untouched
+   ────────────────────────────────────────────── */
+const DesktopTransparency = () => {
   return (
     <section id="transparency" className="py-24 bg-secondary/10 relative overflow-hidden">
       <div className="container-main relative z-10">
@@ -42,4 +46,62 @@ export const Transparency = () => {
       </div>
     </section>
   );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — elegant & tappable stack
+   ────────────────────────────────────────────── */
+const MobileTransparency = () => {
+  return (
+    <section id="transparency-mobile" className="py-16 bg-[#fafafa] relative overflow-hidden px-5">
+      <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-black/5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-center">
+        <h2
+          className="text-[28px] font-normal tracking-tight text-foreground mb-3"
+          style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+        >
+          Open by design.
+        </h2>
+        <p className="text-[15px] text-foreground-muted mb-8 text-balance leading-relaxed">
+          We don’t hide behind marketing. We publish what we’re building, how we operate, and how decisions are made.
+        </p>
+
+        <div className="flex flex-col gap-3">
+          {links.map((link) => (
+            <a
+              key={link}
+              href="#"
+              className="w-full text-left px-5 py-4 rounded-2xl bg-white border border-gray-100 text-foreground text-[15px] font-medium shadow-sm focus:bg-gray-50 flex items-center justify-between group"
+              style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+            >
+              <span>{link}</span>
+              <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-foreground-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                <ArrowUpRight className="w-4 h-4" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT
+   ────────────────────────────────────────────── */
+export const Transparency = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  if (isMobile) {
+    return <MobileTransparency />;
+  }
+
+  return <DesktopTransparency />;
 };

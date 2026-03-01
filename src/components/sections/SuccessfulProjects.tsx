@@ -53,7 +53,10 @@ const projects = [
   },
 ];
 
-export const SuccessfulProjects = () => {
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% original, untouched
+   ────────────────────────────────────────────── */
+const DesktopSuccessfulProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const wheelCooldown = useRef(false);
@@ -261,4 +264,168 @@ export const SuccessfulProjects = () => {
       </div>
     </section>
   );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — stacked card layout,
+   swipeable, compact text, autoplay
+   ────────────────────────────────────────────── */
+const MobileSuccessfulProjects = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef(0);
+
+  // Autoplay
+  useEffect(() => {
+    const autoplay = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % projects.length);
+    }, 5000);
+    return () => clearInterval(autoplay);
+  }, []);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0 && activeIndex < projects.length - 1) {
+        setActiveIndex(activeIndex + 1);
+      } else if (deltaX > 0 && activeIndex > 0) {
+        setActiveIndex(activeIndex - 1);
+      }
+    }
+  };
+
+  return (
+    <section className="py-10 bg-background">
+      <h2
+        className="text-[24px] font-medium tracking-tight text-black dark:text-white text-center mb-6 px-5"
+        style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+      >
+        Our Successful Projects
+      </h2>
+
+      <div
+        className="mx-4 relative"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Card — CSS grid stacking: all slides set height, no clipping */}
+        <div
+          className="bg-white dark:bg-zinc-900 rounded-[20px] overflow-hidden"
+          style={{ boxShadow: '0 4px 24px rgba(34, 35, 58, 0.12)' }}
+        >
+          <div className="grid" style={{ gridTemplateColumns: '1fr' }}>
+            {projects.map((proj, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div
+                  key={index}
+                  style={{
+                    gridRow: '1 / -1',
+                    gridColumn: '1 / -1',
+                    opacity: isActive ? 1 : 0,
+                    transition: 'opacity 0.5s ease-in-out',
+                    pointerEvents: isActive ? 'auto' : 'none',
+                    zIndex: isActive ? 2 : 1,
+                  }}
+                >
+                  {/* Image with beige frame */}
+                  <div
+                    className="mx-3 mt-3 rounded-2xl overflow-hidden"
+                    style={{
+                      background: '#f0dcc8',
+                      padding: 10,
+                    }}
+                  >
+                    <img
+                      src={proj.image}
+                      alt={proj.title}
+                      className="w-full h-auto object-contain rounded-xl"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="px-5 pt-4 pb-5">
+                    <h3
+                      className="text-[18px] font-bold text-[#0d0925] dark:text-white mb-2 leading-tight line-clamp-2"
+                      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                    >
+                      {proj.title}
+                    </h3>
+                    <p
+                      className="text-[13px] text-[#4e4a67] dark:text-foreground/70 leading-[1.55] mb-4 line-clamp-3"
+                      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                    >
+                      {proj.description}
+                    </p>
+                    <a
+                      href={proj.link}
+                      className="inline-flex justify-center w-full text-center px-6 py-3 rounded-full text-white text-[13px] font-semibold tracking-wide"
+                      style={{
+                        backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fdab38 74%)',
+                        boxShadow: '0px 8px 30px rgba(252, 56, 56, 0.25)',
+                        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                      }}
+                    >
+                      READ MORE
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Horizontal dot pagination */}
+        <div className="flex justify-center gap-2 mt-5">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className="rounded-full transition-all duration-300"
+              style={
+                activeIndex === index
+                  ? {
+                    width: 24,
+                    height: 8,
+                    borderRadius: 8,
+                    background: 'linear-gradient(147deg, #fe8a39 0%, #fdab38 74%)',
+                    boxShadow: '0px 0px 12px rgba(252, 56, 56, 0.3)',
+                  }
+                  : {
+                    width: 8,
+                    height: 8,
+                    background: '#062744',
+                    opacity: 0.2,
+                  }
+              }
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT — switches between mobile/desktop
+   ────────────────────────────────────────────── */
+export const SuccessfulProjects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  if (isMobile) {
+    return <MobileSuccessfulProjects />;
+  }
+
+  return <DesktopSuccessfulProjects />;
 };

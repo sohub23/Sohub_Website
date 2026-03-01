@@ -1,6 +1,7 @@
 import { AnimatedSection } from '../ui/AnimatedSection';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Users, Briefcase, Code2, GraduationCap, Handshake } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 
 const audiences = [
     {
@@ -30,7 +31,10 @@ const audiences = [
     }
 ];
 
-export const Audience = () => {
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — exact original, untouched
+   ────────────────────────────────────────────── */
+const DesktopAudience = () => {
     return (
         <section id="audience" className="py-24 bg-white relative">
             <div className="container-main">
@@ -61,4 +65,85 @@ export const Audience = () => {
             </div>
         </section>
     );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — clean, stacked list matching theme
+   ────────────────────────────────────────────── */
+const MobileAudienceItem = ({
+    item,
+    index
+}: {
+    item: typeof audiences[0];
+    index: number;
+}) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="flex items-start gap-4 p-5 mb-3 rounded-2xl bg-white border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
+        >
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 mt-0.5 text-primary">
+                <item.icon className="w-6 h-6" />
+            </div>
+            <div>
+                <h3
+                    className="text-[17px] font-medium text-foreground mb-1"
+                    style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+                >
+                    {item.title}
+                </h3>
+                <p className="text-[14px] leading-relaxed text-foreground-muted">
+                    {item.desc}
+                </p>
+            </div>
+        </motion.div>
+    );
+};
+
+const MobileAudience = () => {
+    return (
+        <section id="audience-mobile" className="py-16 bg-[#fafafa] relative px-5">
+            <div className="text-center mb-10">
+                <h2
+                    className="text-[28px] leading-[1.2] font-normal tracking-tight text-foreground mb-2"
+                    style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+                >
+                    Built for people who want real progress.
+                </h2>
+            </div>
+
+            <div className="flex flex-col">
+                {audiences.map((item, index) => (
+                    <MobileAudienceItem key={index} item={item} index={index} />
+                ))}
+            </div>
+        </section>
+    );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT
+   ────────────────────────────────────────────── */
+export const Audience = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+        mq.addEventListener('change', update);
+        return () => mq.removeEventListener('change', update);
+    }, []);
+
+    if (isMobile) {
+        return <MobileAudience />;
+    }
+
+    return <DesktopAudience />;
 };

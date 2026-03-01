@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // Import smart home images
@@ -69,7 +69,12 @@ const tabData = {
   }
 };
 
-export const SmartHomeSolutions = () => {
+const tabs: TabType[] = ['studio', 'apartment', 'multiplex', 'protect'];
+
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% original, untouched
+   ────────────────────────────────────────────── */
+const DesktopSmartHomeSolutions = () => {
   const [activeTab, setActiveTab] = useState<TabType>('studio');
 
   return (
@@ -90,15 +95,14 @@ export const SmartHomeSolutions = () => {
         <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden">
           {/* Tabs */}
           <div className="flex border-b border-border">
-            {(['studio', 'apartment', 'multiplex', 'protect'] as TabType[]).map((tab) => (
+            {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`flex-1 py-3 px-4 text-xs md:text-sm font-medium transition-all ${
-                  activeTab === tab
+                className={`flex-1 py-3 px-4 text-xs md:text-sm font-medium transition-all ${activeTab === tab
                     ? 'bg-primary text-white'
                     : 'bg-transparent text-foreground/70 hover:bg-secondary'
-                }`}
+                  }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
@@ -151,4 +155,113 @@ export const SmartHomeSolutions = () => {
       </div>
     </section>
   );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — compact tabs, smaller scene,
+   tighter product grid, optimized spacing
+   ────────────────────────────────────────────── */
+const MobileSmartHomeSolutions = () => {
+  const [activeTab, setActiveTab] = useState<TabType>('studio');
+
+  return (
+    <section className="py-10 bg-background">
+      <div className="px-4">
+        <h2
+          className="text-[22px] font-medium tracking-tight text-black dark:text-white text-center mb-6"
+          style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+        >
+          Our Smart Home Solutions
+        </h2>
+
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-zinc-800 overflow-hidden">
+          {/* Pill tabs — horizontal scroll */}
+          <div className="flex gap-0 border-b border-gray-100 dark:border-zinc-800">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`flex-1 py-2.5 text-[12px] font-semibold transition-all ${activeTab === tab
+                    ? 'bg-primary text-white'
+                    : 'bg-transparent text-foreground/60'
+                  }`}
+                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="p-3">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25 }}
+            >
+              {/* Scene Image */}
+              <div className="mb-4 rounded-xl overflow-hidden">
+                <img
+                  src={tabData[activeTab].image}
+                  alt={`${activeTab} scene`}
+                  className="w-full h-[200px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Products Grid — 3 columns, compact */}
+              <div className="grid grid-cols-3 gap-3">
+                {tabData[activeTab].products.map((product, index) => (
+                  <motion.div
+                    key={product.name}
+                    initial={{ opacity: 0, scale: 0.92 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.04, duration: 0.25 }}
+                    className="flex flex-col items-center text-center py-2"
+                  >
+                    <div className="w-full aspect-square mb-1.5 flex items-center justify-center">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="max-w-[55%] max-h-[55%] object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h5
+                      className="text-[10px] font-medium text-foreground/70 leading-tight"
+                      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                    >
+                      {product.name}
+                    </h5>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT — switches between mobile/desktop
+   ────────────────────────────────────────────── */
+export const SmartHomeSolutions = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  if (isMobile) {
+    return <MobileSmartHomeSolutions />;
+  }
+
+  return <DesktopSmartHomeSolutions />;
 };

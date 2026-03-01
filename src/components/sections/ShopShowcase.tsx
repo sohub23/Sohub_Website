@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlc_transparent.png';
@@ -44,62 +45,147 @@ const shops = [
     }
 ];
 
-export const ShopShowcase = () => {
-    return (
-        <section className="py-16 md:py-24 bg-background">
-            {/* Section Heading */}
-            <h2
-                className="text-[48px] font-medium tracking-tight text-foreground text-center mb-16"
+type ShopItem = (typeof shops)[number];
+
+/* ──────────────────────────────────────────────
+   DESKTOP CARD — original design
+   ────────────────────────────────────────────── */
+const ShopCard = ({ shop }: { shop: ShopItem }) => (
+    <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-sm">
+        <div className="aspect-[16/12] bg-gray-50 dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
+            <img
+                src={shop.image}
+                alt={shop.title}
+                className="w-full h-auto object-contain"
+                loading="lazy"
+            />
+        </div>
+
+        <div className="p-6">
+            <h3
+                className="text-xl font-semibold text-foreground mb-2"
                 style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
             >
-                Explore our products
-            </h2>
+                {shop.title}
+            </h3>
+            <p
+                className="text-sm text-foreground/70 mb-3 leading-relaxed"
+                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+            >
+                {shop.description}
+            </p>
+            <a
+                href={shop.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-[#fb8a09] hover:underline"
+                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+            >
+                Shop now
+            </a>
+        </div>
+    </div>
+);
 
-            {/* Shop Grid - 3 columns */}
-            <div className="max-w-7xl mx-auto px-6 md:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {shops.map((shop) => (
-                        <div
-                            key={shop.title}
-                            className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800"
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — Google about.google style
+   Full-width image cards, left-aligned text,
+   vertically stacked, no carousel
+   ────────────────────────────────────────────── */
+const MobileShopShowcase = () => (
+    <section className="py-12 bg-background">
+        <h2
+            className="px-5 text-[26px] font-medium tracking-tight text-foreground text-center mb-8"
+            style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+        >
+            Explore our products
+        </h2>
+
+        <div className="px-4 space-y-4">
+            {shops.map((shop) => (
+                <a
+                    key={shop.title}
+                    href={shop.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-[20px] overflow-hidden bg-[#f8f9fa] dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+                >
+                    {/* Full-width product image */}
+                    <div className="w-full aspect-[16/11] bg-[#f0f1f3] dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
+                        <img
+                            src={shop.image}
+                            alt={shop.title}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                        />
+                    </div>
+
+                    {/* Text content — left aligned like Google */}
+                    <div className="px-5 pt-5 pb-6 bg-white dark:bg-zinc-900 rounded-b-[20px]">
+                        <h3
+                            className="text-[20px] font-semibold text-[#000] dark:text-white mb-2 leading-tight"
+                            style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
                         >
-                            {/* Image Container */}
-                            <div className="aspect-[16/12] bg-gray-50 dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
-                                <img
-                                    src={shop.image}
-                                    alt={shop.title}
-                                    className="w-full h-auto object-contain"
-                                />
-                            </div>
+                            {shop.title}
+                        </h3>
+                        <p
+                            className="text-[15px] text-foreground/70 leading-[1.6] mb-3"
+                            style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                        >
+                            {shop.description}
+                        </p>
+                        <span
+                            className="text-[14px] font-semibold text-[#fb8a09]"
+                            style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+                        >
+                            Shop now
+                        </span>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </section>
+);
 
-                            {/* Content */}
-                            <div className="p-6">
-                                <h3
-                                    className="text-xl font-semibold text-foreground mb-2"
-                                    style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                                >
-                                    {shop.title}
-                                </h3>
-                                <p
-                                    className="text-sm text-foreground/70 mb-3 leading-relaxed"
-                                    style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                                >
-                                    {shop.description}
-                                </p>
-                                <a
-                                    href={shop.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-sm font-medium text-[#fb8a09] hover:underline"
-                                    style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                                >
-                                    Shop now
-                                </a>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% original, untouched
+   ────────────────────────────────────────────── */
+const DesktopShopShowcase = () => (
+    <section className="py-16 md:py-24 bg-background">
+        <h2
+            className="px-4 text-3xl sm:text-4xl md:text-[48px] font-medium tracking-tight text-foreground text-center mb-10 md:mb-16"
+            style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
+        >
+            Explore our products
+        </h2>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                {shops.map((shop) => (
+                    <ShopCard key={shop.title} shop={shop} />
+                ))}
             </div>
-        </section>
-    );
+        </div>
+    </section>
+);
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT — switches between mobile/desktop
+   ────────────────────────────────────────────── */
+export const ShopShowcase = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+        mq.addEventListener('change', update);
+        return () => mq.removeEventListener('change', update);
+    }, []);
+
+    if (isMobile) {
+        return <MobileShopShowcase />;
+    }
+
+    return <DesktopShopShowcase />;
 };

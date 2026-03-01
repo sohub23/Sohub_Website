@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
 import XimpulVideo from '../../assets/Ximpul3.mp4';
@@ -15,8 +15,7 @@ const initiatives = [
         label: 'O-MAMA',
         title: 'Hygienic food access',
         description: 'Quality food where people work and study. Healthy, accessible, reliable.',
-        bgColor: 'bg-[#FFF4E6]', // Warm orange/SOHUB Orange tint
-        // Add your image URL here
+        bgColor: 'bg-[#FFF4E6]',
         media: { type: 'video' as const, src: OMamaVideo },
         size: 'large',
     },
@@ -25,8 +24,7 @@ const initiatives = [
         label: 'CONNECT',
         title: 'Communication without barriers',
         description: 'PBX, C2C, HotScan — seamless communication solutions for businesses and consumers.',
-        bgColor: 'bg-[#E3F2FD]', // Soft blue/Google Blue tint
-        // Add your video URL here
+        bgColor: 'bg-[#E3F2FD]',
         media: { type: 'video' as const, src: '' },
         size: 'medium',
     },
@@ -35,7 +33,7 @@ const initiatives = [
         label: 'EMP',
         title: 'Execution & accountability OS',
         description: 'Operating system for teams to track, measure, and deliver results.',
-        bgColor: 'bg-[#F3E5F5]', // Soft purple
+        bgColor: 'bg-[#F3E5F5]',
         media: { type: 'image' as const, src: '' },
         size: 'medium',
     },
@@ -44,7 +42,7 @@ const initiatives = [
         label: 'TOLPAR',
         title: 'The SOHUB superapp',
         description: 'Connecting people, systems, and content in one unified experience.',
-        bgColor: 'bg-[#E8F5E9]', // Soft green/Google Green tint
+        bgColor: 'bg-[#E8F5E9]',
         media: { type: 'video' as const, src: '' },
         size: 'medium',
     },
@@ -53,7 +51,7 @@ const initiatives = [
         label: 'AI',
         title: 'Automation that scales',
         description: 'Intelligent solutions that increase speed, quality, and efficiency.',
-        bgColor: 'bg-[#FCE4EC]', // Soft pink
+        bgColor: 'bg-[#FCE4EC]',
         media: { type: 'image' as const, src: '' },
         size: 'small',
     },
@@ -62,7 +60,7 @@ const initiatives = [
         label: 'PROTECT',
         title: 'Safety & trust initiatives',
         description: 'Building reliability and security into everything we create.',
-        bgColor: 'bg-[#FFEBEE]', // Soft red/Google Red tint
+        bgColor: 'bg-[#FFEBEE]',
         media: null,
         size: 'small',
     },
@@ -71,7 +69,7 @@ const initiatives = [
         label: 'FILMIC STATION',
         title: 'Content that moves culture',
         description: 'Creative content and community building for the next generation.',
-        bgColor: 'bg-[#FFF8E1]', // Soft yellow/Google Yellow tint
+        bgColor: 'bg-[#FFF8E1]',
         media: { type: 'video' as const, src: FilmicStationVideo },
         size: 'medium',
     },
@@ -80,7 +78,7 @@ const initiatives = [
         label: 'XIMPUL',
         title: 'Product experience standards',
         description: 'Commerce and product experience frameworks for builders.',
-        bgColor: 'bg-[#E0F7FA]', // Soft cyan
+        bgColor: 'bg-[#E0F7FA]',
         media: { type: 'video' as const, src: XimpulVideo },
         size: 'large',
     },
@@ -89,13 +87,12 @@ const initiatives = [
         label: 'SMART HOME',
         title: 'Intelligent automation',
         description: 'Automated control systems for modern living spaces.',
-        bgColor: 'bg-[#ECEFF1]', // Blue Grey
+        bgColor: 'bg-[#ECEFF1]',
         media: { type: 'image' as const, src: '' },
         size: 'small',
     },
 ];
 
-// Apple-style ease for smooth animations
 const easeOutExpo = "easeOut";
 
 // Video Card Component
@@ -104,7 +101,7 @@ const VideoCard = ({ src }: { src: string }) => {
     const [isPlaying, setIsPlaying] = useState(true);
 
     const togglePlay = (e: React.MouseEvent) => {
-        e.stopPropagation(); // Prevent card click
+        e.stopPropagation();
         if (videoRef.current) {
             if (isPlaying) {
                 videoRef.current.pause();
@@ -171,7 +168,112 @@ const ImageCard = ({ src, alt }: { src: string; alt: string }) => {
     );
 };
 
-export const Initiatives = () => {
+/* ──────────────────────────────────────────────
+   MOBILE VIDEO CARD — smaller play button
+   ────────────────────────────────────────────── */
+const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspect?: string }) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPlaying, setIsPlaying] = useState(true);
+
+    const togglePlay = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (videoRef.current) {
+            if (isPlaying) videoRef.current.pause();
+            else videoRef.current.play();
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+    if (!src) return null;
+
+    return (
+        <div className={`relative w-full rounded-2xl overflow-hidden bg-black ${aspect}`}>
+            <video
+                ref={videoRef}
+                src={src}
+                className="w-full h-full object-cover"
+                loop muted playsInline autoPlay
+            />
+            <button
+                onClick={togglePlay}
+                className="absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm z-20"
+            >
+                {isPlaying ? (
+                    <Pause className="w-3.5 h-3.5 text-foreground" />
+                ) : (
+                    <Play className="w-3.5 h-3.5 text-foreground ml-0.5" />
+                )}
+            </button>
+        </div>
+    );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE VERSION — Google-style boxy vertical cards
+   ────────────────────────────────────────────── */
+const MobileInitiatives = () => (
+    <section id="initiatives" className="pt-6 pb-16 bg-background">
+        <div className="px-5">
+            {/* Header */}
+            <div className="text-center mb-10">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+                    Our Ecosystem
+                </p>
+                <h2 className="text-[26px] font-normal tracking-tight text-foreground mb-2.5 leading-[1.2]">
+                    One ecosystem.<br />Many focused systems.
+                </h2>
+                <p className="text-sm text-foreground-muted max-w-xs mx-auto font-normal leading-relaxed">
+                    Explore what matters to you. From communication to commerce.
+                </p>
+            </div>
+
+            {/* Cards — Google-style boxy stacked */}
+            <div className="space-y-4">
+                {initiatives.map((init) => {
+                    const hasVideo = init.media?.type === 'video' && init.media.src;
+
+                    return (
+                        <motion.div
+                            key={init.id}
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-30px" }}
+                            transition={{ duration: 0.5, ease: easeOutExpo }}
+                            className={`${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] flex flex-col justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
+                        >
+                            {/* Video if exists */}
+                            {hasVideo && (
+                                <div className="mb-5">
+                                    <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-[16/10]'} />
+                                </div>
+                            )}
+
+                            {/* Label */}
+                            <p className="text-[11px] font-bold tracking-[0.15em] text-[#000] uppercase mb-2.5">
+                                {init.label}
+                            </p>
+
+                            {/* Description */}
+                            <p className="text-[16px] text-foreground/80 leading-[1.6] font-normal mb-3 mx-auto">
+                                {init.description}
+                            </p>
+
+                            {/* Arrow link */}
+                            <div className="inline-flex items-center justify-center">
+                                <ArrowUpRight className="w-[18px] h-[18px] text-primary/50" />
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </div>
+    </section>
+);
+
+/* ──────────────────────────────────────────────
+   DESKTOP VERSION — 100% original, untouched
+   ────────────────────────────────────────────── */
+const DesktopInitiatives = () => {
     return (
         <section id="initiatives" className="pt-8 pb-24 md:pt-12 md:pb-32 bg-background">
             <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
@@ -450,4 +552,25 @@ export const Initiatives = () => {
             </div>
         </section>
     );
+};
+
+/* ──────────────────────────────────────────────
+   MAIN EXPORT — switches between mobile/desktop
+   ────────────────────────────────────────────── */
+export const Initiatives = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+        mq.addEventListener('change', update);
+        return () => mq.removeEventListener('change', update);
+    }, []);
+
+    if (isMobile) {
+        return <MobileInitiatives />;
+    }
+
+    return <DesktopInitiatives />;
 };
