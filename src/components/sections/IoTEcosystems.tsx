@@ -1,6 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import imgWideDesktop from '@/assets/Brand/Wide-Compatibility (1).jpg';
+import imgWideMobile1 from '@/assets/Brand/Wide-CompatibilityM(1).jpg';
+import imgWideMobile2 from '@/assets/Brand/Wide-CompatibilityM(2).jpg';
+import imgIotDesktop from '@/assets/Brand/f51c51f33edfc8ee1d68.png';
+import imgIotMobile from '@/assets/Brand/png4-01.png';
+
 /* ──────────────────────────────────────────────
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
@@ -53,7 +59,7 @@ const DesktopIoTEcosystems = () => {
                         {/* Desktop Image */}
                         <div className="hidden md:block mb-6">
                             <img
-                                src="/src/assets/Brand/Wide-Compatibility (1).jpg"
+                                src={imgWideDesktop}
                                 alt="Wide Compatibility"
                                 className="w-full h-auto rounded-lg"
                             />
@@ -62,12 +68,12 @@ const DesktopIoTEcosystems = () => {
                         {/* Mobile Images */}
                         <div className="md:hidden space-y-4 mb-6">
                             <img
-                                src="/src/assets/Brand/Wide-CompatibilityM(1).jpg"
+                                src={imgWideMobile1}
                                 alt="Wide Compatibility Mobile 1"
                                 className="w-full h-auto rounded-lg"
                             />
                             <img
-                                src="/src/assets/Brand/Wide-CompatibilityM(2).jpg"
+                                src={imgWideMobile2}
                                 alt="Wide Compatibility Mobile 2"
                                 className="w-full h-auto rounded-lg"
                             />
@@ -88,7 +94,7 @@ const DesktopIoTEcosystems = () => {
                         {/* Desktop Image */}
                         <div className="hidden md:block">
                             <img
-                                src="/src/assets/Brand/f51c51f33edfc8ee1d68.png"
+                                src={imgIotDesktop}
                                 alt="IoT Platforms"
                                 className="w-full h-auto max-h-[200px] object-contain rounded-lg"
                             />
@@ -97,7 +103,7 @@ const DesktopIoTEcosystems = () => {
                         {/* Mobile Image */}
                         <div className="md:hidden">
                             <img
-                                src="/src/assets/Brand/png4-01.png"
+                                src={imgIotMobile}
                                 alt="IoT Platforms Mobile"
                                 className="w-full h-auto rounded-lg"
                             />
@@ -146,12 +152,12 @@ const MobileIoTEcosystems = () => {
 
                         <div className="space-y-3">
                             <img
-                                src="/src/assets/Brand/Wide-CompatibilityM(1).jpg"
+                                src={imgWideMobile1}
                                 alt="Wide Compatibility Mobile 1"
                                 className="w-full h-auto rounded-xl"
                             />
                             <img
-                                src="/src/assets/Brand/Wide-CompatibilityM(2).jpg"
+                                src={imgWideMobile2}
                                 alt="Wide Compatibility Mobile 2"
                                 className="w-full h-auto rounded-xl"
                             />
@@ -173,7 +179,7 @@ const MobileIoTEcosystems = () => {
                         </h4>
 
                         <img
-                            src="/src/assets/Brand/png4-01.png"
+                            src={imgIotMobile}
                             alt="IoT Platforms Mobile"
                             className="w-full h-auto rounded-xl -mt-6 relative z-10"
                         />
