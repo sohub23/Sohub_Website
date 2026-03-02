@@ -14,6 +14,14 @@ import smartBulb from '@/assets/smart_home/smart_bulb.png';
 import securityCamera from '@/assets/smart_home/security_camera.png';
 import waterSensor from '@/assets/smart_home/water.png';
 
+// Import protect products
+import sp05Panel from '@/assets/product/H700 Alarm panel.png';
+import sosBand from '@/assets/product/B020-SOS-SOS-Band.png';
+import doorSensor from '@/assets/product/door_Sensor_DS200.png';
+import pMotionSensor from '@/assets/product/Motion_pr200.png';
+import ptzCamera from '@/assets/product/camera-c11.png';
+import wirelessSiren from '@/assets/product/WSR101-Wireless_siren.png';
+
 // Import solution scene images
 import studioScene from '@/assets/smart_solution/studio_optimized.jpg';
 import apartmentScene from '@/assets/smart_solution/smart-home_optimized.jpg';
@@ -59,12 +67,12 @@ const tabData = {
   protect: {
     image: protectScene,
     products: [
-      { name: 'SP-05 Panel', image: controlHub },
-      { name: 'SOS Band', image: smartCamera },
-      { name: 'Door Sensor', image: gasSensor },
-      { name: 'Motion Sensor', image: waterSensor },
-      { name: 'Indoor PTZ Camera', image: smartCamera },
-      { name: 'Wireless Siren', image: securityCamera },
+      { name: 'SP-05 Panel', image: sp05Panel },
+      { name: 'SOS Band', image: sosBand },
+      { name: 'Door Sensor', image: doorSensor },
+      { name: 'Motion Sensor', image: pMotionSensor },
+      { name: 'Indoor PTZ Camera', image: ptzCamera },
+      { name: 'Wireless Siren', image: wirelessSiren },
     ]
   }
 };
@@ -100,8 +108,8 @@ const DesktopSmartHomeSolutions = () => {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`flex-1 py-3 px-4 text-xs md:text-sm font-medium transition-all ${activeTab === tab
-                    ? 'bg-primary text-white'
-                    : 'bg-transparent text-foreground/70 hover:bg-secondary'
+                  ? 'bg-primary text-white'
+                  : 'bg-transparent text-foreground/70 hover:bg-secondary'
                   }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -182,8 +190,8 @@ const MobileSmartHomeSolutions = () => {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`flex-1 py-2.5 text-[12px] font-semibold transition-all ${activeTab === tab
-                    ? 'bg-primary text-white'
-                    : 'bg-transparent text-foreground/60'
+                  ? 'bg-primary text-white'
+                  : 'bg-transparent text-foreground/60'
                   }`}
                 style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
               >
