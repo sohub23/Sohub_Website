@@ -94,7 +94,7 @@
             "name": "SOHUB AI",
             "description": "Automation that scales",
             "logo": "/api/logos/sohub-ai.svg",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 5,
             "isActive": true,
             "logoSize": {
@@ -113,7 +113,7 @@
             "name": "SOHUB Protect",
             "description": "Safety & trust initiatives",
             "logo": "/api/logos/protect.png",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 6,
             "isActive": true,
             "logoSize": {
@@ -132,7 +132,7 @@
             "name": "Controls",
             "description": "Smart control solutions",
             "logo": "/api/logos/controls.png",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 7,
             "isActive": true,
             "logoSize": {
@@ -151,7 +151,7 @@
             "name": "Machine",
             "description": "Industrial automation",
             "logo": "/api/logos/machine.png",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 8,
             "isActive": true,
             "logoSize": {
@@ -170,7 +170,7 @@
             "name": "Filmic",
             "description": "Content that moves culture",
             "logo": "/api/logos/filmic.png",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 9,
             "isActive": true,
             "logoSize": {
@@ -227,7 +227,7 @@
             "name": "Clowee",
             "description": "Smart laundry solutions",
             "logo": "/api/logos/clowee.png",
-            "href": "https://sohub.netlify.app/#initiatives",
+            "href": null,
             "order": 12,
             "isActive": true,
             "logoSize": {
