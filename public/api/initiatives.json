@@ -1,0 +1,115 @@
+{
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-03T22:30:00+06:00",
+    "baseUrl": "https://sohub.com.bd",
+    "initiatives": [
+        {
+            "id": "sohub-connect",
+            "name": "SOHUB Connect",
+            "description": "Communication without barriers",
+            "logo": "/api/logos/sohub-connect.png",
+            "href": "https://connect.sohub.com.bd/",
+            "order": 1,
+            "isActive": true
+        },
+        {
+            "id": "omama",
+            "name": "O-Mama",
+            "description": "Hygienic food access",
+            "logo": "/api/logos/omama.png",
+            "href": "https://omama.sohub.com.bd/",
+            "order": 2,
+            "isActive": true
+        },
+        {
+            "id": "emp",
+            "name": "EMP",
+            "description": "Execution & accountability OS",
+            "logo": "/api/logos/emp.png",
+            "href": "https://emp.sohub.com.bd/",
+            "order": 3,
+            "isActive": true
+        },
+        {
+            "id": "tolpar",
+            "name": "Tolpar",
+            "description": "The SOHUB superapp",
+            "logo": "/api/logos/tolpar.png",
+            "href": "https://sohub.com.bd/tolpar",
+            "order": 4,
+            "isActive": true
+        },
+        {
+            "id": "sohub-ai",
+            "name": "SOHUB AI",
+            "description": "Automation that scales",
+            "logo": "/api/logos/sohub-ai.svg",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 5,
+            "isActive": true
+        },
+        {
+            "id": "protect",
+            "name": "SOHUB Protect",
+            "description": "Safety & trust initiatives",
+            "logo": "/api/logos/protect.png",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 6,
+            "isActive": true
+        },
+        {
+            "id": "controls",
+            "name": "Controls",
+            "description": "Smart control solutions",
+            "logo": "/api/logos/controls.png",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 7,
+            "isActive": true
+        },
+        {
+            "id": "machine",
+            "name": "Machine",
+            "description": "Industrial automation",
+            "logo": "/api/logos/machine.png",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 8,
+            "isActive": true
+        },
+        {
+            "id": "filmic",
+            "name": "Filmic",
+            "description": "Content that moves culture",
+            "logo": "/api/logos/filmic.png",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 9,
+            "isActive": true
+        },
+        {
+            "id": "ximpul",
+            "name": "Ximpul",
+            "description": "Product experience standards",
+            "logo": "/api/logos/ximpul.png",
+            "href": "https://ximpul.com/",
+            "order": 10,
+            "isActive": true
+        },
+        {
+            "id": "smart-home",
+            "name": "Smart Home",
+            "description": "Intelligent living spaces",
+            "logo": "/api/logos/smart-home.png",
+            "href": "https://home.sohub.com.bd/",
+            "order": 11,
+            "isActive": true
+        },
+        {
+            "id": "clowee",
+            "name": "Clowee",
+            "description": "Smart laundry solutions",
+            "logo": "/api/logos/clowee.png",
+            "href": "https://sohub.com.bd/#initiatives",
+            "order": 12,
+            "isActive": true
+        }
+    ]
+}

@@ -170,14 +170,25 @@ export const Navbar = () => {
 
   return (
     <>
+      {/* Top bar - collapses on scroll */}
+      <div className={`fixed top-0 left-0 right-0 z-40 bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
+        }`}>
+        <div className="container-main py-2">
+          <div className="flex items-center justify-center gap-2">
+            <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
+            <p className="text-[10px] md:text-xs text-muted-foreground">
+              Solution Hub Technologies(SOHUB) Owned & Operated
+            </p>
+          </div>
+        </div>
+      </div>
+
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || activeMenu
-          ? 'py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm'
-          : 'py-4 md:py-5 bg-transparent'
-          }`}
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'top-0 py-1 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'top-[36px] py-2.5 md:py-3 bg-background/80 backdrop-blur-md'
+          } ${activeMenu ? 'py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : ''}`}
         onMouseLeave={() => setActiveMenu(null)}
       >
         <div className="container-main flex items-center justify-between">
