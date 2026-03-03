@@ -22,22 +22,15 @@ interface Experiment {
 const experiments: Experiment[] = [
     {
         id: 1,
-        title: "Click To Connect",
-        description: "Manage Business Calls Directly from Your Website — Without Phone Numbers",
-        buttonText: "Check it out",
-        buttonLink: "https://connect.sohub.com.bd/home/click_to_connect",
-        image: clickToConnectImg,
+        title: "O-Mama",
+        description: "Smart fridges delivering fresh, hygienic food 24/7. Install at your workspaces or become a franchise operator.",
+        buttonText: "Learn more",
+        buttonLink: "https://omama.sohub.com.bd/",
+        image: oMamaImg,
+        imageFit: 'contain' as const,
     },
     {
         id: 2,
-        title: "Hotscan",
-        description: "Let your customers connect instantly through a QR-powered web dialer. No app. No SIM. No balance. Just internet.",
-        buttonText: "Get started",
-        buttonLink: "https://connect.sohub.com.bd/hotscan_qr?lang=bangla",
-        image: hotscanImg
-    },
-    {
-        id: 3,
         title: "EMP",
         description: "EMP(Employee Max Portal) is a discipline and accountability system built for Bangladeshi businesses.",
         buttonText: "Visit",
@@ -46,7 +39,7 @@ const experiments: Experiment[] = [
         imageFit: 'contain' as const,
     },
     {
-        id: 4,
+        id: 3,
         title: "Smart Powerbank",
         description: "Rent a powerbank on-the-go from smart vending machines across the city. Scan, charge, and return — anytime, anywhere.",
         buttonText: "Learn more",
@@ -55,14 +48,21 @@ const experiments: Experiment[] = [
         imageFit: 'contain' as const,
     },
     {
+        id: 4,
+        title: "Click To Connect",
+        description: "Manage Business Calls Directly from Your Website — Without Phone Numbers",
+        buttonText: "Check it out",
+        buttonLink: "https://connect.sohub.com.bd/home/click_to_connect",
+        image: clickToConnectImg,
+    },
+    {
         id: 5,
-        title: "O-Mama",
-        description: "Smart fridges delivering fresh, hygienic food 24/7. Install at your workspaces or become a franchise operator.",
-        buttonText: "Learn more",
-        buttonLink: "https://omama.sohub.com.bd/",
-        image: oMamaImg,
-        imageFit: 'contain' as const,
-    }
+        title: "Hotscan",
+        description: "Let your customers connect instantly through a QR-powered web dialer. No app. No SIM. No balance. Just internet.",
+        buttonText: "Get started",
+        buttonLink: "https://connect.sohub.com.bd/hotscan_qr?lang=bangla",
+        image: hotscanImg
+    },
 ];
 
 /* ──────────────────────────────────────────────
