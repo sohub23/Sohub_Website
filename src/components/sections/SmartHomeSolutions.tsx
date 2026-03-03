@@ -86,20 +86,8 @@ const DesktopSmartHomeSolutions = () => {
   const [activeTab, setActiveTab] = useState<TabType>('studio');
 
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="pt-0 pb-12 md:pb-16 bg-background">
       <div className="container-main max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
-        >
-          <h2 className="text-[48px] font-normal tracking-tight text-black dark:text-white mb-4">
-            Our Smart Home Solutions & Products
-          </h2>
-        </motion.div>
-
         <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden">
           {/* Tabs */}
           <div className="flex border-b border-border">
@@ -173,15 +161,8 @@ const MobileSmartHomeSolutions = () => {
   const [activeTab, setActiveTab] = useState<TabType>('studio');
 
   return (
-    <section className="py-10 bg-background">
+    <section className="pt-0 pb-10 bg-background">
       <div className="px-4">
-        <h2
-          className="text-[22px] font-medium tracking-tight text-black dark:text-white text-center mb-6"
-          style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-        >
-          Our Smart Home Solutions
-        </h2>
-
         <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-zinc-800 overflow-hidden">
           {/* Pill tabs — horizontal scroll */}
           <div className="flex gap-0 border-b border-gray-100 dark:border-zinc-800">

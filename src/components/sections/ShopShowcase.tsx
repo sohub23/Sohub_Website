@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlc_transparent.png';
-import switchImage from '@/assets/Switch_transparent.png';
-import smartLightImage from '@/assets/light_transparent.png';
+import switchImage from '@/assets/Switch2.png';
+import smartLightImage from '@/assets/unwatermarked_lights.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
+import sohubShopImage from '@/assets/logo-orange.svg';
 
 const shops = [
     {
@@ -42,6 +43,12 @@ const shops = [
         description: 'Security solutions you can trust.',
         link: 'https://home.sohub.com.bd/sohub-protect',
         image: sohubProtectImage
+    },
+    {
+        title: 'SOHUB Shop',
+        description: 'Discover premium products and smart solutions for your everyday life.',
+        link: 'https://home.sohub.com.bd/',
+        image: sohubShopImage
     }
 ];
 
@@ -51,17 +58,17 @@ type ShopItem = (typeof shops)[number];
    DESKTOP CARD — original design
    ────────────────────────────────────────────── */
 const ShopCard = ({ shop }: { shop: ShopItem }) => (
-    <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-sm">
-        <div className="aspect-[16/12] bg-gray-50 dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
+    <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-sm flex flex-col h-full">
+        <div className="aspect-[16/12] bg-[#fdfbf7] dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
             <img
                 src={shop.image}
                 alt={shop.title}
-                className="w-full h-auto object-contain"
+                className={`w-full h-auto object-contain transition-transform duration-300 ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : 'group-hover:scale-105'}`}
                 loading="lazy"
             />
         </div>
 
-        <div className="p-6">
+        <div className="p-6 flex flex-col flex-grow">
             <h3
                 className="text-xl font-semibold text-foreground mb-2"
                 style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
@@ -69,7 +76,7 @@ const ShopCard = ({ shop }: { shop: ShopItem }) => (
                 {shop.title}
             </h3>
             <p
-                className="text-sm text-foreground/70 mb-3 leading-relaxed"
+                className="text-sm text-foreground/70 mb-3 leading-relaxed flex-grow"
                 style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
             >
                 {shop.description}
@@ -98,7 +105,7 @@ const MobileShopShowcase = () => (
             className="px-5 text-[26px] font-medium tracking-tight text-foreground text-center mb-8"
             style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
         >
-            Explore our products
+            Discover Our Shops
         </h2>
 
         <div className="px-4 space-y-4">
@@ -108,14 +115,14 @@ const MobileShopShowcase = () => (
                     href={shop.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-[20px] overflow-hidden bg-[#f8f9fa] dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+                    className="block rounded-[20px] overflow-hidden bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
                 >
                     {/* Full-width product image */}
-                    <div className="w-full aspect-[16/11] bg-[#f0f1f3] dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
+                    <div className="w-full aspect-[16/11] bg-[#fdfbf7] dark:bg-zinc-800 overflow-hidden flex items-center justify-center">
                         <img
                             src={shop.image}
                             alt={shop.title}
-                            className="w-full h-full object-contain"
+                            className={`w-full h-full object-contain transition-transform duration-300 ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : 'group-hover:scale-105'}`}
                             loading="lazy"
                         />
                     </div>
@@ -156,11 +163,11 @@ const DesktopShopShowcase = () => (
             className="px-4 text-3xl sm:text-4xl md:text-[48px] font-medium tracking-tight text-foreground text-center mb-10 md:mb-16"
             style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
         >
-            Explore our products
+            Discover Our Shops
         </h2>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {shops.map((shop) => (
                     <ShopCard key={shop.title} shop={shop} />
                 ))}

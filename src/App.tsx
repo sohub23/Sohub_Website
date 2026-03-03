@@ -10,7 +10,8 @@ import NotFound from "./pages/NotFound";
 import CompanyInfo from "./pages/CompanyInfo";
 
 import JoinUs from "./pages/JoinUs";
-
+import Tolpar from "./pages/Tolpar";
+import ContactUs from "./pages/ContactUs";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -34,6 +35,8 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/company-info" element={<CompanyInfo />} />
             <Route path="/join-us" element={<JoinUs />} />
+            <Route path="/tolpar" element={<Tolpar />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

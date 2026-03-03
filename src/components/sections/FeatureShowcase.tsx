@@ -7,6 +7,8 @@ import ximpulPoster from '@/assets/carousel/ximpul-carousel.png';
 import omamaPoster from '@/assets/carousel/omama-navbar.png';
 import protectPoster from '@/assets/protect2.png';
 import connectPoster from '@/assets/click to connect.png';
+import powerbankPoster from '@/assets/powerbank-poster.jpg';
+import snackVendingPoster from '@/assets/snack-vending-poster.jpg';
 
 const features = [
     {
@@ -62,6 +64,32 @@ const features = [
         socialMedia: [
             { name: 'Facebook', url: 'https://www.facebook.com/groups/sohubconnect', icon: 'facebook' },
             { name: 'YouTube', url: 'https://youtube.com/playlist?list=PL5gB5kNB2iq2HMRj0LSCB6J6EwyyQ8Zld', icon: 'youtube' }
+        ]
+    },
+    {
+        title: "Powerbank Vending Machine",
+        description: "Never run out of charge again. Rent a powerbank instantly from our smart vending stations — scan, grab, and go.",
+        buttonText: "Explore Machines",
+        buttonLink: "https://home.sohub.com.bd",
+        youtubeId: "Y08VPoImhoA",
+        video: undefined as string | undefined,
+        image: powerbankPoster,
+        socialMedia: [
+            { name: 'Facebook', url: 'https://www.facebook.com/sikisglobal', icon: 'facebook' },
+            { name: 'YouTube', url: 'https://www.youtube.com/@sikisglobal', icon: 'youtube' }
+        ]
+    },
+    {
+        title: "Snack Vending Machine",
+        description: "Grab your favorite snacks anytime, anywhere. Our smart vending machines bring convenience to your fingertips — cashless, fast, and always stocked.",
+        buttonText: "Explore Machines",
+        buttonLink: "https://home.sohub.com.bd",
+        youtubeId: "chWoJsI6XgY",
+        video: undefined as string | undefined,
+        image: snackVendingPoster,
+        socialMedia: [
+            { name: 'Facebook', url: 'https://www.facebook.com/sikisglobal', icon: 'facebook' },
+            { name: 'YouTube', url: 'https://www.youtube.com/@sikisglobal', icon: 'youtube' }
         ]
     }
 ];

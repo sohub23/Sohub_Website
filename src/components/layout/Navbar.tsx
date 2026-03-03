@@ -19,6 +19,7 @@ import filmicLogo from '@/assets/carousel/filmic-navbar.png';
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
 import controlsLogo from '@/assets/carousel/controls-navbar.png';
 import machineLogo from '@/assets/carousel/machine-navbar.png';
+import cloweeNavbarLogo from '@/assets/carousel/clowee-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
 import smartLightImage from '@/assets/light_transparent.png';
@@ -57,6 +58,7 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Content that moves culture', href: '#initiatives', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
+      { title: '', description: 'Smart laundry solutions', href: '#initiatives', image: cloweeNavbarLogo },
     ],
     links: [
       { label: 'View All Initiatives', href: '#initiatives' },
@@ -65,31 +67,10 @@ const menuItems: MenuItem[] = [
     ]
   },
   {
-    label: 'Project Hub',
-    href: '#project-hub',
-    submenu: [
-      { title: 'Dashboard', description: 'Manage your projects', href: '#dashboard', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop' },
-      { title: 'Active Projects', description: 'Track progress', href: '#projects', image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=300&h=200&fit=crop' },
-      { title: 'Archives', description: 'Past initiatives', href: '#archives', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=200&fit=crop' },
-    ],
-    links: [
-      { label: 'Login', href: '#login' },
-      { label: 'Register', href: '#register' },
-    ]
-  },
-  {
     label: 'Tolpar',
-    href: '#tolpar',
-    submenu: [
-      { title: 'What is Tolpar?', description: 'Our flagship platform', href: '#tolpar', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop' },
-      { title: 'Features', description: 'Powerful capabilities', href: '#tolpar-features', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop' },
-      { title: 'Pricing', description: 'Plans for everyone', href: '#tolpar-pricing', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=200&fit=crop' },
-    ],
-    links: [
-      { label: 'Get Started', href: '#get-started' },
-      { label: 'Documentation', href: '#docs' },
-      { label: 'Support', href: '#support' },
-    ]
+    href: '/tolpar',
+    submenu: [],
+    links: []
   },
   {
     label: 'Discover',
@@ -98,14 +79,14 @@ const menuItems: MenuItem[] = [
       { title: 'Smart Home', href: 'https://home.sohub.com.bd', image: '', description: 'Quick Links' },
       { title: 'Telephony', href: '#telephony', image: '', description: 'Quick Links' },
       { title: 'Solutions', href: '#solutions', image: '', description: 'Quick Links' },
-      { title: 'Project Hub', href: '#project-hub', image: '', description: 'Quick Links' },
+      { title: 'Brochures', href: '#brochures', image: '', description: 'Quick Links' },
       { title: 'Terms of Service', href: '#terms', image: '', description: 'Legal' },
       { title: 'Privacy Policy', href: '#privacy', image: '', description: 'Legal' },
       { title: 'Service Level Agreement', href: '#sla', image: '', description: 'Legal' },
       { title: 'Code of Conduct', href: '#conduct', image: '', description: 'Legal' },
       { title: 'About Us', href: '/company-info', image: '', description: 'Company' },
       { title: 'Career', href: '/join-us', image: '', description: 'Company' },
-      { title: 'Contact Us', href: '#contact', image: '', description: 'Company' },
+      { title: 'Contact Us', href: '/contact', image: '', description: 'Company' },
       { title: 'Sohub Shop', href: 'https://home.sohub.com.bd', image: '', description: 'Company' },
     ],
     links: []
@@ -224,7 +205,7 @@ export const Navbar = () => {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setActiveMenu(item.label)}
+                onMouseEnter={() => item.submenu && item.submenu.length > 0 ? setActiveMenu(item.label) : setActiveMenu(null)}
               >
                 <a
                   href={item.href}
@@ -324,7 +305,7 @@ export const Navbar = () => {
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Smart Home</a>
                               <a href="#telephony" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Telephony</a>
                               <a href="#solutions" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Solutions</a>
-                              <a href="#project-hub" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Project Hub</a>
+                              <a href="#brochures" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
                             </div>
 
                             {/* Column 2: Legal */}
@@ -341,7 +322,7 @@ export const Navbar = () => {
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Company</h3>
                               <a href="/company-info" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">About Us</a>
                               <a href="/join-us" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Career</a>
-                              <a href="#contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</a>
+                              <a href="/contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</a>
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
                             </div>
                           </div>

@@ -5,6 +5,8 @@ import clickToConnectVideo from '@/assets/click to connect.mp4';
 import clickToConnectImg from '@/assets/click to connect.png';
 import hotscanImg from '@/assets/hotscan.png';
 import empImg from '@/assets/EMP Logo Transparent.png';
+import machineImg from '@/assets/carousel/machine-navbar.png';
+import oMamaImg from '@/assets/O Mama remove bg.png';
 
 interface Experiment {
     id: number;
@@ -37,10 +39,28 @@ const experiments: Experiment[] = [
     {
         id: 3,
         title: "EMP",
-        description: "EMP(Employee Max POrtal) is a discipline and accountability system built for Bangladeshi businesses.",
+        description: "EMP(Employee Max Portal) is a discipline and accountability system built for Bangladeshi businesses.",
         buttonText: "Visit",
         buttonLink: "https://emp.sohub.com.bd/",
         image: empImg,
+        imageFit: 'contain' as const,
+    },
+    {
+        id: 4,
+        title: "Smart Powerbank",
+        description: "Rent a powerbank on-the-go from smart vending machines across the city. Scan, charge, and return — anytime, anywhere.",
+        buttonText: "Learn more",
+        buttonLink: "#",
+        image: machineImg,
+        imageFit: 'contain' as const,
+    },
+    {
+        id: 5,
+        title: "O-Mama",
+        description: "Smart fridges delivering fresh, hygienic food 24/7. Install at your workspaces or become a franchise operator.",
+        buttonText: "Learn more",
+        buttonLink: "https://omama.sohub.com.bd/",
+        image: oMamaImg,
         imageFit: 'contain' as const,
     }
 ];
@@ -54,7 +74,7 @@ const CARD_COLLAPSED = 340;
 const CARD_GAP = 48;
 const CARD_HEIGHT = 604;
 
-const TOTAL_TRACK_WIDTH = CARD_EXPANDED + (CARD_COLLAPSED * 2) + (CARD_GAP * 2);
+const TOTAL_TRACK_WIDTH = CARD_EXPANDED + (CARD_COLLAPSED * (experiments.length - 1)) + (CARD_GAP * (experiments.length - 1));
 
 const springTransition = {
     type: "spring" as const,
@@ -101,9 +121,13 @@ const DesktopAIExperiments = () => {
         const overflow = TOTAL_TRACK_WIDTH - containerWidth;
         if (overflow <= 0) return 0;
 
+        const maxIndex = experiments.length - 1;
         if (activeIndex === 0) return 0;
-        if (activeIndex === 1) return -(overflow / 2);
-        return -overflow;
+        if (activeIndex >= maxIndex) return -overflow;
+
+        // Distribute scroll evenly across middle indices
+        const scrollPerStep = overflow / maxIndex;
+        return -(scrollPerStep * activeIndex);
     };
 
     return (

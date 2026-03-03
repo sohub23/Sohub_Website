@@ -43,14 +43,14 @@ const DesktopSmartLife = () => {
         <section className="py-16 md:py-24 bg-background">
             <div className="w-full">
                 <h2 className="text-[48px] font-normal tracking-tight text-foreground text-center mb-16 px-6">
-                    Make Your Life Smart
+                    Our Smart Home Solutions & Products
                 </h2>
 
-                <div className="space-y-12 mb-16 overflow-hidden">
+                <div className="space-y-6 mb-16 overflow-hidden">
                     <InfiniteSlider duration={300} gap={48} reverse={false}>
                         {[...products, ...products, ...products].map((product, index) => (
-                            <div key={`row1-${index}`} className="flex flex-col items-center gap-4 w-[180px]">
-                                <div className="w-full h-[180px] flex items-center justify-center">
+                            <div key={`row1-${index}`} className="flex flex-col items-center gap-4 w-[140px]">
+                                <div className="w-full h-[140px] flex items-center justify-center">
                                     <img src={product.src} alt={product.name} className="max-w-full max-h-full object-contain" />
                                 </div>
                                 <h3 className="text-sm font-medium text-foreground/70 text-center">{product.name}</h3>
@@ -60,23 +60,14 @@ const DesktopSmartLife = () => {
 
                     <InfiniteSlider duration={300} gap={48} reverse={true}>
                         {[...productsRow2, ...productsRow2, ...productsRow2, ...productsRow2].map((product, index) => (
-                            <div key={`row2-${index}`} className="flex flex-col items-center gap-4 w-[180px]">
-                                <div className="w-full h-[180px] flex items-center justify-center">
+                            <div key={`row2-${index}`} className="flex flex-col items-center gap-4 w-[140px]">
+                                <div className="w-full h-[140px] flex items-center justify-center">
                                     <img src={product.src} alt={product.name} className="max-w-full max-h-full object-contain" />
                                 </div>
                                 <h3 className="text-sm font-medium text-foreground/70 text-center">{product.name}</h3>
                             </div>
                         ))}
                     </InfiniteSlider>
-                </div>
-
-                <div className="text-center px-6">
-                    <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-foreground transition-colors">
-                        SEE ALL PRODUCTS & SOLUTIONS
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </a>
                 </div>
             </div>
         </section>
@@ -95,14 +86,14 @@ const MobileSmartLife = () => {
                     className="text-[24px] font-medium tracking-tight text-foreground text-center mb-8 px-5"
                     style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
                 >
-                    Make Your Life Smart
+                    Our Smart Home Solutions & Products
                 </h2>
 
-                <div className="space-y-6 mb-10 overflow-hidden">
+                <div className="space-y-4 mb-10 overflow-hidden">
                     <InfiniteSlider duration={200} gap={24} reverse={false}>
                         {[...products, ...products, ...products].map((product, index) => (
-                            <div key={`row1-m-${index}`} className="flex flex-col items-center gap-2.5 w-[110px]">
-                                <div className="w-full h-[110px] flex items-center justify-center">
+                            <div key={`row1-m-${index}`} className="flex flex-col items-center gap-2.5 w-[90px]">
+                                <div className="w-full h-[90px] flex items-center justify-center">
                                     <img
                                         src={product.src}
                                         alt={product.name}
@@ -122,8 +113,8 @@ const MobileSmartLife = () => {
 
                     <InfiniteSlider duration={200} gap={24} reverse={true}>
                         {[...productsRow2, ...productsRow2, ...productsRow2, ...productsRow2].map((product, index) => (
-                            <div key={`row2-m-${index}`} className="flex flex-col items-center gap-2.5 w-[110px]">
-                                <div className="w-full h-[110px] flex items-center justify-center">
+                            <div key={`row2-m-${index}`} className="flex flex-col items-center gap-2.5 w-[90px]">
+                                <div className="w-full h-[90px] flex items-center justify-center">
                                     <img
                                         src={product.src}
                                         alt={product.name}
@@ -140,21 +131,6 @@ const MobileSmartLife = () => {
                             </div>
                         ))}
                     </InfiniteSlider>
-                </div>
-
-                <div className="text-center px-5">
-                    <a
-                        href="https://home.sohub.com.bd"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[13px] font-medium text-foreground/60 hover:text-foreground transition-colors"
-                        style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                    >
-                        SEE ALL PRODUCTS & SOLUTIONS
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </a>
                 </div>
             </div>
         </section>

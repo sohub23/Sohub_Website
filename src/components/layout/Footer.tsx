@@ -41,7 +41,7 @@ const DesktopFooter = () => {
                 Read Vision 2026
                 <ArrowUpRight className="w-5 h-5" />
               </a>
-              <a href="#contact" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
+              <a href="/contact" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
                 Contact
                 <ArrowUpRight className="w-5 h-5" />
               </a>
@@ -118,7 +118,7 @@ const MobileFooter = () => {
             Read Vision 2026
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
-          <a href="#contact" className="flex items-center gap-2 text-[13px] font-medium text-[#202124] hover:text-[#fb8a09] transition-colors">
+          <a href="/contact" className="flex items-center gap-2 text-[13px] font-medium text-[#202124] hover:text-[#fb8a09] transition-colors">
             Contact
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>

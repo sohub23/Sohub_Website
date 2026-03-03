@@ -101,7 +101,7 @@ const DesktopCompanyInfo = () => {
                         <span className="text-[#3c4043] font-medium text-[15px] group-hover:text-[#fb8a09]">Locations</span>
                     </a>
 
-                    <a href="#" className="flex flex-col items-center gap-3 group">
+                    <a href="/contact" className="flex flex-col items-center gap-3 group">
                         <div className="w-16 h-16 rounded-full bg-[#f1f3f4] flex items-center justify-center group-hover:bg-[#e8eaed] transition-colors">
                             <Mail className="w-7 h-7 text-[#5f6368]" />
                         </div>
@@ -345,7 +345,7 @@ const MobileCompanyInfo = () => {
                         </div>
                         <span className="text-[#3c4043] font-medium text-[13px]">Locations</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center gap-2">
+                    <a href="/contact" className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 rounded-full bg-[#f1f3f4] flex items-center justify-center">
                             <Mail className="w-6 h-6 text-[#5f6368]" />
                         </div>

@@ -34,13 +34,13 @@ const Index = () => {
         <AIExperiments />
         <SmartLife />
         <SmartHomeSolutions />
-        <SuccessfulProjects />
+        {/* <SuccessfulProjects /> */}
         <WhyWeAreUnique />
-        <IoTEcosystems />
-        <SohubStandard />
-        <OurApproach />
-        <Audience />
-        <Transparency />
+        {/* <IoTEcosystems /> */}
+        {/* <SohubStandard /> */}
+        {/* <OurApproach /> */}
+        {/* <Audience /> */}
+        {/* <Transparency /> */}
         <People />
       </main>
       <Footer />

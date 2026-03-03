@@ -16,6 +16,8 @@ import carouselProtect from '@/assets/carousel/protect-carousel.png';
 import carouselControls from '@/assets/carousel/controls-carousel.png';
 import carouselMachine from '@/assets/carousel/machine-carousel.png';
 import carouselXimpul from '@/assets/carousel/ximpul-carousel.png';
+import carouselSmartHome from '@/assets/carousel/smarthome-carousel.png';
+import carouselClowee from '@/assets/carousel/clowee-carousel.png';
 
 const initiatives = [
     { name: 'CONNECT', src: carouselConnect },
@@ -28,6 +30,8 @@ const initiatives = [
     { name: 'MACHINE', src: carouselMachine },
     { name: 'FILMIC STATION', src: carouselFilmic },
     { name: 'XIMPUL', src: carouselXimpul },
+    { name: 'SMART HOME', src: carouselSmartHome },
+    { name: 'CLOWEE', src: carouselClowee },
 ]
 
 /* ──────────────────────────────────────────────
@@ -65,7 +69,7 @@ const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
                     {[...initiatives, ...initiatives, ...initiatives, ...initiatives].map((item, index) => (
                         <div
                             key={`m-${item.name}-${index}`}
-                            className={`${['FILMIC STATION', 'AI', 'CONNECT', 'PROTECT', 'TOLPAR'].includes(item.name) ? 'w-16 h-4' : 'w-12 h-4'} flex-shrink-0 flex items-center justify-center cursor-pointer mx-2`}
+                            className={`${['FILMIC STATION', 'AI', 'CONNECT', 'PROTECT', 'TOLPAR', 'SMART HOME'].includes(item.name) ? 'w-16 h-4' : 'w-12 h-4'} flex-shrink-0 flex items-center justify-center cursor-pointer mx-2`}
                         >
                             <img
                                 src={item.src}
@@ -176,7 +180,7 @@ const DesktopSocialProof = ({ theme }: { theme: string | undefined }) => (
                     {[...initiatives, ...initiatives, ...initiatives, ...initiatives].map((item, index) => (
                         <div
                             key={`${item.name}-${index}`}
-                            className={`${['FILMIC STATION', 'AI', 'CONNECT', 'PROTECT', 'TOLPAR'].includes(item.name) ? 'w-24 h-6' : 'w-18 h-6'} flex-shrink-0 flex items-center justify-center transition-all duration-300 transform-gpu will-change-transform hover:scale-105 cursor-pointer mx-4 md:mx-6`}
+                            className={`${['FILMIC STATION', 'AI', 'CONNECT', 'PROTECT', 'TOLPAR', 'SMART HOME'].includes(item.name) ? 'w-24 h-6' : 'w-18 h-6'} flex-shrink-0 flex items-center justify-center transition-all duration-300 transform-gpu will-change-transform hover:scale-105 cursor-pointer mx-4 md:mx-6`}
                         >
                             <img
                                 src={item.src}
