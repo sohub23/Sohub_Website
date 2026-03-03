@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "lastUpdated": "2026-03-03T22:30:00+06:00",
-    "baseUrl": "https://sohub.com.bd",
+    "baseUrl": "https://sohub.netlify.app",
     "initiatives": [
         {
             "id": "sohub-connect",
