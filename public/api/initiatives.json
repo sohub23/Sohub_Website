@@ -113,7 +113,7 @@
             "name": "SOHUB Protect",
             "description": "Safety & trust initiatives",
             "logo": "/api/logos/protect.png",
-            "href": null,
+            "href": "https://home.sohub.com.bd/sohub-protect",
             "order": 6,
             "isActive": true,
             "logoSize": {
