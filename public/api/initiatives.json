@@ -2,6 +2,16 @@
     "version": "1.0.0",
     "lastUpdated": "2026-03-03T22:30:00+06:00",
     "baseUrl": "https://sohub.netlify.app",
+    "defaultLogoSize": {
+        "desktop": {
+            "maxHeight": 65,
+            "maxWidth": 100
+        },
+        "mobile": {
+            "maxHeight": 48,
+            "maxWidth": 120
+        }
+    },
     "initiatives": [
         {
             "id": "sohub-connect",
@@ -10,7 +20,17 @@
             "logo": "/api/logos/sohub-connect.png",
             "href": "https://connect.sohub.com.bd/",
             "order": 1,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         },
         {
             "id": "omama",
@@ -19,7 +39,17 @@
             "logo": "/api/logos/omama.png",
             "href": "https://omama.sohub.com.bd/",
             "order": 2,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 44,
+                    "maxWidth": 110
+                }
+            }
         },
         {
             "id": "emp",
@@ -28,61 +58,131 @@
             "logo": "/api/logos/emp.png",
             "href": "https://emp.sohub.com.bd/",
             "order": 3,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         },
         {
             "id": "tolpar",
             "name": "Tolpar",
             "description": "The SOHUB superapp",
             "logo": "/api/logos/tolpar.png",
-            "href": "https://sohub.com.bd/tolpar",
+            "href": "https://sohub.netlify.app/tolpar",
             "order": 4,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 44,
+                    "maxWidth": 130
+                }
+            }
         },
         {
             "id": "sohub-ai",
             "name": "SOHUB AI",
             "description": "Automation that scales",
             "logo": "/api/logos/sohub-ai.svg",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 5,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 36,
+                    "maxWidth": 90
+                }
+            }
         },
         {
             "id": "protect",
             "name": "SOHUB Protect",
             "description": "Safety & trust initiatives",
             "logo": "/api/logos/protect.png",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 6,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         },
         {
             "id": "controls",
             "name": "Controls",
             "description": "Smart control solutions",
             "logo": "/api/logos/controls.png",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 7,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         },
         {
             "id": "machine",
             "name": "Machine",
             "description": "Industrial automation",
             "logo": "/api/logos/machine.png",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 8,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         },
         {
             "id": "filmic",
             "name": "Filmic",
             "description": "Content that moves culture",
             "logo": "/api/logos/filmic.png",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 9,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 40,
+                    "maxWidth": 110
+                }
+            }
         },
         {
             "id": "ximpul",
@@ -91,7 +191,17 @@
             "logo": "/api/logos/ximpul.png",
             "href": "https://ximpul.com/",
             "order": 10,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 40,
+                    "maxWidth": 100
+                }
+            }
         },
         {
             "id": "smart-home",
@@ -100,16 +210,36 @@
             "logo": "/api/logos/smart-home.png",
             "href": "https://home.sohub.com.bd/",
             "order": 11,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 40,
+                    "maxWidth": 100
+                }
+            }
         },
         {
             "id": "clowee",
             "name": "Clowee",
             "description": "Smart laundry solutions",
             "logo": "/api/logos/clowee.png",
-            "href": "https://sohub.com.bd/#initiatives",
+            "href": "https://sohub.netlify.app/#initiatives",
             "order": 12,
-            "isActive": true
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 48,
+                    "maxWidth": 120
+                }
+            }
         }
     ]
 }
