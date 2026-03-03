@@ -63,7 +63,7 @@ const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
             <div className="relative mt-8 h-[40px] w-full bg-transparent">
                 <InfiniteSlider
                     className='flex h-full w-full items-center'
-                    duration={200}
+                    duration={300}
                     gap={28}
                 >
                     {[...initiatives, ...initiatives, ...initiatives, ...initiatives].map((item, index) => (
@@ -174,7 +174,7 @@ const DesktopSocialProof = ({ theme }: { theme: string | undefined }) => (
             <div className="relative mt-12 md:mt-24 h-[60px] w-full bg-transparent">
                 <InfiniteSlider
                     className='flex h-full w-full items-center'
-                    duration={200}
+                    duration={300}
                     gap={60}
                 >
                     {[...initiatives, ...initiatives, ...initiatives, ...initiatives].map((item, index) => (

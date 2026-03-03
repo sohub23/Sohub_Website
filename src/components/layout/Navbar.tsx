@@ -91,19 +91,6 @@ const menuItems: MenuItem[] = [
     ],
     links: []
   },
-  {
-    label: 'Shop',
-    href: '#shop',
-    submenu: [
-      { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
-      { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
-      { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
-      { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
-      { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
-      { title: 'Sohub Protect', description: 'Security', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
-    ],
-    links: []
-  },
 ];
 
 export const Navbar = () => {
@@ -226,6 +213,17 @@ export const Navbar = () => {
                 Company Info
               </Link>
             </div>
+            <div className="relative" onMouseEnter={() => setActiveMenu('Shop')}>
+              <a
+                href="#shop"
+                className={`px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 ${activeMenu === 'Shop'
+                  ? 'text-[#171a20] bg-black/5 dark:bg-white/10 dark:text-white'
+                  : 'text-[#171a20] hover:bg-black/5 dark:text-white dark:hover:bg-white/10'
+                  }`}
+              >
+                Shop
+              </a>
+            </div>
           </div>
 
           {/* Social Media Icons */}
@@ -291,8 +289,18 @@ export const Navbar = () => {
               onMouseLeave={() => setActiveMenu(null)}
             >
               <div className="container-main pt-6 pb-8 max-h-[600px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-[4px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-zinc-600">
-                {menuItems
-                  .filter((item) => item.label === activeMenu)
+                {(activeMenu === 'Shop' ? [{
+                  label: 'Shop',
+                  submenu: [
+                    { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
+                    { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
+                    { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
+                    { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
+                    { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
+                    { title: 'Sohub Protect', description: 'Security', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
+                  ],
+                  links: []
+                }] : menuItems.filter((item) => item.label === activeMenu))
                   .map((item) => (
                     <div key={item.label} className={`${item.label === 'Discover' || item.label === 'Shop' ? 'flex justify-center' : 'grid grid-cols-12 gap-8'}`}>
                       {/* Image Cards */}
@@ -332,7 +340,7 @@ export const Navbar = () => {
                               <div className="grid grid-cols-4 gap-4">
                                 {item.submenu.map((subItem, idx) => (
                                   <a
-                                    key={subItem.title}
+                                    key={`${subItem.title}-${idx}`}
                                     href={subItem.href}
                                     target={subItem.href.startsWith('http') ? '_blank' : undefined}
                                     rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -354,7 +362,7 @@ export const Navbar = () => {
                             ) : (
                               item.submenu.map((subItem, index) => (
                                 <motion.a
-                                  key={subItem.title}
+                                  key={`${subItem.href}-${index}`}
                                   href={subItem.href}
                                   target={subItem.href.startsWith('http') ? '_blank' : undefined}
 
@@ -581,7 +589,7 @@ export const Navbar = () => {
 
                                 return (
                                   <div
-                                    key={subItem.description}
+                                    key={`${subItem.href}-${subItem.description}`}
                                     className="flex flex-col items-center gap-2 py-4 px-2 text-center"
                                     onClick={() => {
                                       window.location.href = subItem.href;
@@ -619,8 +627,8 @@ export const Navbar = () => {
                         {/* Shop Logic (Tesla Style) - Mobile View */}
                         {mobileMenuView === 'Shop' && (
                           <div className="flex flex-col space-y-12 px-2 py-6">
-                            {menuItems.find((m) => m.label === 'Shop')?.submenu.map((subItem) => (
-                              <div key={subItem.title} className="flex items-center gap-6">
+                            {menuItems.find((m) => m.label === 'Shop')?.submenu.map((subItem, idx) => (
+                              <div key={`${subItem.title}-${idx}`} className="flex items-center gap-6">
                                 {/* Left: Image */}
                                 <div className="w-[45%] flex justify-center">
                                   <a href={subItem.href} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
