@@ -583,70 +583,127 @@ const ContactUs = () => {
             const submittedDate = new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' });
 
             const customerEmailHTML = `
-        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); padding: 40px 30px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 600;">Thank You for Reaching Out</h1>
-          </div>
-          <div style="padding: 40px 30px; background: #ffffff;">
-            <h2 style="color: #202124; margin: 0 0 20px 0; font-size: 24px;">Hi ${formData.name},</h2>
-            <p style="color: #3c4043; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-              We've received your message and our team will review it shortly.
-            </p>
-            <div style="background: #f8f9fa; border-left: 4px solid #fb8a09; padding: 20px; margin: 0 0 25px 0; border-radius: 4px;">
-              <p style="color: #5f6368; font-size: 14px; margin: 0 0 5px 0;"><strong>Subject:</strong> ${formData.subject}</p>
-              <p style="color: #5f6368; font-size: 14px; margin: 0;">${formData.message}</p>
+        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
+          <!-- Header with gradient -->
+          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 50%, #d4720a 100%); padding: 48px 30px 40px; text-align: center;">
+            <div style="margin-bottom: 20px;">
+              <span style="font-size: 32px; font-weight: 800; color: #ffffff; letter-spacing: 3px;">SOHUB</span>
             </div>
-            <p style="color: #3c4043; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
-              We typically respond within <strong>1–2 business days</strong>. If your inquiry is urgent, feel free to call us directly.
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 500; opacity: 0.95;">Thank You for Reaching Out</h1>
+          </div>
+
+          <!-- Body -->
+          <div style="padding: 40px 35px 30px; background: #ffffff;">
+            <h2 style="color: #202124; margin: 0 0 16px 0; font-size: 22px; font-weight: 600;">Hi ${formData.name} 👋</h2>
+            <p style="color: #3c4043; font-size: 15px; line-height: 1.7; margin: 0 0 24px 0;">
+              We've received your message and appreciate you taking the time to write to us. A member of our team will review your inquiry and get back to you shortly.
             </p>
-            <div style="border-top: 2px solid #e5e7eb; padding-top: 25px; margin-top: 30px;">
-              <p style="margin: 0 0 8px 0;">
-                <a href="https://sohub.com.bd" style="color: #fb8a09; text-decoration: none; font-size: 14px;">&rarr; Visit SOHUB</a>
+
+            <!-- Message Summary Card -->
+            <div style="background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%); border: 1px solid #fde8c8; border-radius: 12px; padding: 24px; margin: 0 0 28px 0;">
+              <p style="color: #b45309; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin: 0 0 12px 0;">Your Message Summary</p>
+              <p style="color: #92400e; font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">${formData.subject}</p>
+              <p style="color: #78716c; font-size: 14px; line-height: 1.6; margin: 0; border-top: 1px solid #fde8c8; padding-top: 12px; margin-top: 12px;">${formData.message}</p>
+            </div>
+
+            <!-- Response Time -->
+            <div style="display: flex; align-items: center; background: #f0fdf4; border-radius: 10px; padding: 16px 20px; margin: 0 0 28px 0; border: 1px solid #bbf7d0;">
+              <span style="font-size: 20px; margin-right: 12px;">⏱️</span>
+              <p style="color: #166534; font-size: 14px; margin: 0; line-height: 1.5;">
+                We typically respond within <strong>1–2 business days</strong>. For urgent inquiries, call us at <a href="tel:+8809678076482" style="color: #166534; font-weight: 600;">+88 09678-076482</a>
               </p>
             </div>
+
+            <!-- CTA Button -->
+            <div style="text-align: center; margin: 32px 0 20px;">
+              <a href="https://sohub.com.bd" style="display: inline-block; background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); color: #ffffff; text-decoration: none; padding: 14px 36px; border-radius: 50px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">Visit SOHUB →</a>
+            </div>
           </div>
-          <div style="background: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #202124; font-size: 16px; font-weight: 600; margin: 0 0 5px 0;">The SOHUB Team</p>
-            <p style="color: #5f6368; font-size: 14px; margin: 0 0 15px 0;">Solution Hub Technologies</p>
-            <p style="color: #bdc1c6; font-size: 12px; margin: 0;">&copy; ${year} SOHUB. All rights reserved.</p>
+
+          <!-- Social Links -->
+          <div style="background: #fafafa; padding: 28px 30px; text-align: center; border-top: 1px solid #f0f0f0;">
+            <p style="color: #9ca3af; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 14px 0; font-weight: 600;">Follow Us</p>
+            <div style="margin-bottom: 20px;">
+              <a href="https://www.facebook.com/solutionhubtechnologies" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">Facebook</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://bd.linkedin.com/company/solution-hub-technologie-sohub" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">LinkedIn</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://www.instagram.com/sohub.tech/" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">Instagram</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://www.youtube.com/@solutionhubtechnologysohub" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">YouTube</a>
+            </div>
+            <p style="color: #202124; font-size: 15px; font-weight: 700; margin: 0 0 4px 0; letter-spacing: 1px;">SOHUB</p>
+            <p style="color: #6b7280; font-size: 13px; margin: 0 0 4px 0;">Solution Hub Technologies</p>
+            <p style="color: #9ca3af; font-size: 11px; margin: 8px 0 0 0;">Flat #C2, House 29, Katasur Rd, Dhaka 1207</p>
+            <p style="color: #d1d5db; font-size: 11px; margin: 12px 0 0 0;">© ${year} SOHUB. All rights reserved.</p>
           </div>
         </div>`;
 
             const adminEmailHTML = `
-        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); padding: 30px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">New Contact Form Submission</h1>
+        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
+          <!-- Header -->
+          <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 32px 30px; text-align: center;">
+            <span style="font-size: 24px; font-weight: 800; color: #fb8a09; letter-spacing: 3px;">SOHUB</span>
+            <h1 style="color: #ffffff; margin: 12px 0 0 0; font-size: 20px; font-weight: 500; opacity: 0.9;">📩 New Contact Form Submission</h1>
           </div>
-          <div style="padding: 35px 30px; background: #ffffff;">
-            <div style="background: #fff8e1; border-left: 4px solid #fb8a09; padding: 20px; margin: 0 0 30px 0; border-radius: 4px;">
-              <p style="color: #fb8a09; font-size: 18px; font-weight: 600; margin: 0;">${formData.subject}</p>
-            </div>
-            <table style="width: 100%; border-collapse: collapse;">
+
+          <!-- Subject Banner -->
+          <div style="background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%); padding: 20px 30px; border-bottom: 2px solid #fde8c8;">
+            <p style="color: #b45309; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin: 0 0 6px 0;">Subject</p>
+            <p style="color: #92400e; font-size: 18px; font-weight: 700; margin: 0;">${formData.subject}</p>
+          </div>
+
+          <!-- Details Table -->
+          <div style="padding: 30px;">
+            <table style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 1px solid #e5e7eb;">
               <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; width: 140px;"><strong style="color: #374151; font-size: 14px;">Name</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><span style="color: #1d1d1f; font-size: 15px;">${formData.name}</span></td>
+                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb; width: 120px;">
+                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">👤 Name</span>
+                </td>
+                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
+                  <span style="color: #111827; font-size: 15px; font-weight: 600;">${formData.name}</span>
+                </td>
               </tr>
               <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #374151; font-size: 14px;">Email</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><a href="mailto:${formData.email}" style="color: #2563eb; text-decoration: none; font-size: 15px;">${formData.email}</a></td>
+                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;">
+                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">📧 Email</span>
+                </td>
+                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
+                  <a href="mailto:${formData.email}" style="color: #fb8a09; text-decoration: none; font-size: 15px; font-weight: 600;">${formData.email}</a>
+                </td>
               </tr>
               <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #374151; font-size: 14px;">Phone</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><span style="color: #1d1d1f; font-size: 15px;">${formData.phone || 'Not provided'}</span></td>
+                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;">
+                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">📱 Phone</span>
+                </td>
+                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
+                  <span style="color: #111827; font-size: 15px;">${formData.phone || '—'}</span>
+                </td>
               </tr>
               <tr>
-                <td style="padding: 15px; background: #f9fafb; vertical-align: top;"><strong style="color: #374151; font-size: 14px;">Message</strong></td>
-                <td style="padding: 15px; background: #ffffff;"><span style="color: #4b5563; font-size: 15px; line-height: 1.6;">${formData.message}</span></td>
+                <td style="padding: 16px 20px; background: #f8f9fa; vertical-align: top;">
+                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">💬 Message</span>
+                </td>
+                <td style="padding: 16px 20px; background: #ffffff;">
+                  <span style="color: #374151; font-size: 14px; line-height: 1.7;">${formData.message}</span>
+                </td>
               </tr>
             </table>
-            <div style="margin-top: 30px; padding: 20px; background: #fffbeb; border-radius: 8px; border: 1px solid #fbbf24;">
-              <p style="color: #92400e; font-size: 14px; margin: 0; line-height: 1.5;">
-                <strong>Action Required:</strong> Respond to this inquiry within 1–2 business days.
+
+            <!-- Action Required -->
+            <div style="margin-top: 24px; padding: 18px 22px; background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%); border-radius: 10px; border: 1px solid #fbbf24;">
+              <p style="color: #92400e; font-size: 14px; margin: 0; line-height: 1.5; font-weight: 600;">
+                ⚡ Action Required — Respond within 1–2 business days
+              </p>
+              <p style="color: #a16207; font-size: 13px; margin: 8px 0 0 0;">
+                Reply directly to this email to reach the customer at <strong>${formData.email}</strong>
               </p>
             </div>
           </div>
-          <div style="background: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #6b7280; font-size: 13px; margin: 0;">Submitted on ${submittedDate}</p>
+
+          <!-- Footer -->
+          <div style="background: #f9fafb; padding: 18px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+            <p style="color: #9ca3af; font-size: 12px; margin: 0;">Submitted on ${submittedDate} • SOHUB Contact System</p>
           </div>
         </div>`;
 
@@ -655,10 +712,11 @@ const ContactUs = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
-                    to: 'hello@sohub.com.bd',
+                    to: 'razinahmed60@gmail.com',
                     subject: `Contact Form: ${formData.subject}`,
                     message: adminEmailHTML,
                     from_name: 'SOHUB Website',
+                    reply_to: formData.email,
                 }),
             });
 
