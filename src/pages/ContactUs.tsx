@@ -708,7 +708,7 @@ const ContactUs = () => {
         </div>`;
 
             // Send admin notification
-            await fetch('https://ximpul.com/smtp-mailer.php', {
+            await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
@@ -721,7 +721,7 @@ const ContactUs = () => {
             });
 
             // Send confirmation to user
-            await fetch('https://ximpul.com/smtp-mailer.php', {
+            await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
