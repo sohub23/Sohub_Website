@@ -640,70 +640,106 @@ const ContactUs = () => {
         </div>`;
 
             const adminEmailHTML = `
-        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
+        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 620px; margin: 0 auto; background: #f4f5f7;">
           <!-- Header -->
-          <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 32px 30px; text-align: center;">
-            <span style="font-size: 24px; font-weight: 800; color: #fb8a09; letter-spacing: 3px;">SOHUB</span>
-            <h1 style="color: #ffffff; margin: 12px 0 0 0; font-size: 20px; font-weight: 500; opacity: 0.9;">📩 New Contact Form Submission</h1>
-          </div>
-
-          <!-- Subject Banner -->
-          <div style="background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%); padding: 20px 30px; border-bottom: 2px solid #fde8c8;">
-            <p style="color: #b45309; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin: 0 0 6px 0;">Subject</p>
-            <p style="color: #92400e; font-size: 18px; font-weight: 700; margin: 0;">${formData.subject}</p>
-          </div>
-
-          <!-- Details Table -->
-          <div style="padding: 30px;">
-            <table style="width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border: 1px solid #e5e7eb;">
+          <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 36px 32px 28px; text-align: center; border-radius: 12px 12px 0 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 16px;">
               <tr>
-                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb; width: 120px;">
-                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">👤 Name</span>
-                </td>
-                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
-                  <span style="color: #111827; font-size: 15px; font-weight: 600;">${formData.name}</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;">
-                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">📧 Email</span>
-                </td>
-                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
-                  <a href="mailto:${formData.email}" style="color: #fb8a09; text-decoration: none; font-size: 15px; font-weight: 600;">${formData.email}</a>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 16px 20px; background: #f8f9fa; border-bottom: 1px solid #e5e7eb;">
-                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">📱 Phone</span>
-                </td>
-                <td style="padding: 16px 20px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
-                  <span style="color: #111827; font-size: 15px;">${formData.phone || '—'}</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 16px 20px; background: #f8f9fa; vertical-align: top;">
-                  <span style="color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">💬 Message</span>
-                </td>
-                <td style="padding: 16px 20px; background: #ffffff;">
-                  <span style="color: #374151; font-size: 14px; line-height: 1.7;">${formData.message}</span>
+                <td align="center">
+                  <span style="font-size: 28px; font-weight: 800; color: #fb8a09; letter-spacing: 4px;">SOHUB</span>
                 </td>
               </tr>
             </table>
-
-            <!-- Action Required -->
-            <div style="margin-top: 24px; padding: 18px 22px; background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%); border-radius: 10px; border: 1px solid #fbbf24;">
-              <p style="color: #92400e; font-size: 14px; margin: 0; line-height: 1.5; font-weight: 600;">
-                ⚡ Action Required — Respond within 1–2 business days
-              </p>
-              <p style="color: #a16207; font-size: 13px; margin: 8px 0 0 0;">
-                Reply directly to this email to reach the customer at <strong>${formData.email}</strong>
-              </p>
+            <p style="color: rgba(255,255,255,0.5); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 8px 0;">New Inquiry Received</p>
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3;">📩 Contact Form Submission</h1>
+            <div style="margin-top: 16px; display: inline-block; background: rgba(251,138,9,0.15); border: 1px solid rgba(251,138,9,0.3); border-radius: 20px; padding: 6px 16px;">
+              <span style="color: #fb8a09; font-size: 12px; font-weight: 600;">${submittedDate}</span>
             </div>
           </div>
 
+          <!-- Subject Card -->
+          <div style="margin: 20px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <div style="background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 100%); padding: 18px 24px; border-bottom: 1px solid #fed7aa;">
+              <p style="color: #c2410c; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin: 0 0 6px 0;">Subject</p>
+              <p style="color: #9a3412; font-size: 18px; font-weight: 700; margin: 0; line-height: 1.3;">${formData.subject}</p>
+            </div>
+          </div>
+
+          <!-- Contact Info Cards -->
+          <div style="margin: 12px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <!-- Name -->
+            <div style="padding: 18px 24px; border-bottom: 1px solid #f1f5f9;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top">
+                    <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #dbeafe, #eff6ff); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">👤</div>
+                  </td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Full Name</p>
+                    <p style="color: #0f172a; font-size: 16px; font-weight: 600; margin: 0;">${formData.name}</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- Email -->
+            <div style="padding: 18px 24px; border-bottom: 1px solid #f1f5f9;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top">
+                    <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #fef3c7, #fffbeb); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">📧</div>
+                  </td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Email Address</p>
+                    <a href="mailto:${formData.email}" style="color: #fb8a09; font-size: 16px; font-weight: 600; text-decoration: none; margin: 0;">${formData.email}</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- Phone -->
+            <div style="padding: 18px 24px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top">
+                    <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #d1fae5, #ecfdf5); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">📱</div>
+                  </td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Phone Number</p>
+                    <p style="color: #0f172a; font-size: 16px; font-weight: 600; margin: 0;">${formData.phone || 'Not provided'}</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Message Card -->
+          <div style="margin: 12px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #f1f5f9;">
+              <p style="color: #94a3b8; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin: 0;">💬 Message</p>
+            </div>
+            <div style="padding: 20px 24px 24px;">
+              <p style="color: #334155; font-size: 15px; line-height: 1.8; margin: 0; white-space: pre-wrap;">${formData.message}</p>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div style="margin: 16px 20px 0; background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%); border-radius: 12px; border: 1px solid #fbbf24; padding: 20px 24px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <p style="color: #92400e; font-size: 14px; font-weight: 700; margin: 0 0 6px 0;">⚡ Action Required</p>
+                  <p style="color: #a16207; font-size: 13px; margin: 0; line-height: 1.5;">Respond within 1–2 business days. Hit reply to reach <strong>${formData.name}</strong> directly.</p>
+                </td>
+                <td width="120" align="right" valign="middle">
+                  <a href="mailto:${formData.email}" style="display: inline-block; background: #fb8a09; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700;">Reply →</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+
           <!-- Footer -->
-          <div style="background: #f9fafb; padding: 18px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #9ca3af; font-size: 12px; margin: 0;">Submitted on ${submittedDate} • SOHUB Contact System</p>
+          <div style="padding: 24px 20px; text-align: center;">
+            <p style="color: #94a3b8; font-size: 11px; margin: 0;">SOHUB Contact System • ${submittedDate}</p>
+            <p style="color: #cbd5e1; font-size: 10px; margin: 8px 0 0 0;">Solution Hub Technologies — Begin Different. Win Different.</p>
           </div>
         </div>`;
 
