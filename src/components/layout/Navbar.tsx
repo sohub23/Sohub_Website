@@ -9,7 +9,7 @@ import ximpulBottleImage from '@/assets/ximpl-flow.png';
 
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/Switch_transparent.png';
+import switchImage from '@/assets/Switch2.png';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
@@ -47,14 +47,14 @@ const menuItems: MenuItem[] = [
     label: 'Initiatives',
     href: '#initiatives',
     submenu: [
-      { title: '', description: 'Communication without barriers', href: 'https://connect.sohub.com.bd/', image: sohubConnectLogo },
+      { title: '', description: 'Communication without barriers', href: 'http://connect-rnd.sohub.com.bd/', image: sohubConnectLogo },
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
       { title: '', description: 'Execution & accountability OS', href: 'https://emp.sohub.com.bd/', image: empLogo },
-      { title: '', description: 'The SOHUB superapp', href: '#initiatives', image: tolparLogo },
-      { title: '', description: 'Automation that scales', href: '#initiatives', image: sohubAILogo },
-      { title: '', description: 'Safety & trust initiatives', href: '#initiatives', image: protectLogo },
+      { title: '', description: 'The SOHUB superapp', href: '/tolpar', image: tolparLogo },
+      { title: '', description: 'Automation that scales', href: 'https://sohub-vision-spark.lovable.app/', image: sohubAILogo },
+      { title: '', description: 'Safety & trust initiatives', href: 'https://home.sohub.com.bd/sohub-protect', image: protectLogo },
       { title: '', description: 'Smart control solutions', href: '#initiatives', image: controlsLogo },
-      { title: '', description: 'Industrial automation', href: '#initiatives', image: machineLogo },
+      { title: '', description: 'Industrial automation', href: 'https://shb-machine.netlify.app/', image: machineLogo },
       { title: '', description: 'Content that moves culture', href: '#initiatives', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
@@ -186,8 +186,8 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-1 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'py-2.5 md:py-3 bg-background/80 backdrop-blur-md'
-          } ${activeMenu ? 'py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-2.5 md:py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'py-2.5 md:py-3 bg-background/80 backdrop-blur-md'
+          } ${activeMenu ? 'py-2.5 md:py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : ''}`}
         onMouseLeave={() => setActiveMenu(null)}
       >
         <div className="container-main flex items-center justify-between">

@@ -18,7 +18,7 @@
             "name": "SOHUB Connect",
             "description": "Communication without barriers",
             "logo": "/api/logos/sohub-connect.png",
-            "href": "https://connect.sohub.com.bd/",
+            "href": "http://connect-rnd.sohub.com.bd/",
             "order": 1,
             "isActive": true,
             "logoSize": {
@@ -94,7 +94,7 @@
             "name": "SOHUB AI",
             "description": "Automation that scales",
             "logo": "/api/logos/sohub-ai.svg",
-            "href": null,
+            "href": "https://sohub-vision-spark.lovable.app/",
             "order": 5,
             "isActive": true,
             "logoSize": {
@@ -151,7 +151,7 @@
             "name": "Machine",
             "description": "Industrial automation",
             "logo": "/api/logos/machine.png",
-            "href": null,
+            "href": "https://shb-machine.netlify.app/",
             "order": 8,
             "isActive": true,
             "logoSize": {
