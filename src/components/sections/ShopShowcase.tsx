@@ -5,8 +5,8 @@ import pdlcImage from '@/assets/pdlcmerged (1).png';
 import switchImage from '@/assets/Switch2.png';
 import smartLightImage from '@/assets/unwatermarked_lights.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
-import sohubShopImage from '@/assets/logo-orange.svg';
-
+import machineImage from '@/assets/power bank.png';
+import sohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
 const shops = [
     {
         title: 'Ximpul',
@@ -45,13 +45,18 @@ const shops = [
         image: sohubProtectImage
     },
     {
-        title: 'SOHUB Shop',
-        description: 'Discover premium products and smart solutions for your everyday life.',
-        link: 'https://home.sohub.com.bd/',
-        image: sohubShopImage
+        title: 'Machine By SOHUB',
+        description: 'Industrial automation and smart machinery for modern enterprises.',
+        link: 'https://shb-machine.netlify.app/',
+        image: machineImage
+    },
+    {
+        title: 'SOHUB AI',
+        description: 'Intelligent AI automation solutions that scale your business.',
+        link: 'https://sohub-vision-spark.lovable.app/',
+        image: sohubAiImage
     }
 ];
-
 type ShopItem = (typeof shops)[number];
 
 /* ──────────────────────────────────────────────
@@ -63,7 +68,7 @@ const ShopCard = ({ shop }: { shop: ShopItem }) => (
             <img
                 src={shop.image}
                 alt={shop.title}
-                className={`w-full h-auto object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                className={`w-full h-auto object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                 loading="lazy"
             />
         </div>
@@ -122,7 +127,7 @@ const MobileShopShowcase = () => (
                         <img
                             src={shop.image}
                             alt={shop.title}
-                            className={`w-full h-full object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                            className={`w-full h-full object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                             loading="lazy"
                         />
                     </div>

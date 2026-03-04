@@ -22,7 +22,7 @@ import machineLogo from '@/assets/carousel/machine-navbar.png';
 import cloweeNavbarLogo from '@/assets/carousel/clowee-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
-import smartLightImage from '@/assets/light_transparent.png';
+import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
 
 
