@@ -265,92 +265,167 @@ const JoinUs = () => {
       const submittedDate = new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' });
 
       const customerEmailHTML = `
-        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); padding: 40px 30px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 600;">Welcome to SOHUB</h1>
-          </div>
-          <div style="padding: 40px 30px; background: #ffffff;">
-            <h2 style="color: #202124; margin: 0 0 20px 0; font-size: 24px;">Thank You, ${formData.name}!</h2>
-            <p style="color: #3c4043; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-              We're excited to receive your interest:
-            </p>
-            <div style="background: #f8f9fa; border-left: 4px solid #fb8a09; padding: 20px; margin: 0 0 25px 0; border-radius: 4px;">
-              <p style="color: #202124; font-size: 18px; font-weight: 600; margin: 0;">${interestTitle}</p>
+        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
+          <!-- Header -->
+          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 50%, #d4720a 100%); padding: 48px 30px 40px; text-align: center;">
+            <div style="margin-bottom: 20px;">
+              <span style="font-size: 32px; font-weight: 800; color: #ffffff; letter-spacing: 3px;">SOHUB</span>
             </div>
-            <p style="color: #3c4043; font-size: 16px; line-height: 1.6; margin: 0 0 15px 0;">
-              Your submission is being reviewed by our team. We carefully evaluate every application to ensure alignment with our mission.
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 500; opacity: 0.95;">Welcome Aboard!</h1>
+          </div>
+
+          <!-- Body -->
+          <div style="padding: 40px 35px 30px; background: #ffffff;">
+            <h2 style="color: #202124; margin: 0 0 16px 0; font-size: 22px; font-weight: 600;">Thank You, ${formData.name} 🎉</h2>
+            <p style="color: #3c4043; font-size: 15px; line-height: 1.7; margin: 0 0 24px 0;">
+              We're thrilled to receive your interest in being a part of SOHUB. Every great journey starts with a single step — and you've just taken yours.
             </p>
-            <p style="color: #3c4043; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
-              If your profile matches our values and vision, we'll reach out to you within <strong>5-7 business days</strong>.
-            </p>
-            <div style="border-top: 2px solid #e5e7eb; padding-top: 25px; margin-top: 30px;">
-              <p style="color: #5f6368; font-size: 14px; line-height: 1.5; margin: 0 0 15px 0;">
-                In the meantime, feel free to explore more about us:
-              </p>
-              <p style="margin: 0 0 8px 0;">
-                <a href="https://home.sohub.com.bd" style="color: #fb8a09; text-decoration: none; font-size: 14px;">&rarr; Learn About SOHUB</a>
+
+            <!-- Interest Badge -->
+            <div style="background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%); border: 1px solid #fde8c8; border-radius: 12px; padding: 24px; margin: 0 0 28px 0; text-align: center;">
+              <p style="color: #b45309; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin: 0 0 10px 0;">Your Interest</p>
+              <p style="color: #9a3412; font-size: 20px; font-weight: 700; margin: 0;">${interestTitle}</p>
+            </div>
+
+            <!-- What's Next -->
+            <div style="background: #f0fdf4; border-radius: 10px; padding: 20px; margin: 0 0 28px 0; border: 1px solid #bbf7d0;">
+              <p style="color: #166534; font-size: 14px; font-weight: 700; margin: 0 0 8px 0;">📋 What happens next?</p>
+              <p style="color: #166534; font-size: 14px; margin: 0; line-height: 1.6;">
+                Our team carefully reviews every application. If your profile matches our values and vision, we'll reach out within <strong>5–7 business days</strong>.
               </p>
             </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin: 32px 0 20px;">
+              <a href="https://sohub.com.bd" style="display: inline-block; background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); color: #ffffff; text-decoration: none; padding: 14px 36px; border-radius: 50px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">Explore SOHUB →</a>
+            </div>
           </div>
-          <div style="background: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #202124; font-size: 16px; font-weight: 600; margin: 0 0 5px 0;">The SOHUB Team</p>
-            <p style="color: #5f6368; font-size: 14px; margin: 0 0 15px 0;">Solution Hub Technologies</p>
-            <p style="color: #bdc1c6; font-size: 12px; margin: 0;">&copy; ${year} SOHUB. All rights reserved.</p>
+
+          <!-- Social Links -->
+          <div style="background: #fafafa; padding: 28px 30px; text-align: center; border-top: 1px solid #f0f0f0;">
+            <p style="color: #9ca3af; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 14px 0; font-weight: 600;">Follow Us</p>
+            <div style="margin-bottom: 20px;">
+              <a href="https://www.facebook.com/solutionhubtechnologies" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">Facebook</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://bd.linkedin.com/company/solution-hub-technologie-sohub" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">LinkedIn</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://www.instagram.com/sohub.tech/" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">Instagram</a>
+              <span style="color: #d1d5db;">•</span>
+              <a href="https://www.youtube.com/@solutionhubtechnologysohub" style="display: inline-block; margin: 0 6px; text-decoration: none; color: #fb8a09; font-size: 13px; font-weight: 500;">YouTube</a>
+            </div>
+            <p style="color: #202124; font-size: 15px; font-weight: 700; margin: 0 0 4px 0; letter-spacing: 1px;">SOHUB</p>
+            <p style="color: #6b7280; font-size: 13px; margin: 0 0 4px 0;">Solution Hub Technologies</p>
+            <p style="color: #d1d5db; font-size: 11px; margin: 12px 0 0 0;">© ${year} SOHUB. All rights reserved.</p>
           </div>
         </div>`;
 
       const adminEmailHTML = `
-        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 650px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #fb8a09 0%, #e07a00 100%); padding: 30px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">New Submission — Join with Us</h1>
-          </div>
-          <div style="padding: 35px 30px; background: #ffffff;">
-            <div style="background: #fff8e1; border-left: 4px solid #fb8a09; padding: 20px; margin: 0 0 30px 0; border-radius: 4px;">
-              <p style="color: #fb8a09; font-size: 18px; font-weight: 600; margin: 0;">${interestTitle}</p>
+        <div style="font-family: 'Segoe UI', 'Inter', Arial, sans-serif; max-width: 620px; margin: 0 auto; background: #f4f5f7;">
+          <!-- Header -->
+          <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 36px 32px 28px; text-align: center; border-radius: 12px 12px 0 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 16px;">
+              <tr><td align="center"><span style="font-size: 28px; font-weight: 800; color: #fb8a09; letter-spacing: 4px;">SOHUB</span></td></tr>
+            </table>
+            <p style="color: rgba(255,255,255,0.5); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 8px 0;">New Application Received</p>
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3;">🚀 Join with Us — Submission</h1>
+            <div style="margin-top: 16px; display: inline-block; background: rgba(251,138,9,0.15); border: 1px solid rgba(251,138,9,0.3); border-radius: 20px; padding: 6px 16px;">
+              <span style="color: #fb8a09; font-size: 12px; font-weight: 600;">${submittedDate}</span>
             </div>
-            <table style="width: 100%; border-collapse: collapse;">
+          </div>
+
+          <!-- Interest Card -->
+          <div style="margin: 20px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <div style="background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 100%); padding: 18px 24px; border-bottom: 1px solid #fed7aa;">
+              <p style="color: #c2410c; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin: 0 0 6px 0;">Interest Type</p>
+              <p style="color: #9a3412; font-size: 18px; font-weight: 700; margin: 0; line-height: 1.3;">${interestTitle}</p>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div style="margin: 12px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <div style="padding: 18px 24px; border-bottom: 1px solid #f1f5f9;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top"><div style="width: 36px; height: 36px; background: linear-gradient(135deg, #dbeafe, #eff6ff); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">👤</div></td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Full Name</p>
+                    <p style="color: #0f172a; font-size: 16px; font-weight: 600; margin: 0;">${formData.name}</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div style="padding: 18px 24px; border-bottom: 1px solid #f1f5f9;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top"><div style="width: 36px; height: 36px; background: linear-gradient(135deg, #d1fae5, #ecfdf5); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">📱</div></td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Phone</p>
+                    <p style="color: #0f172a; font-size: 16px; font-weight: 600; margin: 0;">${formData.phone}</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div style="padding: 18px 24px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40" valign="top"><div style="width: 36px; height: 36px; background: linear-gradient(135deg, #fef3c7, #fffbeb); border-radius: 10px; text-align: center; line-height: 36px; font-size: 16px;">📧</div></td>
+                  <td style="padding-left: 14px;">
+                    <p style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0 0 4px 0;">Email Address</p>
+                    <a href="mailto:${formData.email}" style="color: #fb8a09; font-size: 16px; font-weight: 600; text-decoration: none;">${formData.email}</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Message Card -->
+          ${formData.message ? `
+          <div style="margin: 12px 20px 0; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #f1f5f9;">
+              <p style="color: #94a3b8; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin: 0;">💬 Additional Message</p>
+            </div>
+            <div style="padding: 20px 24px 24px;">
+              <p style="color: #334155; font-size: 15px; line-height: 1.8; margin: 0; white-space: pre-wrap;">${formData.message}</p>
+            </div>
+          </div>` : ''}
+
+          <!-- Quick Actions -->
+          <div style="margin: 16px 20px 0; background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%); border-radius: 12px; border: 1px solid #fbbf24; padding: 20px 24px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; width: 140px;"><strong style="color: #374151; font-size: 14px;">Name</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><span style="color: #1d1d1f; font-size: 15px;">${formData.name}</span></td>
-              </tr>
-              <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #374151; font-size: 14px;">Phone</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><span style="color: #1d1d1f; font-size: 15px;">${formData.phone}</span></td>
-              </tr>
-              <tr>
-                <td style="padding: 15px; background: #f9fafb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #374151; font-size: 14px;">Email</strong></td>
-                <td style="padding: 15px; background: #ffffff; border-bottom: 1px solid #e5e7eb;"><a href="mailto:${formData.email}" style="color: #2563eb; text-decoration: none; font-size: 15px;">${formData.email}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 15px; background: #f9fafb; vertical-align: top;"><strong style="color: #374151; font-size: 14px;">Message</strong></td>
-                <td style="padding: 15px; background: #ffffff;"><span style="color: #4b5563; font-size: 15px; line-height: 1.6;">${formData.message || 'No message provided'}</span></td>
+                <td>
+                  <p style="color: #92400e; font-size: 14px; font-weight: 700; margin: 0 0 6px 0;">⚡ Action Required</p>
+                  <p style="color: #a16207; font-size: 13px; margin: 0; line-height: 1.5;">Review and respond within 5–7 business days.</p>
+                </td>
+                <td width="120" align="right" valign="middle">
+                  <a href="mailto:${formData.email}" style="display: inline-block; background: #fb8a09; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700;">Reply →</a>
+                </td>
               </tr>
             </table>
-            <div style="margin-top: 30px; padding: 20px; background: #fffbeb; border-radius: 8px; border: 1px solid #fbbf24;">
-              <p style="color: #92400e; font-size: 14px; margin: 0; line-height: 1.5;">
-                <strong>Action Required:</strong> Review this submission and respond within 5-7 business days.
-              </p>
-            </div>
           </div>
-          <div style="background: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #6b7280; font-size: 13px; margin: 0;">Submitted on ${submittedDate}</p>
+
+          <!-- Footer -->
+          <div style="padding: 24px 20px; text-align: center;">
+            <p style="color: #94a3b8; font-size: 11px; margin: 0;">SOHUB Recruitment System • ${submittedDate}</p>
+            <p style="color: #cbd5e1; font-size: 10px; margin: 8px 0 0 0;">Solution Hub Technologies — Begin Different. Win Different.</p>
           </div>
         </div>`;
 
       const adminParams: Record<string, string> = {
-        to: adminEmails,
+        to: 'razinahmed60@gmail.com',
         subject: `Join with Us: ${interestTitle}`,
         message: adminEmailHTML,
-        from_name: 'SOHUB Website'
+        from_name: 'SOHUB Website',
+        reply_to: formData.email,
       };
 
-      await fetch('https://ximpul.com/smtp-mailer.php', {
+      await fetch('/.netlify/functions/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(adminParams)
       });
 
-      await fetch('https://ximpul.com/smtp-mailer.php', {
+      await fetch('/.netlify/functions/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
