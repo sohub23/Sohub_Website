@@ -3,6 +3,7 @@ import logoOrange from '@/assets/logo-orange.svg';
 import { ArrowUpRight, Facebook, Linkedin, Instagram, Youtube, FileText, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import membershipBasis from '@/assets/membership_basis.png';
 
 const brochures = [
   { name: 'SOHUB', url: '/brochures/SOHUB_Brochure.pdf' },
@@ -31,12 +32,7 @@ const DesktopFooter = () => {
               <p className="text-footer-text/60 max-w-md text-lg mb-8">
                 We’re not here to follow trends. We’re here to raise standards.
               </p>
-              <Link
-                to="/join-us"
-                className="inline-flex items-center justify-center px-8 py-3 bg-[#fb8a09] text-white rounded-full font-medium hover:bg-[#e07a00] transition-colors"
-              >
-                Join with us
-              </Link>
+              <img src={membershipBasis} alt="SOHUB Membership" className="h-[48px] w-auto mt-2" />
             </div>
 
             <div className="flex flex-col gap-4 mx-auto md:mx-0">
@@ -44,7 +40,7 @@ const DesktopFooter = () => {
                 Explore the ecosystem
                 <ArrowUpRight className="w-5 h-5" />
               </a>
-              
+
               <a href="/contact" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
                 Contact
                 <ArrowUpRight className="w-5 h-5" />
@@ -95,6 +91,7 @@ const DesktopFooter = () => {
             <div className="flex gap-8 text-sm text-footer-text/50">
               <a href="/privacy-policy" className="hover:text-primary transition-colors duration-300">Privacy</a>
               <a href="/terms-of-service" className="hover:text-primary transition-colors duration-300">Terms</a>
+              <a href="/code-of-conduct" className="hover:text-primary transition-colors duration-300">Code of Conduct</a>
             </div>
           </div>
         </AnimatedSection>
@@ -129,7 +126,7 @@ const MobileBrochuresDropdown = () => {
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-2 w-44 bg-white rounded-lg shadow-lg border border-gray-100 py-1.5 z-50">
+        <div className="absolute top-full left-0 mt-2 w-48 bg-[#ffffff] rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200 py-1.5 z-[100] overflow-hidden">
           {brochures.map((b) => (
             <a
               key={b.name}
@@ -154,7 +151,7 @@ const MobileBrochuresDropdown = () => {
 const MobileFooter = () => {
   return (
     <footer id="contact-mobile" className="bg-[#fafafa] relative overflow-hidden py-12 px-5 border-t border-black/5">
-      <div className="relative z-10 max-w-full mx-auto flex flex-row gap-3">
+      <div className="relative z-20 max-w-full mx-auto flex flex-row gap-3">
         {/* Left Side */}
         <div className="flex-1 text-left flex flex-col justify-start">
           <div>
@@ -169,13 +166,7 @@ const MobileFooter = () => {
               We’re not here to follow trends. We’re here to raise standards.
             </p>
           </div>
-          <Link
-            to="/join-us"
-            className="w-fit flex justify-center items-center px-4 py-1.5 bg-[#fb8a09] text-white rounded-full font-semibold hover:bg-[#e07a00] transition-all text-[11px] shadow-sm mb-2"
-            style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
-          >
-            Join with us
-          </Link>
+          <img src={membershipBasis} alt="SOHUB Membership" className="h-[18px] w-auto mt-1" />
         </div>
 
         {/* Right Side */}
@@ -213,9 +204,10 @@ const MobileFooter = () => {
 
       <div className="relative z-10 max-w-md mx-auto pt-6 mt-6 border-t border-gray-200 flex flex-col items-center gap-4 text-center">
         <div className="flex gap-6 text-[14px] text-[#5f6368] font-medium">
-          <a href="#" className="hover:text-[#202124]">Privacy</a>
-          <a href="#" className="hover:text-[#202124]">Terms</a>
-          <a href="#" className="hover:text-[#202124]">Sitemap</a>
+          <a href="/privacy-policy" className="hover:text-[#202124]">Privacy</a>
+          <a href="/terms-of-service" className="hover:text-[#202124]">Terms</a>
+          <a href="/code-of-conduct" className="hover:text-[#202124]">Code of Conduct</a>
+
         </div>
         <p className="text-[13px] text-gray-400">
           © {new Date().getFullYear()} SOHUB — Solution Hub Technologies.

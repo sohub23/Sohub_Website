@@ -20,8 +20,8 @@ import imgOurStory from '@/assets/Asset 11.svg';
 import imgEMP from '@/assets/emp.png';
 import imgConnect from '@/assets/sohub-connect.png';
 import imgProtect from '@/assets/protect.png';
-import imgTolpar from '@/assets/carousel/tolpar-navbar.png';
-
+import imgMachine from '@/assets/carousel/machine-navbar.png';
+import imgSohubLogo from '@/assets/logo-orange.svg';
 // Video Assets
 import vidCurtain from '@/assets/Curtain-Hero.mp4';
 import vidSmartSwitch from '@/assets/Smart_Switch_AI_Video.mp4';
@@ -150,13 +150,13 @@ const DesktopCompanyInfo = () => {
                     </a>
 
                     {/* Glue Card 3 */}
-                    <a href="#" className="group flex flex-col rounded-[28px] overflow-hidden bg-[#f8f9fa] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-1">
+                    <a href="https://shb-machine.netlify.app/" target="_blank" rel="noopener noreferrer" className="group flex flex-col rounded-[28px] overflow-hidden bg-[#f8f9fa] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-1">
                         <div className="aspect-[16/10] overflow-hidden bg-[#FDFBF7] flex items-center justify-center p-8 border-b border-gray-100">
-                            <img src={imgTolpar} alt="Tolpar" className="w-[50%] h-auto object-contain" />
+                            <img src={imgMachine} alt="Machine By SOHUB" className="w-[50%] h-auto object-contain" />
                         </div>
                         <div className="p-8 flex flex-col flex-grow">
-                            <h3 className="text-[24px] font-normal tracking-tight text-[#202124] mb-3 group-hover:underline decoration-2 underline-offset-4">Tolpar Superapp</h3>
-                            <p className="text-[16px] text-[#3c4043] leading-relaxed mb-8 flex-grow">The ultimate platform combining daily utilities, services, and connectivity into a single experience.</p>
+                            <h3 className="text-[24px] font-normal tracking-tight text-[#202124] mb-3 group-hover:underline decoration-2 underline-offset-4">Machine By SOHUB</h3>
+                            <p className="text-[16px] text-[#3c4043] leading-relaxed mb-8 flex-grow">Industrial automation and smart machinery for modern enterprises.</p>
                             <div className="mt-auto">
                                 <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-[#fb8a09] group-hover:bg-[#fff7e6] transition-colors">
                                     <ArrowRight className="w-5 h-5 text-[#fb8a09]" />
@@ -171,7 +171,7 @@ const DesktopCompanyInfo = () => {
                     <p className="text-[28px] md:text-[36px] leading-[1.3] font-normal text-[#202124] mb-8 max-w-[900px]">
                         "We believe technology is only as good as the problems it solves. We build standards, not just features."
                     </p>
-                   
+
                 </div>
             </div>
 
@@ -241,10 +241,10 @@ const DesktopCompanyInfo = () => {
                             </h3>
                         </div>
 
-                        {/* Card 4: Yellow, Short */}
-                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FEF7E0]">
-                            <div className="mb-6 mt-6">
-                                <Globe className="w-10 h-10 text-[#E37400]" strokeWidth={1.5} />
+                        {/* Card 4: Yellow, Expanded */}
+                        <div className="flex flex-col items-center text-center justify-center p-8 rounded-[16px] bg-[#FEF7E0] flex-grow">
+                            <div className="mb-6 mt-6 flex items-center justify-center">
+                                <img src={imgOurStory} alt="SOHUB Our Story" className="w-[240px] h-auto object-contain" />
                             </div>
                             <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Our Story</span>
                             <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
@@ -378,13 +378,13 @@ const MobileCompanyInfo = () => {
                     </a>
 
                     {/* Glue Card 3 */}
-                    <a href="#" className="flex flex-col rounded-[24px] overflow-hidden bg-[#f8f9fa] border border-gray-100">
+                    <a href="https://shb-machine.netlify.app/" target="_blank" rel="noopener noreferrer" className="flex flex-col rounded-[24px] overflow-hidden bg-[#f8f9fa] border border-gray-100">
                         <div className="aspect-[16/9] bg-[#FDFBF7] flex items-center justify-center p-6 border-b border-gray-100">
-                            <img src={imgTolpar} alt="Tolpar" className="w-[50%] h-auto object-contain" />
+                            <img src={imgMachine} alt="Machine By SOHUB" className="w-[50%] h-auto object-contain" />
                         </div>
                         <div className="p-6 flex flex-col">
-                            <h3 className="text-[20px] font-normal tracking-tight text-[#202124] mb-2">Tolpar Superapp</h3>
-                            <p className="text-[14px] text-[#3c4043] leading-relaxed mb-6">The ultimate platform combining daily utilities, services, and connectivity into a single experience.</p>
+                            <h3 className="text-[20px] font-normal tracking-tight text-[#202124] mb-2">Machine By SOHUB</h3>
+                            <p className="text-[14px] text-[#3c4043] leading-relaxed mb-6">Industrial automation and smart machinery for modern enterprises.</p>
                             <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center mt-auto">
                                 <ArrowRight className="w-4 h-4 text-[#fb8a09]" />
                             </div>
@@ -397,10 +397,7 @@ const MobileCompanyInfo = () => {
                     <p className="text-[18px] leading-[1.4] font-normal mb-5">
                         "We believe technology is only as good as the problems it solves. We build standards, not just features."
                     </p>
-                    <a href="#about" className="inline-flex items-center justify-center gap-1.5 text-[14px] font-medium text-[#fb8a09]">
-                        Learn about The SOHUB Standard
-                        <ArrowRight className="w-4 h-4" />
-                    </a>
+
                 </div>
             </div>
 
@@ -463,8 +460,8 @@ const MobileCompanyInfo = () => {
 
                     {/* Card 4: Yellow, Short */}
                     <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FEF7E0]">
-                        <div className="mb-4 mt-2">
-                            <Globe className="w-8 h-8 text-[#E37400]" strokeWidth={1.5} />
+                        <div className="mb-4 mt-2 flex items-center justify-center">
+                            <img src={imgOurStory} alt="SOHUB Our Story" className="w-[180px] h-auto object-contain" />
                         </div>
                         <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Our Story</span>
                         <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
@@ -493,7 +490,7 @@ export default function CompanyInfo() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white font-inter">
+        <div className="min-h-screen bg-background text-foreground">
             <Navbar />
             {isMobile ? <MobileCompanyInfo /> : <DesktopCompanyInfo />}
             <Footer />

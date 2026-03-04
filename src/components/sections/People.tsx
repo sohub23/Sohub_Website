@@ -20,7 +20,7 @@ const DesktopPeople = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#" className="px-8 py-3.5 bg-foreground text-background rounded-full font-semibold hover:bg-black/80 transition-all flex items-center gap-2">
+              <a href="/join-us" className="px-8 py-3.5 bg-foreground text-background rounded-full font-semibold hover:bg-black/80 transition-all flex items-center gap-2">
                 Work with SOHUB
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -56,7 +56,7 @@ const MobilePeople = () => {
 
           <div className="flex flex-row gap-2 sm:gap-3 w-full justify-center">
             <a
-              href="#"
+              href="/join-us"
               className="px-4 border border-foreground py-2.5 bg-foreground text-background rounded-full font-semibold hover:bg-black/80 transition-all text-[12px] sm:text-[13px] text-center shadow-sm whitespace-nowrap"
               style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
             >

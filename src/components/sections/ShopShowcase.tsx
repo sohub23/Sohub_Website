@@ -68,7 +68,7 @@ const ShopCard = ({ shop }: { shop: ShopItem }) => (
             <img
                 src={shop.image}
                 alt={shop.title}
-                className={`w-full h-auto object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                className={`w-full h-auto object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                 loading="lazy"
             />
         </div>
@@ -127,7 +127,7 @@ const MobileShopShowcase = () => (
                         <img
                             src={shop.image}
                             alt={shop.title}
-                            className={`w-full h-full object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                            className={`w-full h-full object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                             loading="lazy"
                         />
                     </div>

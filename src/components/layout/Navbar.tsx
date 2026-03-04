@@ -24,6 +24,9 @@ import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
 import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
+import shopMachineImage from '@/assets/power bank.png';
+import shopSohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
+import tradeLicensePdf from '@/assets/Trade License 2026_Shahariar Hossain.pdf';
 
 
 // Menu data types
@@ -86,7 +89,29 @@ const menuItems: MenuItem[] = [
       { title: 'About Us', href: '/company-info', image: '', description: 'Company' },
       { title: 'Join Us', href: '/join-us', image: '', description: 'Company' },
       { title: 'Contact Us', href: '/contact', image: '', description: 'Company' },
-      { title: 'Sohub Shop', href: 'https://home.sohub.com.bd', image: '', description: 'Company' },
+      { title: 'Sohub Shop', href: 'https://shop.sohub.com.bd/', image: '', description: 'Company' },
+      { title: 'Trade License', href: tradeLicensePdf, image: '', description: 'Company' },
+    ],
+    links: []
+  },
+  {
+    label: 'Company Profile',
+    href: '/company-info',
+    submenu: [],
+    links: []
+  },
+  {
+    label: 'Shop',
+    href: '#shop',
+    submenu: [
+      { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
+      { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
+      { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
+      { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
+      { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
+      { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
+      { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://shb-machine.netlify.app/', image: shopMachineImage },
+      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-vision-spark.lovable.app/', image: shopSohubAiImage }
     ],
     links: []
   },
@@ -215,25 +240,6 @@ export const Navbar = () => {
                 </a>
               </div>
             ))}
-            <div className="relative" onMouseEnter={() => setActiveMenu(null)}>
-              <Link
-                to="/company-info"
-                className="px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 text-[#171a20] hover:bg-black/5 dark:text-white dark:hover:bg-white/10"
-              >
-                Company Info
-              </Link>
-            </div>
-            <div className="relative" onMouseEnter={() => setActiveMenu('Shop')}>
-              <a
-                href="#shop"
-                className={`px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 ${activeMenu === 'Shop'
-                  ? 'text-[#171a20] bg-black/5 dark:bg-white/10 dark:text-white'
-                  : 'text-[#171a20] hover:bg-black/5 dark:text-white dark:hover:bg-white/10'
-                  }`}
-              >
-                Shop
-              </a>
-            </div>
           </div>
 
           {/* Social Media Icons */}
@@ -312,18 +318,7 @@ export const Navbar = () => {
               onMouseLeave={() => setActiveMenu(null)}
             >
               <div className="container-main pt-6 pb-8 max-h-[600px] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-[4px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-300 [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-thumb]:bg-zinc-600">
-                {(activeMenu === 'Shop' ? [{
-                  label: 'Shop',
-                  submenu: [
-                    { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
-                    { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
-                    { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
-                    { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
-                    { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
-                    { title: 'Sohub Protect', description: 'Security', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
-                  ],
-                  links: []
-                }] : menuItems.filter((item) => item.label === activeMenu))
+                {menuItems.filter((item) => item.label === activeMenu)
                   .map((item) => (
                     <div key={item.label} className={`${item.label === 'Discover' || item.label === 'Shop' ? 'flex justify-center' : 'grid grid-cols-12 gap-8'}`}>
                       {/* Image Cards */}
@@ -354,7 +349,8 @@ export const Navbar = () => {
                               <Link to="/company-info" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">About Us</Link>
                               <Link to="/join-us" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Join Us</Link>
                               <Link to="/contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</Link>
-                              <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
+                              <a href="https://shop.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
+                              <a href={tradeLicensePdf} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Trade License</a>
                             </div>
                           </div>
                         ) : (
@@ -373,7 +369,7 @@ export const Navbar = () => {
                                       <img
                                         src={subItem.image}
                                         alt={subItem.title}
-                                        className={`w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105 rounded-lg ${subItem.title === 'PDLC Film' ? 'scale-[0.75]' : ''}`}
+                                        className={`w-full h-full object-contain relative z-10 transition-transform duration-500 ${subItem.title === 'PDLC Film' ? 'rounded-[20px] overflow-hidden' : 'p-2 rounded-lg'} ${subItem.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : subItem.title === 'Smart Switch' ? 'scale-[0.93]' : subItem.title === 'PDLC Film' ? 'scale-[0.75] group-hover:scale-[0.85]' : 'group-hover:scale-105'}`}
                                       />
                                     </div>
                                     <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
@@ -533,23 +529,6 @@ export const Navbar = () => {
                               )}
                             </motion.div>
                           ))}
-
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: menuItems.length * 0.03, duration: 0.3 }}
-                            className="py-1"
-                          >
-                            <Link
-                              to="/company-info"
-                              className="block py-3 px-3 -mx-3 rounded-md text-[17px] font-medium text-zinc-900 dark:text-zinc-100 active:bg-zinc-100 dark:active:bg-zinc-800 transition-colors"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              Company Info
-                            </Link>
-                          </motion.div>
-
-
                         </nav>
                       </div>
                     </motion.div>
@@ -658,7 +637,7 @@ export const Navbar = () => {
                                     <img
                                       src={subItem.image}
                                       alt={subItem.title}
-                                      className="w-full h-auto object-contain max-h-[100px] drop-shadow-sm"
+                                      className={`w-full h-auto object-contain max-h-[100px] drop-shadow-sm ${subItem.title === 'PDLC Film' ? 'rounded-[16px] overflow-hidden' : ''}`}
                                     />
                                   </a>
                                 </div>
@@ -694,15 +673,7 @@ export const Navbar = () => {
                               </div>
                             ))}
 
-                            {/* Bottom Links */}
-                            <div className="pt-4 mt-4 space-y-6">
-                              <a href="#" className="block text-[15px] font-medium text-zinc-900 dark:text-zinc-100" onClick={() => setIsMobileMenuOpen(false)}>
-                                Schedule a Consultation
-                              </a>
-                              <a href="#" className="block text-[15px] font-medium text-zinc-900 dark:text-zinc-100" onClick={() => setIsMobileMenuOpen(false)}>
-                                Why SOHUB
-                              </a>
-                            </div>
+
                           </div>
                         )}
 
@@ -726,6 +697,8 @@ export const Navbar = () => {
                                       <a
                                         key={item.title}
                                         href={item.href}
+                                        target={(item.href.startsWith('http') || item.title === 'Trade License') ? '_blank' : undefined}
+                                        rel={(item.href.startsWith('http') || item.title === 'Trade License') ? 'noopener noreferrer' : undefined}
                                         className="text-[16px] font-medium text-zinc-800 dark:text-zinc-200 hover:text-[#fb8a09] dark:hover:text-[#fb8a09] transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                       >

@@ -32,8 +32,8 @@ const Index = () => {
         <FeatureShowcase />
         <ShopShowcase />
         <AIExperiments />
-        <SmartLife />
-        <SmartHomeSolutions />
+        {/* <SmartLife /> */}
+        {/* <SmartHomeSolutions /> */}
         {/* <SuccessfulProjects /> */}
         <WhyWeAreUnique />
         {/* <IoTEcosystems /> */}

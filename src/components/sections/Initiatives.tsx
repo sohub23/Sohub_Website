@@ -137,16 +137,17 @@ const VideoCard = ({ src }: { src: string }) => {
                 playsInline
                 autoPlay
             />
-            <button
+            <div
+                role="button"
                 onClick={togglePlay}
-                className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors z-20"
+                className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors z-20 cursor-pointer"
             >
                 {isPlaying ? (
                     <Pause className="w-4 h-4 text-foreground" />
                 ) : (
                     <Play className="w-4 h-4 text-foreground ml-0.5" />
                 )}
-            </button>
+            </div>
         </div>
     );
 };
@@ -198,16 +199,17 @@ const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspe
                 className="w-full h-full object-cover"
                 loop muted playsInline autoPlay
             />
-            <button
+            <div
+                role="button"
                 onClick={togglePlay}
-                className="absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm z-20"
+                className="absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm z-20 cursor-pointer"
             >
                 {isPlaying ? (
                     <Pause className="w-3.5 h-3.5 text-foreground" />
                 ) : (
                     <Play className="w-3.5 h-3.5 text-foreground ml-0.5" />
                 )}
-            </button>
+            </div>
         </div>
     );
 };
@@ -261,12 +263,12 @@ const MobileInitiatives = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-30px" }}
                                 transition={{ duration: 0.5, ease: easeOutExpo }}
-                                className={`${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] flex flex-col justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
+                                className={`flex flex-col ${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
                             >
                                 {/* Video if exists */}
                                 {hasVideo && (
                                     <div className="mb-5">
-                                        <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-[16/10]'} />
+                                        <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-video'} />
                                     </div>
                                 )}
 
@@ -549,7 +551,7 @@ const DesktopInitiatives = () => {
                                     <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center bg-white/50">
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -586,7 +588,7 @@ const DesktopInitiatives = () => {
                                     <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center bg-white/50">
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
