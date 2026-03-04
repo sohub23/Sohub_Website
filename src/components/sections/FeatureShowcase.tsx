@@ -75,8 +75,7 @@ const features = [
         video: undefined as string | undefined,
         image: powerbankPoster,
         socialMedia: [
-            { name: 'Facebook', url: 'https://www.facebook.com/sikisglobal', icon: 'facebook' },
-            { name: 'YouTube', url: 'https://www.youtube.com/@sikisglobal', icon: 'youtube' }
+            { name: 'YouTube', url: 'https://youtube.com/playlist?list=PL5gB5kNB2iq31_cOhI2j6I1uXXSnRLmUE&si=N_K6BAdCsEBJBKTV', icon: 'youtube' }
         ]
     },
     {
@@ -88,8 +87,7 @@ const features = [
         video: undefined as string | undefined,
         image: snackVendingPoster,
         socialMedia: [
-            { name: 'Facebook', url: 'https://www.facebook.com/sikisglobal', icon: 'facebook' },
-            { name: 'YouTube', url: 'https://www.youtube.com/@sikisglobal', icon: 'youtube' }
+            { name: 'YouTube', url: 'https://youtube.com/playlist?list=PL5gB5kNB2iq31_cOhI2j6I1uXXSnRLmUE&si=N_K6BAdCsEBJBKTV', icon: 'youtube' }
         ]
     }
 ];
@@ -238,35 +236,27 @@ export const FeatureShowcase = () => {
 
     return (
         <>
-            {/* Section Heading */}
-            <h2
-                className="px-4 text-[26px] sm:text-4xl md:text-[48px] font-medium tracking-tight leading-tight text-foreground text-center py-10 md:py-20"
-                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-            >
-                Explore the initiatives
-            </h2>
-
-            <section className="h-auto md:h-[625px] bg-[#fff8e1] relative overflow-hidden flex items-start md:items-center pt-4 pb-8 md:py-0">
-                {/* Left Arrow — desktop only */}
-                <button
-                    onClick={prevSlide}
-                    className="hidden md:flex absolute left-40 md:left-48 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110"
-                    aria-label="Previous"
-                >
-                    <ChevronLeft className="w-7 h-7 text-foreground" />
-                </button>
-
-                {/* Right Arrow — desktop only */}
-                <button
-                    onClick={nextSlide}
-                    className="hidden md:flex absolute right-32 md:right-40 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110"
-                    aria-label="Next"
-                >
-                    <ChevronRight className="w-7 h-7 text-foreground" />
-                </button>
-
+            <section className="py-20 bg-[#fff8e1] relative overflow-hidden flex items-start md:items-center">
                 <div className="w-full mt-0 md:-mt-12">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative">
+                        {/* Left Arrow — desktop only */}
+                        <button
+                            onClick={prevSlide}
+                            className="hidden md:flex absolute -left-2 lg:-left-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110"
+                            aria-label="Previous"
+                        >
+                            <ChevronLeft className="w-7 h-7 text-foreground" />
+                        </button>
+
+                        {/* Right Arrow — desktop only */}
+                        <button
+                            onClick={nextSlide}
+                            className="hidden md:flex absolute -right-2 lg:-right-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-all hover:scale-110"
+                            aria-label="Next"
+                        >
+                            <ChevronRight className="w-7 h-7 text-foreground" />
+                        </button>
+
                         <div
                             ref={carouselViewportRef}
                             className="overflow-hidden touch-pan-y select-none"

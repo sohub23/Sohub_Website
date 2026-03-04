@@ -102,7 +102,7 @@ const MobileWhatSohubIs = () => (
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopWhatSohubIs = () => (
-  <section id="about" className="py-24 relative overflow-hidden bg-background">
+  <section id="about" className="py-20 relative overflow-hidden bg-background">
 
     {/* --- FULL SECTION TECH BACKGROUND (Fluid, No Boxes) --- */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -162,7 +162,7 @@ const DesktopWhatSohubIs = () => (
 
               <h3 className="text-3xl md:text-4xl font-medium text-foreground mb-3">
                 It stands for <br />
-                <span className="text-primary font-bold">Solution Hub.</span>
+                <span className="text-primary font-bold">Solution Hub Technologies.</span>
               </h3>
 
               <p className="text-lg text-foreground-muted mb-8 leading-relaxed font-medium">

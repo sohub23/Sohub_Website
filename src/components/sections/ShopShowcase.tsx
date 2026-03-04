@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 import aloImage from '@/assets/Alo_transparent.png';
-import pdlcImage from '@/assets/pdlc_transparent.png';
+import pdlcImage from '@/assets/pdlcmerged (1).png';
 import switchImage from '@/assets/Switch2.png';
 import smartLightImage from '@/assets/unwatermarked_lights.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
@@ -63,7 +63,7 @@ const ShopCard = ({ shop }: { shop: ShopItem }) => (
             <img
                 src={shop.image}
                 alt={shop.title}
-                className={`w-full h-auto object-contain transition-transform duration-300 ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : 'group-hover:scale-105'}`}
+                className={`w-full h-auto object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                 loading="lazy"
             />
         </div>
@@ -122,7 +122,7 @@ const MobileShopShowcase = () => (
                         <img
                             src={shop.image}
                             alt={shop.title}
-                            className={`w-full h-full object-contain transition-transform duration-300 ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : 'group-hover:scale-105'}`}
+                            className={`w-full h-full object-contain transition-transform duration-300 rounded-lg ${shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'SOHUB Shop' ? 'scale-[0.7]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                             loading="lazy"
                         />
                     </div>
@@ -158,7 +158,7 @@ const MobileShopShowcase = () => (
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopShopShowcase = () => (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-20 bg-background">
         <h2
             className="px-4 text-3xl sm:text-4xl md:text-[48px] font-medium tracking-tight text-foreground text-center mb-10 md:mb-16"
             style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}

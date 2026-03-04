@@ -5,7 +5,7 @@ import clickToConnectVideo from '@/assets/click to connect.mp4';
 import clickToConnectImg from '@/assets/click to connect.png';
 import hotscanImg from '@/assets/hotscan.png';
 import empImg from '@/assets/EMP Logo Transparent.png';
-import machineImg from '@/assets/carousel/machine-navbar.png';
+import machineImg from '@/assets/power bank.png';
 import oMamaImg from '@/assets/O Mama remove bg.png';
 
 interface Experiment {
@@ -17,6 +17,7 @@ interface Experiment {
     image?: string;
     video?: string;
     imageFit?: 'cover' | 'contain';
+    imageScale?: 'large';
 }
 
 const experiments: Experiment[] = [
@@ -46,6 +47,7 @@ const experiments: Experiment[] = [
         buttonLink: "#",
         image: machineImg,
         imageFit: 'contain' as const,
+        imageScale: 'large' as const,
     },
     {
         id: 4,
@@ -131,7 +133,7 @@ const DesktopAIExperiments = () => {
     };
 
     return (
-        <section className="py-16 md:py-24 bg-[#f8f9fa] overflow-hidden relative">
+        <section className="py-20 bg-[#f8f9fa] overflow-hidden relative">
 
             {/* Left Arrow — fixed to far left */}
             <motion.button
@@ -217,7 +219,7 @@ const DesktopAIExperiments = () => {
                                             <motion.img
                                                 src={experiment.image}
                                                 alt={experiment.title}
-                                                className={`w-full h-full ${experiment.imageFit === 'contain' ? 'object-contain p-10 bg-[#fff8e1]' : 'object-cover'}`}
+                                                className={`w-full h-full ${experiment.imageFit === 'contain' ? `object-contain ${experiment.imageScale === 'large' ? 'p-2' : 'p-10'} bg-[#fff8e1]` : 'object-cover'}`}
                                                 animate={{ scale: isActive ? 1 : 1.05 }}
                                                 transition={springTransition}
                                             />
@@ -448,7 +450,7 @@ const MobileAIExperiments = () => {
                                                 <img
                                                     src={experiment.image}
                                                     alt={experiment.title}
-                                                    className={`w-full h-full ${experiment.imageFit === 'contain' ? 'object-contain p-6 bg-[#fff8e1]' : 'object-cover'}`}
+                                                    className={`w-full h-full ${experiment.imageFit === 'contain' ? `object-contain ${experiment.imageScale === 'large' ? 'p-1' : 'p-6'} bg-[#fff8e1]` : 'object-cover'}`}
                                                 />
                                             )}
                                         </div>

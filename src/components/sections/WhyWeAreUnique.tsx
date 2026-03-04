@@ -126,7 +126,7 @@ const DesktopWhyWeAreUnique = () => {
     const rightColumn = uniqueItems.slice(midpoint);
 
     return (
-        <section className="py-20 md:py-28 bg-[#f8f9fa] dark:bg-zinc-950 relative overflow-hidden">
+        <section className="py-20 bg-[#f8f9fa] dark:bg-zinc-950 relative overflow-hidden">
             <div className="container-main relative z-10">
                 {/* Header */}
                 <motion.div

@@ -86,7 +86,7 @@ const DesktopSmartHomeSolutions = () => {
   const [activeTab, setActiveTab] = useState<TabType>('studio');
 
   return (
-    <section className="pt-0 pb-12 md:pb-16 bg-background">
+    <section className="py-20 bg-background">
       <div className="container-main max-w-6xl">
         <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden">
           {/* Tabs */}

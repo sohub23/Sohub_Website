@@ -12,6 +12,10 @@ import CompanyInfo from "./pages/CompanyInfo";
 import JoinUs from "./pages/JoinUs";
 import Tolpar from "./pages/Tolpar";
 import ContactUs from "./pages/ContactUs";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ServiceLevelAgreement from "./pages/ServiceLevelAgreement";
+import CodeOfConduct from "./pages/CodeOfConduct";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -37,6 +41,10 @@ const App = () => {
             <Route path="/join-us" element={<JoinUs />} />
             <Route path="/tolpar" element={<Tolpar />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/service-level-agreement" element={<ServiceLevelAgreement />} />
+            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
    ────────────────────────────────────────────── */
 const DesktopPeople = () => {
   return (
-    <section id="people" className="py-24 bg-white relative overflow-hidden">
+    <section id="people" className="py-20 bg-white relative overflow-hidden">
       <div className="container-main text-center">
         <AnimatedSection>
           <div className="max-w-2xl mx-auto">

@@ -40,7 +40,7 @@ const productsRow2 = [
    ────────────────────────────────────────────── */
 const DesktopSmartLife = () => {
     return (
-        <section className="py-16 md:py-24 bg-background">
+        <section className="py-20 bg-background">
             <div className="w-full">
                 <h2 className="text-[48px] font-normal tracking-tight text-foreground text-center mb-16 px-6">
                     Our Smart Home Solutions & Products

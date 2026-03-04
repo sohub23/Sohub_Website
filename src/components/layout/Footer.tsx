@@ -1,8 +1,15 @@
 import { AnimatedSection } from '../ui/AnimatedSection';
 import logoOrange from '@/assets/logo-orange.svg';
-import { ArrowUpRight, Facebook, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { ArrowUpRight, Facebook, Linkedin, Instagram, Youtube, FileText, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+const brochures = [
+  { name: 'SOHUB', url: '/brochures/SOHUB_Brochure.pdf' },
+  { name: 'SOHUB Controls', url: '/brochures/SOHUB_Controls_Brochure.pdf' },
+  { name: 'SOHUB Protect', url: '/brochures/SOHUB_Protect_Brochure.pdf' },
+  { name: 'CoMir', url: '/brochures/CoMir_Brochure.pdf' },
+];
 
 /* ──────────────────────────────────────────────
    DESKTOP VERSION — 100% untouched
@@ -37,14 +44,33 @@ const DesktopFooter = () => {
                 Explore the ecosystem
                 <ArrowUpRight className="w-5 h-5" />
               </a>
-              <a href="#" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
-                Read Vision 2026
-                <ArrowUpRight className="w-5 h-5" />
-              </a>
+              
               <a href="/contact" className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
                 Contact
                 <ArrowUpRight className="w-5 h-5" />
               </a>
+              {/* Brochures Dropdown */}
+              <div id="brochures" className="relative group">
+                <button className="text-lg md:text-xl font-medium text-footer-text hover:text-primary transition-colors flex items-center gap-2 justify-center md:justify-start">
+                  <FileText className="w-5 h-5" />
+                  Brochures
+                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+                <div className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  {brochures.map((b) => (
+                    <a
+                      key={b.name}
+                      href={b.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#202124] hover:bg-[#fff7e6] hover:text-[#fb8a09] transition-colors"
+                    >
+                      <FileText className="w-4 h-4 text-[#fb8a09]/60" />
+                      {b.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <div className="flex items-center gap-4 mt-2 justify-center md:justify-start text-[#fb8a09]">
                 <a href="https://www.facebook.com/solutionhubtechnologies" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
                   <Facebook className="w-5 h-5" strokeWidth={1.5} />
@@ -67,14 +93,58 @@ const DesktopFooter = () => {
               © {new Date().getFullYear()} SOHUB — Solution Hub Technologies.
             </p>
             <div className="flex gap-8 text-sm text-footer-text/50">
-              <a href="#" className="hover:text-primary transition-colors duration-300">Privacy</a>
-              <a href="#" className="hover:text-primary transition-colors duration-300">Terms</a>
-              <a href="#" className="hover:text-primary transition-colors duration-300">Sitemap</a>
+              <a href="/privacy-policy" className="hover:text-primary transition-colors duration-300">Privacy</a>
+              <a href="/terms-of-service" className="hover:text-primary transition-colors duration-300">Terms</a>
             </div>
           </div>
         </AnimatedSection>
       </div>
     </footer>
+  );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE BROCHURES DROPDOWN (click-to-toggle)
+   ────────────────────────────────────────────── */
+const MobileBrochuresDropdown = () => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-2 text-[13px] font-medium text-[#202124] hover:text-[#fb8a09] transition-colors"
+      >
+        <FileText className="w-3.5 h-3.5" />
+        Brochures
+        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="absolute top-full left-0 mt-2 w-44 bg-white rounded-lg shadow-lg border border-gray-100 py-1.5 z-50">
+          {brochures.map((b) => (
+            <a
+              key={b.name}
+              href={b.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 px-3 py-2 text-[12px] text-[#202124] hover:bg-[#fff7e6] hover:text-[#fb8a09] transition-colors"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#fb8a09]/60" />
+              {b.name}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -122,6 +192,8 @@ const MobileFooter = () => {
             Contact
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
+          <MobileBrochuresDropdown />
+          <div id="brochures" />
           <div className="flex items-center gap-4 mt-1 text-[#fb8a09]">
             <a href="https://www.facebook.com/solutionhubtechnologies" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
               <Facebook className="w-4 h-4" strokeWidth={1.5} />

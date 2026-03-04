@@ -6,7 +6,7 @@ import { ArrowRight, BarChart3, Globe, Heart } from 'lucide-react';
    MOBILE VERSION — compact, stacked layout
    ────────────────────────────────────────────── */
 const MobileWhyWeExist = () => (
-  <section id="why" className="py-16 bg-background relative overflow-hidden">
+  <section id="why" className="pt-2 pb-12 bg-background relative overflow-hidden">
     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-secondary/20 rounded-full blur-[100px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
     <div className="px-5 relative z-10 w-full">
@@ -133,7 +133,7 @@ const MobileWhyWeExist = () => (
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopWhyWeExist = () => (
-  <section id="why" className="section-spacing bg-background relative overflow-hidden flex items-center min-h-[85vh]">
+  <section id="why" className="py-20 bg-background relative overflow-hidden flex items-center">
 
     {/* Background Decor */}
     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] opacity-50 pointer-events-none translate-x-1/3 -translate-y-1/3" />

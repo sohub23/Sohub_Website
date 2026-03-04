@@ -88,13 +88,13 @@ const DesktopCompanyInfo = () => {
                 </motion.h1>
 
                 <div className="flex flex-wrap justify-center gap-6 sm:gap-12 mt-16">
-                    <a href="#" className="flex flex-col items-center gap-3 group">
+                    <a href="/join-us" className="flex flex-col items-center gap-3 group">
                         <div className="w-16 h-16 rounded-full bg-[#f1f3f4] flex items-center justify-center group-hover:bg-[#e8eaed] transition-colors">
                             <Briefcase className="w-7 h-7 text-[#5f6368]" />
                         </div>
-                        <span className="text-[#3c4043] font-medium text-[15px] group-hover:text-[#fb8a09]">Careers</span>
+                        <span className="text-[#3c4043] font-medium text-[15px] group-hover:text-[#fb8a09]">Join Us</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center gap-3 group">
+                    <a href="/contact" className="flex flex-col items-center gap-3 group">
                         <div className="w-16 h-16 rounded-full bg-[#f1f3f4] flex items-center justify-center group-hover:bg-[#e8eaed] transition-colors">
                             <MapPin className="w-7 h-7 text-[#5f6368]" />
                         </div>
@@ -171,10 +171,7 @@ const DesktopCompanyInfo = () => {
                     <p className="text-[28px] md:text-[36px] leading-[1.3] font-normal text-[#202124] mb-8 max-w-[900px]">
                         "We believe technology is only as good as the problems it solves. We build standards, not just features."
                     </p>
-                    <a href="#about" className="inline-flex items-center gap-2 text-[16px] font-medium text-[#fb8a09] group-hover:underline underline-offset-4">
-                        Learn about The SOHUB Standard
-                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </a>
+                   
                 </div>
             </div>
 
@@ -220,7 +217,7 @@ const DesktopCompanyInfo = () => {
                         </a>
 
                         {/* Card 3: Pink/Red, Short */}
-                        <a href="https://home.sohub.com.bd/sohub-protect" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FCE8E6] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 group">
+                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FCE8E6]">
                             <div className="mb-6 mt-6">
                                 <ShieldCheck className="w-10 h-10 text-[#C5221F]" strokeWidth={1.5} />
                             </div>
@@ -228,16 +225,13 @@ const DesktopCompanyInfo = () => {
                             <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
                                 We're committed to working with businesses, companies and communities to create a safe digital future.
                             </h3>
-                            <div className="mt-auto pb-2">
-                                <ExternalLink className="w-5 h-5 text-[#C5221F]" />
-                            </div>
-                        </a>
+                        </div>
                     </div>
 
                     {/* Column 2 */}
                     <div className="flex-1 flex flex-col gap-6">
                         {/* Card 2: Green, Short */}
-                        <a href="#" className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#E6F4EA] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 group">
+                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#E6F4EA]">
                             <div className="mb-6 mt-6">
                                 <Users className="w-10 h-10 text-[#137333]" strokeWidth={1.5} />
                             </div>
@@ -245,24 +239,18 @@ const DesktopCompanyInfo = () => {
                             <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
                                 Discover how we're using technology to help solve society's biggest challenges through O-Mama Initiatives.
                             </h3>
-                            <div className="mt-auto pb-2">
-                                <ExternalLink className="w-5 h-5 text-[#137333]" />
-                            </div>
-                        </a>
+                        </div>
 
-                        {/* Card 4: Yellow, Tall */}
-                        <a href="https://ximpul.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FEF7E0] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 group">
-                            <div className="w-[85%] aspect-[16/10] rounded-[16px] overflow-hidden mt-4 mb-8 bg-white border border-white/40 flex items-center justify-center p-4">
-                                <img src={imgOurStory} alt="Our Story" className="w-[60%] h-[80%] object-contain" />
+                        {/* Card 4: Yellow, Short */}
+                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FEF7E0]">
+                            <div className="mb-6 mt-6">
+                                <Globe className="w-10 h-10 text-[#E37400]" strokeWidth={1.5} />
                             </div>
                             <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Our Story</span>
                             <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
                                 From creating products to expanding opportunity, learn more about our values and standards.
                             </h3>
-                            <div className="mt-auto pb-2">
-                                <ExternalLink className="w-5 h-5 text-[#E37400]" />
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -333,13 +321,13 @@ const MobileCompanyInfo = () => {
                 </motion.h1>
 
                 <div className="flex flex-wrap justify-center gap-8 mt-10">
-                    <a href="#" className="flex flex-col items-center gap-2">
+                    <a href="/join-us" className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 rounded-full bg-[#f1f3f4] flex items-center justify-center">
                             <Briefcase className="w-6 h-6 text-[#5f6368]" />
                         </div>
-                        <span className="text-[#3c4043] font-medium text-[13px]">Careers</span>
+                        <span className="text-[#3c4043] font-medium text-[13px]">Join Us</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center gap-2">
+                    <a href="/contact" className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 rounded-full bg-[#f1f3f4] flex items-center justify-center">
                             <MapPin className="w-6 h-6 text-[#5f6368]" />
                         </div>
@@ -452,7 +440,7 @@ const MobileCompanyInfo = () => {
                     </a>
 
                     {/* Card 2: Green, Short */}
-                    <a href="#" className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#E6F4EA]">
+                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#E6F4EA]">
                         <div className="mb-4 mt-2">
                             <Users className="w-8 h-8 text-[#137333]" strokeWidth={1.5} />
                         </div>
@@ -460,11 +448,10 @@ const MobileCompanyInfo = () => {
                         <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
                             Discover how we're using technology to help solve society's biggest challenges through O-Mama Initiatives.
                         </h3>
-                        <ExternalLink className="w-4 h-4 text-[#137333]" />
-                    </a>
+                    </div>
 
                     {/* Card 3: Pink/Red, Short */}
-                    <a href="https://home.sohub.com.bd/sohub-protect" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FCE8E6]">
+                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FCE8E6]">
                         <div className="mb-4 mt-2">
                             <ShieldCheck className="w-8 h-8 text-[#C5221F]" strokeWidth={1.5} />
                         </div>
@@ -472,20 +459,18 @@ const MobileCompanyInfo = () => {
                         <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
                             We're committed to working with businesses, companies and communities to create a safe digital future.
                         </h3>
-                        <ExternalLink className="w-4 h-4 text-[#C5221F]" />
-                    </a>
+                    </div>
 
-                    {/* Card 4: Yellow, Tall */}
-                    <a href="https://ximpul.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FEF7E0]">
-                        <div className="w-full aspect-[16/10] rounded-[16px] overflow-hidden mt-2 mb-6 bg-white border border-white/40 flex items-center justify-center p-4">
-                            <img src={imgOurStory} alt="Our Story" className="w-[60%] h-[80%] object-contain" />
+                    {/* Card 4: Yellow, Short */}
+                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FEF7E0]">
+                        <div className="mb-4 mt-2">
+                            <Globe className="w-8 h-8 text-[#E37400]" strokeWidth={1.5} />
                         </div>
                         <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Our Story</span>
                         <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
                             From creating products to expanding opportunity, learn more about our values and standards.
                         </h3>
-                        <ExternalLink className="w-4 h-4 text-[#E37400]" />
-                    </a>
+                    </div>
                 </div>
             </div>
         </main>

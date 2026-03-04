@@ -8,8 +8,7 @@ import OMamaImage from '../../assets/O-mama-initiatives.png';
 import FilmicStationVideo from '../../assets/Filmic_Station_Brand_Video_Creation.mp4';
 import OMamaVideo from '../../assets/omama.mp4';
 
-// Initiative data based on SOHUB ecosystem
-const initiatives = [
+const initiativesData = [
     {
         id: 'omama',
         label: 'O-MAMA',
@@ -20,7 +19,7 @@ const initiatives = [
         size: 'large',
     },
     {
-        id: 'connect',
+        id: 'sohub-connect',
         label: 'CONNECT',
         title: 'Communication without barriers',
         description: 'PBX, C2C, HotScan — seamless communication solutions for businesses and consumers.',
@@ -47,7 +46,7 @@ const initiatives = [
         size: 'medium',
     },
     {
-        id: 'ai',
+        id: 'sohub-ai',
         label: 'AI',
         title: 'Automation that scales',
         description: 'Intelligent solutions that increase speed, quality, and efficiency.',
@@ -92,6 +91,11 @@ const initiatives = [
         size: 'small',
     },
 ];
+
+const getInitiativeLink = (id: string, apiData: any) => {
+    const apiItem = apiData?.initiatives?.find((item: any) => item.id === id);
+    return apiItem?.href || '#initiatives';
+};
 
 const easeOutExpo = "easeOut";
 
@@ -211,71 +215,104 @@ const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspe
 /* ──────────────────────────────────────────────
    MOBILE VERSION — Google-style boxy vertical cards
    ────────────────────────────────────────────── */
-const MobileInitiatives = () => (
-    <section id="initiatives" className="pt-6 pb-16 bg-background">
-        <div className="px-5">
-            {/* Header */}
-            <div className="text-center mb-10">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
-                    Our Ecosystem
-                </p>
-                <h2 className="text-[26px] font-normal tracking-tight text-foreground mb-2.5 leading-[1.2]">
-                    One ecosystem.<br />Many focused systems.
-                </h2>
-                <p className="text-sm text-foreground-muted max-w-xs mx-auto font-normal leading-relaxed">
-                    Explore what matters to you. From communication to commerce.
-                </p>
-            </div>
+const MobileInitiatives = () => {
+    const [apiData, setApiData] = useState<any>(null);
 
-            {/* Cards — Google-style boxy stacked */}
-            <div className="space-y-4">
-                {initiatives.map((init) => {
-                    const hasVideo = init.media?.type === 'video' && init.media.src;
+    useEffect(() => {
+        fetch('/api/initiatives.json')
+            .then(res => res.json())
+            .then(data => setApiData(data))
+            .catch(() => { });
+    }, []);
 
-                    return (
-                        <motion.div
-                            key={init.id}
-                            initial={{ opacity: 0, y: 24 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-30px" }}
-                            transition={{ duration: 0.5, ease: easeOutExpo }}
-                            className={`${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] flex flex-col justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
-                        >
-                            {/* Video if exists */}
-                            {hasVideo && (
-                                <div className="mb-5">
-                                    <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-[16/10]'} />
+    const initiatives = initiativesData.map(init => ({
+        ...init,
+        link: getInitiativeLink(init.id, apiData)
+    }));
+
+    return (
+        <section id="initiatives" className="pt-6 pb-16 bg-background">
+            <div className="px-5">
+                {/* Header */}
+                <div className="text-center mb-10">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+                        Our Ecosystem
+                    </p>
+                    <h2 className="text-[26px] font-normal tracking-tight text-foreground mb-2.5 leading-[1.2]">
+                        One ecosystem.<br />Many focused systems.
+                    </h2>
+                    <p className="text-sm text-foreground-muted max-w-xs mx-auto font-normal leading-relaxed">
+                        Explore what matters to you. From communication to commerce.
+                    </p>
+                </div>
+
+                {/* Cards — Google-style boxy stacked */}
+                <div className="space-y-4">
+                    {initiatives.map((init) => {
+                        const hasVideo = init.media?.type === 'video' && init.media.src;
+
+                        return (
+                            <motion.a
+                                key={init.id}
+                                href={init.link}
+                                target={init.link.startsWith('http') ? '_blank' : undefined}
+                                rel={init.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-30px" }}
+                                transition={{ duration: 0.5, ease: easeOutExpo }}
+                                className={`${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] flex flex-col justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
+                            >
+                                {/* Video if exists */}
+                                {hasVideo && (
+                                    <div className="mb-5">
+                                        <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-[16/10]'} />
+                                    </div>
+                                )}
+
+                                {/* Label */}
+                                <p className="text-[11px] font-bold tracking-[0.15em] text-[#000] uppercase mb-2.5">
+                                    {init.label}
+                                </p>
+
+                                {/* Description */}
+                                <p className="text-[16px] text-foreground/80 leading-[1.6] font-normal mb-3 mx-auto">
+                                    {init.description}
+                                </p>
+
+                                {/* Arrow link */}
+                                <div className="inline-flex items-center justify-center">
+                                    <ArrowUpRight className="w-[18px] h-[18px] text-primary/50" />
                                 </div>
-                            )}
-
-                            {/* Label */}
-                            <p className="text-[11px] font-bold tracking-[0.15em] text-[#000] uppercase mb-2.5">
-                                {init.label}
-                            </p>
-
-                            {/* Description */}
-                            <p className="text-[16px] text-foreground/80 leading-[1.6] font-normal mb-3 mx-auto">
-                                {init.description}
-                            </p>
-
-                            {/* Arrow link */}
-                            <div className="inline-flex items-center justify-center">
-                                <ArrowUpRight className="w-[18px] h-[18px] text-primary/50" />
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                            </motion.a>
+                        );
+                    })}
+                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 /* ──────────────────────────────────────────────
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopInitiatives = () => {
+    const [apiData, setApiData] = useState<any>(null);
+
+    useEffect(() => {
+        fetch('/api/initiatives.json')
+            .then(res => res.json())
+            .then(data => setApiData(data))
+            .catch(() => { });
+    }, []);
+
+    const initiatives = initiativesData.map(init => ({
+        ...init,
+        link: getInitiativeLink(init.id, apiData)
+    }));
+
     return (
-        <section id="initiatives" className="pt-8 pb-24 md:pt-12 md:pb-32 bg-background">
+        <section id="initiatives" className="py-20 bg-background">
             <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -299,7 +336,10 @@ const DesktopInitiatives = () => {
                 {/* Bento Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                     {/* Card 1 - O-MAMA (Large with Video - Constrained Height) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[0].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -328,10 +368,13 @@ const DesktopInitiatives = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 2 - CONNECT (Video) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[1].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -354,10 +397,19 @@ const DesktopInitiatives = () => {
                                 {initiatives[1].description}
                             </p>
                         </div>
-                    </motion.div>
+
+                        <div className="mt-6 flex justify-end">
+                            <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
+                                <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
+                            </div>
+                        </div>
+                    </motion.a>
 
                     {/* Card 3 - EMP (No media) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[2].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -381,10 +433,11 @@ const DesktopInitiatives = () => {
                                 <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 4 - TOLPAR (Video) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[3].link}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -407,10 +460,17 @@ const DesktopInitiatives = () => {
                                 {initiatives[3].description}
                             </p>
                         </div>
-                    </motion.div>
+
+                        <div className="mt-6 flex justify-end">
+                            <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
+                                <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
+                            </div>
+                        </div>
+                    </motion.a>
 
                     {/* Card 5 - AI (Small) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[4].link}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -431,10 +491,13 @@ const DesktopInitiatives = () => {
                         <div className="mt-4 flex justify-end">
                             <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 6 - PROTECT (Small) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[5].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -455,10 +518,11 @@ const DesktopInitiatives = () => {
                         <div className="mt-4 flex justify-end">
                             <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 7 - FILMIC STATION (Video) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[6].link}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -485,14 +549,17 @@ const DesktopInitiatives = () => {
                                     <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center bg-white/50">
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
-                                    <span>Explore Station</span>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 8 - XIMPUL (Video - Single Column) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[7].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -519,14 +586,17 @@ const DesktopInitiatives = () => {
                                     <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center bg-white/50">
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
-                                    <span>Explore Standard</span>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* Card 9 - SMART HOME (Small) */}
-                    <motion.div
+                    <motion.a
+                        href={initiatives[8].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -547,7 +617,7 @@ const DesktopInitiatives = () => {
                         <div className="mt-4 flex justify-end">
                             <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
-                    </motion.div>
+                    </motion.a>
                 </div>
             </div>
         </section>

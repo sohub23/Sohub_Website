@@ -8,7 +8,7 @@ import { CompactBackgroundPaths } from '@/components/ui/background-paths';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 
 import aloImage from '@/assets/Alo_transparent.png';
-import pdlcImage from '@/assets/pdlc_transparent.png';
+import pdlcImage from '@/assets/pdlcmerged (1).png';
 import switchImage from '@/assets/Switch_transparent.png';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
@@ -62,8 +62,7 @@ const menuItems: MenuItem[] = [
     ],
     links: [
       { label: 'View All Initiatives', href: '#initiatives' },
-      { label: 'Our Ecosystem', href: '#ecosystem' },
-      { label: 'Partner With Us', href: '#partner' },
+      { label: 'Partner With Us', href: '/join-us' },
     ]
   },
   {
@@ -77,15 +76,15 @@ const menuItems: MenuItem[] = [
     href: '#discover',
     submenu: [
       { title: 'Smart Home', href: 'https://home.sohub.com.bd', image: '', description: 'Quick Links' },
-      { title: 'Telephony', href: '#telephony', image: '', description: 'Quick Links' },
-      { title: 'Solutions', href: '#solutions', image: '', description: 'Quick Links' },
+      { title: 'Connect', href: 'https://connect.sohub.com.bd', image: '', description: 'Quick Links' },
+      { title: 'Machines', href: '#solutions', image: '', description: 'Quick Links' },
       { title: 'Brochures', href: '#brochures', image: '', description: 'Quick Links' },
-      { title: 'Terms of Service', href: '#terms', image: '', description: 'Legal' },
-      { title: 'Privacy Policy', href: '#privacy', image: '', description: 'Legal' },
-      { title: 'Service Level Agreement', href: '#sla', image: '', description: 'Legal' },
-      { title: 'Code of Conduct', href: '#conduct', image: '', description: 'Legal' },
+      { title: 'Terms of Service', href: '/terms-of-service', image: '', description: 'Legal' },
+      { title: 'Privacy Policy', href: '/privacy-policy', image: '', description: 'Legal' },
+      { title: 'Service Level Agreement', href: '/service-level-agreement', image: '', description: 'Legal' },
+      { title: 'Code of Conduct', href: '/code-of-conduct', image: '', description: 'Legal' },
       { title: 'About Us', href: '/company-info', image: '', description: 'Company' },
-      { title: 'Career', href: '/join-us', image: '', description: 'Company' },
+      { title: 'Join Us', href: '/join-us', image: '', description: 'Company' },
       { title: 'Contact Us', href: '/contact', image: '', description: 'Company' },
       { title: 'Sohub Shop', href: 'https://home.sohub.com.bd', image: '', description: 'Company' },
     ],
@@ -170,8 +169,8 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Top bar - collapses on scroll */}
-      <div className={`fixed top-0 left-0 right-0 z-40 bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
+      {/* Top bar - collapses on scroll (Currently Hidden) */}
+      <div className={`hidden fixed top-0 left-0 right-0 z-40 bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
         }`}>
         <div className="container-main py-2">
           <div className="flex items-center justify-center gap-2">
@@ -187,7 +186,7 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'top-0 py-1 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'top-[36px] py-2.5 md:py-3 bg-background/80 backdrop-blur-md'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-1 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'py-2.5 md:py-3 bg-background/80 backdrop-blur-md'
           } ${activeMenu ? 'py-3 bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : ''}`}
         onMouseLeave={() => setActiveMenu(null)}
       >
@@ -275,6 +274,19 @@ export const Navbar = () => {
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
               </svg>
             </a>
+            <a
+              href="https://www.instagram.com/sohub.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:opacity-70"
+              aria-label="Instagram"
+            >
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fb8a09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -322,26 +334,26 @@ export const Navbar = () => {
                             <div className="flex flex-col gap-6">
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Quick Links</h3>
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Smart Home</a>
-                              <a href="#telephony" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Telephony</a>
-                              <a href="#solutions" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Solutions</a>
+                              <a href="https://connect.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Connect</a>
+                              <a href="#solutions" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
                               <a href="#brochures" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
                             </div>
 
                             {/* Column 2: Legal */}
                             <div className="flex flex-col gap-6">
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Legal</h3>
-                              <a href="#terms" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Terms of Service</a>
-                              <a href="#privacy" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Privacy Policy</a>
-                              <a href="#sla" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Service Level Agreement</a>
-                              <a href="#conduct" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Code of Conduct</a>
+                              <Link to="/terms-of-service" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Terms of Service</Link>
+                              <Link to="/privacy-policy" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Privacy Policy</Link>
+                              <Link to="/service-level-agreement" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Service Level Agreement</Link>
+                              <Link to="/code-of-conduct" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Code of Conduct</Link>
                             </div>
 
                             {/* Column 3: Company */}
                             <div className="flex flex-col gap-6">
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Company</h3>
-                              <a href="/company-info" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">About Us</a>
-                              <a href="/join-us" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Career</a>
-                              <a href="/contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</a>
+                              <Link to="/company-info" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">About Us</Link>
+                              <Link to="/join-us" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Join Us</Link>
+                              <Link to="/contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</Link>
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
                             </div>
                           </div>
@@ -361,7 +373,7 @@ export const Navbar = () => {
                                       <img
                                         src={subItem.image}
                                         alt={subItem.title}
-                                        className="w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105"
+                                        className={`w-full h-full object-contain p-2 relative z-10 transition-transform duration-500 group-hover:scale-105 rounded-lg ${subItem.title === 'PDLC Film' ? 'scale-[0.75]' : ''}`}
                                       />
                                     </div>
                                     <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
