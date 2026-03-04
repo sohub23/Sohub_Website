@@ -133,7 +133,7 @@ const MobileWhyWeExist = () => (
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopWhyWeExist = () => (
-  <section id="why" className="py-20 bg-background relative overflow-hidden flex items-center">
+  <section id="why" className="pt-0 pb-20 bg-background relative overflow-hidden flex items-center">
 
     {/* Background Decor */}
     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] opacity-50 pointer-events-none translate-x-1/3 -translate-y-1/3" />

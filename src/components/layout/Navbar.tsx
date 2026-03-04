@@ -275,7 +275,7 @@ export const Navbar = () => {
               </svg>
             </a>
             <a
-              href="https://www.instagram.com/sohub.tech/"
+              href="https://www.instagram.com/solutionhubtechnologies/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:opacity-70"

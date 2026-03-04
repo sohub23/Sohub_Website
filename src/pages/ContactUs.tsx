@@ -744,7 +744,7 @@ const ContactUs = () => {
         </div>`;
 
             // Send admin notification
-            await fetch('/.netlify/functions/send-email', {
+            await fetch('/server/smtp-mailer.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
@@ -757,7 +757,7 @@ const ContactUs = () => {
             });
 
             // Send confirmation to user
-            await fetch('/.netlify/functions/send-email', {
+            await fetch('/server/smtp-mailer.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({

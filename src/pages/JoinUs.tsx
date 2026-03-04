@@ -419,13 +419,13 @@ const JoinUs = () => {
         reply_to: formData.email,
       };
 
-      await fetch('/.netlify/functions/send-email', {
+      await fetch('/server/smtp-mailer.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(adminParams)
       });
 
-      await fetch('/.netlify/functions/send-email', {
+      await fetch('/server/smtp-mailer.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
