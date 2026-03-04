@@ -744,7 +744,7 @@ const ContactUs = () => {
         </div>`;
 
             // Send admin notification
-            await fetch('/server/smtp-mailer.php', {
+            const adminRes = await fetch('/server/smtp-mailer.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
@@ -756,8 +756,12 @@ const ContactUs = () => {
                 }),
             });
 
+            if (!adminRes.ok) {
+                throw new Error('Admin email failed');
+            }
+
             // Send confirmation to user
-            await fetch('/server/smtp-mailer.php', {
+            const customerRes = await fetch('/server/smtp-mailer.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
@@ -767,6 +771,10 @@ const ContactUs = () => {
                     from_name: 'SOHUB',
                 }),
             });
+
+            if (!customerRes.ok) {
+                throw new Error('Customer email failed');
+            }
 
             toast.success('Message sent! We\'ll get back to you soon.');
             setFormData({ name: '', email: '', phone: '', subject: '', message: '' });

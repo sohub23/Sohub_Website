@@ -419,13 +419,17 @@ const JoinUs = () => {
         reply_to: formData.email,
       };
 
-      await fetch('/server/smtp-mailer.php', {
+      const adminRes = await fetch('/server/smtp-mailer.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(adminParams)
       });
 
-      await fetch('/server/smtp-mailer.php', {
+      if (!adminRes.ok) {
+        throw new Error('Admin email failed');
+      }
+
+      const customerRes = await fetch('/server/smtp-mailer.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -435,6 +439,10 @@ const JoinUs = () => {
           from_name: 'SOHUB'
         })
       });
+
+      if (!customerRes.ok) {
+        throw new Error('Customer email failed');
+      }
 
       toast.success('Thank you! We will review your submission and get back to you soon.');
       setIsModalOpen(false);

@@ -1,15 +1,20 @@
 <?php
 /**
- * SOHUB SMTP Mailer — PHPMailer Backend
- * Host this file on ximpul.com server
- * Requires: composer require phpmailer/phpmailer
+ * SOHUB Mailer — Standalone PHP SMTP Socket Edition
+ * No Composer, No Plugins, No mail() function required.
+ * Connects directly to Gmail SMTP using a raw TCP socket.
  */
 
-// CORS Headers — allow requests from any SOHUB site
+// Error logging for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // Hide errors from response
+ini_set('log_errors', 1);
+
+// ─── CORS Headers ───
+header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
-header('Content-Type: application/json; charset=utf-8');
 
 // Handle preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -17,83 +22,168 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-// Only accept POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'error' => 'Method not allowed']);
+    echo json_encode(['success' => false, 'error' => 'Method not allowed. Use POST.']);
     exit;
 }
 
-// Load PHPMailer
-require_once __DIR__ . '/vendor/autoload.php';
+// ─── SMTP Credentials (Hardcoded) ───
+$smtp_host = 'smtp.gmail.com';
+$smtp_port = 587;
+$smtp_user = 'sohub.web@gmail.com';
+$smtp_pass = 'kjaj ghzt shff anhs';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-// ─── SMTP Configuration ───────────────────────────
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_USER', 'sohub.web@gmail.com');
-define('SMTP_PASS', 'kjaj ghzt shff anhs');
-define('SMTP_FROM_EMAIL', 'sohub.web@gmail.com');
-define('SMTP_FROM_NAME', 'SOHUB');
-
-// ─── Parse Input ──────────────────────────────────
+// ─── Parse Input Data ───
 $to = $_POST['to'] ?? '';
-$subject = $_POST['subject'] ?? '';
+$cc = $_POST['cc'] ?? '';
+$subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING) ?: 'Message from SOHUB';
 $message = $_POST['message'] ?? '';
-$fromName = $_POST['from_name'] ?? 'SOHUB';
-$replyTo = $_POST['reply_to'] ?? '';
+$from_name = filter_input(INPUT_POST, 'from_name', FILTER_SANITIZE_STRING) ?: 'SOHUB';
+$reply_to = $_POST['reply_to'] ?? '';
 
-// Validate required fields
-if (empty($to) || empty($subject) || empty($message)) {
-    http_response_code(400);
-    echo json_encode([
-        'success' => false,
-        'error' => 'Missing required fields: to, subject, message'
-    ]);
-    exit;
-}
-
-// ─── Send Email ───────────────────────────────────
-function sendMail($to, $subject, $htmlBody, $fromName, $replyTo = '') {
-    $mail = new PHPMailer(true);
-
-    try {
-        // SMTP settings
-        $mail->isSMTP();
-        $mail->Host       = SMTP_HOST;
-        $mail->SMTPAuth   = true;
-        $mail->Username   = SMTP_USER;
-        $mail->Password   = SMTP_PASS;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = SMTP_PORT;
-        $mail->CharSet    = 'UTF-8';
-
-        // From / To
-        $mail->setFrom(SMTP_FROM_EMAIL, $fromName);
-        $mail->addAddress($to);
-
-        // Reply-To (so admin can reply directly to customer)
-        if (!empty($replyTo)) {
-            $mail->addReplyTo($replyTo);
+// Parse TO emails
+$to_emails = [];
+if (!empty($to)) {
+    $to_list = explode(',', $to);
+    foreach ($to_list as $email) {
+        $email = trim($email);
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $to_emails[] = $email;
         }
-
-        // Content
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body    = $htmlBody;
-        $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $htmlBody));
-
-        $mail->send();
-        return ['success' => true];
-    } catch (Exception $e) {
-        return ['success' => false, 'error' => $mail->ErrorInfo];
     }
 }
 
-$result = sendMail($to, $subject, $message, $fromName, $replyTo);
+if (empty($to_emails)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'No valid recipient (to) emails provided']);
+    exit;
+}
 
-http_response_code($result['success'] ? 200 : 500);
-echo json_encode($result);
+if (empty($message)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Message is required']);
+    exit;
+}
+
+try {
+    // Create socket connection
+    $socket = stream_socket_client("tcp://$smtp_host:$smtp_port", $errno, $errstr, 15);
+    
+    if (!$socket) {
+        throw new Exception("Could not connect to SMTP server: $errstr ($errno)");
+    }
+    
+    // Read initial response
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '220') {
+        throw new Exception("SMTP Error: $response");
+    }
+    
+    // Send EHLO
+    fputs($socket, "EHLO " . ($_SERVER['SERVER_NAME'] ?? 'localhost') . "\r\n");
+    // Read all EHLO responses
+    do {
+        $response = fgets($socket, 515);
+    } while (substr($response, 3, 1) === '-');
+    
+    // Start TLS
+    fputs($socket, "STARTTLS\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '220') {
+        throw new Exception("STARTTLS failed: $response");
+    }
+    
+    // Enable crypto
+    if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+        throw new Exception("Failed to enable TLS encryption");
+    }
+    
+    // Send EHLO again after TLS
+    fputs($socket, "EHLO " . ($_SERVER['SERVER_NAME'] ?? 'localhost') . "\r\n");
+    // Read all EHLO responses after TLS
+    do {
+        $response = fgets($socket, 515);
+    } while (substr($response, 3, 1) === '-');
+    
+    // Authenticate
+    fputs($socket, "AUTH LOGIN\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '334') {
+        throw new Exception("AUTH LOGIN failed: $response");
+    }
+    
+    fputs($socket, base64_encode($smtp_user) . "\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '334') {
+        throw new Exception("Username authentication failed: $response");
+    }
+    
+    fputs($socket, base64_encode($smtp_pass) . "\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '235') {
+        throw new Exception("Password authentication failed"); // Don't expose password error
+    }
+    
+    // Send email
+    fputs($socket, "MAIL FROM: <$smtp_user>\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '250') {
+        throw new Exception("MAIL FROM failed: $response");
+    }
+    
+    // Add all TO recipients
+    foreach ($to_emails as $email) {
+        fputs($socket, "RCPT TO: <$email>\r\n");
+        $response = fgets($socket, 515);
+        if (substr($response, 0, 3) !== '250') {
+            throw new Exception("RCPT TO failed for $email: $response");
+        }
+    }
+    
+    fputs($socket, "DATA\r\n");
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '354') {
+        throw new Exception("DATA command failed: $response");
+    }
+    
+    // Email headers and body
+    $email_content = "From: =?UTF-8?B?" . base64_encode($from_name) . "?= <$smtp_user>\r\n";
+    $email_content .= "To: " . implode(', ', $to_emails) . "\r\n";
+    
+    if (!empty($reply_to) && filter_var($reply_to, FILTER_VALIDATE_EMAIL)) {
+        $email_content .= "Reply-To: $reply_to\r\n";
+    }
+
+    $email_content .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=\r\n";
+    $email_content .= "MIME-Version: 1.0\r\n";
+    $email_content .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $email_content .= "\r\n";
+    $email_content .= $message;
+    $email_content .= "\r\n.\r\n";
+    
+    fputs($socket, $email_content);
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) !== '250') {
+        throw new Exception("Email sending failed after DATA: $response");
+    }
+    
+    // Quit
+    fputs($socket, "QUIT\r\n");
+    fclose($socket);
+    
+    echo json_encode([
+        'success' => true,
+        'message' => 'Email sent successfully',
+        'to' => $to_emails
+    ]);
+    
+} catch (Exception $e) {
+    http_response_code(500);
+    error_log("SMTP Error: " . $e->getMessage());
+    echo json_encode([
+        'success' => false,
+        'error' => 'Failed to send email: ' . $e->getMessage()
+    ]);
+}
+?>
