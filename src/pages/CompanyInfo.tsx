@@ -9,7 +9,7 @@ import img1 from '@/assets/company/Hero.png';
 import img2 from '@/assets/company/bb4f7329-6e04-437c-b4c8-b96a09551e0d.png';
 import img3 from '@/assets/company/roller_curtain.jpg';
 import img4 from '@/assets/company/touch1.png';
-import img5 from '@/assets/company/feature-voice.jpg';
+import img5 from '@/assets/power bank.png';
 import img6 from '@/assets/company/PDLC off3.png';
 
 // SOHUB actual assets for content cards
@@ -67,7 +67,7 @@ const DesktopCompanyInfo = () => {
                             <img src={img4} className="h-full w-full object-cover" alt="SOHUB Experience" />
                         </motion.div>
                         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="w-[40%] rounded-[12px] sm:rounded-[20px] md:rounded-[28px] overflow-hidden bg-gray-100 flex items-center justify-center group">
-                            <img src={img5} className="h-full w-full object-cover" alt="SOHUB Voice Control" />
+                            <img src={img5} className="h-full w-full object-contain scale-[1.5]" alt="SOHUB Power Bank" />
                         </motion.div>
                         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }} className="w-[28%] rounded-[12px] sm:rounded-[20px] md:rounded-[28px] overflow-hidden bg-gray-100">
                             <img src={img6} className="h-full w-full object-cover" alt="SOHUB Future" />
@@ -300,7 +300,7 @@ const MobileCompanyInfo = () => {
                             <img src={img4} className="h-full w-full object-cover" alt="SOHUB Experience" />
                         </motion.div>
                         <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="w-[40%] rounded-[12px] overflow-hidden bg-gray-100">
-                            <img src={img5} className="h-full w-full object-cover" alt="SOHUB Voice Control" />
+                            <img src={img5} className="h-full w-full object-contain scale-[0.35]" alt="SOHUB Power Bank" />
                         </motion.div>
                         <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }} className="w-[28%] rounded-[12px] overflow-hidden bg-gray-100">
                             <img src={img6} className="h-full w-full object-cover" alt="SOHUB Future" />

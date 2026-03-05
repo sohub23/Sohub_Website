@@ -1,8 +1,8 @@
 const sharp = require('sharp');
 
 async function removeBackground() {
-    const inputPath = 'src/assets/unwatermarked_lights.png';
-    const outputPath = 'src/assets/unwatermarked_lights_transparent.png';
+    const inputPath = 'src/assets/lights2.png';
+    const outputPath = 'src/assets/lights2_transparent.png';
 
     try {
         const { data, info } = await sharp(inputPath)
@@ -10,36 +10,58 @@ async function removeBackground() {
             .raw()
             .toBuffer({ resolveWithObject: true });
 
-        // Create a new buffer with the modified pixels
-        for (let i = 0; i < data.length; i += 4) {
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
+        const w = info.width;
+        const h = info.height;
+        const visited = new Uint8Array(w * h);
 
-            // If the pixel is very close to white, make it transparent
-            if (r > 240 && g > 240 && b > 240) {
-                data[i + 3] = 0; // Make alpha 0
-            } else if (r > 200 && g > 200 && b > 200) {
-                // Soften edges dynamically by reducing opacity based on whiteness
-                const average = (r + g + b) / 3;
-                const opacity = Math.max(0, 255 - ((average - 200) * 4.6)); // 255 -> 0
-                data[i + 3] = Math.min(data[i + 3], Math.floor(opacity));
-            }
+        // Use a TIGHT tolerance — only remove the exact background shade
+        const tolerance = 30;
+
+        // Sample bg from corners
+        const bgR = data[0], bgG = data[1], bgB = data[2];
+        console.log(`BG color: rgb(${bgR}, ${bgG}, ${bgB})`);
+
+        function isBackground(idx) {
+            const r = data[idx], g = data[idx + 1], b = data[idx + 2];
+            return Math.abs(r - bgR) < tolerance &&
+                Math.abs(g - bgG) < tolerance &&
+                Math.abs(b - bgB) < tolerance;
         }
 
-        await sharp(data, {
-            raw: {
-                width: info.width,
-                height: info.height,
-                channels: 4,
-            }
-        })
+        // BFS flood fill from edges only
+        const queue = [];
+        for (let x = 0; x < w; x++) {
+            queue.push(x);
+            queue.push((h - 1) * w + x);
+        }
+        for (let y = 0; y < h; y++) {
+            queue.push(y * w);
+            queue.push(y * w + (w - 1));
+        }
+        for (const pos of queue) visited[pos] = 1;
+
+        let head = 0;
+        while (head < queue.length) {
+            const pos = queue[head++];
+            const idx = pos * 4;
+            if (!isBackground(idx)) continue;
+            data[idx + 3] = 0;
+
+            const px = pos % w, py = Math.floor(pos / w);
+            // Only 4-directional (no diagonals) to prevent leaking into product
+            if (px > 0 && !visited[pos - 1]) { visited[pos - 1] = 1; queue.push(pos - 1); }
+            if (px < w - 1 && !visited[pos + 1]) { visited[pos + 1] = 1; queue.push(pos + 1); }
+            if (py > 0 && !visited[pos - w]) { visited[pos - w] = 1; queue.push(pos - w); }
+            if (py < h - 1 && !visited[pos + w]) { visited[pos + w] = 1; queue.push(pos + w); }
+        }
+
+        await sharp(data, { raw: { width: w, height: h, channels: 4 } })
             .png()
             .toFile(outputPath);
 
-        console.log('Successfully created ' + outputPath);
+        console.log('Done: ' + outputPath);
     } catch (err) {
-        console.error('Error processing image:', err);
+        console.error('Error:', err);
     }
 }
 

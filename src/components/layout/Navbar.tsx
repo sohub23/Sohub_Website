@@ -9,7 +9,7 @@ import ximpulBottleImage from '@/assets/ximpl-flow.png';
 
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/Switch2.png';
+import switchImage from '@/assets/lights2_transparent.png';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
@@ -365,11 +365,11 @@ export const Navbar = () => {
                                     rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                     className="group flex flex-col items-center text-center w-56"
                                   >
-                                    <div className="relative rounded-xl mb-1 overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent">
+                                    <div className="relative mb-1 overflow-hidden w-56 aspect-[4/3] flex items-center justify-center bg-transparent rounded-xl">
                                       <img
                                         src={subItem.image}
                                         alt={subItem.title}
-                                        className={`w-full h-full object-contain relative z-10 transition-transform duration-500 ${subItem.title === 'PDLC Film' ? 'rounded-[20px] overflow-hidden' : 'p-2 rounded-lg'} ${subItem.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : subItem.title === 'Smart Switch' ? 'scale-[0.93]' : subItem.title === 'PDLC Film' ? 'scale-[0.75] group-hover:scale-[0.85]' : 'group-hover:scale-105'}`}
+                                        className={`w-full h-full object-contain relative z-10 ${subItem.title === 'PDLC Film' ? 'scale-[0.75] rounded-2xl' : 'p-2'} ${subItem.title === 'Machine By SOHUB' ? 'scale-[1.3]' : subItem.title === 'Smart Switch' ? 'scale-[0.93]' : ''}`}
                                       />
                                     </div>
                                     <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
@@ -637,7 +637,7 @@ export const Navbar = () => {
                                     <img
                                       src={subItem.image}
                                       alt={subItem.title}
-                                      className={`w-full h-auto object-contain max-h-[100px] drop-shadow-sm ${subItem.title === 'PDLC Film' ? 'rounded-[16px] overflow-hidden' : ''}`}
+                                      className={`w-full h-auto object-contain max-h-[100px] drop-shadow-sm ${subItem.title === 'PDLC Film' ? 'rounded-[24px] overflow-hidden' : ''}`}
                                     />
                                   </a>
                                 </div>

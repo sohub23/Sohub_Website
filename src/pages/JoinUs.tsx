@@ -76,7 +76,7 @@ const DesktopJoinUsContent = ({ setIsModalOpen }: { setIsModalOpen: (open: boole
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto text-[18px] text-[#3c4043]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto text-[18px] text-[#3c4043]">
             <div className="flex items-center space-x-3">
               <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
               <span>SOHUB Smart Home — IoT & automation</span>
@@ -100,6 +100,30 @@ const DesktopJoinUsContent = ({ setIsModalOpen }: { setIsModalOpen: (open: boole
             <div className="flex items-center space-x-3">
               <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
               <span>SOHUB AI — Intelligence at the core</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>EMP — Execution & accountability</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>Tolpar — The SOHUB superapp</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>SOHUB Controls — Smart control solutions</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>Machine By SOHUB — Industrial automation</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>Filmic — Content that moves culture</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
+              <span>Clowee — Smart laundry solutions</span>
             </div>
           </div>
         </div>
@@ -195,6 +219,30 @@ const MobileJoinUsContent = ({ setIsModalOpen }: { setIsModalOpen: (open: boolea
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
               <span>SOHUB AI — Intelligence at the core</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>EMP — Execution & accountability</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>Tolpar — The SOHUB superapp</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>SOHUB Controls — Smart control solutions</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>Machine By SOHUB — Industrial automation</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>Filmic — Content that moves culture</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
+              <span>Clowee — Smart laundry solutions</span>
             </div>
           </div>
         </div>
