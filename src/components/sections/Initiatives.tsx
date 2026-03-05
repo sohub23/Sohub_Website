@@ -104,6 +104,12 @@ const VideoCard = ({ src }: { src: string }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
 
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(() => {});
+        }
+    }, []);
+
     const togglePlay = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (videoRef.current) {
@@ -179,6 +185,12 @@ const ImageCard = ({ src, alt }: { src: string; alt: string }) => {
 const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspect?: string }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(() => {});
+        }
+    }, []);
 
     const togglePlay = (e: React.MouseEvent) => {
         e.stopPropagation();
