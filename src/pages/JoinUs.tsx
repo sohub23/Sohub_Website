@@ -242,7 +242,7 @@ const MobileJoinUsContent = ({ setIsModalOpen }: { setIsModalOpen: (open: boolea
             </div>
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09] text-xs mt-0.5">✓</div>
-              <span>Clowee — Smart laundry solutions</span>
+              <span>Clowee — Play with your peace of mind</span>
             </div>
           </div>
         </div>
