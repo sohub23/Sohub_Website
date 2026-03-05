@@ -748,7 +748,7 @@ const ContactUs = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
-                    to: 'razinahmed60@gmail.com',
+                    to: 'hello@sohub.com.bd',
                     subject: `Contact Form: ${formData.subject}`,
                     message: adminEmailHTML,
                     from_name: 'SOHUB Website',
@@ -756,8 +756,10 @@ const ContactUs = () => {
                 }),
             });
 
-            if (!adminRes.ok) {
-                throw new Error('Admin email failed');
+            const adminData = await adminRes.json();
+            if (!adminRes.ok || !adminData.success) {
+                console.error('Admin email error:', adminData);
+                throw new Error(adminData.error || 'Admin email failed');
             }
 
             // Send confirmation to user
@@ -772,13 +774,16 @@ const ContactUs = () => {
                 }),
             });
 
-            if (!customerRes.ok) {
-                throw new Error('Customer email failed');
+            const customerData = await customerRes.json();
+            if (!customerRes.ok || !customerData.success) {
+                console.error('Customer email error:', customerData);
+                throw new Error(customerData.error || 'Customer email failed');
             }
 
             toast.success('Message sent! We\'ll get back to you soon.');
             setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        } catch {
+        } catch (error) {
+            console.error('Email sending error:', error);
             toast.error('Failed to send message. Please try again.');
         } finally {
             setIsSubmitting(false);

@@ -460,7 +460,7 @@ const JoinUs = () => {
         </div>`;
 
       const adminParams: Record<string, string> = {
-        to: 'razinahmed60@gmail.com',
+        to: 'hello@sohub.com.bd',
         subject: `Join with Us: ${interestTitle}`,
         message: adminEmailHTML,
         from_name: 'SOHUB Website',
