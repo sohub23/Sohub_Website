@@ -7,7 +7,7 @@
 
 // Error logging for debugging
 error_reporting(E_ALL);
-ini_set('display_errors', 0); // Hide errors from response
+ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
 // ─── CORS Headers ───
@@ -28,11 +28,38 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// ─── SMTP Credentials (Hardcoded) ───
-$smtp_host = 'smtp.gmail.com';
-$smtp_port = 587;
-$smtp_user = 'sohub.web@gmail.com';
-$smtp_pass = 'kjaj ghzt shff anhs';
+// ─── Load Environment Variables ───
+function loadEnv($path) {
+    if (!file_exists($path)) {
+        return false;
+    }
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        $_ENV[trim($name)] = trim($value);
+    }
+    return true;
+}
+
+$envPath = __DIR__ . '/../../.env';
+if (!loadEnv($envPath)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'Configuration file not found']);
+    exit;
+}
+
+// ─── SMTP Credentials from Environment ───
+$smtp_host = $_ENV['SMTP_HOST'] ?? 'smtp.gmail.com';
+$smtp_port = (int)($_ENV['SMTP_PORT'] ?? 587);
+$smtp_user = $_ENV['SMTP_USER'] ?? '';
+$smtp_pass = $_ENV['SMTP_PASS'] ?? '';
+
+if (empty($smtp_user) || empty($smtp_pass)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'SMTP credentials not configured']);
+    exit;
+}
 
 // ─── Parse Input Data ───
 $to = $_POST['to'] ?? '';
