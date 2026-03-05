@@ -440,8 +440,6 @@ const DesktopInitiatives = () => {
                     {/* Card 4 - TOLPAR (Video) */}
                     <motion.a
                         href={initiatives[3].link}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}

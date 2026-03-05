@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ximpulBottleImage from '@/assets/ximpl-flow.png';
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/lights2_transparent.png';
+import switchImage from '@/assets/switch_1_transparent.png';
 import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
 import machineImage from '@/assets/power bank.png';

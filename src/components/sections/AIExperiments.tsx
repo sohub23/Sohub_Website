@@ -16,6 +16,7 @@ interface Experiment {
     buttonLink: string;
     image?: string;
     video?: string;
+    youtubeId?: string;
     imageFit?: 'cover' | 'contain';
     imageScale?: 'large';
 }
@@ -44,13 +45,21 @@ const experiments: Experiment[] = [
         title: "Smart Powerbank",
         description: "Rent a powerbank on-the-go from smart vending machines across the city. Scan, charge, and return — anytime, anywhere.",
         buttonText: "Learn more",
-        buttonLink: "#",
+        buttonLink: "https://shb-machine.netlify.app/",
         image: machineImg,
         imageFit: 'contain' as const,
         imageScale: 'large' as const,
     },
     {
         id: 4,
+        title: "NFC Payment",
+        description: "Pay seamlessly at snack vending machines using EBL POS terminal. Just tap your card and go.",
+        buttonText: "Learn More",
+        buttonLink: "https://shb-machine.netlify.app/",
+        youtubeId: "fZHZeiDbxpU",
+    },
+    {
+        id: 5,
         title: "Click To Connect",
         description: "Manage Business Calls Directly from Your Website — Without Phone Numbers",
         buttonText: "Check it out",
@@ -58,7 +67,7 @@ const experiments: Experiment[] = [
         image: clickToConnectImg,
     },
     {
-        id: 5,
+        id: 6,
         title: "Hotscan",
         description: "Let your customers connect instantly through a QR-powered web dialer. No app. No SIM. No balance. Just internet.",
         buttonText: "Get started",
@@ -204,7 +213,16 @@ const DesktopAIExperiments = () => {
                                         className="relative flex-shrink-0 overflow-hidden"
                                         style={{ width: CARD_COLLAPSED, height: CARD_HEIGHT }}
                                     >
-                                        {experiment.video ? (
+                                        {experiment.youtubeId ? (
+                                            <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
+                                                <iframe
+                                                    src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
+                                                    className="absolute top-1/2 left-1/2 w-full h-[115%] -translate-x-1/2 -translate-y-1/2"
+                                                    allow="autoplay; encrypted-media; picture-in-picture"
+                                                    title={experiment.title}
+                                                />
+                                            </div>
+                                        ) : experiment.video ? (
                                             <motion.video
                                                 src={experiment.video}
                                                 className="w-full h-full object-cover"
@@ -440,7 +458,16 @@ const MobileAIExperiments = () => {
                                     <div className="flex flex-col h-full">
                                         {/* Image section */}
                                         <div className="relative w-full flex-1 overflow-hidden bg-[#f0f1f3]">
-                                            {experiment.video ? (
+                                            {experiment.youtubeId ? (
+                                                <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
+                                                    <iframe
+                                                        src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
+                                                        className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
+                                                        allow="autoplay; encrypted-media; picture-in-picture"
+                                                        title={experiment.title}
+                                                    />
+                                                </div>
+                                            ) : experiment.video ? (
                                                 <video
                                                     src={experiment.video}
                                                     className="w-full h-full object-cover"
@@ -489,7 +516,16 @@ const MobileAIExperiments = () => {
                                 ) : (
                                     /* ── COLLAPSED STATE: full height image strip only ── */
                                     <div className="relative w-full h-full overflow-hidden bg-[#f0f1f3]">
-                                        {experiment.video ? (
+                                        {experiment.youtubeId ? (
+                                            <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
+                                                <iframe
+                                                    src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
+                                                    className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
+                                                    allow="autoplay; encrypted-media; picture-in-picture"
+                                                    title={experiment.title}
+                                                />
+                                            </div>
+                                        ) : experiment.video ? (
                                             <video
                                                 src={experiment.video}
                                                 className="w-full h-full object-cover"

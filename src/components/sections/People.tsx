@@ -24,7 +24,7 @@ const DesktopPeople = () => {
                 Work with SOHUB
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#" className="px-8 py-3.5 bg-secondary text-foreground rounded-full font-medium hover:bg-secondary/70 transition-all">
+              <a href="/company-info" className="px-8 py-3.5 bg-secondary text-foreground rounded-full font-medium hover:bg-secondary/70 transition-all">
                 Learn our standards
               </a>
             </div>
@@ -63,7 +63,7 @@ const MobilePeople = () => {
               Work with SOHUB
             </a>
             <a
-              href="#"
+              href="/company-info"
               className="px-4 py-2.5 bg-secondary border border-transparent text-foreground rounded-full font-semibold hover:bg-secondary/70 transition-all text-[12px] sm:text-[13px] text-center whitespace-nowrap"
               style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
             >

@@ -1,8 +1,8 @@
 const sharp = require('sharp');
 
 async function removeBackground() {
-    const inputPath = 'src/assets/lights2.png';
-    const outputPath = 'src/assets/lights2_transparent.png';
+    const inputPath = 'src/assets/switch (1).png';
+    const outputPath = 'src/assets/switch_1_transparent.png';
 
     try {
         const { data, info } = await sharp(inputPath)
@@ -14,48 +14,85 @@ async function removeBackground() {
         const h = info.height;
         const visited = new Uint8Array(w * h);
 
-        // Use a TIGHT tolerance — only remove the exact background shade
-        const tolerance = 30;
+        // Region growing algorithm
+        // Only spread if the difference between the current pixel and the neighbor is small.
+        const gradientTolerance = 8;
 
-        // Sample bg from corners
-        const bgR = data[0], bgG = data[1], bgB = data[2];
-        console.log(`BG color: rgb(${bgR}, ${bgG}, ${bgB})`);
-
-        function isBackground(idx) {
-            const r = data[idx], g = data[idx + 1], b = data[idx + 2];
-            return Math.abs(r - bgR) < tolerance &&
-                Math.abs(g - bgG) < tolerance &&
-                Math.abs(b - bgB) < tolerance;
-        }
-
-        // BFS flood fill from edges only
         const queue = [];
+
+        // Push top edge
         for (let x = 0; x < w; x++) {
             queue.push(x);
-            queue.push((h - 1) * w + x);
+            visited[x] = 1;
         }
+        // Push left and right edges
         for (let y = 0; y < h; y++) {
-            queue.push(y * w);
-            queue.push(y * w + (w - 1));
+            if (!visited[y * w]) {
+                queue.push(y * w);
+                visited[y * w] = 1;
+            }
+            if (!visited[y * w + (w - 1)]) {
+                queue.push(y * w + (w - 1));
+                visited[y * w + (w - 1)] = 1;
+            }
         }
-        for (const pos of queue) visited[pos] = 1;
+
+        // NOT pushing the bottom edge, because the shelf touches the bottom edge.
+        // Wait, the shelf is at the bottom, so if we push bottom edge, it'll delete the shelf!
+
+        function colorDiff(idx1, idx2) {
+            return Math.abs(data[idx1] - data[idx2]) +
+                Math.abs(data[idx1 + 1] - data[idx2 + 1]) +
+                Math.abs(data[idx1 + 2] - data[idx2 + 2]);
+        }
 
         let head = 0;
         while (head < queue.length) {
             const pos = queue[head++];
             const idx = pos * 4;
-            if (!isBackground(idx)) continue;
+
+            // Mark as transparent
             data[idx + 3] = 0;
 
             const px = pos % w, py = Math.floor(pos / w);
-            // Only 4-directional (no diagonals) to prevent leaking into product
-            if (px > 0 && !visited[pos - 1]) { visited[pos - 1] = 1; queue.push(pos - 1); }
-            if (px < w - 1 && !visited[pos + 1]) { visited[pos + 1] = 1; queue.push(pos + 1); }
-            if (py > 0 && !visited[pos - w]) { visited[pos - w] = 1; queue.push(pos - w); }
-            if (py < h - 1 && !visited[pos + w]) { visited[pos + w] = 1; queue.push(pos + w); }
+
+            // Check neighbors
+            const neighbors = [pos - 1, pos + 1, pos - w, pos + w];
+            const pxs = [px - 1, px + 1, px, px];
+            const pys = [py, py, py - 1, py + 1];
+
+            for (let i = 0; i < 4; i++) {
+                const nPos = neighbors[i];
+                const nx = pxs[i];
+                const ny = pys[i];
+
+                if (nx >= 0 && nx < w && ny >= 0 && ny < h && !visited[nPos]) {
+                    const nIdx = nPos * 4;
+                    // Check if adjacent pixel is similar enough to current pixel
+                    // Max difference across RGB channels combined
+                    if (colorDiff(idx, nIdx) <= gradientTolerance * 3) {
+                        visited[nPos] = 1;
+                        queue.push(nPos);
+                    }
+                }
+            }
         }
 
-        await sharp(data, { raw: { width: w, height: h, channels: 4 } })
+        // Apply feathering to soften the jagged edges
+        // Only run this on pixels bordering transparency
+        const featherData = Buffer.from(data);
+        for (let y = 1; y < h - 1; y++) {
+            for (let x = 1; x < w - 1; x++) {
+                const idx = (y * w + x) * 4;
+                if (data[idx + 3] !== 0) { // If it's solid
+                    if (data[idx - 4 + 3] === 0 || data[idx + 4 + 3] === 0 || data[idx - w * 4 + 3] === 0 || data[idx + w * 4 + 3] === 0) {
+                        featherData[idx + 3] = 128; // Soften edge
+                    }
+                }
+            }
+        }
+
+        await sharp(featherData, { raw: { width: w, height: h, channels: 4 } })
             .png()
             .toFile(outputPath);
 

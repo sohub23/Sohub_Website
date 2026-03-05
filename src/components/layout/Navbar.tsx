@@ -9,7 +9,7 @@ import ximpulBottleImage from '@/assets/ximpl-flow.png';
 
 import aloImage from '@/assets/Alo_transparent.png';
 import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/lights2_transparent.png';
+import switchImage from '@/assets/switch_1_transparent.png';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
@@ -330,7 +330,7 @@ export const Navbar = () => {
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Quick Links</h3>
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Smart Home</a>
                               <a href="https://connect.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Connect</a>
-                              <a href="#solutions" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
+                              <a href="https://shb-machine.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
                               <a href="#brochures" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
                             </div>
 
