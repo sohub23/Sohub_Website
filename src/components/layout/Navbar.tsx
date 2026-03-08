@@ -58,7 +58,7 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Safety & trust initiatives', href: 'https://home.sohub.com.bd/sohub-protect', image: protectLogo },
       { title: '', description: 'Smart control solutions', href: '/#initiatives', image: controlsLogo },
       { title: '', description: 'Industrial automation', href: 'https://shb-machine.netlify.app/', image: machineLogo },
-      { title: '', description: 'Content that moves culture', href: '/#initiatives', image: filmicLogo },
+      { title: '', description: 'Content that moves culture', href: 'https://filmic-station.netlify.app/', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
       { title: '', description: 'Smart laundry solutions', href: '/#initiatives', image: cloweeNavbarLogo },
