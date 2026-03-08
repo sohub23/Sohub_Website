@@ -94,7 +94,7 @@
             "name": "SOHUB AI",
             "description": "Automation that scales",
             "logo": "/api/logos/sohub-ai.svg",
-            "href": "https://sohub-vision-spark.lovable.app/",
+            "href": "https://sohub-ai-vision.netlify.app/",
             "order": 5,
             "isActive": true,
             "logoSize": {

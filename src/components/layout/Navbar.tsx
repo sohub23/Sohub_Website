@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight, ChevronLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoOrange from '@/assets/logo-orange.svg';
 
 import { CompactBackgroundPaths } from '@/components/ui/background-paths';
@@ -54,7 +54,7 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
       { title: '', description: 'Execution & accountability OS', href: 'https://emp.sohub.com.bd/', image: empLogo },
       { title: '', description: 'The SOHUB superapp', href: '/tolpar', image: tolparLogo },
-      { title: '', description: 'Automation that scales', href: 'https://sohub-vision-spark.lovable.app/', image: sohubAILogo },
+      { title: '', description: 'Automation that scales', href: 'https://sohub-ai-vision.netlify.app/', image: sohubAILogo },
       { title: '', description: 'Safety & trust initiatives', href: 'https://home.sohub.com.bd/sohub-protect', image: protectLogo },
       { title: '', description: 'Smart control solutions', href: '#initiatives', image: controlsLogo },
       { title: '', description: 'Industrial automation', href: 'https://shb-machine.netlify.app/', image: machineLogo },
@@ -111,7 +111,7 @@ const menuItems: MenuItem[] = [
       { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
       { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
       { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://shb-machine.netlify.app/', image: shopMachineImage },
-      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-vision-spark.lovable.app/', image: shopSohubAiImage }
+      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-ai-vision.netlify.app/', image: shopSohubAiImage }
     ],
     links: []
   },
@@ -121,6 +121,8 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [activeNavItem, setActiveNavItem] = useState<string | null>(null);
+  const location = useLocation();
 
   const [mobileMenuView, setMobileMenuView] = useState<'main' | string>('main');
   const [shopIndex, setShopIndex] = useState(0);
@@ -180,6 +182,55 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Determine active nav item based on current URL path
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path === '/company-info') {
+      setActiveNavItem('Company Profile');
+    } else if (path === '/tolpar') {
+      setActiveNavItem('Tolpar');
+    } else if (path === '/join-us' || path === '/contact') {
+      setActiveNavItem('Discover');
+    } else if (['/terms-of-service', '/privacy-policy', '/service-level-agreement', '/code-of-conduct'].includes(path)) {
+      setActiveNavItem('Discover');
+    } else if (path === '/') {
+      // On homepage, use IntersectionObserver to highlight based on visible sections
+      setActiveNavItem(null);
+
+      const sectionMap: Record<string, string> = {
+        'initiatives': 'Initiatives',
+        'shop': 'Shop',
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const label = sectionMap[entry.target.id];
+              if (label) setActiveNavItem(label);
+            }
+          }
+        },
+        { threshold: 0.3 }
+      );
+
+      const timer = setTimeout(() => {
+        Object.keys(sectionMap).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) observer.observe(el);
+        });
+      }, 500);
+
+      return () => {
+        clearTimeout(timer);
+        observer.disconnect();
+      };
+    } else {
+      setActiveNavItem(null);
+    }
+  }, [location.pathname]);
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -231,12 +282,21 @@ export const Navbar = () => {
               >
                 <a
                   href={item.href}
-                  className={`px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 ${activeMenu === item.label
+                  className={`px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 relative ${activeMenu === item.label
                     ? 'text-[#171a20] bg-black/5 dark:bg-white/10 dark:text-white'
-                    : 'text-[#171a20] hover:bg-black/5 dark:text-white dark:hover:bg-white/10'
+                    : activeNavItem === item.label
+                      ? 'text-[#ee8d22]'
+                      : 'text-[#171a20] hover:bg-black/5 dark:text-white dark:hover:bg-white/10'
                     }`}
                 >
                   {item.label}
+                  {activeNavItem === item.label && !activeMenu && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1 left-2 right-2 h-[2px] bg-[#ee8d22] rounded-full"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
                 </a>
               </div>
             ))}
@@ -337,18 +397,18 @@ export const Navbar = () => {
                             {/* Column 2: Legal */}
                             <div className="flex flex-col gap-6">
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Legal</h3>
-                              <Link to="/terms-of-service" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Terms of Service</Link>
-                              <Link to="/privacy-policy" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Privacy Policy</Link>
-                              <Link to="/service-level-agreement" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Service Level Agreement</Link>
-                              <Link to="/code-of-conduct" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Code of Conduct</Link>
+                              <Link to="/terms-of-service" className={`text-[14px] font-medium transition-colors ${location.pathname === '/terms-of-service' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Terms of Service</Link>
+                              <Link to="/privacy-policy" className={`text-[14px] font-medium transition-colors ${location.pathname === '/privacy-policy' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Privacy Policy</Link>
+                              <Link to="/service-level-agreement" className={`text-[14px] font-medium transition-colors ${location.pathname === '/service-level-agreement' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Service Level Agreement</Link>
+                              <Link to="/code-of-conduct" className={`text-[14px] font-medium transition-colors ${location.pathname === '/code-of-conduct' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Code of Conduct</Link>
                             </div>
 
                             {/* Column 3: Company */}
                             <div className="flex flex-col gap-6">
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Company</h3>
-                              <Link to="/company-info" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">About Us</Link>
-                              <Link to="/join-us" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Join Us</Link>
-                              <Link to="/contact" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Contact Us</Link>
+                              <Link to="/company-info" className={`text-[14px] font-medium transition-colors ${location.pathname === '/company-info' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>About Us</Link>
+                              <Link to="/join-us" className={`text-[14px] font-medium transition-colors ${location.pathname === '/join-us' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Join Us</Link>
+                              <Link to="/contact" className={`text-[14px] font-medium transition-colors ${location.pathname === '/contact' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Contact Us</Link>
                               <a href="https://shop.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
                               <a href={tradeLicensePdf} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Trade License</a>
                             </div>

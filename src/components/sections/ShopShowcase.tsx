@@ -53,7 +53,7 @@ const shops = [
     {
         title: 'SOHUB AI',
         description: 'Intelligent AI automation solutions that scale your business.',
-        link: 'https://sohub-vision-spark.lovable.app/',
+        link: 'https://sohub-ai-vision.netlify.app/',
         image: sohubAiImage
     }
 ];
