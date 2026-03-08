@@ -123,7 +123,7 @@ const DesktopJoinUsContent = ({ setIsModalOpen }: { setIsModalOpen: (open: boole
             </div>
             <div className="flex items-center space-x-3">
               <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#fb8a09]/10 flex items-center justify-center text-[#fb8a09]">✓</div>
-              <span>Clowee — Smart laundry solutions</span>
+              <span>Clowee — Play with your peace of mind</span>
             </div>
           </div>
         </div>

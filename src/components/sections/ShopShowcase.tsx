@@ -5,7 +5,7 @@ import pdlcImage from '@/assets/pdlcmerged (1).png';
 import switchImage from '@/assets/switch_1_transparent.png';
 import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
-import machineImage from '@/assets/power bank.png';
+import machineImage from '@/assets/sohub-snacks-transparent.png';
 import sohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
 const shops = [
     {
@@ -68,7 +68,7 @@ const ShopCard = ({ shop }: { shop: ShopItem }) => (
             <img
                 src={shop.image}
                 alt={shop.title}
-                className={`w-full h-auto object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                className={`w-full h-auto object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[0.95] group-hover:scale-[1]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                 loading="lazy"
             />
         </div>
@@ -127,7 +127,7 @@ const MobileShopShowcase = () => (
                         <img
                             src={shop.image}
                             alt={shop.title}
-                            className={`w-full h-full object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[1.3] group-hover:scale-[1.35]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
+                            className={`w-full h-full object-contain transition-transform duration-300 ${shop.title === 'PDLC Film' ? 'rounded-[16px]' : 'rounded-lg'} ${shop.title === 'Machine By SOHUB' ? 'scale-[0.95] group-hover:scale-[1]' : shop.title === 'Smart Switch' ? 'scale-[0.93]' : shop.title === 'PDLC Film' ? 'scale-[0.85]' : 'group-hover:scale-105'}`}
                             loading="lazy"
                         />
                     </div>

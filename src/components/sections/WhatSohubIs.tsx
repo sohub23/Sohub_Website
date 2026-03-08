@@ -56,7 +56,7 @@ const MobileWhatSohubIs = () => (
                 </li>
               </ul>
 
-              <a href="#initiatives" className="mt-5 pt-4 border-t border-primary/10 flex items-center gap-2 text-primary text-xs font-bold tracking-wide uppercase cursor-pointer hover:gap-3 transition-all">
+              <a href="/#initiatives" className="mt-5 pt-4 border-t border-primary/10 flex items-center gap-2 text-primary text-xs font-bold tracking-wide uppercase cursor-pointer hover:gap-3 transition-all">
                 <span>See our initiatives</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
@@ -180,7 +180,7 @@ const DesktopWhatSohubIs = () => (
                 </li>
               </ul>
 
-              <a href="#initiatives" className="mt-8 pt-6 border-t border-primary/10 flex items-center gap-2 text-primary text-sm font-bold tracking-wide uppercase cursor-pointer hover:gap-3 transition-all inline-flex w-fit">
+              <a href="/#initiatives" className="mt-8 pt-6 border-t border-primary/10 flex items-center gap-2 text-primary text-sm font-bold tracking-wide uppercase cursor-pointer hover:gap-3 transition-all inline-flex w-fit">
                 <span>See our initiatives</span>
                 <ArrowRight className="w-4 h-4" />
               </a>

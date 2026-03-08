@@ -5,7 +5,7 @@ import clickToConnectVideo from '@/assets/click to connect.mp4';
 import clickToConnectImg from '@/assets/click to connect.png';
 import hotscanImg from '@/assets/hotscan.png';
 import empImg from '@/assets/EMP Logo Transparent.png';
-import machineImg from '@/assets/power bank.png';
+import snackMachineImg from '@/assets/sohub-snacks-BxzlzZkJ.png';
 import oMamaImg from '@/assets/O Mama remove bg.png';
 
 interface Experiment {
@@ -42,13 +42,11 @@ const experiments: Experiment[] = [
     },
     {
         id: 3,
-        title: "Smart Powerbank",
-        description: "Rent a powerbank on-the-go from smart vending machines across the city. Scan, charge, and return — anytime, anywhere.",
+        title: "Snack Vending Machine",
+        description: "Smart vending machines serving fresh snacks 24/7. Cashless payments, real-time inventory — convenience redefined.",
         buttonText: "Learn more",
         buttonLink: "https://shb-machine.netlify.app/",
-        image: machineImg,
-        imageFit: 'contain' as const,
-        imageScale: 'large' as const,
+        image: snackMachineImg,
     },
     {
         id: 4,
@@ -237,7 +235,7 @@ const DesktopAIExperiments = () => {
                                             <motion.img
                                                 src={experiment.image}
                                                 alt={experiment.title}
-                                                className={`w-full h-full ${experiment.imageFit === 'contain' ? `object-contain ${experiment.imageScale === 'large' ? 'p-2' : 'p-10'} bg-[#fff8e1]` : 'object-cover'}`}
+                                                className={`w-full h-full bg-[#fff8e1] ${experiment.imageFit === 'contain' ? `object-contain ${experiment.imageScale === 'large' ? 'scale-110' : 'p-10'}` : 'object-cover'}`}
                                                 animate={{ scale: isActive ? 1 : 1.05 }}
                                                 transition={springTransition}
                                             />
@@ -286,7 +284,7 @@ const DesktopAIExperiments = () => {
                                             transition={contentSpring}
                                         >
                                             <h3
-                                                className="text-[48px] font-normal text-[#202124] mb-3"
+                                                className="text-[48px] font-normal text-[#202124] mb-6 leading-[1.15]"
                                                 style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
                                             >
                                                 {experiment.title}

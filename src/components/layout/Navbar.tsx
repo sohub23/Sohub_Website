@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight, ChevronLeft } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoOrange from '@/assets/logo-orange.svg';
 
 import { CompactBackgroundPaths } from '@/components/ui/background-paths';
@@ -48,7 +48,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     label: 'Initiatives',
-    href: '#initiatives',
+    href: '/#initiatives',
     submenu: [
       { title: '', description: 'Communication without barriers', href: 'http://connect-rnd.sohub.com.bd/', image: sohubConnectLogo },
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
@@ -56,15 +56,15 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'The SOHUB superapp', href: '/tolpar', image: tolparLogo },
       { title: '', description: 'Automation that scales', href: 'https://sohub-ai-vision.netlify.app/', image: sohubAILogo },
       { title: '', description: 'Safety & trust initiatives', href: 'https://home.sohub.com.bd/sohub-protect', image: protectLogo },
-      { title: '', description: 'Smart control solutions', href: '#initiatives', image: controlsLogo },
+      { title: '', description: 'Smart control solutions', href: '/#initiatives', image: controlsLogo },
       { title: '', description: 'Industrial automation', href: 'https://shb-machine.netlify.app/', image: machineLogo },
-      { title: '', description: 'Content that moves culture', href: '#initiatives', image: filmicLogo },
+      { title: '', description: 'Content that moves culture', href: '/#initiatives', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
-      { title: '', description: 'Smart laundry solutions', href: '#initiatives', image: cloweeNavbarLogo },
+      { title: '', description: 'Smart laundry solutions', href: '/#initiatives', image: cloweeNavbarLogo },
     ],
     links: [
-      { label: 'View All Initiatives', href: '#initiatives' },
+      { label: 'View All Initiatives', href: '/#initiatives' },
       { label: 'Partner With Us', href: '/join-us' },
     ]
   },
@@ -76,12 +76,12 @@ const menuItems: MenuItem[] = [
   },
   {
     label: 'Discover',
-    href: '#discover',
+    href: '/#discover',
     submenu: [
       { title: 'Smart Home', href: 'https://home.sohub.com.bd', image: '', description: 'Quick Links' },
       { title: 'Connect', href: 'https://connect.sohub.com.bd', image: '', description: 'Quick Links' },
       { title: 'Machines', href: '#solutions', image: '', description: 'Quick Links' },
-      { title: 'Brochures', href: '#brochures', image: '', description: 'Quick Links' },
+      { title: 'Brochures', href: '/#brochures', image: '', description: 'Quick Links' },
       { title: 'Terms of Service', href: '/terms-of-service', image: '', description: 'Legal' },
       { title: 'Privacy Policy', href: '/privacy-policy', image: '', description: 'Legal' },
       { title: 'Service Level Agreement', href: '/service-level-agreement', image: '', description: 'Legal' },
@@ -102,7 +102,7 @@ const menuItems: MenuItem[] = [
   },
   {
     label: 'Shop',
-    href: '#shop',
+    href: '/#shop',
     submenu: [
       { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
       { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
@@ -123,6 +123,30 @@ export const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeNavItem, setActiveNavItem] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // SPA-friendly navigation to homepage sections (no full reload)
+  const navigateToSection = (href: string, e?: React.MouseEvent) => {
+    if (href.startsWith('/#')) {
+      e?.preventDefault();
+      const sectionId = href.replace('/#', '');
+      setActiveMenu(null);
+      setIsMobileMenuOpen(false);
+
+      if (location.pathname === '/') {
+        // Already on homepage, just scroll
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Navigate to homepage, then scroll after it renders
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+  };
 
   const [mobileMenuView, setMobileMenuView] = useState<'main' | string>('main');
   const [shopIndex, setShopIndex] = useState(0);
@@ -282,6 +306,7 @@ export const Navbar = () => {
               >
                 <a
                   href={item.href}
+                  onClick={(e) => navigateToSection(item.href, e)}
                   className={`px-4 py-1 font-medium text-sm rounded-[4px] transition-all duration-300 relative ${activeMenu === item.label
                     ? 'text-[#171a20] bg-black/5 dark:bg-white/10 dark:text-white'
                     : activeNavItem === item.label
@@ -391,7 +416,7 @@ export const Navbar = () => {
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Smart Home</a>
                               <a href="https://connect.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Connect</a>
                               <a href="https://shb-machine.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
-                              <a href="#brochures" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
+                              <a href="/#brochures" onClick={(e) => navigateToSection('/#brochures', e)} className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
                             </div>
 
                             {/* Column 2: Legal */}
@@ -421,6 +446,7 @@ export const Navbar = () => {
                                   <a
                                     key={`${subItem.title}-${idx}`}
                                     href={subItem.href}
+                                    onClick={(e) => navigateToSection(subItem.href, e)}
                                     target={subItem.href.startsWith('http') ? '_blank' : undefined}
                                     rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                     className="group flex flex-col items-center text-center w-56"
@@ -443,6 +469,7 @@ export const Navbar = () => {
                                 <motion.a
                                   key={`${subItem.href}-${index}`}
                                   href={subItem.href}
+                                  onClick={(e) => navigateToSection(subItem.href, e)}
                                   target={subItem.href.startsWith('http') ? '_blank' : undefined}
 
                                   rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -483,6 +510,7 @@ export const Navbar = () => {
                             <motion.a
                               key={link.label}
                               href={link.href}
+                              onClick={(e) => navigateToSection(link.href, e)}
                               initial={{ opacity: 0, x: 10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: 0.1 + index * 0.05 }}
