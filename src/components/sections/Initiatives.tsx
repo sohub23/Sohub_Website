@@ -106,7 +106,7 @@ const VideoCard = ({ src }: { src: string }) => {
 
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.play().catch(() => {});
+            videoRef.current.play().catch(() => { });
         }
     }, []);
 
@@ -188,7 +188,7 @@ const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspe
 
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.play().catch(() => {});
+            videoRef.current.play().catch(() => { });
         }
     }, []);
 
@@ -269,8 +269,8 @@ const MobileInitiatives = () => {
                             <motion.a
                                 key={init.id}
                                 href={init.link}
-                                target={init.link.startsWith('http') ? '_blank' : undefined}
-                                rel={init.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                target={init.link?.startsWith('http') ? '_blank' : undefined}
+                                rel={init.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
                                 initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-30px" }}
