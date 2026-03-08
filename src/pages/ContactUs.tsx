@@ -76,25 +76,24 @@ const DesktopContactContent = ({
                         { icon: Headphones, label: 'Customer Support', color: '#fb8a09', bg: '#fff7e6' },
                         { icon: Building2, label: 'Business & Partnerships', color: '#fb8a09', bg: '#fff7e6' },
                     ].map((item, i) => (
-                        <motion.a
+                        <motion.div
                             key={item.label}
-                            href="#contact-form"
                             custom={i}
                             initial="hidden"
                             animate="visible"
                             variants={fadeUp}
-                            className="flex flex-col items-center gap-3 group"
+                            className="flex flex-col items-center gap-3"
                         >
                             <div
-                                className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-md"
+                                className="w-16 h-16 rounded-full flex items-center justify-center"
                                 style={{ backgroundColor: item.bg }}
                             >
                                 <item.icon className="w-7 h-7" style={{ color: item.color }} />
                             </div>
-                            <span className="text-[#3c4043] font-medium text-[15px] group-hover:text-[#fb8a09] transition-colors">
+                            <span className="text-[#3c4043] font-medium text-[15px]">
                                 {item.label}
                             </span>
-                        </motion.a>
+                        </motion.div>
                     ))}
                 </div>
             </div>
