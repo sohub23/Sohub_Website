@@ -300,7 +300,7 @@ const MobileCompanyInfo = () => {
                             <img src={img4} className="h-full w-full object-cover" alt="SOHUB Experience" />
                         </motion.div>
                         <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="w-[40%] rounded-[12px] overflow-hidden bg-gray-100">
-                            <img src={img5} className="h-full w-full object-contain scale-[0.35]" alt="SOHUB Power Bank" />
+                            <img src={img5} className="h-full w-full object-contain scale-[1.5]" alt="SOHUB Power Bank" />
                         </motion.div>
                         <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }} className="w-[28%] rounded-[12px] overflow-hidden bg-gray-100">
                             <img src={img6} className="h-full w-full object-cover" alt="SOHUB Future" />

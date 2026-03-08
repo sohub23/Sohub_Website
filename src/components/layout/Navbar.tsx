@@ -24,7 +24,7 @@ import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
 import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
-import shopMachineImage from '@/assets/power bank.png';
+import shopMachineImage from '@/assets/sohub-snacks-transparent.png';
 import shopSohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
 import tradeLicensePdf from '@/assets/Trade License 2026_Shahariar Hossain.pdf';
 
@@ -34,6 +34,7 @@ interface SubMenuItem {
   title: string;
   description?: string;
   href: string;
+  orderLink?: string;
   image: string;
 }
 
@@ -104,14 +105,14 @@ const menuItems: MenuItem[] = [
     label: 'Shop',
     href: '/#shop',
     submenu: [
-      { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', image: ximpulBottleImage },
-      { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', image: aloImage },
-      { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', image: pdlcImage },
-      { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', image: switchImage },
-      { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', image: smartLightImage },
-      { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://home.sohub.com.bd/sohub-protect', image: sohubProtectImage },
-      { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://shb-machine.netlify.app/', image: shopMachineImage },
-      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-ai-vision.netlify.app/', image: shopSohubAiImage }
+      { title: 'Ximpul', description: 'Experience the standard', href: 'https://ximpul.com/', orderLink: 'https://ximpul.com/', image: ximpulBottleImage },
+      { title: 'ALO', description: 'Premium lifestyle', href: 'https://home.sohub.com.bd/alo', orderLink: 'https://home.sohub.com.bd/checkout', image: aloImage },
+      { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', orderLink: 'https://home.sohub.com.bd/checkout', image: pdlcImage },
+      { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', orderLink: 'https://home.sohub.com.bd/checkout', image: switchImage },
+      { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', orderLink: 'https://home.sohub.com.bd/checkout', image: smartLightImage },
+      { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://home.sohub.com.bd/sohub-protect', orderLink: 'https://home.sohub.com.bd/checkout', image: sohubProtectImage },
+      { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://shb-machine.netlify.app/', orderLink: 'https://shb-machine.netlify.app/', image: shopMachineImage },
+      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-ai-vision.netlify.app/', orderLink: 'https://sohub-ai-vision.netlify.app/#deployment', image: shopSohubAiImage }
     ],
     links: []
   },
@@ -455,7 +456,7 @@ export const Navbar = () => {
                                       <img
                                         src={subItem.image}
                                         alt={subItem.title}
-                                        className={`w-full h-full object-contain relative z-10 ${subItem.title === 'PDLC Film' ? 'scale-[0.75] rounded-2xl' : 'p-2'} ${subItem.title === 'Machine By SOHUB' ? 'scale-[1.3]' : subItem.title === 'Smart Switch' ? 'scale-[0.93]' : ''}`}
+                                        className={`w-full h-full object-contain relative z-10 ${subItem.title === 'PDLC Film' ? 'scale-[0.75] rounded-2xl' : 'p-2'} ${subItem.title === 'Machine By SOHUB' ? 'scale-[1.15]' : subItem.title === 'Smart Switch' ? 'scale-[0.93]' : ''}`}
                                       />
                                     </div>
                                     <h3 className="font-semibold text-[17px] text-[#171a20] dark:text-white text-center group-hover:text-primary transition-colors">
@@ -748,7 +749,7 @@ export const Navbar = () => {
                                       Learn
                                     </a>
                                     <a
-                                      href={subItem.href}
+                                      href={subItem.orderLink || subItem.href}
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       className="underline decoration-zinc-300 underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
@@ -826,7 +827,7 @@ export const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
-            </motion.div>
+            </motion.div >
           </>
         )}
       </AnimatePresence >
