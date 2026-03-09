@@ -402,7 +402,7 @@ export const FeatureShowcase = () => {
                                                                 <iframe
                                                                     key={`youtube-${index}`}
                                                                     src={`https://www.youtube.com/embed/${feature.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${feature.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
-                                                                    className={`absolute inset-0 w-full h-full pointer-events-none md:pointer-events-auto transition-opacity duration-300 ${loadedYoutubeSlides[index] ? 'opacity-100' : 'opacity-0'}`}
+                                                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 pointer-events-auto ${loadedYoutubeSlides[index] ? 'opacity-100' : 'opacity-0'}`}
                                                                     allow="autoplay; encrypted-media"
                                                                     allowFullScreen
                                                                     frameBorder="0"
