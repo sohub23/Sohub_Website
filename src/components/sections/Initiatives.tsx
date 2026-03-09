@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
 import XimpulVideo from '../../assets/Ximpul3.mp4';
 import OMamaImage from '../../assets/O-mama-initiatives.png';
-import FilmicStationVideo from '../../assets/Filmic_Station_Brand_Video_Creation.mp4';
+import FilmicStationVideo from '../../assets/Filmic Station.mp4';
 import OMamaVideo from '../../assets/omama.mp4';
 
 const initiativesData = [
