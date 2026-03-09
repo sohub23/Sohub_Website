@@ -18,7 +18,7 @@
             "name": "SOHUB Connect",
             "description": "Communication without barriers",
             "logo": "/api/logos/sohub-connect.png",
-            "href": "http://connect-rnd.sohub.com.bd/",
+            "href": "http://connect.sohub.com.bd/",
             "order": 1,
             "isActive": true,
             "logoSize": {
