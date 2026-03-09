@@ -227,7 +227,7 @@
             "name": "Clowee",
             "description": "Smart laundry solutions",
             "logo": "/api/logos/clowee.png",
-            "href": "https://clowee.netlify.app/",
+            "href": "https://shbclowee.netlify.app/",
             "order": 12,
             "isActive": true,
             "logoSize": {

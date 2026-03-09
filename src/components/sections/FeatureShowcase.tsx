@@ -383,16 +383,9 @@ export const FeatureShowcase = () => {
                                                                         }`}
                                                                 />
                                                             )}
-                                                            <div
-                                                                className={`absolute inset-0 bg-gradient-to-br from-black/10 via-black/5 to-black/20 transition-opacity duration-300 ${loadedYoutubeSlides[index]
-                                                                    ? 'opacity-0'
-                                                                    : 'opacity-100'
-                                                                    }`}
-                                                                aria-hidden="true"
-                                                            />
                                                             {!loadedYoutubeSlides[index] && shouldMountYoutubeIframe && (
                                                                 <div
-                                                                    className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+                                                                    className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 z-10"
                                                                     aria-hidden="true"
                                                                 >
                                                                     <div className="h-10 w-10 rounded-full border-2 border-white/70 border-t-white animate-spin" />
@@ -401,8 +394,8 @@ export const FeatureShowcase = () => {
                                                             {shouldMountYoutubeIframe && (
                                                                 <iframe
                                                                     key={`youtube-${index}`}
-                                                                    src={`https://www.youtube.com/embed/${feature.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${feature.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
-                                                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 pointer-events-auto ${loadedYoutubeSlides[index] ? 'opacity-100' : 'opacity-0'}`}
+                                                                    src={`https://www.youtube.com/embed/${feature.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${feature.youtubeId}&controls=1&modestbranding=1&rel=0&playsinline=1`}
+                                                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 z-20 pointer-events-auto ${loadedYoutubeSlides[index] ? 'opacity-100' : 'opacity-0'}`}
                                                                     allow="autoplay; encrypted-media"
                                                                     allowFullScreen
                                                                     frameBorder="0"
