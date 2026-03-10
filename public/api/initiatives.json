@@ -14,31 +14,12 @@
     },
     "initiatives": [
         {
-            "id": "sohub-connect",
-            "name": "SOHUB Connect",
-            "description": "Communication without barriers",
-            "logo": "/api/logos/sohub-connect.png",
-            "href": "http://connect.sohub.com.bd/",
-            "order": 1,
-            "isActive": true,
-            "logoSize": {
-                "desktop": {
-                    "maxHeight": 65,
-                    "maxWidth": 100
-                },
-                "mobile": {
-                    "maxHeight": 48,
-                    "maxWidth": 120
-                }
-            }
-        },
-        {
             "id": "omama",
             "name": "O-Mama",
             "description": "Hygienic food access",
             "logo": "/api/logos/omama.png",
             "href": "https://omama.sohub.com.bd/",
-            "order": 2,
+            "order": 1,
             "isActive": true,
             "logoSize": {
                 "desktop": {
@@ -52,11 +33,30 @@
             }
         },
         {
-            "id": "emp",
-            "name": "EMP",
-            "description": "Execution & accountability OS",
-            "logo": "/api/logos/emp.png",
-            "href": "https://emp.sohub.com.bd/",
+            "id": "smart-home",
+            "name": "Smart Home",
+            "description": "Intelligent living spaces",
+            "logo": "/api/logos/smart-home.png",
+            "href": "https://home.sohub.com.bd/",
+            "order": 2,
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 40,
+                    "maxWidth": 100
+                }
+            }
+        },
+        {
+            "id": "controls",
+            "name": "SOHUB Controls",
+            "description": "Smart control solutions",
+            "logo": "/api/logos/controls.png",
+            "href": "https://shbcontrols.netlify.app/",
             "order": 3,
             "isActive": true,
             "logoSize": {
@@ -71,11 +71,11 @@
             }
         },
         {
-            "id": "tolpar",
-            "name": "Tolpar",
-            "description": "The SOHUB superapp",
-            "logo": "/api/logos/tolpar.png",
-            "href": "https://sohub.netlify.app/tolpar",
+            "id": "protect",
+            "name": "SOHUB Protect",
+            "description": "Safety & trust initiatives",
+            "logo": "/api/logos/protect.png",
+            "href": "https://home.sohub.com.bd/sohub-protect",
             "order": 4,
             "isActive": true,
             "logoSize": {
@@ -84,8 +84,8 @@
                     "maxWidth": 100
                 },
                 "mobile": {
-                    "maxHeight": 44,
-                    "maxWidth": 130
+                    "maxHeight": 48,
+                    "maxWidth": 120
                 }
             }
         },
@@ -109,11 +109,11 @@
             }
         },
         {
-            "id": "protect",
-            "name": "SOHUB Protect",
-            "description": "Safety & trust initiatives",
-            "logo": "/api/logos/protect.png",
-            "href": "https://home.sohub.com.bd/sohub-protect",
+            "id": "machine",
+            "name": "Machine by SOHUB",
+            "description": "Industrial automation",
+            "logo": "/api/logos/machine.png",
+            "href": "https://shb-machine.netlify.app/",
             "order": 6,
             "isActive": true,
             "logoSize": {
@@ -128,11 +128,11 @@
             }
         },
         {
-            "id": "controls",
-            "name": "Controls",
-            "description": "Smart control solutions",
-            "logo": "/api/logos/controls.png",
-            "href": null,
+            "id": "sohub-connect",
+            "name": "SOHUB Connect",
+            "description": "Communication without barriers",
+            "logo": "/api/logos/sohub-connect.png",
+            "href": "http://connect.sohub.com.bd/",
             "order": 7,
             "isActive": true,
             "logoSize": {
@@ -147,11 +147,11 @@
             }
         },
         {
-            "id": "machine",
-            "name": "Machine",
-            "description": "Industrial automation",
-            "logo": "/api/logos/machine.png",
-            "href": "https://shb-machine.netlify.app/",
+            "id": "emp",
+            "name": "EMP",
+            "description": "Execution & accountability OS",
+            "logo": "/api/logos/emp.png",
+            "href": "https://emp.sohub.com.bd/",
             "order": 8,
             "isActive": true,
             "logoSize": {
@@ -166,12 +166,31 @@
             }
         },
         {
+            "id": "ximpul",
+            "name": "Ximpul",
+            "description": "Product experience standards",
+            "logo": "/api/logos/ximpul.png",
+            "href": "https://ximpul.com/",
+            "order": 9,
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 40,
+                    "maxWidth": 100
+                }
+            }
+        },
+        {
             "id": "filmic",
-            "name": "Filmic",
+            "name": "Filmic Station",
             "description": "Content that moves culture",
             "logo": "/api/logos/filmic.png",
             "href": "https://filmic-station.netlify.app/",
-            "order": 9,
+            "order": 10,
             "isActive": true,
             "logoSize": {
                 "desktop": {
@@ -185,50 +204,12 @@
             }
         },
         {
-            "id": "ximpul",
-            "name": "Ximpul",
-            "description": "Product experience standards",
-            "logo": "/api/logos/ximpul.png",
-            "href": "https://ximpul.com/",
-            "order": 10,
-            "isActive": true,
-            "logoSize": {
-                "desktop": {
-                    "maxHeight": 65,
-                    "maxWidth": 100
-                },
-                "mobile": {
-                    "maxHeight": 40,
-                    "maxWidth": 100
-                }
-            }
-        },
-        {
-            "id": "smart-home",
-            "name": "Smart Home",
-            "description": "Intelligent living spaces",
-            "logo": "/api/logos/smart-home.png",
-            "href": "https://home.sohub.com.bd/",
-            "order": 11,
-            "isActive": true,
-            "logoSize": {
-                "desktop": {
-                    "maxHeight": 65,
-                    "maxWidth": 100
-                },
-                "mobile": {
-                    "maxHeight": 40,
-                    "maxWidth": 100
-                }
-            }
-        },
-        {
             "id": "clowee",
             "name": "Clowee",
             "description": "Smart laundry solutions",
             "logo": "/api/logos/clowee.png",
             "href": "https://sohubclowee.netlify.app/",
-            "order": 12,
+            "order": 11,
             "isActive": true,
             "logoSize": {
                 "desktop": {
@@ -238,6 +219,25 @@
                 "mobile": {
                     "maxHeight": 48,
                     "maxWidth": 120
+                }
+            }
+        },
+        {
+            "id": "tolpar",
+            "name": "Tolpar",
+            "description": "The SOHUB superapp",
+            "logo": "/api/logos/tolpar.png",
+            "href": "https://sohub.netlify.app/tolpar",
+            "order": 12,
+            "isActive": true,
+            "logoSize": {
+                "desktop": {
+                    "maxHeight": 65,
+                    "maxWidth": 100
+                },
+                "mobile": {
+                    "maxHeight": 44,
+                    "maxWidth": 130
                 }
             }
         }

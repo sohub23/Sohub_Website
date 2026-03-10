@@ -2,128 +2,117 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
     Cpu,
-    Zap,
-    GraduationCap,
-    Globe,
-    Wrench,
-    Leaf,
-    Briefcase,
     Layers,
-    TrendingUp,
-    Monitor,
-    Lightbulb,
-    Trophy,
-    Headphones,
-    BadgeDollarSign,
-    ShieldCheck,
+    Globe,
     MapPin,
+    Network,
+    Eye,
     type LucideIcon,
 } from 'lucide-react';
 
-const uniqueItems: { icon: LucideIcon; label: string }[] = [
-    { icon: Cpu, label: 'Most Modern Technology' },
-    { icon: Zap, label: 'Young Energetic & Enthusiastic Team' },
-    { icon: GraduationCap, label: 'Foreign Training and Degree' },
-    { icon: Globe, label: 'Collaborate with Global Engineers' },
-    { icon: Wrench, label: 'Customizable Solutions' },
-    { icon: Leaf, label: 'Sustainable Solutions' },
-    { icon: Briefcase, label: 'Industry Expertise' },
-    { icon: Layers, label: 'Integrated Services' },
-    { icon: TrendingUp, label: 'Scalability' },
-    { icon: Monitor, label: 'Hardware & Software combine Work' },
-    { icon: Lightbulb, label: 'Innovation' },
-    { icon: Trophy, label: 'Successful Project' },
-    { icon: Headphones, label: 'Customer Support' },
-    { icon: BadgeDollarSign, label: 'Cost-Effective' },
-    { icon: ShieldCheck, label: 'Quality Assurance' },
-    { icon: MapPin, label: 'Global Reach' },
+const standardItems: { icon: LucideIcon; title: string; description: string }[] = [
+    { icon: Cpu, title: 'Technology with discipline', description: 'We build systems that work reliably in the real world.' },
+    { icon: Layers, title: 'Integrated engineering', description: 'Hardware and software designed to operate as one system.' },
+    { icon: Globe, title: 'Global inspiration, local innovation', description: 'We learn from the world and adapt technology for Bangladesh.' },
+    { icon: MapPin, title: 'Built for Bangladesh', description: 'Solutions designed around local infrastructure, behavior, and cost.' },
+    { icon: Network, title: 'Ecosystem thinking', description: 'Independent systems connected to create lasting impact.' },
+    { icon: Eye, title: 'Transparent execution', description: 'Clear processes, measurable results, and long-term accountability.' },
 ];
 
 /* ──────────────────────────────────────────────
-   SHARED — CheckItem (used by both versions)
+   DESKTOP — Standard Card
    ────────────────────────────────────────────── */
-const CheckItem = ({ icon: Icon, label, index }: { icon: LucideIcon; label: string; index: number }) => {
+const StandardCard = ({ icon: Icon, title, description, index }: { icon: LucideIcon; title: string; description: string; index: number }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-5%' });
 
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, x: -15 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+            }}
+            className="group bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 p-7 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(34,35,58,0.08)] hover:border-primary/20"
+        >
+            <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
+                <Icon className="w-5 h-5 text-primary" strokeWidth={2} />
+            </div>
+            <h3
+                className="text-[17px] font-semibold text-[#0d0925] dark:text-white tracking-tight mb-2"
+                style={{
+                    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                }}
+            >
+                {title}
+            </h3>
+            <p
+                className="text-[14px] leading-[1.6] text-[#4e4a67] dark:text-foreground/60 font-medium"
+                style={{
+                    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                }}
+            >
+                {description}
+            </p>
+        </motion.div>
+    );
+};
+
+/* ──────────────────────────────────────────────
+   MOBILE — compact card
+   ────────────────────────────────────────────── */
+const MobileStandardCard = ({ icon: Icon, title, description, index }: { icon: LucideIcon; title: string; description: string; index: number }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-5%' });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{
                 duration: 0.4,
                 delay: index * 0.05,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="group flex items-center gap-3 py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-primary/[0.04] cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 p-4"
         >
-            <Icon
-                className="w-[18px] h-[18px] flex-shrink-0 text-primary transition-transform duration-200 group-hover:scale-110"
-                strokeWidth={2}
-            />
-            <span
-                className="text-[14px] md:text-[15px] text-[#0d0925] dark:text-white/90 font-medium tracking-tight"
-                style={{
-                    fontFamily:
-                        '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                }}
-            >
-                {label}
-            </span>
-        </motion.div>
-    );
-};
-
-/* ──────────────────────────────────────────────
-   MOBILE — compact single column check item
-   ────────────────────────────────────────────── */
-const MobileCheckItem = ({ icon: Icon, label, index }: { icon: LucideIcon; label: string; index: number }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: '-5%' });
-
-    return (
-        <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 8 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-                duration: 0.3,
-                delay: index * 0.03,
-                ease: [0.22, 1, 0.36, 1],
-            }}
-            className="flex items-center gap-3 py-2.5 px-3"
-        >
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon
-                    className="w-4 h-4 text-primary"
-                    strokeWidth={2.2}
-                />
+            <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-4 h-4 text-primary" strokeWidth={2.2} />
+                </div>
+                <div>
+                    <h3
+                        className="text-[14px] font-semibold text-[#0d0925] dark:text-white tracking-tight mb-1"
+                        style={{
+                            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        {title}
+                    </h3>
+                    <p
+                        className="text-[12px] leading-[1.5] text-[#4e4a67] dark:text-foreground/60 font-medium"
+                        style={{
+                            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        {description}
+                    </p>
+                </div>
             </div>
-            <span
-                className="text-[13px] text-[#0d0925] dark:text-white/90 font-medium"
-                style={{
-                    fontFamily:
-                        '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                }}
-            >
-                {label}
-            </span>
         </motion.div>
     );
 };
 
 /* ──────────────────────────────────────────────
-   DESKTOP VERSION — 100% original, untouched
+   DESKTOP VERSION
    ────────────────────────────────────────────── */
 const DesktopWhyWeAreUnique = () => {
     const headerRef = useRef(null);
     const headerInView = useInView(headerRef, { once: true, margin: '-10%' });
-
-    // Split into two columns
-    const midpoint = Math.ceil(uniqueItems.length / 2);
-    const leftColumn = uniqueItems.slice(0, midpoint);
-    const rightColumn = uniqueItems.slice(midpoint);
 
     return (
         <section className="py-20 bg-[#f8f9fa] dark:bg-zinc-950 relative overflow-hidden">
@@ -137,64 +126,46 @@ const DesktopWhyWeAreUnique = () => {
                     className="max-w-2xl mx-auto text-center mb-12"
                 >
                     <h2 className="text-[48px] font-normal tracking-tight text-[#0d0925] dark:text-white leading-[1.15] mb-5">
-                        Why we are{' '}
-                        <span className="font-semibold text-primary">Unique?</span>
+                        The SOHUB{' '}
+                        <span className="font-semibold text-primary">Standard</span>
                     </h2>
                     <p
-                        className="text-[15px] md:text-[16px] leading-[1.7] text-[#4e4a67] dark:text-foreground/60 max-w-xl mx-auto font-medium"
+                        className="text-[15px] md:text-[16px] leading-[1.7] text-[#4e4a67] dark:text-foreground/60 max-w-xl mx-auto font-medium mb-2"
                         style={{
                             fontFamily:
                                 '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         }}
                     >
-                        From our innovative products to our exceptional customer service,
-                        we're dedicated to providing an unparalleled smart solution!
+                        How we design, build, and operate technology.
+                    </p>
+                    <p
+                        className="text-[14px] leading-[1.7] text-[#4e4a67]/70 dark:text-foreground/40 max-w-xl mx-auto font-medium italic"
+                        style={{
+                            fontFamily:
+                                '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        Because Bangladesh deserves systems that work.
                     </p>
                 </motion.div>
 
-                {/* Checklist Container */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={headerInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="max-w-[860px] mx-auto bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 py-6 px-4 md:px-10"
-                    style={{
-                        boxShadow: '0 8px 40px rgba(34, 35, 58, 0.08)',
-                    }}
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                        {/* Left Column */}
-                        <div>
-                            {leftColumn.map((item, i) => (
-                                <CheckItem key={i} icon={item.icon} label={item.label} index={i} />
-                            ))}
-                        </div>
-
-                        {/* Right Column */}
-                        <div>
-                            {rightColumn.map((item, i) => (
-                                <CheckItem key={i + midpoint} icon={item.icon} label={item.label} index={i + midpoint} />
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
+                {/* Cards Grid */}
+                <div className="max-w-[1000px] mx-auto grid grid-cols-3 gap-5">
+                    {standardItems.map((item, i) => (
+                        <StandardCard key={i} icon={item.icon} title={item.title} description={item.description} index={i} />
+                    ))}
+                </div>
             </div>
         </section>
     );
 };
 
 /* ──────────────────────────────────────────────
-   MOBILE VERSION — compact, single-scroll list
-   with icon badges, smaller text, tighter spacing
+   MOBILE VERSION
    ────────────────────────────────────────────── */
 const MobileWhyWeAreUnique = () => {
     const headerRef = useRef(null);
     const headerInView = useInView(headerRef, { once: true, margin: '-5%' });
-
-    // Split into two columns for mobile too (2-col grid)
-    const midpoint = Math.ceil(uniqueItems.length / 2);
-    const leftColumn = uniqueItems.slice(0, midpoint);
-    const rightColumn = uniqueItems.slice(midpoint);
 
     return (
         <section className="py-10 bg-[#f8f9fa] dark:bg-zinc-950">
@@ -214,8 +185,8 @@ const MobileWhyWeAreUnique = () => {
                                 '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         }}
                     >
-                        Why we are{' '}
-                        <span className="font-semibold text-primary">Unique?</span>
+                        The SOHUB{' '}
+                        <span className="font-semibold text-primary">Standard</span>
                     </h2>
                     <p
                         className="text-[13px] leading-[1.6] text-[#4e4a67] dark:text-foreground/60 font-medium px-2"
@@ -224,31 +195,29 @@ const MobileWhyWeAreUnique = () => {
                                 '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         }}
                     >
-                        From our innovative products to our exceptional customer service,
-                        we're dedicated to providing an unparalleled smart solution!
+                        How we design, build, and operate technology.
+                    </p>
+                    <p
+                        className="text-[12px] leading-[1.6] text-[#4e4a67]/70 dark:text-foreground/40 font-medium italic mt-1 px-2"
+                        style={{
+                            fontFamily:
+                                '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        }}
+                    >
+                        Because Bangladesh deserves systems that work.
                     </p>
                 </motion.div>
 
-                {/* Checklist — compact card */}
+                {/* Cards Grid */}
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     animate={headerInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 py-3 px-2"
-                    style={{ boxShadow: '0 4px 20px rgba(34, 35, 58, 0.06)' }}
+                    className="grid grid-cols-1 gap-3"
                 >
-                    <div className="grid grid-cols-2 gap-x-1">
-                        <div>
-                            {leftColumn.map((item, i) => (
-                                <MobileCheckItem key={i} icon={item.icon} label={item.label} index={i} />
-                            ))}
-                        </div>
-                        <div>
-                            {rightColumn.map((item, i) => (
-                                <MobileCheckItem key={i + midpoint} icon={item.icon} label={item.label} index={i + midpoint} />
-                            ))}
-                        </div>
-                    </div>
+                    {standardItems.map((item, i) => (
+                        <MobileStandardCard key={i} icon={item.icon} title={item.title} description={item.description} index={i} />
+                    ))}
                 </motion.div>
             </div>
         </section>

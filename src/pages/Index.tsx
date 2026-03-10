@@ -19,6 +19,7 @@ import { OurApproach } from '@/components/sections/OurApproach';
 import { Audience } from '@/components/sections/Audience';
 import { Transparency } from '@/components/sections/Transparency';
 import { People } from '@/components/sections/People';
+import { OurInitiatives } from '@/components/sections/OurInitiatives';
 import { Footer } from '@/components/layout/Footer';
 
 const Index = () => {
@@ -44,6 +45,7 @@ const Index = () => {
         {/* <Audience /> */}
         {/* <Transparency /> */}
         <People />
+        <OurInitiatives />
       </main>
       <Footer />
     </div>

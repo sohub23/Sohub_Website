@@ -7,13 +7,20 @@ import XimpulVideo from '../../assets/Ximpul3.mp4';
 import OMamaImage from '../../assets/O-mama-initiatives.png';
 import FilmicStationVideo from '../../assets/Filmic Station.mp4';
 import OMamaVideo from '../../assets/omama.mp4';
+import ConnectImage from '../../assets/connect ini.png';
+import ControlsImage from '../../assets/controls ini.jpeg';
+import EmpImage from '../../assets/emp ini.png';
+import ProtectImage from '../../assets/protect ini.png';
+import SmartImage from '../../assets/smart ini.png';
+import AIImage from '../../assets/AI ini.png';
+import MachineImage from '../../assets/machine ini.png';
 
 const initiativesData = [
     {
         id: 'omama',
         label: 'O-MAMA',
         title: 'Hygienic food access',
-        description: 'Quality food where people work and study. Healthy, accessible, reliable.',
+        description: 'Reliable, quality food where people work and study.',
         bgColor: 'bg-[#FFF4E6]',
         media: { type: 'video' as const, src: OMamaVideo },
         size: 'large',
@@ -21,83 +28,83 @@ const initiativesData = [
     {
         id: 'smart-home',
         label: 'SMART HOME',
-        title: 'Intelligent automation',
-        description: 'Automated control systems for modern living spaces.',
+        title: 'Intelligent living spaces',
+        description: 'Automation and control systems for modern homes.',
         bgColor: 'bg-[#ECEFF1]',
-        media: { type: 'video' as const, src: '' },
+        media: { type: 'image' as const, src: SmartImage },
         size: 'medium',
     },
     {
         id: 'controls',
         label: 'SOHUB CONTROLS',
-        title: 'Building automation',
-        description: '',
+        title: 'Building intelligence systems',
+        description: 'Integrated automation for monitoring and controlling modern & safer buildings.',
         bgColor: 'bg-[#F3E5F5]',
-        media: { type: 'video' as const, src: '' },
+        media: { type: 'image' as const, src: ControlsImage },
         size: 'medium',
     },
     {
         id: 'protect',
         label: 'PROTECT',
-        title: 'Safety & trust initiatives',
-        description: 'Building reliability and security into everything we create.',
+        title: 'Security systems that work',
+        description: 'Inspired by global leaders , built for real security needs in Bangladesh.',
         bgColor: 'bg-[#FFEBEE]',
-        media: null,
+        media: { type: 'image' as const, src: ProtectImage },
         size: 'small',
     },
     {
         id: 'sohub-ai',
         label: 'AI',
-        title: 'Automation that scales',
-        description: 'Intelligent solutions that increase speed, quality, and efficiency.',
-        bgColor: 'bg-[#FCE4EC]',
-        media: { type: 'image' as const, src: '' },
+        title: 'Vision that understands',
+        description: 'Your cameras already see. Now they can understand.',
+        bgColor: 'bg-[#E8EAF6]',
+        media: { type: 'image' as const, src: AIImage },
         size: 'small',
     },
     {
         id: 'machine',
         label: 'MACHINE BY SOHUB',
-        title: 'Industrial automation',
-        description: 'Smart machinery for modern enterprises.',
+        title: 'Machines that work in Bangladesh',
+        description: 'A complete ecosystem — hardware, backend, payments, monitoring, and support — designed for reliable operation at scale.',
         bgColor: 'bg-[#E8F5E9]',
-        media: { type: 'video' as const, src: '' },
+        media: { type: 'image' as const, src: MachineImage },
         size: 'medium',
     },
     {
-        id: 'filmic',
-        label: 'FILMIC STATION',
-        title: 'Content that moves culture',
-        description: '',
-        bgColor: 'bg-[#FFF8E1]',
-        media: { type: 'video' as const, src: FilmicStationVideo },
-        size: 'medium',
+        id: 'sohub-connect',
+        label: 'CONNECT',
+        title: 'Communication without boundaries',
+        description: 'A cloud-native PBX designed for real customer conversations.\nInstant connection. No numbers.',
+        bgColor: 'bg-[#E3F2FD]',
+        media: { type: 'image' as const, src: ConnectImage },
+        size: 'small',
     },
     {
         id: 'emp',
         label: 'EMP',
-        title: 'Execution & accountability OS',
-        description: 'Operating system for teams to track, measure, and deliver results.',
+        title: 'Execution and accountability system',
+        description: 'A discipline framework for teams to track commitments, measure progress, and deliver results.',
         bgColor: 'bg-[#F3E5F5]',
-        media: { type: 'image' as const, src: '' },
+        media: { type: 'image' as const, src: EmpImage },
         size: 'medium',
     },
     {
         id: 'ximpul',
         label: 'XIMPUL',
         title: 'Product experience standards',
-        description: 'Commerce and product experience frameworks for builders.',
+        description: 'Global-quality products at TruePrice — transparent, fair, and built around respect for quality.',
         bgColor: 'bg-[#E0F7FA]',
         media: { type: 'video' as const, src: XimpulVideo },
         size: 'large',
     },
     {
-        id: 'sohub-connect',
-        label: 'CONNECT',
-        title: 'Communication without barriers',
-        description: 'PBX, C2C, HotScan — seamless communication solutions for businesses and consumers.',
-        bgColor: 'bg-[#E3F2FD]',
-        media: { type: 'image' as const, src: '' },
-        size: 'small',
+        id: 'filmic',
+        label: 'FILMIC STATION',
+        title: 'Creative production platform',
+        description: 'Storytelling, and collaborative media production.',
+        bgColor: 'bg-[#FFF8E1]',
+        media: { type: 'video' as const, src: FilmicStationVideo },
+        size: 'medium',
     },
 ];
 
@@ -169,20 +176,14 @@ const VideoCard = ({ src }: { src: string }) => {
 
 // Image Card Component
 const ImageCard = ({ src, alt }: { src: string; alt: string }) => {
-    if (!src) {
-        return (
-            <div className="w-full h-full min-h-[140px] rounded-2xl bg-black/5 flex items-center justify-center border border-black/5">
-                <span className="text-3xl opacity-40">📷</span>
-            </div>
-        );
-    }
+    if (!src) return null;
 
     return (
-        <div className="w-full h-full min-h-[140px] rounded-2xl overflow-hidden border border-black/5 bg-white/50 p-2 flex items-center justify-center">
+        <div className="aspect-[16/10] mx-auto h-full rounded-2xl overflow-hidden border border-black/5 shadow-sm">
             <img
                 src={src}
                 alt={alt}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
             />
         </div>
     );
@@ -273,6 +274,8 @@ const MobileInitiatives = () => {
                 <div className="space-y-4">
                     {initiatives.map((init) => {
                         const hasVideo = init.media?.type === 'video' && init.media.src;
+                        const hasImage = init.media?.type === 'image' && init.media.src;
+                        const hasMedia = hasVideo || hasImage;
 
                         return (
                             <motion.a
@@ -284,12 +287,18 @@ const MobileInitiatives = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-30px" }}
                                 transition={{ duration: 0.5, ease: easeOutExpo }}
-                                className={`flex flex-col ${init.bgColor} rounded-[24px] ${hasVideo ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
+                                className={`flex flex-col ${init.bgColor} rounded-[24px] ${hasMedia ? 'p-5 pb-6' : 'px-6 py-8 min-h-[180px] justify-center'} text-center shadow-[0_1px_3px_rgba(0,0,0,0.04)]`}
                             >
-                                {/* Video if exists */}
-                                {hasVideo && (
+                                {/* Media if exists */}
+                                {hasMedia && (
                                     <div className="mb-5">
-                                        <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-video'} />
+                                        {hasVideo ? (
+                                            <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-video'} />
+                                        ) : (
+                                            <div className="aspect-[16/10] mx-auto h-[160px] rounded-2xl overflow-hidden border border-black/5 shadow-sm">
+                                                <img src={init.media!.src} alt={init.title} className="w-full h-full object-cover" />
+                                            </div>
+                                        )}
                                     </div>
                                 )}
 
@@ -404,15 +413,23 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.15 }}
-                        className={`${initiatives[1].bgColor} rounded-[32px] p-8 flex flex-col min-h-[320px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[1].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
-                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase mb-4">
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
                             {initiatives[1].label}
                         </span>
 
-                        <div className="flex-1 mb-6">
-                            <VideoCard src={initiatives[1].media?.src || ''} />
-                        </div>
+                        {initiatives[1].media && (
+                            initiatives[1].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[1].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[1].media.src} alt={initiatives[1].title} />
+                                </div>
+                            )
+                        )}
 
                         <div>
                             <h3 className="text-xl font-medium text-foreground mb-2">
@@ -423,7 +440,7 @@ const DesktopInitiatives = () => {
                             </p>
                         </div>
 
-                        <div className="mt-6 flex justify-end">
+                        <div className="mt-3 flex justify-end">
                             <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
                                 <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
                             </div>
@@ -439,17 +456,34 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.2 }}
-                        className={`${initiatives[2].bgColor} rounded-[32px] p-8 flex flex-col group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[2].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
-                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase mb-5">
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
                             {initiatives[2].label}
                         </span>
 
-                        <div className="w-full aspect-[16/10] mb-5">
-                            <VideoCard src={initiatives[2].media?.src || ''} />
+                        {initiatives[2].media && (
+                            initiatives[2].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[2].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[2].media.src} alt={initiatives[2].title} />
+                                </div>
+                            )
+                        )}
+
+                        <div>
+                            <h3 className="text-xl font-medium text-foreground mb-2">
+                                {initiatives[2].title}
+                            </h3>
+                            <p className="text-sm text-foreground/70 leading-relaxed font-normal">
+                                {initiatives[2].description}
+                            </p>
                         </div>
 
-                        <div className="flex justify-end mt-auto">
+                        <div className="mt-3 flex justify-end">
                             <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
                                 <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
                             </div>
@@ -465,12 +499,25 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.25 }}
-                        className={`${initiatives[3].bgColor} rounded-[32px] p-8 flex flex-col justify-between min-h-[220px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[3].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
+                            {initiatives[3].label}
+                        </span>
+
+                        {initiatives[3].media && (
+                            initiatives[3].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[3].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[3].media.src} alt={initiatives[3].title} />
+                                </div>
+                            )
+                        )}
+
                         <div>
-                            <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-6">
-                                {initiatives[3].label}
-                            </span>
                             <h3 className="text-lg font-medium text-foreground mb-2">
                                 {initiatives[3].title}
                             </h3>
@@ -478,7 +525,7 @@ const DesktopInitiatives = () => {
                                 {initiatives[3].description}
                             </p>
                         </div>
-                        <div className="mt-4 flex justify-end">
+                        <div className="mt-3 flex justify-end">
                             <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
                     </motion.a>
@@ -492,12 +539,25 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.3 }}
-                        className={`${initiatives[4].bgColor} rounded-[32px] p-8 flex flex-col justify-between min-h-[220px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[4].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
+                            {initiatives[4].label}
+                        </span>
+
+                        {initiatives[4].media && (
+                            initiatives[4].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[4].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[4].media.src} alt={initiatives[4].title} />
+                                </div>
+                            )
+                        )}
+
                         <div>
-                            <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-6">
-                                {initiatives[4].label}
-                            </span>
                             <h3 className="text-lg font-medium text-foreground mb-2">
                                 {initiatives[4].title}
                             </h3>
@@ -505,7 +565,7 @@ const DesktopInitiatives = () => {
                                 {initiatives[4].description}
                             </p>
                         </div>
-                        <div className="mt-4 flex justify-end">
+                        <div className="mt-3 flex justify-end">
                             <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
                     </motion.a>
@@ -519,15 +579,23 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.35 }}
-                        className={`${initiatives[5].bgColor} rounded-[32px] p-8 flex flex-col min-h-[320px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[5].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
-                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase mb-4">
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
                             {initiatives[5].label}
                         </span>
 
-                        <div className="flex-1 mb-6">
-                            <VideoCard src={initiatives[5].media?.src || ''} />
-                        </div>
+                        {initiatives[5].media && (
+                            initiatives[5].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[5].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[5].media.src} alt={initiatives[5].title} />
+                                </div>
+                            )
+                        )}
 
                         <div>
                             <h3 className="text-xl font-medium text-foreground mb-2">
@@ -538,14 +606,14 @@ const DesktopInitiatives = () => {
                             </p>
                         </div>
 
-                        <div className="mt-6 flex justify-end">
+                        <div className="mt-3 flex justify-end">
                             <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
                                 <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
                             </div>
                         </div>
                     </motion.a>
 
-                    {/* Card 7 - FILMIC STATION (Video) */}
+                    {/* Card 7 - CONNECT (Small text card) */}
                     <motion.a
                         href={initiatives[6].link}
                         target="_blank"
@@ -554,20 +622,34 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.4 }}
-                        className={`${initiatives[6].bgColor} rounded-[32px] p-8 flex flex-col group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[6].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
-                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase mb-5">
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
                             {initiatives[6].label}
                         </span>
 
-                        <div className="w-full aspect-[16/10] mb-5">
-                            <VideoCard src={initiatives[6].media?.src || ''} />
-                        </div>
+                        {initiatives[6].media && (
+                            initiatives[6].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[6].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[6].media.src} alt={initiatives[6].title} />
+                                </div>
+                            )
+                        )}
 
-                        <div className="flex justify-end mt-auto">
-                            <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
-                                <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
-                            </div>
+                        <div>
+                            <h3 className="text-lg font-medium text-foreground mb-2">
+                                {initiatives[6].title}
+                            </h3>
+                            <p className="text-sm text-foreground/70 leading-relaxed font-normal">
+                                {initiatives[6].description}
+                            </p>
+                        </div>
+                        <div className="mt-3 flex justify-end">
+                            <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
                         </div>
                     </motion.a>
 
@@ -580,12 +662,25 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.42 }}
-                        className={`${initiatives[7].bgColor} rounded-[32px] p-8 flex flex-col justify-between min-h-[220px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[7].bgColor} rounded-[32px] p-7 flex flex-col h-full group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-5">
+                            {initiatives[7].label}
+                        </span>
+
+                        {initiatives[7].media && (
+                            initiatives[7].media.type === 'video' ? (
+                                <div className="w-full aspect-[16/10] mb-5">
+                                    <VideoCard src={initiatives[7].media.src} />
+                                </div>
+                            ) : (
+                                <div className="w-full flex justify-center h-[180px] mb-5">
+                                    <ImageCard src={initiatives[7].media.src} alt={initiatives[7].title} />
+                                </div>
+                            )
+                        )}
+
                         <div>
-                            <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-8">
-                                {initiatives[7].label}
-                            </span>
                             <h3 className="text-xl font-medium text-foreground mb-2">
                                 {initiatives[7].title}
                             </h3>
@@ -594,7 +689,7 @@ const DesktopInitiatives = () => {
                             </p>
                         </div>
 
-                        <div className="mt-6 flex justify-end">
+                        <div className="mt-3 flex justify-end">
                             <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
                                 <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
                             </div>
@@ -638,7 +733,7 @@ const DesktopInitiatives = () => {
                         </div>
                     </motion.a>
 
-                    {/* Card 10 - CONNECT (Small) */}
+                    {/* Card 10 - FILMIC STATION (Video card) */}
                     <motion.a
                         href={initiatives[9].link}
                         target="_blank"
@@ -647,21 +742,29 @@ const DesktopInitiatives = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.5 }}
-                        className={`${initiatives[9].bgColor} rounded-[32px] p-8 flex flex-col justify-between min-h-[220px] group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
+                        className={`${initiatives[9].bgColor} rounded-[32px] p-7 flex flex-col h-fit group cursor-pointer transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1`}
                     >
+                        <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase mb-5">
+                            {initiatives[9].label}
+                        </span>
+
+                        <div className="w-full aspect-[16/10] mb-5">
+                            <VideoCard src={initiatives[9].media?.src || ''} />
+                        </div>
+
                         <div>
-                            <span className="text-xs font-semibold tracking-[0.12em] text-foreground/60 uppercase block mb-6">
-                                {initiatives[9].label}
-                            </span>
-                            <h3 className="text-lg font-medium text-foreground mb-2">
+                            <h3 className="text-xl font-medium text-foreground mb-2">
                                 {initiatives[9].title}
                             </h3>
                             <p className="text-sm text-foreground/70 leading-relaxed font-normal">
                                 {initiatives[9].description}
                             </p>
                         </div>
-                        <div className="mt-4 flex justify-end">
-                            <ArrowUpRight className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
+
+                        <div className="mt-3 flex justify-end">
+                            <div className="w-8 h-8 rounded-full border border-foreground/10 flex items-center justify-center bg-white/50 group-hover:bg-white transition-colors">
+                                <ArrowUpRight className="w-4 h-4 text-foreground/60 group-hover:text-primary" />
+                            </div>
                         </div>
                     </motion.a>
                 </div>

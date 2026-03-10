@@ -236,7 +236,7 @@ export const FeatureShowcase = () => {
 
     return (
         <>
-            <section className="py-20 bg-[#fff8e1] relative overflow-hidden flex items-start md:items-center">
+            <section className="py-20 bg-[#fff8e1] relative overflow-hidden flex items-start md:items-center md:h-[562px]">
                 <div className="w-full mt-0 md:-mt-12">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative">
                         {/* Left Arrow — desktop only */}
@@ -350,7 +350,7 @@ export const FeatureShowcase = () => {
 
                                             {/* Right Image/Visual */}
                                             <div className="order-1 md:order-none lg:order-2 relative ml-0 md:-ml-12 flex justify-center md:block min-w-0">
-                                                <div className="relative w-full h-[220px] sm:h-[260px] rounded-[24px] overflow-hidden bg-black shadow-[0_18px_36px_rgba(0,0,0,0.16)] ring-1 ring-black/5 md:w-[616px] md:h-[346px] md:rounded-2xl md:shadow-none md:ring-0">
+                                                <div className="relative w-full h-[220px] sm:h-[260px] rounded-[24px] overflow-hidden bg-black shadow-[0_18px_36px_rgba(0,0,0,0.16)] ring-1 ring-black/5 md:w-[452px] md:h-[254px] md:rounded-2xl md:shadow-none md:ring-0">
                                                     {useInlineVideo ? (
                                                         <video
                                                             ref={(node) => {

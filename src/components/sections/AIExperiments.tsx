@@ -201,6 +201,7 @@ const DesktopAIExperiments = () => {
                                 style={{
                                     height: CARD_HEIGHT,
                                     borderRadius: 24,
+                                    border: '1px solid rgba(0,0,0,0.12)',
                                 }}
                             >
                                 {/* Inner flex: image + content side by side */}
