@@ -110,7 +110,7 @@
         },
         {
             "id": "machine",
-            "name": "Machine by SOHUB",
+            "name": "Machines",
             "description": "Industrial automation",
             "logo": "/api/logos/machine.png",
             "href": "https://shb-machine.netlify.app/",

@@ -124,6 +124,28 @@ const MobileWhyWeExist = () => (
             </div>
           </div>
         </AnimatedSection>
+
+        <AnimatedSection delay={0.4}>
+          <div className="card-google p-5 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+              <Globe className="w-5 h-5" />
+            </div>
+            <div>
+              <h3
+                className="text-[15px] font-semibold text-foreground"
+                style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+              >
+                Global inspiration. Local innovation.
+              </h3>
+              <p
+                className="text-[13px] text-foreground-muted"
+                style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+              >
+                Inspired by global technology. Engineered for Bangladesh.
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </div>
   </section>
@@ -257,6 +279,29 @@ const DesktopWhyWeExist = () => (
                     style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
                   >
                     The most scalable way to improve.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Global Inspiration Card */}
+            <AnimatedSection delay={0.4}>
+              <div className="card-google p-6 flex items-center gap-5 group">
+                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3
+                    className="text-heading-3"
+                    style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+                  >
+                    Global inspiration. Local innovation.
+                  </h3>
+                  <p
+                    className="text-body-sm"
+                    style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+                  >
+                    Inspired by global technology. Engineered for Bangladesh.
                   </p>
                 </div>
               </div>

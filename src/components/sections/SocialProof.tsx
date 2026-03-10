@@ -52,15 +52,18 @@ const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
                     <span className="text-xs font-medium text-foreground-muted">Solution Hub Technologies</span>
                 </div>
                 <h2 className="text-[28px] font-medium tracking-tight text-foreground leading-[1.15]">
-                    We build technology that helps Bangladesh work better.
+                    Technology that helps Bangladesh work better.
                 </h2>
                 <p className="text-sm text-foreground/80 max-w-xs mx-auto leading-relaxed">
-                    Technology, built with discipline, to solve real problems — reliably, at scale.
+                    Built with discipline to solve real problems — reliably and at scale.
                 </p>
             </div>
 
             {/* Carousel */}
-            <div className="relative mt-8 h-[40px] w-full bg-transparent">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fc9509] text-center mt-8 mb-1">
+                Our Initiatives
+            </p>
+            <div className="relative h-[40px] w-full bg-transparent">
                 <InfiniteSlider
                     className='flex h-full w-full items-center'
                     duration={300}
@@ -162,16 +165,19 @@ const DesktopSocialProof = ({ theme }: { theme: string | undefined }) => (
                     <span className="text-xs sm:text-sm font-medium text-foreground-muted">Solution Hub Technologies</span>
                 </div>
                 <h2 className="text-[48px] font-medium tracking-tight text-foreground">
-                    We build technology that helps <br className="hidden sm:block" />
+                    Technology that helps <br className="hidden sm:block" />
                     Bangladesh work better.
                 </h2>
                 <p className="text-lg text-foreground/80 max-w-xl mx-auto">
-                    Technology, built with discipline, to solve real problems — reliably, at scale.
+                    Built with discipline to solve real problems — reliably and at scale.
                 </p>
             </div>
 
             {/* Carousel */}
-            <div className="relative mt-12 md:mt-24 h-[60px] w-full bg-transparent">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fc9509] text-center mt-12 md:mt-24 mb-1">
+                Our Initiatives
+            </p>
+            <div className="relative h-[60px] w-full bg-transparent">
                 <InfiniteSlider
                     className='flex h-full w-full items-center'
                     duration={300}
