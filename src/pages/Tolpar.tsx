@@ -3,26 +3,19 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 import {
-    Download,
     ArrowRight,
-    Video,
-    Shield,
     Layers,
-    Smartphone,
+    Globe,
+    Building2,
+    Cpu,
+    Users,
+    MessageCircle,
+    Cog,
 } from 'lucide-react';
 
 import heroMockup from '@/assets/tolpar/hero-mockup.png';
-import heroConnected from '@/assets/tolpar/hero-connected.png';
-import appChaos from '@/assets/tolpar/app-chaos.png';
-import solutionMerge from '@/assets/tolpar/solution-merge.png';
-import videoCall from '@/assets/tolpar/video-call.png';
-import superApp from '@/assets/tolpar/super-app.png';
-import securityShield from '@/assets/tolpar/security-shield.png';
-
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
-
-const PLAY_STORE_LINK = '#';
-const APP_STORE_LINK = '#';
+import imgSohubLogo from '@/assets/logo-orange.svg';
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -48,41 +41,26 @@ const scaleUp = {
     },
 };
 
+/* ─── Connect Items ─── */
+const connectItems = [
+    { icon: Users, label: 'Customers and services' },
+    { icon: Building2, label: 'Businesses and operations' },
+    { icon: Cog, label: 'Machines and real-world infrastructure' },
+];
 
-
-/* ─── Section Badge ─── */
-const SectionBadge = ({
-    icon: Icon,
-    label,
-    variant = 'orange',
-}: {
-    icon: React.ComponentType<{ className?: string }>;
-    label: string;
-    variant?: 'orange' | 'red' | 'dark';
-}) => {
-    const styles = {
-        orange: 'bg-[#fff7e6] text-[#fb8a09]',
-        red: 'bg-red-50 text-red-500',
-        dark: 'bg-[#fb8a09]/10 text-[#fb8a09]',
-    };
-
-    return (
-        <motion.div
-            variants={fadeUp}
-            className={`inline-flex items-center gap-2 ${styles[variant]} text-[12px] md:text-[13px] font-medium px-4 py-1.5 rounded-full mb-5 md:mb-6`}
-        >
-            <Icon className="w-3.5 h-3.5" />
-            {label}
-        </motion.div>
-    );
-};
+/* ─── Unified Layer Items ─── */
+const layerItems = [
+    { text: 'Services become easier to discover' },
+    { text: 'Businesses interact more efficiently' },
+    { text: 'Machines connect to real workflows' },
+];
 
 /* ═══════════════════════════════════════════════
-   TOLPAR PAGE — 7-Act Story Structure
+   TOLPAR PAGE — Redesigned
    ═══════════════════════════════════════════════ */
 const Tolpar = () => {
     useEffect(() => {
-        document.title = 'Tolpar — Super App for Bangladesh | SOHUB';
+        document.title = 'Tolpar — A New Communication Layer | SOHUB';
         window.scrollTo(0, 0);
     }, []);
 
@@ -92,14 +70,13 @@ const Tolpar = () => {
 
             <main>
                 {/* ═══════════════════════════════════════
-            ACT 1 — THE VISION (HERO)
-            ═══════════════════════════════════════ */}
+                    ACT 1 — HERO
+                ═══════════════════════════════════════ */}
                 <section className="pt-36 md:pt-44 pb-16 md:pb-28 relative overflow-hidden">
-                    {/* Warm gradient background */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#fff7e6]/50 via-white to-white pointer-events-none" />
-                    {/* Subtle grid texture */}
+                    {/* Background */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-white pointer-events-none" />
                     <div
-                        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                        className="absolute inset-0 opacity-[0.025] pointer-events-none"
                         style={{
                             backgroundImage:
                                 'linear-gradient(#202124 1px, transparent 1px), linear-gradient(90deg, #202124 1px, transparent 1px)',
@@ -120,90 +97,61 @@ const Tolpar = () => {
                                     variants={fadeUp}
                                     className="flex items-center gap-3 mb-5 md:mb-6 justify-center md:justify-start"
                                 >
-                                    <img src={tolparLogo} alt="Tolpar" className="h-8 md:h-10 w-auto" />
-                                    <span className="text-[12px] md:text-[14px] font-medium text-[#fb8a09] bg-[#fff7e6] px-3 py-1 rounded-full">
-                                        Super App
-                                    </span>
+                                    <img src={tolparLogo} alt="Tolpar" className="h-12 md:h-14 w-auto" />
                                 </motion.div>
 
                                 <motion.h1
                                     variants={fadeUp}
-                                    className="text-[32px] md:text-[52px] lg:text-[60px] leading-[1.1] font-normal tracking-tight text-[#202124] mb-4 md:mb-6"
+                                    className="text-[28px] md:text-[48px] lg:text-[56px] leading-[1.12] font-normal tracking-tight text-[#202124] mb-4 md:mb-6"
                                 >
-                                    Beyond an App.{' '}
-                                    <span className="text-[#fb8a09]">
-                                        It's Your Everyday Companion.
-                                    </span>
+                                    A new communication layer for{' '}
+                                    <span className="text-[#fb8a09]">businesses and services.</span>
                                 </motion.h1>
 
                                 <motion.p
                                     variants={fadeUp}
-                                    className="text-[15px] md:text-[19px] text-[#5f6368] font-normal leading-relaxed max-w-xl mx-auto md:mx-0 mb-8 md:mb-10"
+                                    className="text-[14px] md:text-[18px] text-[#5f6368] font-normal leading-relaxed max-w-xl mx-auto md:mx-0 mb-4 md:mb-6"
                                 >
-                                    Why jump between ten different apps when you can have it all in one?
-                                    Proudly built for Bangladesh, Tolpar brings messaging, high-definition
-                                    calling, and essential daily services into a single, beautiful experience.
+                                    Connecting people, businesses, machines, and real-world systems in one intelligent platform.
                                 </motion.p>
 
-                                <motion.div
+                                <motion.p
                                     variants={fadeUp}
-                                    className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center md:justify-start"
+                                    className="text-[12px] md:text-[14px] text-[#9aa0a6] font-normal mb-6 md:mb-8"
                                 >
-                                    <a
-                                        href={PLAY_STORE_LINK}
-                                        className="inline-flex items-center gap-3 bg-[#202124] hover:bg-[#3c4043] text-white px-7 md:px-8 py-3.5 md:py-4 rounded-full text-[15px] md:text-[16px] font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto justify-center"
-                                    >
-                                        <Download className="w-5 h-5" />
-                                        Get Started for Free
-                                    </a>
-                                    <a
-                                        href="#why-tolpar"
-                                        className="inline-flex items-center gap-2 text-[#5f6368] hover:text-[#fb8a09] px-6 py-3.5 md:py-4 rounded-full text-[15px] md:text-[16px] font-medium transition-colors border border-gray-200 hover:border-[#fb8a09]/30 w-full sm:w-auto justify-center"
-                                    >
-                                        Why Tolpar?
-                                        <ArrowRight className="w-4 h-4" />
-                                    </a>
+                                    Built by Solution Hub Technologies.
+                                </motion.p>
+
+                                <motion.div variants={fadeUp} className="flex items-center gap-4 justify-center md:justify-start">
+                                    <span className="inline-flex items-center gap-2 bg-[#202124] text-white px-6 md:px-8 py-3 md:py-3.5 rounded-full text-[14px] md:text-[15px] font-medium">
+                                        Coming Soon
+                                    </span>
+                                    <span className="text-[13px] md:text-[14px] text-[#9aa0a6] italic">
+                                        Built quietly. Designed carefully.
+                                    </span>
                                 </motion.div>
                             </motion.div>
 
-                            {/* Right: Phone Mockup */}
+                            {/* Right: Dashboard mockup */}
                             <motion.div
                                 className="flex-1 flex justify-center"
                                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                transition={{
-                                    delay: 0.3,
-                                    duration: 0.9,
-                                    ease: [0.16, 1, 0.3, 1],
-                                }}
+                                transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <img
                                     src={heroMockup}
-                                    alt="Tolpar Super App"
-                                    className="w-full max-w-[300px] md:max-w-[480px] h-auto drop-shadow-2xl"
+                                    alt="Tolpar Dashboard"
+                                    className="w-full max-w-[300px] md:max-w-[480px] h-auto drop-shadow-2xl rounded-[16px] md:rounded-[24px]"
                                 />
                             </motion.div>
                         </div>
-
-                        {/* Connected people banner below hero */}
-                        <motion.div
-                            className="mt-12 md:mt-20 rounded-[20px] md:rounded-[28px] overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <img
-                                src={heroConnected}
-                                alt="Bangladeshi people connected through Tolpar"
-                                className="w-full h-[200px] md:h-[360px] object-cover"
-                            />
-                        </motion.div>
                     </div>
                 </section>
 
                 {/* ═══════════════════════════════════════
-            ACT 2 — THE STRUGGLE
-            ═══════════════════════════════════════ */}
+                    ACT 2 — THE PROBLEM
+                ═══════════════════════════════════════ */}
                 <section className="py-16 md:py-28 bg-[#f8f9fa]">
                     <div className="max-w-[900px] mx-auto px-5 md:px-6 text-center">
                         <motion.div
@@ -212,223 +160,86 @@ const Tolpar = () => {
                             viewport={{ once: true, margin: '-80px' }}
                             variants={stagger}
                         >
-                            <SectionBadge icon={Smartphone} label="The Problem" variant="red" />
-
                             <motion.h2
                                 variants={fadeUp}
-                                className="text-[28px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-4 md:mb-6 leading-[1.15]"
+                                className="text-[26px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-5 md:mb-8 leading-[1.15]"
                             >
-                                Stop the{' '}
-                                <span className="text-[#fb8a09]">App-Hopping Fatigue.</span>
+                                A new way to connect{' '}
+                                <span className="text-[#fb8a09]">businesses and people</span>
                             </motion.h2>
+
+                            <motion.div variants={fadeUp} className="space-y-5 md:space-y-6 text-left md:text-center max-w-[700px] mx-auto">
+                                <p className="text-[14px] md:text-[17px] text-[#3c4043] leading-[1.7]">
+                                    Digital communication has focused on people talking to people.
+                                </p>
+                                <p className="text-[14px] md:text-[17px] text-[#5f6368] leading-[1.7]">
+                                    But real services still operate across scattered channels — phone calls, websites, social media, and manual processes. Finding a business, requesting a service, or managing operations is often fragmented and inefficient.
+                                </p>
+                                <p className="text-[15px] md:text-[18px] text-[#202124] font-medium leading-[1.6]">
+                                    Tolpar is being built to rethink this interaction.
+                                </p>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ═══════════════════════════════════════
+                    ACT 3 — PEER-TO-BUSINESS
+                ═══════════════════════════════════════ */}
+                <section className="py-16 md:py-28">
+                    <div className="max-w-[1280px] mx-auto px-5 md:px-6">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-80px' }}
+                            variants={stagger}
+                            className="max-w-[900px] mx-auto"
+                        >
+                            <motion.div variants={fadeUp} className="text-center mb-10 md:mb-14">
+                                <div className="inline-flex items-center gap-2 bg-[#fff7e6] text-[#fb8a09] text-[12px] md:text-[13px] font-medium px-4 py-1.5 rounded-full mb-5">
+                                    <MessageCircle className="w-3.5 h-3.5" />
+                                    Communication
+                                </div>
+                                <h2 className="text-[26px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-5 md:mb-6 leading-[1.15]">
+                                    Peer-to-business{' '}
+                                    <span className="text-[#fb8a09]">communication</span>
+                                </h2>
+                                <p className="text-[14px] md:text-[17px] text-[#5f6368] leading-[1.7] max-w-[700px] mx-auto mb-4">
+                                    Messaging platforms enabled peer-to-peer communication. Tolpar focuses on <strong className="text-[#202124]">peer-to-business communication</strong>.
+                                </p>
+                                <p className="text-[14px] md:text-[16px] text-[#5f6368] leading-[1.7] max-w-[600px] mx-auto">
+                                    A platform designed to connect:
+                                </p>
+                            </motion.div>
+
+                            <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                                {connectItems.map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="flex flex-col items-center text-center p-6 md:p-8 rounded-[20px] bg-[#f8f9fa] border border-gray-100"
+                                    >
+                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#fff7e6] flex items-center justify-center mb-4">
+                                            <item.icon className="w-5 h-5 md:w-6 md:h-6 text-[#fb8a09]" />
+                                        </div>
+                                        <p className="text-[14px] md:text-[16px] font-medium text-[#202124]">{item.label}</p>
+                                    </div>
+                                ))}
+                            </motion.div>
 
                             <motion.p
                                 variants={fadeUp}
-                                className="text-[15px] md:text-[18px] text-[#5f6368] leading-relaxed max-w-2xl mx-auto mb-8 md:mb-12"
+                                className="text-[13px] md:text-[15px] text-[#9aa0a6] text-center mt-6 md:mt-8"
                             >
-                                We know the struggle. One app to text your friends, another to call
-                                your family abroad, and three more for your daily needs. It drains your
-                                battery, eats your data, and complicates your life. Bangladesh deserves
-                                a smarter, simpler way to stay connected.
+                                within a single connected environment.
                             </motion.p>
-
-                            <motion.div variants={scaleUp}>
-                                <img
-                                    src={appChaos}
-                                    alt="Too many apps cluttering your phone"
-                                    className="w-full max-w-[500px] md:max-w-[600px] mx-auto rounded-[20px] md:rounded-[28px]"
-                                />
-                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
 
                 {/* ═══════════════════════════════════════
-            ACT 3 — THE REVELATION
-            ═══════════════════════════════════════ */}
-                <section id="why-tolpar" className="py-16 md:py-28">
-                    <div className="max-w-[1280px] mx-auto px-5 md:px-6">
-                        <motion.div
-                            className="flex flex-col md:flex-row items-center gap-8 md:gap-16"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px' }}
-                            variants={stagger}
-                        >
-                            <motion.div
-                                className="flex-1 order-2 md:order-1"
-                                variants={scaleUp}
-                            >
-                                <img
-                                    src={solutionMerge}
-                                    alt="Everything unified in Tolpar"
-                                    className="w-full max-w-[400px] md:max-w-[500px] mx-auto rounded-[20px] md:rounded-[28px]"
-                                />
-                            </motion.div>
-
-                            <div className="flex-1 order-1 md:order-2 text-center md:text-left">
-                                <SectionBadge icon={Layers} label="The Solution" />
-
-                                <motion.h2
-                                    variants={fadeUp}
-                                    className="text-[28px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-4 md:mb-6 leading-[1.15]"
-                                >
-                                    One Screen.{' '}
-                                    <span className="text-[#fb8a09]">Infinite Possibilities.</span>
-                                </motion.h2>
-
-                                <motion.p
-                                    variants={fadeUp}
-                                    className="text-[15px] md:text-[18px] text-[#5f6368] leading-relaxed max-w-xl mx-auto md:mx-0"
-                                >
-                                    Tolpar isn't just another app on your phone; it's the only one you'll
-                                    actually want to use. We've combined world-class communication with a
-                                    growing ecosystem of services tailored specifically for the Bangladeshi
-                                    lifestyle.
-                                </motion.p>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* ═══════════════════════════════════════
-            ACT 4 — THE PILLARS (BENEFITS)
-            ═══════════════════════════════════════ */}
-                <section id="features" className="py-8 md:py-12">
-                    <div className="max-w-[1280px] mx-auto px-5 md:px-6">
-                        {/* Section Header */}
-                        <motion.div
-                            className="text-center mb-12 md:mb-20"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px' }}
-                            variants={stagger}
-                        >
-                            <motion.p
-                                variants={fadeUp}
-                                className="text-[12px] md:text-[14px] font-medium text-[#fb8a09] mb-3 md:mb-4 tracking-wide uppercase"
-                            >
-                                What you gain
-                            </motion.p>
-                            <motion.h2
-                                variants={fadeUp}
-                                className="text-[28px] md:text-[44px] font-normal tracking-tight text-[#202124] leading-[1.15]"
-                            >
-                                Designed around your{' '}
-                                <span className="text-[#fb8a09]">real life.</span>
-                            </motion.h2>
-                        </motion.div>
-
-                        {/* Pillar 1: Stay Close */}
-                        <motion.div
-                            className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-14 md:mb-28"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px' }}
-                            variants={stagger}
-                        >
-                            <motion.div className="flex-1" variants={scaleUp}>
-                                <img
-                                    src={videoCall}
-                                    alt="Crystal-clear video calling"
-                                    className="w-full rounded-[20px] md:rounded-[28px] shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
-                                />
-                            </motion.div>
-                            <div className="flex-1 text-center md:text-left">
-                                <SectionBadge icon={Video} label="Communication" />
-                                <motion.h3
-                                    variants={fadeUp}
-                                    className="text-[24px] md:text-[36px] font-normal tracking-tight text-[#202124] mb-3 md:mb-4 leading-[1.2]"
-                                >
-                                    Stay Close, No Matter the Distance.
-                                </motion.h3>
-                                <motion.p
-                                    variants={fadeUp}
-                                    className="text-[15px] md:text-[17px] text-[#5f6368] leading-relaxed"
-                                >
-                                    Experience crystal-clear voice and video calls that don't drop, even on
-                                    slower connections. Our technology is optimized for Bangladesh's networks,
-                                    ensuring you never miss a smile or a word from your loved ones.
-                                </motion.p>
-                            </div>
-                        </motion.div>
-
-                        {/* Pillar 2: Your Life, Unified */}
-                        <motion.div
-                            className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 mb-14 md:mb-28"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px' }}
-                            variants={stagger}
-                        >
-                            <motion.div className="flex-1" variants={scaleUp}>
-                                <img
-                                    src={superApp}
-                                    alt="All services in one app"
-                                    className="w-full rounded-[20px] md:rounded-[28px] shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
-                                />
-                            </motion.div>
-                            <div className="flex-1 text-center md:text-left">
-                                <SectionBadge icon={Layers} label="Super App" />
-                                <motion.h3
-                                    variants={fadeUp}
-                                    className="text-[24px] md:text-[36px] font-normal tracking-tight text-[#202124] mb-3 md:mb-4 leading-[1.2]"
-                                >
-                                    Your Life, Unified.
-                                </motion.h3>
-                                <motion.p
-                                    variants={fadeUp}
-                                    className="text-[15px] md:text-[17px] text-[#5f6368] leading-relaxed"
-                                >
-                                    Why waste time searching? From managing your digital profile to accessing
-                                    a world of local services, Tolpar brings everything to your fingertips.
-                                    It's the "Super App" that grows as you do.
-                                </motion.p>
-                            </div>
-                        </motion.div>
-
-                        {/* Pillar 3: Privacy */}
-                        <motion.div
-                            className="flex flex-col md:flex-row items-center gap-8 md:gap-16"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px' }}
-                            variants={stagger}
-                        >
-                            <motion.div className="flex-1" variants={scaleUp}>
-                                <img
-                                    src={securityShield}
-                                    alt="Privacy protection"
-                                    className="w-full max-w-[420px] mx-auto rounded-[20px] md:rounded-[28px]"
-                                />
-                            </motion.div>
-                            <div className="flex-1 text-center md:text-left">
-                                <SectionBadge icon={Shield} label="Privacy" />
-                                <motion.h3
-                                    variants={fadeUp}
-                                    className="text-[24px] md:text-[36px] font-normal tracking-tight text-[#202124] mb-3 md:mb-4 leading-[1.2]"
-                                >
-                                    Your Privacy is Our Priority.
-                                </motion.h3>
-                                <motion.p
-                                    variants={fadeUp}
-                                    className="text-[15px] md:text-[17px] text-[#5f6368] leading-relaxed"
-                                >
-                                    In an era of data leaks, Tolpar is your safe haven. Your chats and calls
-                                    are private, encrypted, and secure. We respect your data because we are
-                                    part of the same community.
-                                </motion.p>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-
-
-                {/* ═══════════════════════════════════════
-            ACT 7 — THE FINAL STEP (CTA)
-            ═══════════════════════════════════════ */}
-                <section className="py-20 md:py-32">
+                    ACT 4 — ONE INTELLIGENT LAYER
+                ═══════════════════════════════════════ */}
+                <section className="py-16 md:py-28 bg-[#202124]">
                     <div className="max-w-[900px] mx-auto px-5 md:px-6 text-center">
                         <motion.div
                             initial="hidden"
@@ -436,88 +247,176 @@ const Tolpar = () => {
                             viewport={{ once: true, margin: '-80px' }}
                             variants={stagger}
                         >
-                            {/* Logo */}
-                            <motion.div
-                                variants={fadeUp}
-                                className="flex justify-center mb-5 md:mb-6"
-                            >
-                                <img
-                                    src={tolparLogo}
-                                    alt="Tolpar"
-                                    className="h-12 md:h-16 w-auto"
-                                />
+                            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 text-[#FBBC05] text-[12px] md:text-[13px] font-medium px-4 py-1.5 rounded-full mb-5 md:mb-6">
+                                <Layers className="w-3.5 h-3.5" />
+                                Unified Layer
                             </motion.div>
 
                             <motion.h2
                                 variants={fadeUp}
-                                className="text-[30px] md:text-[48px] font-normal tracking-tight text-[#202124] mb-4 md:mb-6 leading-[1.1]"
+                                className="text-[26px] md:text-[44px] font-normal tracking-tight text-white mb-6 md:mb-10 leading-[1.15]"
                             >
-                                Ready to Experience the{' '}
-                                <span className="text-[#fb8a09]">Change?</span>
+                                One intelligent layer
                             </motion.h2>
 
                             <motion.p
                                 variants={fadeUp}
-                                className="text-[15px] md:text-[18px] text-[#5f6368] font-normal leading-relaxed max-w-lg mx-auto mb-8 md:mb-10"
+                                className="text-[14px] md:text-[17px] text-[#e8eaed] leading-[1.7] max-w-[650px] mx-auto mb-8 md:mb-12"
                             >
-                                Download Tolpar today and join the movement toward a simpler, more
-                                connected Bangladesh.
+                                Tolpar introduces a unified digital layer where:
                             </motion.p>
 
-                            {/* CTA Buttons */}
-                            <motion.div
-                                variants={fadeUp}
-                                className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center"
-                            >
-                                <a
-                                    href={PLAY_STORE_LINK}
-                                    className="inline-flex items-center gap-3 bg-[#202124] hover:bg-[#3c4043] text-white px-8 py-4 md:py-5 rounded-full text-[15px] md:text-[17px] font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto justify-center"
-                                >
-                                    <Download className="w-5 h-5" />
-                                    Download for Android
-                                </a>
-                                <a
-                                    href={APP_STORE_LINK}
-                                    className="inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-[#202124] px-8 py-4 md:py-5 rounded-full text-[15px] md:text-[17px] font-medium transition-all duration-300 border border-gray-200 hover:-translate-y-0.5 w-full sm:w-auto justify-center"
-                                >
-                                    <Download className="w-5 h-5" />
-                                    Download for iOS
-                                </a>
+                            <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10">
+                                {layerItems.map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="p-5 md:p-6 rounded-[16px] bg-white/5 border border-white/10"
+                                    >
+                                        <p className="text-[14px] md:text-[16px] text-[#e8eaed] font-medium leading-relaxed">{item.text}</p>
+                                    </div>
+                                ))}
                             </motion.div>
 
-                            {/* Secondary Links */}
-                            <motion.div
-                                variants={fadeUp}
-                                className="mt-10 md:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] md:text-[14px] text-[#5f6368]"
-                            >
-                                <a href="#" className="hover:text-[#fb8a09] transition-colors">
-                                    Help Center
-                                </a>
-                                <span className="text-gray-300">·</span>
-                                <a href="#" className="hover:text-[#fb8a09] transition-colors">
-                                    Privacy Policy
-                                </a>
-                                <span className="text-gray-300">·</span>
-                                <a href="#" className="hover:text-[#fb8a09] transition-colors">
-                                    Our Story
-                                </a>
-                                <span className="text-gray-300">·</span>
-                                <a
-                                    href="/contact"
-                                    className="hover:text-[#fb8a09] transition-colors"
-                                >
-                                    Contact Us
-                                </a>
-                            </motion.div>
-
-                            {/* Made with love */}
                             <motion.p
                                 variants={fadeUp}
-                                className="mt-8 md:mt-10 text-[13px] md:text-[14px] text-[#5f6368]"
+                                className="text-[15px] md:text-[18px] text-[#FBBC05] font-medium italic"
                             >
-                                Made with{' '}
-                                <span className="text-red-500">❤️</span> in Bangladesh
+                                creating a more connected operational ecosystem.
                             </motion.p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ═══════════════════════════════════════
+                    ACT 5 — BUILT FOR THE REAL WORLD
+                ═══════════════════════════════════════ */}
+                <section className="py-16 md:py-28">
+                    <div className="max-w-[1280px] mx-auto px-5 md:px-6">
+                        <motion.div
+                            className="max-w-[800px] mx-auto text-center"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-80px' }}
+                            variants={stagger}
+                        >
+                            <div className="text-center">
+                                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-[#fff7e6] text-[#fb8a09] text-[12px] md:text-[13px] font-medium px-4 py-1.5 rounded-full mb-5">
+                                    <Globe className="w-3.5 h-3.5" />
+                                    Local Innovation
+                                </motion.div>
+
+                                <motion.h2
+                                    variants={fadeUp}
+                                    className="text-[26px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-5 md:mb-6 leading-[1.15]"
+                                >
+                                    Built for the{' '}
+                                    <span className="text-[#fb8a09]">real world</span>
+                                </motion.h2>
+
+                                <motion.p
+                                    variants={fadeUp}
+                                    className="text-[14px] md:text-[17px] text-[#5f6368] leading-[1.7] max-w-xl mx-auto mb-4"
+                                >
+                                    Many platforms are built far from the environments where they are used.
+                                </motion.p>
+
+                                <motion.p
+                                    variants={fadeUp}
+                                    className="text-[14px] md:text-[17px] text-[#3c4043] leading-[1.7] max-w-xl mx-auto mb-4"
+                                >
+                                    Tolpar is engineered by SOHUB with a deep understanding of local infrastructure, workflows, and operational realities.
+                                </motion.p>
+
+                                <motion.p
+                                    variants={fadeUp}
+                                    className="text-[14px] md:text-[16px] text-[#5f6368] italic leading-[1.7] max-w-xl mx-auto"
+                                >
+                                    Designed to grow with businesses, systems, and cities.
+                                </motion.p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ═══════════════════════════════════════
+                    ACT 6 — EARLY LOOK
+                ═══════════════════════════════════════ */}
+                <section className="py-16 md:py-28 bg-[#f8f9fa]">
+                    <div className="max-w-[1000px] mx-auto px-5 md:px-6 text-center">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-80px' }}
+                            variants={stagger}
+                        >
+                            <motion.h2
+                                variants={fadeUp}
+                                className="text-[26px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-5 md:mb-8 leading-[1.15]"
+                            >
+                                Early look
+                            </motion.h2>
+
+                            <motion.div variants={scaleUp} className="mb-6 md:mb-8">
+                                <img
+                                    src={heroMockup}
+                                    alt="Tolpar Dashboard Preview"
+                                    className="w-full max-w-[700px] mx-auto rounded-[16px] md:rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.1)]"
+                                />
+                            </motion.div>
+
+                            <motion.p
+                                variants={fadeUp}
+                                className="text-[13px] md:text-[16px] text-[#5f6368] leading-[1.7] max-w-[600px] mx-auto"
+                            >
+                                A preview of the Tolpar interface currently under development. The platform will continue evolving as new capabilities are introduced.
+                            </motion.p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ═══════════════════════════════════════
+                    ACT 7 — THE JOURNEY
+                ═══════════════════════════════════════ */}
+                <section className="py-16 md:py-28">
+                    <div className="max-w-[800px] mx-auto px-5 md:px-6 text-center">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-80px' }}
+                            variants={stagger}
+                        >
+                            <motion.div variants={fadeUp} className="flex justify-center mb-5 md:mb-6">
+                                <img src={tolparLogo} alt="Tolpar" className="h-16 md:h-20 w-auto" />
+                            </motion.div>
+
+                            <motion.h2
+                                variants={fadeUp}
+                                className="text-[26px] md:text-[44px] font-normal tracking-tight text-[#202124] mb-5 md:mb-8 leading-[1.15]"
+                            >
+                                The journey has{' '}
+                                <span className="text-[#fb8a09]">begun</span>
+                            </motion.h2>
+
+                            <motion.div variants={fadeUp} className="space-y-4 md:space-y-5 max-w-[600px] mx-auto mb-8 md:mb-10">
+                                <p className="text-[14px] md:text-[17px] text-[#5f6368] leading-[1.7]">
+                                    Tolpar is currently under active development.
+                                </p>
+                                <p className="text-[14px] md:text-[17px] text-[#5f6368] leading-[1.7]">
+                                    More details will be revealed as the platform evolves.
+                                </p>
+                                <p className="text-[15px] md:text-[18px] text-[#202124] font-medium">
+                                    For now, this is just the beginning.
+                                </p>
+                            </motion.div>
+
+                            {/* SOHUB badge */}
+                            <motion.div
+                                variants={fadeUp}
+                                className="inline-flex items-center gap-3 bg-[#f8f9fa] border border-gray-200 rounded-full px-5 md:px-6 py-2.5 md:py-3"
+                            >
+                                <span className="text-[12px] md:text-[14px] text-[#5f6368] font-medium">An initiative by</span>
+                                <img src={imgSohubLogo} alt="SOHUB" className="h-5 md:h-6 w-auto" />
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>

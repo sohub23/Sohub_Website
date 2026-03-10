@@ -91,22 +91,22 @@ const MobilePrincipleItem = ({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-      className="flex gap-4 p-5 rounded-2xl bg-white/70 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 items-start"
+      className="flex flex-col gap-3 p-4 rounded-2xl bg-white/70 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 items-start"
     >
       <div
-        className="shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center mt-0.5 text-foreground-muted shadow-sm"
+        className="shrink-0 w-10 h-10 bg-white rounded-xl flex items-center justify-center text-foreground-muted shadow-sm"
       >
-        <p.icon className="w-5 h-5" />
+        <p.icon className="w-4 h-4" />
       </div>
 
       <div className="flex-1">
         <h3
-          className="text-[17px] font-medium text-foreground mb-1.5 leading-snug"
+          className="text-[14px] font-semibold text-foreground mb-1.5 leading-snug"
           style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
         >
           {p.title}
         </h3>
-        <p className="text-[14px] text-foreground-muted leading-relaxed">
+        <p className="text-[12px] text-foreground-muted leading-relaxed">
           {p.desc}
         </p>
       </div>
@@ -131,7 +131,7 @@ const MobileSohubStandard = () => (
       </p>
     </div>
 
-    <div className="relative z-10 flex flex-col gap-3">
+    <div className="relative z-10 grid grid-cols-2 gap-3">
       {principles.map((p, index) => (
         <MobilePrincipleItem key={index} p={p} index={index} />
       ))}

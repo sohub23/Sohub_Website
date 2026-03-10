@@ -97,7 +97,7 @@ const DesktopOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =
 };
 
 /* ──────────────────────────────────────────────
-   MOBILE VERSION
+   MOBILE VERSION — Google product list style
    ────────────────────────────────────────────── */
 const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) => {
     const headerRef = useRef(null);
@@ -121,30 +121,30 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
                     </h2>
                 </motion.div>
 
-                {/* Grid — 2 columns on mobile */}
+                {/* List — single column, Google style */}
                 <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     animate={headerInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="grid grid-cols-2 gap-2.5"
+                    className="flex flex-col gap-2"
                 >
                     {initiatives.map((item) => {
                         const CardContent = (
-                            <>
+                            <div className="flex items-center w-full px-4 py-4">
                                 <img
                                     src={`${BASE_URL}${item.logo}`}
                                     alt={item.name}
-                                    className="w-6 h-6 object-contain flex-shrink-0"
+                                    className="w-10 h-10 object-contain flex-shrink-0"
                                 />
                                 <span
-                                    className="text-[12px] font-medium text-[#3c4043] truncate flex-1"
+                                    className="text-[15px] font-medium text-[#3c4043] ml-4 flex-1 truncate"
                                 >
                                     {item.name}
                                 </span>
                                 {item.href && (
-                                    <ExternalLink className="w-3.5 h-3.5 text-[#9aa0a6] flex-shrink-0 group-hover:text-[#5f6368] transition-colors" />
+                                    <ExternalLink className="w-[18px] h-[18px] text-[#9aa0a6] flex-shrink-0 ml-3" />
                                 )}
-                            </>
+                            </div>
                         );
 
                         return item.href ? (
@@ -153,14 +153,14 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
                                 href={item.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2.5 bg-white border border-[#e8eaed] rounded-lg px-3 py-3"
+                                className="block bg-white border border-[#e8eaed] rounded-2xl active:bg-gray-50 transition-colors"
                             >
                                 {CardContent}
                             </a>
                         ) : (
                             <div
                                 key={item.id}
-                                className="flex items-center gap-2.5 bg-white border border-[#e8eaed] rounded-lg px-3 py-3"
+                                className="block bg-white border border-[#e8eaed] rounded-2xl"
                             >
                                 {CardContent}
                             </div>

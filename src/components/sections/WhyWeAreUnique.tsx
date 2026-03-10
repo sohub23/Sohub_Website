@@ -78,15 +78,15 @@ const MobileStandardCard = ({ icon: Icon, title, description, index }: { icon: L
                 delay: index * 0.05,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 p-4"
+            className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 p-3 flex flex-col items-start"
         >
-            <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="w-4 h-4 text-primary" strokeWidth={2.2} />
+            <div className="flex flex-col gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-3.5 h-3.5 text-primary" strokeWidth={2.2} />
                 </div>
                 <div>
                     <h3
-                        className="text-[14px] font-semibold text-[#0d0925] dark:text-white tracking-tight mb-1"
+                        className="text-[13px] font-semibold text-[#0d0925] dark:text-white tracking-tight mb-1 leading-snug"
                         style={{
                             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         }}
@@ -94,7 +94,7 @@ const MobileStandardCard = ({ icon: Icon, title, description, index }: { icon: L
                         {title}
                     </h3>
                     <p
-                        className="text-[12px] leading-[1.5] text-[#4e4a67] dark:text-foreground/60 font-medium"
+                        className="text-[11px] leading-[1.4] text-[#4e4a67] dark:text-foreground/60 font-medium"
                         style={{
                             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         }}
@@ -213,7 +213,7 @@ const MobileWhyWeAreUnique = () => {
                     initial={{ opacity: 0, y: 12 }}
                     animate={headerInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="grid grid-cols-1 gap-3"
+                    className="grid grid-cols-2 gap-3"
                 >
                     {standardItems.map((item, i) => (
                         <MobileStandardCard key={i} icon={item.icon} title={item.title} description={item.description} index={i} />
