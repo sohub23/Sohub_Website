@@ -21,7 +21,58 @@ import {
     Building2,
     Headphones,
     Navigation,
+    Maximize2,
+    X,
 } from 'lucide-react';
+import hotscanQR from '@/assets/Sohub_hotscan.png';
+
+
+/* QR Code Expandable for Contact page */
+const QRExpandableContact = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
+  const [expanded, setExpanded] = useState(false);
+  const imgSize = size === 'sm' ? 'w-16 h-16' : 'w-20 h-20';
+
+  return (
+    <>
+      <button
+        onClick={() => setExpanded(true)}
+        className={`bg-white rounded-xl p-2.5 border border-gray-100 shadow-[0_1px_4px_rgba(0,0,0,0.04)] inline-block relative group cursor-pointer transition-transform hover:scale-105`}
+      >
+        <img src={hotscanQR} alt="Scan to Call SOHUB" className={`${imgSize} object-contain`} />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 rounded-xl transition-colors flex items-center justify-center">
+          <Maximize2 className="w-4 h-4 text-[#fb8a09] opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+      </button>
+
+      {expanded && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          onClick={() => setExpanded(false)}
+        >
+          <div
+            className="relative bg-white rounded-3xl p-8 shadow-2xl max-w-xs w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setExpanded(false)}
+              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <X className="w-4 h-4 text-gray-600" />
+            </button>
+            <div className="text-center">
+              <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
+              <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
+              <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
+                <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />
+              </div>
+              <p className="text-[12px] text-[#5f6368] mt-4">SOHUB — Solution Hub Technologies</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -107,7 +158,7 @@ const DesktopContactContent = ({
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex-1 bg-white rounded-[28px] border border-gray-100 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+                        className="flex-1 bg-white rounded-[28px] border border-gray-100 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.06)] h-fit"
                     >
                         <h2 className="text-[28px] font-normal tracking-tight text-[#202124] mb-2">
                             Send us a message
@@ -212,17 +263,16 @@ const DesktopContactContent = ({
                                     </div>
                                 </a>
 
-                                <a href="tel:+8809678076482" className="flex items-start gap-4 group">
+                                <div className="flex items-start gap-4">
                                     <div className="w-10 h-10 rounded-full bg-[#fff7e6] flex items-center justify-center flex-shrink-0 mt-0.5">
                                         <Phone className="w-5 h-5 text-[#fb8a09]" />
                                     </div>
                                     <div>
-                                        <p className="text-[14px] font-medium text-[#3c4043] mb-0.5">Call Us</p>
-                                        <p className="text-[15px] text-[#5f6368] group-hover:text-[#fb8a09] transition-colors">
-                                            +88 09678-076482
-                                        </p>
+                                        <p className="text-[14px] font-medium text-[#3c4043] mb-1.5">Call Us</p>
+                                        <QRExpandableContact size="md" />
+                                        <p className="text-[12px] text-[#5f6368] mt-1.5">Scan QR or tap to enlarge</p>
                                     </div>
-                                </a>
+                                </div>
 
                                 <div className="flex items-start gap-4">
                                     <div className="w-10 h-10 rounded-full bg-[#fff7e6] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -379,15 +429,16 @@ const MobileContactContent = ({
                         </div>
                     </a>
 
-                    <a href="tel:+8809678076482" className="flex items-center gap-4">
+                    <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-[#fff7e6] flex items-center justify-center flex-shrink-0">
                             <Phone className="w-5 h-5 text-[#fb8a09]" />
                         </div>
                         <div>
                             <p className="text-[13px] font-medium text-[#3c4043]">Call Us</p>
-                            <p className="text-[14px] text-[#5f6368]">+88 09678-076482</p>
+                            <QRExpandableContact size="sm" />
+                            <p className="text-[11px] text-[#5f6368] mt-1">Scan QR or tap to enlarge</p>
                         </div>
-                    </a>
+                    </div>
 
                     <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-[#fff7e6] flex items-center justify-center flex-shrink-0">

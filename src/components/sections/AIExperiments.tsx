@@ -23,6 +23,14 @@ interface Experiment {
 
 const experiments: Experiment[] = [
     {
+        id: 4,
+        title: "NFC Payment",
+        description: "Pay seamlessly at snack vending machines using EBL POS terminal. Just tap your card and go.",
+        buttonText: "Learn More",
+        buttonLink: "https://shb-machine.netlify.app/",
+        youtubeId: "fZHZeiDbxpU",
+    },
+    {
         id: 1,
         title: "O-Mama",
         description: "Smart fridges delivering fresh, hygienic food 24/7. Install at your workspaces or become a franchise operator.",
@@ -47,14 +55,6 @@ const experiments: Experiment[] = [
         buttonText: "Learn more",
         buttonLink: "https://shb-machine.netlify.app/",
         image: snackMachineImg,
-    },
-    {
-        id: 4,
-        title: "NFC Payment",
-        description: "Pay seamlessly at snack vending machines using EBL POS terminal. Just tap your card and go.",
-        buttonText: "Learn More",
-        buttonLink: "https://shb-machine.netlify.app/",
-        youtubeId: "fZHZeiDbxpU",
     },
     {
         id: 5,

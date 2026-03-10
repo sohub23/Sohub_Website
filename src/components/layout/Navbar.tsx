@@ -62,7 +62,7 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Content that moves culture', href: 'https://filmic-station.netlify.app/', image: filmicLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
-      { title: '', description: 'Smart laundry solutions', href: 'https://shbclowee.netlify.app/', image: cloweeNavbarLogo },
+      { title: '', description: 'Smart laundry solutions', href: 'https://sohubclowee.netlify.app/', image: cloweeNavbarLogo },
     ],
     links: [
       { label: 'View All Initiatives', href: '/#initiatives' },

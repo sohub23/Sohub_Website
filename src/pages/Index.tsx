@@ -11,6 +11,7 @@ import { SuccessfulProjects } from '@/components/sections/SuccessfulProjects';
 import { WhyWeAreUnique } from '@/components/sections/WhyWeAreUnique';
 import { IoTEcosystems } from '@/components/sections/IoTEcosystems';
 import { WhyWeExist } from '@/components/sections/WhyWeExist';
+import { OurCustomers } from '@/components/sections/OurCustomers';
 import { WhatSohubIs } from '@/components/sections/WhatSohubIs';
 import { SohubStandard } from '@/components/sections/SohubStandard';
 import { EcosystemExplorer } from '@/components/sections/EcosystemExplorer';
@@ -35,6 +36,7 @@ const Index = () => {
         {/* <SmartLife /> */}
         {/* <SmartHomeSolutions /> */}
         {/* <SuccessfulProjects /> */}
+        <OurCustomers />
         <WhyWeAreUnique />
         {/* <IoTEcosystems /> */}
         {/* <SohubStandard /> */}

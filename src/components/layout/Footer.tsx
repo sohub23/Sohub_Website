@@ -1,16 +1,75 @@
 import { AnimatedSection } from '../ui/AnimatedSection';
 import logoOrange from '@/assets/logo-orange.svg';
-import { ArrowUpRight, Facebook, Linkedin, Instagram, Youtube, FileText, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, Facebook, Linkedin, Instagram, Youtube, FileText, ChevronDown, Maximize2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import membershipBasis from '@/assets/membership_basis.png';
+import hotscanQR from '@/assets/Sohub_hotscan.png';
 
 const brochures = [
-  { name: 'SOHUB', url: '/brochures/SOHUB_Brochure.pdf' },
   { name: 'SOHUB Controls', url: '/brochures/SOHUB_Controls_Brochure.pdf' },
   { name: 'SOHUB Protect', url: '/brochures/SOHUB_Protect_Brochure.pdf' },
-  { name: 'CoMir', url: '/brochures/CoMir_Brochure.pdf' },
 ];
+
+
+/* ──────────────────────────────────────────────
+   QR CODE EXPANDABLE COMPONENT
+   ────────────────────────────────────────────── */
+const QRExpandable = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
+  const [expanded, setExpanded] = useState(false);
+  const imgSize = size === 'sm' ? 'w-20 h-20' : 'w-24 h-24';
+  const containerPad = size === 'sm' ? 'p-2.5' : 'p-3';
+
+  return (
+    <>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => setExpanded(true)}
+          className={`bg-white rounded-xl ${containerPad} shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 relative group cursor-pointer transition-transform hover:scale-105`}
+        >
+          <img src={hotscanQR} alt="Scan to Call SOHUB" className={`${imgSize} object-contain`} />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 rounded-xl transition-colors flex items-center justify-center">
+            <Maximize2 className="w-4 h-4 text-[#fb8a09] opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+        </button>
+        <div>
+          <p className={`${size === 'sm' ? 'text-[11px]' : 'text-xs'} font-medium text-footer-text/60`}>Scan to<br/>Call Us</p>
+          <p className={`${size === 'sm' ? 'text-[9px]' : 'text-[10px]'} text-footer-text/40 mt-0.5`}>Tap to enlarge</p>
+        </div>
+      </div>
+
+      {/* Expanded Modal — portaled to body */}
+      {expanded && createPortal(
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          onClick={() => setExpanded(false)}
+        >
+          <div
+            className="relative bg-white rounded-3xl p-8 shadow-2xl max-w-xs w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setExpanded(false)}
+              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <X className="w-4 h-4 text-gray-600" />
+            </button>
+            <div className="text-center">
+              <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
+              <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
+              <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
+                <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />
+              </div>
+              <p className="text-[12px] text-[#5f6368] mt-4">SOHUB — Solution Hub Technologies</p>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+    </>
+  );
+};
 
 /* ──────────────────────────────────────────────
    DESKTOP VERSION — 100% untouched
@@ -81,7 +140,13 @@ const DesktopFooter = () => {
                   <Youtube className="w-5 h-5" strokeWidth={1.5} />
                 </a>
               </div>
+
+              {/* QR Code */}
+              <div className="mt-2 flex justify-center md:justify-start">
+                <QRExpandable size="md" />
+              </div>
             </div>
+
           </div>
 
           <div className="pt-6 border-t border-footer-text/10 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -197,6 +262,11 @@ const MobileFooter = () => {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* QR Code Section */}
+      <div className="relative z-10 max-w-full mx-auto flex flex-col items-center gap-2 pt-6 mt-4 border-t border-gray-100 px-5">
+        <QRExpandable size="sm" />
       </div>
 
       <div className="relative z-10 max-w-md mx-auto pt-6 mt-6 border-t border-gray-200 flex flex-col items-center gap-4 text-center">
