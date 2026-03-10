@@ -60,7 +60,7 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Communication without barriers', href: 'http://connect-rnd.sohub.com.bd/', image: sohubConnectLogo },
       { title: '', description: 'Execution & accountability OS', href: 'https://emp.sohub.com.bd/', image: empLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
-      { title: '', description: 'Content that moves culture', href: 'https://filmic-station.netlify.app/', image: filmicLogo },
+      { title: '', description: 'Content that moves culture', href: 'https://filmicstation.com', image: filmicLogo },
       { title: '', description: 'Smart laundry solutions', href: 'https://sohubclowee.netlify.app/', image: cloweeNavbarLogo },
       { title: '', description: 'The SOHUB superapp', href: '/tolpar', image: tolparLogo },
     ],
@@ -77,7 +77,7 @@ const menuItems: MenuItem[] = [
   },
   {
     label: 'Discover',
-    href: '/#discover',
+    href: '#',
     submenu: [
       { title: 'Smart Home', href: 'https://home.sohub.com.bd', image: '', description: 'Quick Links' },
       { title: 'Connect', href: 'https://connect.sohub.com.bd', image: '', description: 'Quick Links' },
@@ -128,6 +128,11 @@ export const Navbar = () => {
 
   // SPA-friendly navigation to homepage sections (no full reload)
   const navigateToSection = (href: string, e?: React.MouseEvent) => {
+    if (href === '#') {
+      e?.preventDefault();
+      return;
+    }
+    
     if (href.startsWith('/#')) {
       e?.preventDefault();
       const sectionId = href.replace('/#', '');

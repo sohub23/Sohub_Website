@@ -29,49 +29,49 @@ import hotscanQR from '@/assets/Sohub_hotscan.png';
 
 /* QR Code Expandable for Contact page */
 const QRExpandableContact = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
-  const [expanded, setExpanded] = useState(false);
-  const imgSize = size === 'sm' ? 'w-16 h-16' : 'w-20 h-20';
+    const [expanded, setExpanded] = useState(false);
+    const imgSize = size === 'sm' ? 'w-16 h-16' : 'w-20 h-20';
 
-  return (
-    <>
-      <button
-        onClick={() => setExpanded(true)}
-        className={`bg-white rounded-xl p-2.5 border border-gray-100 shadow-[0_1px_4px_rgba(0,0,0,0.04)] inline-block relative group cursor-pointer transition-transform hover:scale-105`}
-      >
-        <img src={hotscanQR} alt="Scan to Call SOHUB" className={`${imgSize} object-contain`} />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 rounded-xl transition-colors flex items-center justify-center">
-          <Maximize2 className="w-4 h-4 text-[#fb8a09] opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
-      </button>
-
-      {expanded && (
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
-          onClick={() => setExpanded(false)}
-        >
-          <div
-            className="relative bg-white rounded-3xl p-8 shadow-2xl max-w-xs w-full mx-4"
-            onClick={(e) => e.stopPropagation()}
-          >
+    return (
+        <>
             <button
-              onClick={() => setExpanded(false)}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                onClick={() => setExpanded(true)}
+                className={`bg-white rounded-xl p-2.5 border border-gray-100 shadow-[0_1px_4px_rgba(0,0,0,0.04)] inline-block relative group cursor-pointer transition-transform hover:scale-105`}
             >
-              <X className="w-4 h-4 text-gray-600" />
+                <img src={hotscanQR} alt="Scan to Call SOHUB" className={`${imgSize} object-contain`} />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 rounded-xl transition-colors flex items-center justify-center">
+                    <Maximize2 className="w-4 h-4 text-[#fb8a09] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
             </button>
-            <div className="text-center">
-              <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
-              <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
-              <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
-                <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />
-              </div>
-              <p className="text-[12px] text-[#5f6368] mt-4">SOHUB — Solution Hub Technologies</p>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
+
+            {expanded && (
+                <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                    onClick={() => setExpanded(false)}
+                >
+                    <div
+                        className="relative bg-white rounded-3xl p-8 shadow-2xl max-w-xs w-full mx-4"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setExpanded(false)}
+                            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                        >
+                            <X className="w-4 h-4 text-gray-600" />
+                        </button>
+                        <div className="text-center">
+                            <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
+                            <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
+                            <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
+                                <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />
+                            </div>
+                            <p className="text-[12px] text-[#5f6368] mt-4">SOHUB — Solution Hub Technologies</p>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
+    );
 };
 
 const fadeUp = {
@@ -281,8 +281,7 @@ const DesktopContactContent = ({
                                     <div>
                                         <p className="text-[14px] font-medium text-[#3c4043] mb-0.5">Visit Us</p>
                                         <p className="text-[15px] text-[#5f6368] leading-relaxed">
-                                            Flat #C2, House, 29 Katasur Rd,<br />
-                                            Dhaka 1207
+                                            29 Katasur Rd, Mohammadpur, Dhaka 1207
                                         </p>
                                         <a
                                             href="https://www.google.com/maps/dir/?api=1&destination=Flat+C2+House+29+Katasur+Rd+Dhaka+1207"
@@ -311,7 +310,7 @@ const DesktopContactContent = ({
                         </div>
 
                         {/* Social Card */}
-                        <div className="bg-[#fff7e6] rounded-[28px] p-8 border border-[#fb8a09]/10">
+                        <div className="hidden bg-[#fff7e6] rounded-[28px] p-8 border border-[#fb8a09]/10">
                             <h3 className="text-[20px] font-normal tracking-tight text-[#202124] mb-4">
                                 Follow Us
                             </h3>
@@ -446,7 +445,7 @@ const MobileContactContent = ({
                         </div>
                         <div>
                             <p className="text-[13px] font-medium text-[#3c4043]">Visit Us</p>
-                            <p className="text-[14px] text-[#5f6368]">Flat #C2, 29 Katasur Rd, Dhaka 1207</p>
+                            <p className="text-[14px] text-[#5f6368]">29 Katasur Rd, Mohammadpur Dhaka 1207</p>
                             <a
                                 href="https://www.google.com/maps/dir/?api=1&destination=Flat+C2+House+29+Katasur+Rd+Dhaka+1207"
                                 target="_blank"
@@ -551,7 +550,7 @@ const MobileContactContent = ({
             </div>
 
             {/* Social Row */}
-            <div className="px-5 mb-8">
+            <div className="hidden px-5 mb-8">
                 <div className="bg-[#fff7e6] rounded-[24px] p-6 border border-[#fb8a09]/10 text-center">
                     <h3 className="text-[18px] font-normal tracking-tight text-[#202124] mb-3">Follow Us</h3>
                     <div className="flex items-center justify-center gap-4">

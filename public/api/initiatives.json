@@ -189,7 +189,7 @@
             "name": "Filmic Station",
             "description": "Content that moves culture",
             "logo": "/api/logos/filmic.png",
-            "href": "https://filmic-station.netlify.app/",
+            "href": "https://filmicstation.com",
             "order": 10,
             "isActive": true,
             "logoSize": {

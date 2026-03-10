@@ -41,7 +41,7 @@ const ecosystemItems = [
     { name: 'SOHUB Connect', desc: 'Communication without barriers.', logo: imgConnect, href: 'http://connect.sohub.com.bd/', logoScale: 'w-[65%]' },
     { name: 'SOHUB EMP', desc: 'Execution and accountability system for teams.', logo: imgEMP, href: 'https://emp.sohub.com.bd/', logoScale: 'w-[60%]' },
     { name: 'Ximpul', desc: 'Global-quality products at TruePrice.', logo: imgXimpul, href: 'https://ximpul.com/', logoScale: 'w-[55%]' },
-    { name: 'Filmic Station', desc: 'Storytelling and collaborative media production.', logo: imgFilmic, href: 'https://filmic-station.netlify.app/', logoScale: 'w-[55%]' },
+    { name: 'Filmic Station', desc: 'Storytelling and collaborative media production.', logo: imgFilmic, href: 'https://filmicstation.com', logoScale: 'w-[55%]' },
     { name: 'Clowee', desc: 'Smart laundry solutions.', logo: imgClowee, href: 'https://sohubclowee.netlify.app/', logoScale: 'w-[55%]' },
     { name: 'Tolpar', desc: 'The SOHUB superapp.', logo: imgTolpar, href: '/tolpar', logoScale: 'w-[55%]' },
 ];
@@ -104,14 +104,14 @@ const DesktopCompanyInfo = () => {
                     Our vision is to <span className="text-[#4285F4]">innovate</span> everyday life and build a <span className="text-[#EA4335]">smarter</span>, more <span className="text-[#34A853]">connected</span>, and <span className="text-[#FBBC05]">secure</span> future for everyone.
                 </motion.h1>
 
-                <motion.p
+                <motion.h2
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-[20px] text-[#5f6368] font-medium mt-8 italic"
+                    className="text-[24px] md:text-[36px] font-medium tracking-tight text-[#202124] uppercase leading-[1.15] mt-10 md:mt-12"
                 >
-                    Begin Different. Win Different.
-                </motion.p>
+                    Begin Different.<br className="hidden md:block" /> Win Different.
+                </motion.h2>
 
                 <div className="flex flex-wrap justify-center gap-6 sm:gap-12 mt-16">
                     <a href="/join-us" className="flex flex-col items-center gap-3 group">
@@ -174,7 +174,7 @@ const DesktopCompanyInfo = () => {
             </div>
 
             {/* Section: What We Focus On */}
-            <div className="max-w-[1280px] mx-auto px-6 mb-24">
+            <div className="hidden max-w-[1280px] mx-auto px-6 mb-24">
                 <div className="text-center mb-12 lg:mb-16">
                     <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-4">
                         What We Focus On
@@ -267,25 +267,29 @@ const DesktopCompanyInfo = () => {
             </div>
 
             {/* Section: Our Story */}
-            <div className="max-w-[1280px] mx-auto px-6 mb-24">
-                <div className="text-center mb-12">
-                    <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-6">
-                        Our Story
-                    </h2>
-                </div>
-                <div className="max-w-[800px] mx-auto text-center">
-                    <div className="flex items-center justify-center mb-10">
-                        <img src={imgOurStory} alt="SOHUB Our Story" className="w-[240px] h-auto object-contain" />
+            <div className="max-w-[1280px] mx-auto px-6 mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    {/* Left: Text Content */}
+                    <div className="text-left max-w-[550px]">
+                        <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-8">
+                            Our Story
+                        </h2>
+                        <p className="text-[18px] text-[#3c4043] leading-[1.7] mb-6">
+                            From building early communication systems to developing intelligent infrastructure, SOHUB has grown into a technology ecosystem focused on solving real-world challenges.
+                        </p>
+                        <p className="text-[18px] text-[#5f6368] leading-[1.7] mb-5">
+                            Our goal has remained the same:
+                        </p>
+                        <p className="text-[28px] font-medium text-[#202124] tracking-tight border-l-[4px] border-[#fb8a09] pl-5 py-1">
+                            Build technology that works.
+                        </p>
                     </div>
-                    <p className="text-[18px] text-[#3c4043] leading-[1.7] mb-6">
-                        From building early communication systems to developing intelligent infrastructure, SOHUB has grown into a technology ecosystem focused on solving real-world challenges.
-                    </p>
-                    <p className="text-[16px] text-[#5f6368] leading-[1.7] mb-4">
-                        Our goal has remained the same:
-                    </p>
-                    <p className="text-[24px] font-medium text-[#202124] tracking-tight">
-                        Build technology that works.
-                    </p>
+                    {/* Right: Logo */}
+                    <div className="flex items-center justify-center lg:justify-end">
+                        <div className="bg-[#f1f3f4] rounded-[40px] p-12 w-full flex justify-center items-center aspect-[4/3] max-h-[400px]">
+                            <img src={imgOurStory} alt="SOHUB Our Story" className="w-[300px] hover:scale-105 transition-transform duration-500 h-auto object-contain" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -388,14 +392,14 @@ const MobileCompanyInfo = () => {
                     Our vision is to <span className="text-[#4285F4]">innovate</span> everyday life and build a <span className="text-[#EA4335]">smarter</span>, more <span className="text-[#34A853]">connected</span>, and <span className="text-[#FBBC05]">secure</span> future for everyone.
                 </motion.h1>
 
-                <motion.p
+                <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-[16px] text-[#5f6368] font-medium mt-5 italic"
+                    className="text-[22px] font-medium tracking-tight text-[#202124] uppercase mt-6 leading-[1.15]"
                 >
-                    Begin Different. Win Different.
-                </motion.p>
+                    Begin Different.<br /> Win Different.
+                </motion.h2>
 
                 <div className="flex flex-wrap justify-center gap-8 mt-10">
                     <a href="/join-us" className="flex flex-col items-center gap-2">
@@ -453,7 +457,7 @@ const MobileCompanyInfo = () => {
             </div>
 
             {/* Section: What We Focus On */}
-            <div className="px-5 mb-16">
+            <div className="hidden px-5 mb-16">
                 <div className="text-center mb-8">
                     <h2 className="text-[28px] font-normal tracking-[-0.01em] text-[#202124] mb-3">
                         What We Focus On
@@ -540,23 +544,27 @@ const MobileCompanyInfo = () => {
             </div>
 
             {/* Section: Our Story */}
-            <div className="px-5 mb-16">
-                <h2 className="text-[28px] font-normal tracking-[-0.01em] text-[#202124] mb-6 text-center">
-                    Our Story
-                </h2>
-                <div className="text-center">
-                    <div className="flex items-center justify-center mb-8">
-                        <img src={imgOurStory} alt="SOHUB Our Story" className="w-[180px] h-auto object-contain" />
+            <div className="px-5 mb-24">
+                <div className="flex flex-col gap-8">
+                    {/* Text Content */}
+                    <div className="text-left">
+                        <h2 className="text-[32px] font-normal tracking-[-0.01em] text-[#202124] mb-6">
+                            Our Story
+                        </h2>
+                        <p className="text-[16px] text-[#3c4043] leading-[1.7] mb-5">
+                            From building early communication systems to developing intelligent infrastructure, SOHUB has grown into a technology ecosystem focused on solving real-world challenges.
+                        </p>
+                        <p className="text-[15px] text-[#5f6368] leading-[1.7] mb-4">
+                            Our goal has remained the same:
+                        </p>
+                        <p className="text-[22px] font-medium text-[#202124] tracking-tight border-l-[3px] border-[#fb8a09] pl-4 py-0.5">
+                            Build technology that works.
+                        </p>
                     </div>
-                    <p className="text-[15px] text-[#3c4043] leading-[1.7] mb-5 px-2">
-                        From building early communication systems to developing intelligent infrastructure, SOHUB has grown into a technology ecosystem focused on solving real-world challenges.
-                    </p>
-                    <p className="text-[14px] text-[#5f6368] leading-[1.7] mb-3">
-                        Our goal has remained the same:
-                    </p>
-                    <p className="text-[20px] font-medium text-[#202124] tracking-tight">
-                        Build technology that works.
-                    </p>
+                    {/* Logo Block */}
+                    <div className="flex items-center justify-center bg-[#f1f3f4] rounded-[32px] p-10 aspect-video">
+                        <img src={imgOurStory} alt="SOHUB Our Story" className="w-[200px] h-auto object-contain" />
+                    </div>
                 </div>
             </div>
 

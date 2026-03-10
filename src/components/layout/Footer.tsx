@@ -8,7 +8,7 @@ import membershipBasis from '@/assets/membership_basis.png';
 import hotscanQR from '@/assets/Sohub_hotscan.png';
 
 const brochures = [
-  { name: 'SOHUB Controls', url: '/brochures/SOHUB_Controls_Brochure.pdf' },
+  { name: 'SOHUB Controls', url: '/brochures/Shohub Controls March 2026 - V3.0.pdf' },
   { name: 'SOHUB Protect', url: '/brochures/SOHUB_Protect_Brochure.pdf' },
 ];
 
