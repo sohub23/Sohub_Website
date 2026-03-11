@@ -60,7 +60,7 @@ const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
             </div>
 
             {/* Carousel */}
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fc9509] text-center mt-8 mb-1">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/60 text-center mt-8 mb-1">
                 Our Initiatives
             </p>
             <div className="relative h-[40px] w-full bg-transparent">
@@ -174,7 +174,7 @@ const DesktopSocialProof = ({ theme }: { theme: string | undefined }) => (
             </div>
 
             {/* Carousel */}
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fc9509] text-center mt-12 md:mt-24 mb-1">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/60 text-center mt-12 md:mt-24 mb-1">
                 Our Initiatives
             </p>
             <div className="relative h-[60px] w-full bg-transparent">
