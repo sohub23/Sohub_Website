@@ -16,6 +16,8 @@ import {
 import heroMockup from '@/assets/tolpar/hero-mockup.png';
 import tolparLogo from '@/assets/carousel/tolpar-navbar.png';
 import imgSohubLogo from '@/assets/logo-orange.svg';
+import tolparHero from '@/assets/tolpar_hero_transparent.png';
+import androidImg from '@/assets/android_transparent.png';
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -139,11 +141,13 @@ const Tolpar = () => {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                             >
-                                <img
-                                    src={heroMockup}
-                                    alt="Tolpar Dashboard"
-                                    className="w-full max-w-[300px] md:max-w-[480px] h-auto drop-shadow-2xl rounded-[16px] md:rounded-[24px]"
-                                />
+                                <div className="bg-[#fdf8f3] rounded-[28px] w-[300px] h-[300px] md:w-[420px] md:h-[420px] flex items-center justify-center shadow-[0_6px_32px_rgba(0,0,0,0.07)] overflow-hidden">
+                                    <img
+                                        src={tolparHero}
+                                        alt="Tolpar Dashboard"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
                             </motion.div>
                         </div>
                     </div>
@@ -357,11 +361,13 @@ const Tolpar = () => {
                             </motion.h2>
 
                             <motion.div variants={scaleUp} className="mb-6 md:mb-8">
-                                <img
-                                    src={heroMockup}
-                                    alt="Tolpar Dashboard Preview"
-                                    className="w-full max-w-[700px] mx-auto rounded-[16px] md:rounded-[24px] shadow-[0_8px_40px_rgba(0,0,0,0.1)]"
-                                />
+                                <div className="relative bg-[#fdf8f3] rounded-[32px] px-8 md:px-14 py-0 flex items-end justify-center shadow-[0_6px_32px_rgba(0,0,0,0.07)] max-w-[420px] mx-auto overflow-hidden">
+                                    <img
+                                        src={androidImg}
+                                        alt="Tolpar Android App Early Look"
+                                        className="w-full max-w-[240px] md:max-w-[290px] h-auto block drop-shadow-xl"
+                                    />
+                                </div>
                             </motion.div>
 
                             <motion.p
