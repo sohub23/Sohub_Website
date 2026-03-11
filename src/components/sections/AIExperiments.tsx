@@ -27,7 +27,7 @@ const experiments: Experiment[] = [
         title: "NFC Payment",
         description: "Pay seamlessly at snack vending machines using EBL POS terminal. Just tap your card and go.",
         buttonText: "Learn More",
-        buttonLink: "https://shb-machine.netlify.app/",
+        buttonLink: "https://machines.sohub.com.bd/",
         youtubeId: "fZHZeiDbxpU",
     },
     {
@@ -53,7 +53,7 @@ const experiments: Experiment[] = [
         title: "Snack Vending Machine",
         description: "Smart vending machines serving fresh snacks 24/7. Cashless payments, real-time inventory — convenience redefined.",
         buttonText: "Learn more",
-        buttonLink: "https://shb-machine.netlify.app/",
+        buttonLink: "https://machines.sohub.com.bd/",
         image: snackMachineImg,
     },
     {

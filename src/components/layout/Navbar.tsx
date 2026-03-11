@@ -54,14 +54,14 @@ const menuItems: MenuItem[] = [
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
       { title: '', description: 'Smart control solutions', href: '/#initiatives', image: controlsLogo },
-      { title: '', description: 'Safety & trust initiatives', href: 'https://home.sohub.com.bd/sohub-protect', image: protectLogo },
-      { title: '', description: 'Automation that scales', href: 'https://sohub-ai-vision.netlify.app/', image: sohubAILogo },
-      { title: '', description: 'Industrial automation', href: 'https://shb-machine.netlify.app/', image: machineLogo },
+      { title: '', description: 'Safety & trust initiatives', href: 'https://protect.sohub.com.bd/', image: protectLogo },
+      { title: '', description: 'Automation that scales', href: 'https://ai.sohub.com.bd/', image: sohubAILogo },
+      { title: '', description: 'Industrial automation', href: 'https://machines.sohub.com.bd/', image: machineLogo },
       { title: '', description: 'Communication without barriers', href: 'http://connect-rnd.sohub.com.bd/', image: sohubConnectLogo },
       { title: '', description: 'Execution & accountability OS', href: 'https://emp.sohub.com.bd/', image: empLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Content that moves culture', href: 'https://filmicstation.com', image: filmicLogo },
-      { title: '', description: 'Smart laundry solutions', href: 'https://sohubclowee.netlify.app/', image: cloweeNavbarLogo },
+      { title: '', description: 'Smart laundry solutions', href: 'https://clowee.sohub.com.bd/', image: cloweeNavbarLogo },
       { title: '', description: 'The SOHUB superapp', href: '/tolpar', image: tolparLogo },
     ],
     links: [
@@ -110,9 +110,9 @@ const menuItems: MenuItem[] = [
       { title: 'PDLC Film', description: 'Smart film technology', href: 'https://home.sohub.com.bd/pdlc-film', orderLink: 'https://home.sohub.com.bd/checkout', image: pdlcImage },
       { title: 'Smart Switch', description: 'Intelligent controls', href: 'https://home.sohub.com.bd/switch', orderLink: 'https://home.sohub.com.bd/checkout', image: switchImage },
       { title: 'Smart Light', description: 'Efficient lighting', href: 'https://home.sohub.com.bd/smart-light', orderLink: 'https://home.sohub.com.bd/checkout', image: smartLightImage },
-      { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://home.sohub.com.bd/sohub-protect', orderLink: 'https://home.sohub.com.bd/checkout', image: sohubProtectImage },
-      { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://shb-machine.netlify.app/', orderLink: 'https://shb-machine.netlify.app/', image: shopMachineImage },
-      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://sohub-ai-vision.netlify.app/', orderLink: 'https://sohub-ai-vision.netlify.app/#deployment', image: shopSohubAiImage }
+      { title: 'SOHUB Protect', description: 'Security solutions you can trust.', href: 'https://protect.sohub.com.bd/', orderLink: 'https://home.sohub.com.bd/checkout', image: sohubProtectImage },
+      { title: 'Machine By SOHUB', description: 'Industrial automation and smart machinery for modern enterprises.', href: 'https://machines.sohub.com.bd/', orderLink: 'https://machines.sohub.com.bd/', image: shopMachineImage },
+      { title: 'SOHUB AI', description: 'Intelligent AI automation solutions that scale your business.', href: 'https://ai.sohub.com.bd/', orderLink: 'https://ai.sohub.com.bd/#deployment', image: shopSohubAiImage }
     ],
     links: []
   },
@@ -421,7 +421,7 @@ export const Navbar = () => {
                               <h3 className="text-[#5c5e62] text-[13px] font-normal mb-1">Quick Links</h3>
                               <a href="https://home.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Smart Home</a>
                               <a href="https://connect.sohub.com.bd" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Connect</a>
-                              <a href="https://shb-machine.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
+                              <a href="https://machines.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Machines</a>
                               <a href="/#brochures" onClick={(e) => navigateToSection('/#brochures', e)} className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Brochures</a>
                             </div>
 

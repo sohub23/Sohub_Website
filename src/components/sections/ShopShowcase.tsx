@@ -41,19 +41,19 @@ const shops = [
     {
         title: 'SOHUB Protect',
         description: 'Security solutions you can trust.',
-        link: 'https://home.sohub.com.bd/sohub-protect',
+        link: 'https://protect.sohub.com.bd/',
         image: sohubProtectImage
     },
     {
         title: 'Machine By SOHUB',
         description: 'Industrial automation and smart machinery for modern enterprises.',
-        link: 'https://shb-machine.netlify.app/',
+        link: 'https://machines.sohub.com.bd/',
         image: machineImage
     },
     {
         title: 'SOHUB AI',
         description: 'Intelligent AI automation solutions that scale your business.',
-        link: 'https://sohub-ai-vision.netlify.app/',
+        link: 'https://ai.sohub.com.bd/',
         image: sohubAiImage
     }
 ];

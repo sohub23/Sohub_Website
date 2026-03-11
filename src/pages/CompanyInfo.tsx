@@ -34,15 +34,15 @@ import vidSmartSwitch from '@/assets/Smart_Switch_AI_Video.mp4';
 const ecosystemItems = [
     { name: 'O-Mama', desc: 'Hygienic food access for communities.', logo: imgOmama, href: 'https://omama.sohub.com.bd/', logoScale: 'w-[60%]' },
     { name: 'Smart Home', desc: 'Intelligent living spaces with automation and control.', logo: imgSmartHome, href: 'https://home.sohub.com.bd/', logoScale: 'w-[50%]' },
-    { name: 'SOHUB Controls', desc: 'Integrated automation for monitoring and controlling buildings.', logo: imgControls, href: 'https://shbcontrols.netlify.app/', logoScale: 'w-[55%]' },
-    { name: 'SOHUB Protect', desc: 'Security systems built for real safety needs.', logo: imgProtect, href: 'https://home.sohub.com.bd/sohub-protect', logoScale: 'w-[55%]' },
-    { name: 'SOHUB AI', desc: 'Vision intelligence. Your cameras now understand.', logo: imgAI, href: 'https://sohub-ai-vision.netlify.app/', logoScale: 'w-[50%]' },
-    { name: 'Machine By SOHUB', desc: 'Industrial automation and smart machinery.', logo: imgMachine, href: 'https://shb-machine.netlify.app/', logoScale: 'w-[50%]' },
-    { name: 'SOHUB Connect', desc: 'Communication without barriers.', logo: imgConnect, href: 'http://connect.sohub.com.bd/', logoScale: 'w-[65%]' },
+    { name: 'SOHUB Controls', desc: 'Integrated automation for monitoring and controlling buildings.', logo: imgControls, href: 'https://controls.sohub.com.bd/', logoScale: 'w-[55%]' },
+    { name: 'SOHUB Protect', desc: 'Security systems built for real safety needs.', logo: imgProtect, href: 'https://protect.sohub.com.bd/', logoScale: 'w-[55%]' },
+    { name: 'SOHUB AI', desc: 'Vision intelligence. Your cameras now understand.', logo: imgAI, href: 'https://ai.sohub.com.bd/', logoScale: 'w-[50%]' },
+    { name: 'Machine By SOHUB', desc: 'Industrial automation and smart machinery.', logo: imgMachine, href: 'https://machines.sohub.com.bd/', logoScale: 'w-[50%]' },
+    { name: 'SOHUB Connect', desc: 'Communication without barriers.', logo: imgConnect, href: 'https://connect.sohub.com.bd/', logoScale: 'w-[65%]' },
     { name: 'SOHUB EMP', desc: 'Execution and accountability system for teams.', logo: imgEMP, href: 'https://emp.sohub.com.bd/', logoScale: 'w-[60%]' },
     { name: 'Ximpul', desc: 'Global-quality products at TruePrice.', logo: imgXimpul, href: 'https://ximpul.com/', logoScale: 'w-[55%]' },
     { name: 'Filmic Station', desc: 'Storytelling and collaborative media production.', logo: imgFilmic, href: 'https://filmicstation.com', logoScale: 'w-[55%]' },
-    { name: 'Clowee', desc: 'Smart laundry solutions.', logo: imgClowee, href: 'https://sohubclowee.netlify.app/', logoScale: 'w-[55%]' },
+    { name: 'Clowee', desc: 'Smart laundry solutions.', logo: imgClowee, href: 'https://clowee.sohub.com.bd/', logoScale: 'w-[55%]' },
     { name: 'Tolpar', desc: 'The SOHUB superapp.', logo: imgTolpar, href: '/tolpar', logoScale: 'w-[55%]' },
 ];
 

@@ -56,7 +56,7 @@
             "name": "SOHUB Controls",
             "description": "Smart control solutions",
             "logo": "/api/logos/controls.png",
-            "href": "https://shbcontrols.netlify.app/",
+            "href": "https://controls.sohub.com.bd/",
             "order": 3,
             "isActive": true,
             "logoSize": {
@@ -75,7 +75,7 @@
             "name": "SOHUB Protect",
             "description": "Safety & trust initiatives",
             "logo": "/api/logos/protect.png",
-            "href": "https://home.sohub.com.bd/sohub-protect",
+            "href": "https://protect.sohub.com.bd/",
             "order": 4,
             "isActive": true,
             "logoSize": {
@@ -94,7 +94,7 @@
             "name": "SOHUB AI",
             "description": "Automation that scales",
             "logo": "/api/logos/sohub-ai.svg",
-            "href": "https://sohub-ai-vision.netlify.app/",
+            "href": "https://ai.sohub.com.bd/",
             "order": 5,
             "isActive": true,
             "logoSize": {
@@ -113,7 +113,7 @@
             "name": "Machines",
             "description": "Industrial automation",
             "logo": "/api/logos/machine.png",
-            "href": "https://shb-machine.netlify.app/",
+            "href": "https://machines.sohub.com.bd/",
             "order": 6,
             "isActive": true,
             "logoSize": {
@@ -132,7 +132,7 @@
             "name": "SOHUB Connect",
             "description": "Communication without barriers",
             "logo": "/api/logos/sohub-connect.png",
-            "href": "http://connect.sohub.com.bd/",
+            "href": "https://connect.sohub.com.bd/",
             "order": 7,
             "isActive": true,
             "logoSize": {
@@ -208,7 +208,7 @@
             "name": "Clowee",
             "description": "Smart laundry solutions",
             "logo": "/api/logos/clowee.png",
-            "href": "https://sohubclowee.netlify.app/",
+            "href": "https://clowee.sohub.com.bd/",
             "order": 11,
             "isActive": true,
             "logoSize": {
