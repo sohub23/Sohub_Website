@@ -3,17 +3,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
-import XimpulVideo from '../../assets/Ximpul3.mp4';
-import OMamaImage from '../../assets/O-mama-initiatives.png';
-import FilmicStationVideo from '../../assets/Filmic Station.mp4';
+import OMamaImage from '../../assets/O-mama-initiatives.webp';
 import OMamaVideo from '../../assets/omama.mp4';
-import ConnectImage from '../../assets/connect ini.png';
-import ControlsImage from '../../assets/controls ini.jpeg';
-import EmpImage from '../../assets/emp ini.png';
-import ProtectImage from '../../assets/protect ini.png';
-import SmartImage from '../../assets/smart ini.png';
-import AIImage from '../../assets/AI ini.png';
-import MachineImage from '../../assets/machine ini.png';
+import ConnectImage from '../../assets/connect ini.webp';
+import ControlsImage from '../../assets/controls ini.webp';
+import EmpImage from '../../assets/emp ini.webp';
+import ProtectImage from '../../assets/protect ini.webp';
+import SmartImage from '../../assets/smart ini.webp';
+import AIImage from '../../assets/AI ini.webp';
+import MachineImage from '../../assets/machine ini.webp';
 
 const initiativesData = [
     {
@@ -94,7 +92,7 @@ const initiativesData = [
         title: 'Product experience standards',
         description: 'Global-quality products at TruePrice — transparent, fair, and built around respect for quality.',
         bgColor: 'bg-[#E0F7FA]',
-        media: { type: 'video' as const, src: XimpulVideo },
+        media: { type: 'youtube' as const, youtubeId: 'gEHt-GEZYY0' },
         size: 'large',
     },
     {
@@ -103,7 +101,7 @@ const initiativesData = [
         title: 'Creative production platform',
         description: 'Storytelling, and collaborative media production.',
         bgColor: 'bg-[#FFF8E1]',
-        media: { type: 'video' as const, src: FilmicStationVideo },
+        media: { type: 'youtube' as const, youtubeId: '279Y6nPslH8' },
         size: 'medium',
     },
 ];
@@ -158,6 +156,7 @@ const VideoCard = ({ src }: { src: string }) => {
                 muted
                 playsInline
                 autoPlay
+                preload="none"
             />
             <div
                 role="button"
@@ -220,6 +219,7 @@ const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspe
                 src={src}
                 className="w-full h-full object-cover"
                 loop muted playsInline autoPlay
+                preload="none"
             />
             <div
                 role="button"
@@ -273,9 +273,10 @@ const MobileInitiatives = () => {
                 {/* Cards — Google-style boxy stacked */}
                 <div className="space-y-4">
                     {initiatives.map((init) => {
-                        const hasVideo = init.media?.type === 'video' && init.media.src;
-                        const hasImage = init.media?.type === 'image' && init.media.src;
-                        const hasMedia = hasVideo || hasImage;
+                        const hasVideo = init.media?.type === 'video' && (init.media as any).src;
+                        const hasYoutube = init.media?.type === 'youtube';
+                        const hasImage = init.media?.type === 'image' && (init.media as any).src;
+                        const hasMedia = hasVideo || hasImage || hasYoutube;
 
                         return (
                             <motion.a
@@ -292,11 +293,23 @@ const MobileInitiatives = () => {
                                 {/* Media if exists */}
                                 {hasMedia && (
                                     <div className="mb-5">
-                                        {hasVideo ? (
-                                            <MobileVideoCard src={init.media!.src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-video'} />
+                                        {hasYoutube ? (
+                                            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-black/5">
+                                                <iframe
+                                                    src={`https://www.youtube.com/embed/${(init.media as any).youtubeId}?autoplay=1&mute=1&loop=1&playlist=${(init.media as any).youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&vq=medium`}
+                                                    className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
+                                                    style={{ pointerEvents: 'none' }}
+                                                    allow="autoplay; encrypted-media"
+                                                    allowFullScreen
+                                                    frameBorder="0"
+                                                    title={`${init.label} video`}
+                                                />
+                                            </div>
+                                        ) : hasVideo ? (
+                                            <MobileVideoCard src={(init.media as any).src} aspect={init.id === 'omama' ? 'aspect-[3/4]' : 'aspect-video'} />
                                         ) : (
                                             <div className="aspect-[16/10] mx-auto h-[160px] rounded-2xl overflow-hidden border border-black/5 shadow-sm">
-                                                <img src={init.media!.src} alt={init.title} className="w-full h-full object-cover" />
+                                                <img src={(init.media as any).src} alt={init.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                                             </div>
                                         )}
                                     </div>
@@ -711,9 +724,20 @@ const DesktopInitiatives = () => {
                             {initiatives[8].label}
                         </span>
 
-                        <div className="flex flex-col md:flex-row gap-8 h-full">
-                            <div className="flex-1 min-h-[160px]">
-                                <VideoCard src={initiatives[8].media?.src || ''} />
+                        {/* Original layout: left video, right text, vertically centered */}
+                        <div className="flex flex-col md:flex-row gap-8 h-full items-center">
+                            <div className="w-full md:flex-1">
+                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-black/5">
+                                    <iframe
+                                        src="https://www.youtube.com/embed/gEHt-GEZYY0?autoplay=1&mute=1&loop=1&playlist=gEHt-GEZYY0&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&vq=medium"
+                                        className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
+                                        style={{ pointerEvents: 'none' }}
+                                        allow="autoplay; encrypted-media"
+                                        allowFullScreen
+                                        frameBorder="0"
+                                        title="Ximpul video"
+                                    />
+                                </div>
                             </div>
 
                             <div className="flex-1 flex flex-col justify-center">
@@ -727,7 +751,6 @@ const DesktopInitiatives = () => {
                                     <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center bg-white/50">
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -748,8 +771,16 @@ const DesktopInitiatives = () => {
                             {initiatives[9].label}
                         </span>
 
-                        <div className="w-full aspect-[16/10] mb-5">
-                            <VideoCard src={initiatives[9].media?.src || ''} />
+                        <div className="relative w-full aspect-video mb-5 rounded-2xl overflow-hidden bg-black border border-black/5">
+                            <iframe
+                                src="https://www.youtube.com/embed/279Y6nPslH8?autoplay=1&mute=1&loop=1&playlist=279Y6nPslH8&controls=0&modestbranding=1&rel=0&playsinline=1&vq=medium"
+                                className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
+                                style={{ pointerEvents: 'none' }}
+                                allow="autoplay; encrypted-media"
+                                allowFullScreen
+                                frameBorder="0"
+                                title="Filmic Station video"
+                            />
                         </div>
 
                         <div>

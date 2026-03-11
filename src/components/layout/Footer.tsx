@@ -34,7 +34,7 @@ const QRExpandable = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
           </div>
         </button>
         <div>
-          <p className={`${size === 'sm' ? 'text-[11px]' : 'text-xs'} font-medium text-footer-text/60`}>Scan to<br/>Call Us</p>
+          <p className={`${size === 'sm' ? 'text-[11px]' : 'text-xs'} font-medium text-footer-text/60`}>Call With<br />Hotscan</p>
           <p className={`${size === 'sm' ? 'text-[9px]' : 'text-[10px]'} text-footer-text/40 mt-0.5`}>Tap to enlarge</p>
         </div>
       </div>
@@ -56,7 +56,7 @@ const QRExpandable = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
               <X className="w-4 h-4 text-gray-600" />
             </button>
             <div className="text-center">
-              <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
+              <p className="text-[16px] font-semibold text-[#202124] mb-1">Call With Hotscan</p>
               <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
               <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
                 <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />
@@ -240,7 +240,7 @@ const MobileFooter = () => {
             Explore ecosystem
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
-          
+
           <a href="/contact" className="flex items-center gap-2 text-[13px] font-medium text-[#202124] hover:text-[#fb8a09] transition-colors">
             Contact
             <ArrowUpRight className="w-3.5 h-3.5" />

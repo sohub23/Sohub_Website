@@ -1,26 +1,19 @@
+import { lazy, Suspense } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
-
 import { SocialProof } from '@/components/sections/SocialProof';
-import { Initiatives } from '@/components/sections/Initiatives';
-import { FeatureShowcase } from '@/components/sections/FeatureShowcase';
-import { ShopShowcase } from '@/components/sections/ShopShowcase';
-import { AIExperiments } from '@/components/sections/AIExperiments';
-import { SmartLife } from '@/components/sections/SmartLife';
-import { SmartHomeSolutions } from '@/components/sections/SmartHomeSolutions';
-import { SuccessfulProjects } from '@/components/sections/SuccessfulProjects';
-import { WhyWeAreUnique } from '@/components/sections/WhyWeAreUnique';
-import { IoTEcosystems } from '@/components/sections/IoTEcosystems';
-import { WhyWeExist } from '@/components/sections/WhyWeExist';
-import { OurCustomers } from '@/components/sections/OurCustomers';
-import { WhatSohubIs } from '@/components/sections/WhatSohubIs';
-import { SohubStandard } from '@/components/sections/SohubStandard';
-import { EcosystemExplorer } from '@/components/sections/EcosystemExplorer';
-import { OurApproach } from '@/components/sections/OurApproach';
-import { Audience } from '@/components/sections/Audience';
-import { Transparency } from '@/components/sections/Transparency';
-import { People } from '@/components/sections/People';
-import { OurInitiatives } from '@/components/sections/OurInitiatives';
 import { Footer } from '@/components/layout/Footer';
+
+// Lazy load all below-the-fold sections to reduce initial bundle and TBT
+const WhyWeExist       = lazy(() => import('@/components/sections/WhyWeExist').then(m => ({ default: m.WhyWeExist })));
+const WhatSohubIs      = lazy(() => import('@/components/sections/WhatSohubIs').then(m => ({ default: m.WhatSohubIs })));
+const Initiatives      = lazy(() => import('@/components/sections/Initiatives').then(m => ({ default: m.Initiatives })));
+const FeatureShowcase  = lazy(() => import('@/components/sections/FeatureShowcase').then(m => ({ default: m.FeatureShowcase })));
+const ShopShowcase     = lazy(() => import('@/components/sections/ShopShowcase').then(m => ({ default: m.ShopShowcase })));
+const AIExperiments    = lazy(() => import('@/components/sections/AIExperiments').then(m => ({ default: m.AIExperiments })));
+const OurCustomers     = lazy(() => import('@/components/sections/OurCustomers').then(m => ({ default: m.OurCustomers })));
+const WhyWeAreUnique   = lazy(() => import('@/components/sections/WhyWeAreUnique').then(m => ({ default: m.WhyWeAreUnique })));
+const People           = lazy(() => import('@/components/sections/People').then(m => ({ default: m.People })));
+const OurInitiatives   = lazy(() => import('@/components/sections/OurInitiatives').then(m => ({ default: m.OurInitiatives })));
 
 const Index = () => {
   return (
@@ -28,24 +21,18 @@ const Index = () => {
       <Navbar />
       <main>
         <SocialProof />
-        <WhyWeExist />
-        <WhatSohubIs />
-        <Initiatives />
-        <FeatureShowcase />
-        <ShopShowcase />
-        <AIExperiments />
-        {/* <SmartLife /> */}
-        {/* <SmartHomeSolutions /> */}
-        {/* <SuccessfulProjects /> */}
-        <OurCustomers />
-        <WhyWeAreUnique />
-        {/* <IoTEcosystems /> */}
-        {/* <SohubStandard /> */}
-        {/* <OurApproach /> */}
-        {/* <Audience /> */}
-        {/* <Transparency /> */}
-        <People />
-        <OurInitiatives />
+        <Suspense fallback={null}>
+          <WhyWeExist />
+          <WhatSohubIs />
+          <Initiatives />
+          <FeatureShowcase />
+          <ShopShowcase />
+          <AIExperiments />
+          <OurCustomers />
+          <WhyWeAreUnique />
+          <People />
+          <OurInitiatives />
+        </Suspense>
       </main>
       <Footer />
     </div>
@@ -53,3 +40,4 @@ const Index = () => {
 };
 
 export default Index;
+

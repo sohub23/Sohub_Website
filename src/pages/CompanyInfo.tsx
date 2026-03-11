@@ -8,8 +8,8 @@ import { useEffect, useState, useRef } from 'react';
 import img1 from '@/assets/company/Hero.png';
 import img2 from '@/assets/company/bb4f7329-6e04-437c-b4c8-b96a09551e0d.png';
 import img3 from '@/assets/company/roller_curtain.jpg';
-import img4 from '@/assets/switch_1_transparent.png';
-import img5 from '@/assets/unwatermarked_lights_transparent.png';
+import img4 from '@/assets/switch_1_transparent.webp';
+import img5 from '@/assets/unwatermarked_lights_transparent.webp';
 import img6 from '@/assets/company/PDLC off3.png';
 
 // SOHUB actual assets for content

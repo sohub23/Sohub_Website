@@ -377,6 +377,8 @@ export const FeatureShowcase = () => {
                                                                 <img
                                                                     src={feature.image}
                                                                     alt={`${feature.title} preview`}
+                                                                    loading="lazy"
+                                                                    decoding="async"
                                                                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${loadedYoutubeSlides[index]
                                                                         ? 'opacity-0'
                                                                         : 'opacity-100'
@@ -412,6 +414,8 @@ export const FeatureShowcase = () => {
                                                         <img
                                                             src={feature.image}
                                                             alt={feature.title}
+                                                            loading="lazy"
+                                                            decoding="async"
                                                             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                                                         />
                                                     )}

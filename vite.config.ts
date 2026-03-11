@@ -17,4 +17,25 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Reduce chunk size warnings threshold
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React - loads first
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          // Animation libs - lazy load friendly
+          'vendor-motion': ['framer-motion'],
+          // UI libs
+          'vendor-ui': ['lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          // Theme
+          'vendor-theme': ['next-themes'],
+        },
+      },
+    },
+    // Inline small assets directly in HTML to save network requests
+    assetsInlineLimit: 4096,
+  },
 }));
+

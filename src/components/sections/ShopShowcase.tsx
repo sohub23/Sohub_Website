@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import ximpulBottleImage from '@/assets/ximpl-flow.png';
-import aloImage from '@/assets/Alo_transparent.png';
-import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/switch_1_transparent.png';
-import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
-import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
-import machineImage from '@/assets/sohub-snacks-transparent.png';
-import sohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
+import ximpulBottleImage from '@/assets/ximpl-flow.webp';
+import aloImage from '@/assets/Alo_transparent.webp';
+import pdlcImage from '@/assets/pdlcmerged.webp';
+import switchImage from '@/assets/switch_1_transparent.webp';
+import smartLightImage from '@/assets/unwatermarked_lights_transparent.webp';
+import sohubProtectImage from '@/assets/protect2_transparent_v3.webp';
+import machineImage from '@/assets/sohub-snacks-transparent.webp';
+import sohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.webp';
 const shops = [
     {
         title: 'Ximpul',

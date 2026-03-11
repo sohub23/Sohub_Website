@@ -5,11 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoOrange from '@/assets/logo-orange.svg';
 
 import { CompactBackgroundPaths } from '@/components/ui/background-paths';
-import ximpulBottleImage from '@/assets/ximpl-flow.png';
+import ximpulBottleImage from '@/assets/ximpl-flow.webp';
 
-import aloImage from '@/assets/Alo_transparent.png';
-import pdlcImage from '@/assets/pdlcmerged (1).png';
-import switchImage from '@/assets/switch_1_transparent.png';
+import aloImage from '@/assets/Alo_transparent.webp';
+import pdlcImage from '@/assets/pdlcmerged.webp';
+import switchImage from '@/assets/switch_1_transparent.webp';
 import sohubAILogo from '@/assets/sohub-ai-logo.svg';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
@@ -22,10 +22,10 @@ import machineLogo from '@/assets/carousel/machine-navbar.png';
 import cloweeNavbarLogo from '@/assets/carousel/clowee-navbar.png';
 import protectLogo from '@/assets/protect.png';
 import smartHomeLogo from '@/assets/Home_cropped.png';
-import smartLightImage from '@/assets/unwatermarked_lights_transparent.png';
-import sohubProtectImage from '@/assets/protect2_transparent_v3.png';
-import shopMachineImage from '@/assets/sohub-snacks-transparent.png';
-import shopSohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.png';
+import smartLightImage from '@/assets/unwatermarked_lights_transparent.webp';
+import sohubProtectImage from '@/assets/protect2_transparent_v3.webp';
+import shopMachineImage from '@/assets/sohub-snacks-transparent.webp';
+import shopSohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.webp';
 import tradeLicensePdf from '@/assets/Trade License 2026_Shahariar Hossain.pdf';
 
 
@@ -53,11 +53,11 @@ const menuItems: MenuItem[] = [
     submenu: [
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
-      { title: '', description: 'Smart control solutions', href: '/#initiatives', image: controlsLogo },
+      { title: '', description: 'Smart control solutions', href: 'https://controls.sohub.com.bd/', image: controlsLogo },
       { title: '', description: 'Safety & trust initiatives', href: 'https://protect.sohub.com.bd/', image: protectLogo },
       { title: '', description: 'Automation that scales', href: 'https://ai.sohub.com.bd/', image: sohubAILogo },
       { title: '', description: 'Industrial automation', href: 'https://machines.sohub.com.bd/', image: machineLogo },
-      { title: '', description: 'Communication without barriers', href: 'http://connect-rnd.sohub.com.bd/', image: sohubConnectLogo },
+      { title: '', description: 'Communication without barriers', href: 'https://connect.sohub.com.bd/', image: sohubConnectLogo },
       { title: '', description: 'Execution & accountability OS', href: 'https://emp.sohub.com.bd/', image: empLogo },
       { title: '', description: 'Product experience standards', href: 'https://ximpul.com/', image: ximpulLogo },
       { title: '', description: 'Content that moves culture', href: 'https://filmicstation.com', image: filmicLogo },
