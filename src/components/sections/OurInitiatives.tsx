@@ -12,7 +12,7 @@ interface Initiative {
     isActive: boolean;
 }
 
-const BASE_URL = 'https://sohub.netlify.app';
+const BASE_URL = 'https://sohub.com.bd';
 
 /* ──────────────────────────────────────────────
    DESKTOP VERSION

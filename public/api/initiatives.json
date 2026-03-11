@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "lastUpdated": "2026-03-03T22:30:00+06:00",
-    "baseUrl": "https://sohub.netlify.app",
+    "baseUrl": "https://sohub.com.bd",
     "defaultLogoSize": {
         "desktop": {
             "maxHeight": 65,
@@ -227,7 +227,7 @@
             "name": "Tolpar",
             "description": "The SOHUB superapp",
             "logo": "/api/logos/tolpar.png",
-            "href": "https://sohub.netlify.app/tolpar",
+            "href": "https://sohub.com.bd/tolpar",
             "order": 12,
             "isActive": true,
             "logoSize": {
