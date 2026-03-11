@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { Footer } from '@/components/layout/Footer';
@@ -16,23 +16,37 @@ const People           = lazy(() => import('@/components/sections/People').then(
 const OurInitiatives   = lazy(() => import('@/components/sections/OurInitiatives').then(m => ({ default: m.OurInitiatives })));
 
 const Index = () => {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Defer rendering non-critical sections to give CPU time to FCP/LCP
+    const loadDeferred = () => setIsReady(true);
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadDeferred, { timeout: 2000 });
+    } else {
+      setTimeout(loadDeferred, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
         <SocialProof />
-        <Suspense fallback={null}>
-          <WhyWeExist />
-          <WhatSohubIs />
-          <Initiatives />
-          <FeatureShowcase />
-          <ShopShowcase />
-          <AIExperiments />
-          <OurCustomers />
-          <WhyWeAreUnique />
-          <People />
-          <OurInitiatives />
-        </Suspense>
+        {isReady && (
+          <Suspense fallback={null}>
+            <WhyWeExist />
+            <WhatSohubIs />
+            <Initiatives />
+            <FeatureShowcase />
+            <ShopShowcase />
+            <AIExperiments />
+            <OurCustomers />
+            <WhyWeAreUnique />
+            <People />
+            <OurInitiatives />
+          </Suspense>
+        )}
       </main>
       <Footer />
     </div>
