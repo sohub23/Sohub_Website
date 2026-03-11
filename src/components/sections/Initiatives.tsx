@@ -295,7 +295,7 @@ const MobileInitiatives = () => {
                                     <div className="mb-5">
                                         {hasYoutube ? (
                                             <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-black/5">
-                                                <iframe
+                                                <iframe loading="lazy"
                                                     src={`https://www.youtube.com/embed/${(init.media as any).youtubeId}?autoplay=1&mute=1&loop=1&playlist=${(init.media as any).youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1&vq=medium`}
                                                     className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
                                                     style={{ pointerEvents: 'none' }}
@@ -728,7 +728,7 @@ const DesktopInitiatives = () => {
                         <div className="flex flex-col md:flex-row gap-8 h-full items-center">
                             <div className="w-full md:flex-1">
                                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-black/5">
-                                    <iframe
+                                    <iframe loading="lazy"
                                         src="https://www.youtube.com/embed/gEHt-GEZYY0?autoplay=1&mute=1&loop=1&playlist=gEHt-GEZYY0&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&vq=medium"
                                         className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
                                         style={{ pointerEvents: 'none' }}
@@ -772,7 +772,7 @@ const DesktopInitiatives = () => {
                         </span>
 
                         <div className="relative w-full aspect-video mb-5 rounded-2xl overflow-hidden bg-black border border-black/5">
-                            <iframe
+                            <iframe loading="lazy"
                                 src="https://www.youtube.com/embed/279Y6nPslH8?autoplay=1&mute=1&loop=1&playlist=279Y6nPslH8&controls=0&modestbranding=1&rel=0&playsinline=1&vq=medium"
                                 className="absolute top-1/2 left-1/2 w-[160%] h-[160%] -translate-x-1/2 -translate-y-1/2"
                                 style={{ pointerEvents: 'none' }}

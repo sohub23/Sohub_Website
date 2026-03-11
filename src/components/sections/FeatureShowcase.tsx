@@ -352,7 +352,7 @@ export const FeatureShowcase = () => {
                                             <div className="order-1 md:order-none lg:order-2 relative ml-0 md:-ml-12 flex justify-center md:block min-w-0">
                                                 <div className="relative w-full h-[220px] sm:h-[260px] rounded-[24px] overflow-hidden bg-black shadow-[0_18px_36px_rgba(0,0,0,0.16)] ring-1 ring-black/5 md:w-[452px] md:h-[254px] md:rounded-2xl md:shadow-none md:ring-0">
                                                     {useInlineVideo ? (
-                                                        <video
+                                                        <video preload="none"
                                                             ref={(node) => {
                                                                 videoRefs.current[index] = node;
                                                             }}
@@ -394,7 +394,7 @@ export const FeatureShowcase = () => {
                                                                 </div>
                                                             )}
                                                             {shouldMountYoutubeIframe && (
-                                                                <iframe
+                                                                <iframe loading="lazy"
                                                                     key={`youtube-${index}`}
                                                                     src={`https://www.youtube.com/embed/${feature.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${feature.youtubeId}&controls=1&modestbranding=1&rel=0&playsinline=1`}
                                                                     className={`absolute inset-0 w-full h-full transition-opacity duration-300 z-20 pointer-events-auto ${loadedYoutubeSlides[index] ? 'opacity-100' : 'opacity-0'}`}

@@ -187,7 +187,7 @@ const DesktopCompanyInfo = () => {
                         <a href="https://home.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#E8F0FE] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 group">
                             <div className="w-[85%] aspect-[16/10] rounded-[16px] overflow-hidden mt-4 mb-8 relative shadow-sm">
                                 {videoSources.map((src, index) => (
-                                    <video
+                                    <video preload="none"
                                         key={src}
                                         ref={(el) => (videoRefs.current[index] = el)}
                                         src={src}
@@ -469,7 +469,7 @@ const MobileCompanyInfo = () => {
                     <a href="https://home.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#E8F0FE]">
                         <div className="w-full aspect-[16/10] rounded-[16px] overflow-hidden mt-2 mb-6 relative shadow-sm">
                             {videoSources.map((src, index) => (
-                                <video
+                                <video preload="none"
                                     key={src}
                                     ref={(el) => (videoRefs.current[index] = el)}
                                     src={src}

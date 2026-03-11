@@ -214,7 +214,7 @@ const DesktopAIExperiments = () => {
                                     >
                                         {experiment.youtubeId ? (
                                             <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
-                                                <iframe
+                                                <iframe loading="lazy"
                                                     src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
                                                     className="absolute top-1/2 left-1/2 w-full h-[115%] -translate-x-1/2 -translate-y-1/2"
                                                     allow="autoplay; encrypted-media; picture-in-picture"
@@ -459,7 +459,7 @@ const MobileAIExperiments = () => {
                                         <div className="relative w-full flex-1 overflow-hidden bg-[#f0f1f3]">
                                             {experiment.youtubeId ? (
                                                 <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
-                                                    <iframe
+                                                    <iframe loading="lazy"
                                                         src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
                                                         className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
                                                         allow="autoplay; encrypted-media; picture-in-picture"
@@ -467,7 +467,7 @@ const MobileAIExperiments = () => {
                                                     />
                                                 </div>
                                             ) : experiment.video ? (
-                                                <video
+                                                <video preload="none"
                                                     src={experiment.video}
                                                     className="w-full h-full object-cover"
                                                     autoPlay loop muted playsInline
@@ -517,7 +517,7 @@ const MobileAIExperiments = () => {
                                     <div className="relative w-full h-full overflow-hidden bg-[#f0f1f3]">
                                         {experiment.youtubeId ? (
                                             <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
-                                                <iframe
+                                                <iframe loading="lazy"
                                                     src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
                                                     className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
                                                     allow="autoplay; encrypted-media; picture-in-picture"
@@ -525,7 +525,7 @@ const MobileAIExperiments = () => {
                                                 />
                                             </div>
                                         ) : experiment.video ? (
-                                            <video
+                                            <video preload="none"
                                                 src={experiment.video}
                                                 className="w-full h-full object-cover"
                                                 autoPlay loop muted playsInline
