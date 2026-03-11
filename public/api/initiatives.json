@@ -93,7 +93,7 @@
             "id": "sohub-ai",
             "name": "SOHUB AI",
             "description": "Automation that scales",
-            "logo": "/api/logos/sohub-ai.svg",
+            "logo": "/api/logos/sohub-ai-navbar.png",
             "href": "https://ai.sohub.com.bd/",
             "order": 5,
             "isActive": true,

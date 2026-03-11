@@ -60,7 +60,7 @@ const QRExpandableContact = ({ size = 'md' }: { size?: 'sm' | 'md' }) => {
                             <X className="w-4 h-4 text-gray-600" />
                         </button>
                         <div className="text-center">
-                            <p className="text-[16px] font-semibold text-[#202124] mb-1">Scan to Call Us</p>
+                            <p className="text-[16px] font-semibold text-[#202124] mb-1">Call With Hotscan</p>
                             <p className="text-[13px] text-[#5f6368] mb-5">Point your phone camera at this QR code</p>
                             <div className="bg-[#f8f9fa] rounded-2xl p-6 inline-block border border-gray-100">
                                 <img src={hotscanQR} alt="Scan to Call SOHUB" className="w-56 h-56 object-contain" />

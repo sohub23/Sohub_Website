@@ -10,7 +10,7 @@ import ximpulBottleImage from '@/assets/ximpl-flow.webp';
 import aloImage from '@/assets/Alo_transparent.webp';
 import pdlcImage from '@/assets/pdlcmerged.webp';
 import switchImage from '@/assets/switch_1_transparent.webp';
-import sohubAILogo from '@/assets/sohub-ai-logo.svg';
+import sohubAILogo from '@/assets/sohub-ai-navbar.png';
 import ximpulLogo from '@/assets/ximpul.png';
 import sohubConnectLogo from '@/assets/sohub-connect.png';
 import oMamaLogo from '@/assets/carousel/omama-navbar.png';

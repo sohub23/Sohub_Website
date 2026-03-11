@@ -18,7 +18,7 @@ import imgConnect from '@/assets/sohub-connect.png';
 import imgEMP from '@/assets/emp.png';
 import imgMachine from '@/assets/carousel/machine-navbar.png';
 import imgSmartHome from '@/assets/Home_cropped.png';
-import imgAI from '@/assets/sohub-ai-logo.svg';
+import imgAI from '@/assets/sohub-ai-navbar.png';
 import imgOmama from '@/assets/carousel/omama-navbar.png';
 import imgXimpul from '@/assets/carousel/ximpul.png';
 import imgProtect from '@/assets/protect.png';
