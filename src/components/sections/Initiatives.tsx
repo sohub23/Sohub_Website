@@ -7,13 +7,13 @@ import XimpulVideo from '../../assets/Ximpul3.mp4';
 import OMamaImage from '../../assets/O-mama-initiatives.png';
 import FilmicStationVideo from '../../assets/Filmic Station.mp4';
 import OMamaVideo from '../../assets/omama.mp4';
-import ConnectImage from '../../assets/connect ini.png';
+import ConnectImage from '../../assets/connect ini.jpeg';
 import ControlsImage from '../../assets/controls ini.jpeg';
-import EmpImage from '../../assets/emp ini.png';
-import ProtectImage from '../../assets/protect ini.png';
-import SmartImage from '../../assets/smart ini.png';
-import AIImage from '../../assets/AI ini.png';
-import MachineImage from '../../assets/machine ini.png';
+import EmpImage from '../../assets/emp ini.jpeg';
+import ProtectImage from '../../assets/protect ini.jpeg';
+import SmartImage from '../../assets/smart ini.jpeg';
+import AIImage from '../../assets/AI ini.jpeg';
+import MachineImage from '../../assets/machine ini.jpeg';
 
 const initiativesData = [
     {
