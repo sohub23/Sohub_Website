@@ -26,7 +26,6 @@ import smartLightImage from '@/assets/unwatermarked_lights_transparent.webp';
 import sohubProtectImage from '@/assets/protect2_transparent_v3.webp';
 import shopMachineImage from '@/assets/sohub-snacks-transparent.webp';
 import shopSohubAiImage from '@/assets/sohub-vision-hero-C9kvSPJN.webp';
-import tradeLicensePdf from '@/assets/Trade License 2026_Shahariar Hossain.pdf';
 
 
 // Menu data types
@@ -91,7 +90,6 @@ const menuItems: MenuItem[] = [
       { title: 'Join Us', href: '/join-us', image: '', description: 'Company' },
       { title: 'Contact Us', href: '/contact', image: '', description: 'Company' },
       { title: 'Sohub Shop', href: 'https://shop.sohub.com.bd/', image: '', description: 'Company' },
-      { title: 'Trade License', href: tradeLicensePdf, image: '', description: 'Company' },
     ],
     links: []
   },
@@ -441,7 +439,6 @@ export const Navbar = () => {
                               <Link to="/join-us" className={`text-[14px] font-medium transition-colors ${location.pathname === '/join-us' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Join Us</Link>
                               <Link to="/contact" className={`text-[14px] font-medium transition-colors ${location.pathname === '/contact' ? 'text-[#ee8d22]' : 'text-[#171a20] dark:text-white hover:text-[#5c5e62]'}`}>Contact Us</Link>
                               <a href="https://shop.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Sohub Shop</a>
-                              <a href={tradeLicensePdf} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#171a20] dark:text-white hover:text-[#5c5e62] transition-colors">Trade License</a>
                             </div>
                           </div>
                         ) : (
@@ -791,8 +788,8 @@ export const Navbar = () => {
                                       <a
                                         key={item.title}
                                         href={item.href}
-                                        target={(item.href.startsWith('http') || item.title === 'Trade License') ? '_blank' : undefined}
-                                        rel={(item.href.startsWith('http') || item.title === 'Trade License') ? 'noopener noreferrer' : undefined}
+                                        target={(item.href.startsWith('http')) ? '_blank' : undefined}
+                                        rel={(item.href.startsWith('http')) ? 'noopener noreferrer' : undefined}
                                         className="text-[16px] font-medium text-zinc-800 dark:text-zinc-200 hover:text-[#fb8a09] dark:hover:text-[#fb8a09] transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                       >

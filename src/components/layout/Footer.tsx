@@ -8,8 +8,9 @@ import membershipBasis from '@/assets/membership_basis.png';
 import hotscanQR from '@/assets/Sohub_hotscan.png';
 
 const brochures = [
-  { name: 'SOHUB Controls', url: '/brochures/Shohub Controls March 2026 - V3.0.pdf' },
-  { name: 'SOHUB Protect', url: '/brochures/SOHUB_Protect_Brochure.pdf' },
+  { name: 'SOHUB Smart Home', url: '/brochures/SOHUB Smart Home  Brochure - March 2026.pdf' },
+  { name: 'SOHUB Protect', url: '/brochures/SOHUB Protect  Brochure - Mar 2026.pdf' },
+  { name: 'SOHUB Controls', url: '/brochures/Shohub Controls  Brochure - March 2026 - V3.0.pdf' },
 ];
 
 
@@ -91,7 +92,12 @@ const DesktopFooter = () => {
               <p className="text-footer-text/60 max-w-md text-lg mb-8">
                 We’re not here to follow trends. We’re here to raise standards.
               </p>
-              <img src={membershipBasis} alt="SOHUB Membership" className="h-[48px] w-auto mt-2" />
+              <div>
+                <img src={membershipBasis} alt="SOHUB Membership" className="h-[48px] w-auto mt-2" />
+                <p className="text-[#5f6368] text-[12px] font-medium mt-3 tracking-wide">
+                  Trade License: <span className="font-semibold text-[#202124]">TRAD/DNCC/045837/2022</span>
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-col gap-4 mx-auto md:mx-0">
@@ -231,7 +237,12 @@ const MobileFooter = () => {
               We’re not here to follow trends. We’re here to raise standards.
             </p>
           </div>
-          <img src={membershipBasis} alt="SOHUB Membership" className="h-[18px] w-auto mt-1" />
+          <div className="mt-1">
+            <img src={membershipBasis} alt="SOHUB Membership" className="h-[18px] w-auto" />
+            <p className="text-[#5f6368] text-[9px] font-medium mt-2 tracking-wide">
+              Trade License: <span className="font-semibold text-[#202124]">TRAD/DNCC/045837/2022</span>
+            </p>
+          </div>
         </div>
 
         {/* Right Side */}
