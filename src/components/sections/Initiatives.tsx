@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, Pause } from 'lucide-react';
 import OMamaImage from '../../assets/O-mama-initiatives.webp';
-import OMamaVideo from '../../assets/omama.mp4';
+import OMamaVideo from '../../assets/omama 1.mp4';
 import ConnectImage from '../../assets/connect ini.webp';
 import ControlsImage from '../../assets/controls ini.webp';
 import EmpImage from '../../assets/emp ini.webp';
@@ -217,7 +217,7 @@ const MobileVideoCard = ({ src, aspect = 'aspect-[16/10]' }: { src: string; aspe
             <video
                 ref={videoRef}
                 src={src}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
                 loop muted playsInline autoPlay
                 preload="none"
             />

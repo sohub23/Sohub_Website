@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ximpulVideo from '@/assets/Ximpul3.mp4';
-import omamaVideo from '@/assets/omama.mp4';
+import omamaVideo from '@/assets/omama 1.mp4';
 import connectVideo from '@/assets/click to connect.mp4';
 import ximpulPoster from '@/assets/carousel/ximpul-carousel.png';
 import omamaPoster from '@/assets/carousel/omama-navbar.png';
@@ -352,7 +352,7 @@ export const FeatureShowcase = () => {
                                             <div className="order-1 md:order-none lg:order-2 relative ml-0 md:-ml-12 flex justify-center md:block min-w-0">
                                                 <div className="relative w-full h-[220px] sm:h-[260px] rounded-[24px] overflow-hidden bg-black shadow-[0_18px_36px_rgba(0,0,0,0.16)] ring-1 ring-black/5 md:w-[452px] md:h-[254px] md:rounded-2xl md:shadow-none md:ring-0">
                                                     {useInlineVideo ? (
-                                                        <video preload="none"
+                                                        <video
                                                             ref={(node) => {
                                                                 videoRefs.current[index] = node;
                                                             }}
