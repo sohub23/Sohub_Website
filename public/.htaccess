@@ -42,6 +42,15 @@
   
   # SEO 301 Redirect: vending_machine to new subdomain
   RewriteRule ^vending_machine/?$ https://machines.sohub.com.bd [R=301,L]
+  
+  # SEO 301 Redirect: Sohub_Protect to protect subdomain
+  RewriteRule ^Sohub_Protect/?$ https://protect.sohub.com.bd [R=301,L,NC]
+  
+  # SEO 301 Redirect: smart_office to home subdomain
+  RewriteRule ^smart_office/?$ https://home.sohub.com.bd [R=301,L]
+  
+  # SEO 301 Redirect: Click_to_connect to connect subdomain
+  RewriteRule ^Click_to_connect/?$ https://connect.sohub.com.bd/click-to-connect [R=301,L,NC]
 
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
