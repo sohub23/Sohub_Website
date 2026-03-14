@@ -39,6 +39,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  
+  # SEO 301 Redirect: vending_machine to new subdomain
+  RewriteRule ^vending_machine/?$ https://machines.sohub.com.bd [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
