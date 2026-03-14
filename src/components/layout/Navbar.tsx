@@ -48,7 +48,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     label: 'Initiatives',
-    href: '/#initiatives',
+    href: '#',
     submenu: [
       { title: '', description: 'Hygienic food access', href: 'https://omama.sohub.com.bd/', image: oMamaLogo },
       { title: '', description: 'Intelligent living spaces', href: 'https://home.sohub.com.bd/', image: smartHomeLogo },
