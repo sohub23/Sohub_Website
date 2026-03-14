@@ -8,6 +8,7 @@ import empImg from '@/assets/EMP Logo Transparent.png';
 import snackMachineImg from '@/assets/sohub-snacks-BxzlzZkJ.png';
 import oMamaImg from '@/assets/O Mama remove bg.png';
 import oMamaVideo from '@/assets/omama 1.mp4';
+import clickToConnectVideoNew from '@/assets/Video Project 1 (1).mp4';
 
 interface Experiment {
     id: number;
@@ -65,6 +66,7 @@ const experiments: Experiment[] = [
         buttonText: "Check it out",
         buttonLink: "https://connect.sohub.com.bd/home/click_to_connect",
         image: clickToConnectImg,
+        video: clickToConnectVideoNew,
     },
     {
         id: 6,
