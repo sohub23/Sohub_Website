@@ -675,9 +675,9 @@ export const Navbar = () => {
                                 } else if (subItem.description.includes('Intelligent')) { // Smart Home (REDUCED + RIGHT)
                                   sizeClass = "max-h-10 max-w-[100px]";
                                   extraClass = "ml-3";
-                                } else if (subItem.description.includes('Automation')) { // AI (REDUCED + RIGHT)
-                                  sizeClass = "max-h-9 max-w-[90px]";
-                                  extraClass = "ml-3";
+                                } else if (subItem.description.includes('Automation')) { // AI
+                                  sizeClass = "max-h-11 max-w-[110px]";
+                                  extraClass = "";
                                 }
 
                                 return (

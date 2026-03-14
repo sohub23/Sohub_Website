@@ -349,17 +349,17 @@ const M_CARD_HEIGHT = 620;
 const M_IMAGE_HEIGHT = 420;
 
 const mobileSpring = {
-    type: "tween" as const,
-    ease: [0.22, 1, 0.36, 1] as [number, number, number, number], // Smooth, gradual curve
-    duration: 1.2,
-};
+    type: "tween",
+    ease: [0.4, 0, 0.2, 1], // Performance optimized snappy curve
+    duration: 0.45,
+} as const;
 
 const mobileContentSpring = {
-    type: "tween" as const,
-    ease: "easeOut" as const,
-    duration: 0.9,
-    delay: 0.2,
-};
+    type: "tween",
+    ease: "easeOut",
+    duration: 0.35,
+    delay: 0.1,
+} as const;
 
 const MobileAIExperiments = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -450,24 +450,25 @@ const MobileAIExperiments = () => {
                                 style={{
                                     borderRadius: 32,
                                     border: '1px solid #dadce0',
+                                    willChange: 'width, height, transform',
+                                    transform: 'translateZ(0)',
                                 }}
                             >
                                 {isActive ? (
-                                    /* ── EXPANDED STATE: image top + white text below ── */
-                                    <div className="flex flex-col h-full">
-                                        {/* Image section */}
+                                    /* ── EXPANDED STATE ── */
+                                    <div className="flex flex-col h-full bg-white">
                                         <div className="relative w-full flex-1 overflow-hidden bg-[#f0f1f3]">
                                             {experiment.youtubeId ? (
                                                 <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
-                                                    <iframe loading="lazy"
+                                                    <iframe 
                                                         src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
-                                                        className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
-                                                        allow="autoplay; encrypted-media; picture-in-picture"
+                                                        className="absolute top-1/2 left-1/2 w-[125%] h-[125%] -translate-x-1/2 -translate-y-1/2"
+                                                        allow="autoplay; encrypted-media"
                                                         title={experiment.title}
                                                     />
                                                 </div>
                                             ) : experiment.video ? (
-                                                <video preload="none"
+                                                <video 
                                                     src={experiment.video}
                                                     className="w-full h-full object-cover"
                                                     autoPlay loop muted playsInline
@@ -481,23 +482,16 @@ const MobileAIExperiments = () => {
                                             )}
                                         </div>
 
-                                        {/* White text section */}
                                         <motion.div
-                                            className="bg-white px-5 pt-4 pb-5"
-                                            initial={{ opacity: 0, y: 12 }}
+                                            className="px-5 pt-4 pb-5"
                                             animate={{ opacity: 1, y: 0 }}
+                                            initial={{ opacity: 0, y: 10 }}
                                             transition={mobileContentSpring}
                                         >
-                                            <h3
-                                                className="text-[20px] font-medium text-[#202124] mb-1.5"
-                                                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                                            >
+                                            <h3 className="text-[20px] font-medium text-[#202124] mb-1.5 leading-tight">
                                                 {experiment.title}
                                             </h3>
-                                            <p
-                                                className="text-[14px] text-[#5f6368] leading-[1.5] mb-4"
-                                                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
-                                            >
+                                            <p className="text-[14px] text-[#5f6368] leading-[1.5] mb-4">
                                                 {experiment.description}
                                             </p>
                                             <a
@@ -505,7 +499,6 @@ const MobileAIExperiments = () => {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ee8d22] text-white rounded-full text-[14px] font-semibold w-full justify-center"
-                                                style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}
                                             >
                                                 {experiment.buttonText}
                                                 <ArrowUpRight className="w-4 h-4" />
@@ -513,33 +506,14 @@ const MobileAIExperiments = () => {
                                         </motion.div>
                                     </div>
                                 ) : (
-                                    /* ── COLLAPSED STATE: full height image strip only ── */
+                                    /* ── COLLAPSED STATE ── */
                                     <div className="relative w-full h-full overflow-hidden bg-[#f0f1f3]">
-                                        {experiment.youtubeId ? (
-                                            <div className="w-full h-full relative overflow-hidden bg-[#202124] pointer-events-none">
-                                                <iframe loading="lazy"
-                                                    src={`https://www.youtube.com/embed/${experiment.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${experiment.youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
-                                                    className="absolute top-1/2 left-1/2 w-[120%] h-[125%] -translate-x-1/2 -translate-y-1/2 left-[52%]"
-                                                    allow="autoplay; encrypted-media; picture-in-picture"
-                                                    title={experiment.title}
-                                                />
-                                            </div>
-                                        ) : experiment.video ? (
-                                            <video preload="none"
-                                                src={experiment.video}
-                                                className="w-full h-full object-cover"
-                                                autoPlay loop muted playsInline
-                                            />
-                                        ) : (
-                                            <img
-                                                src={experiment.image}
-                                                alt={experiment.title}
-                                                className={`w-full h-full ${experiment.imageFit === 'contain' ? 'object-contain bg-[#fff8e1]' : 'object-cover'}`}
-                                            />
-                                        )}
-
-                                        {/* Dark overlay */}
-                                        <div className="absolute inset-0 bg-black/15" />
+                                        <img
+                                            src={experiment.youtubeId ? `https://img.youtube.com/vi/${experiment.youtubeId}/hqdefault.jpg` : experiment.image}
+                                            alt={experiment.title}
+                                            className="w-full h-full object-cover opacity-60"
+                                        />
+                                        <div className="absolute inset-0 bg-black/5" />
                                     </div>
                                 )}
                             </motion.div>
