@@ -65,7 +65,7 @@ const DesktopCompanyInfo = () => {
 
     return (
         <main className="pt-24 lg:pt-32 pb-32">
-            {/* Top Image Collage */}
+            {/* Top Image Collage - Temporarily Hidden
             <div className="w-full px-2 sm:px-3 md:px-4 mb-16 md:mb-24 overflow-hidden pt-4 md:pt-6">
                 <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 w-full">
                     <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 h-[100px] sm:h-[140px] md:h-[200px] lg:h-[260px]">
@@ -92,6 +92,7 @@ const DesktopCompanyInfo = () => {
                     </div>
                 </div>
             </div>
+            */}
 
             {/* Hero Mission Statement */}
             <div className="max-w-[1200px] mx-auto px-6 mb-24 text-center flex flex-col items-center">
@@ -132,119 +133,6 @@ const DesktopCompanyInfo = () => {
                         </div>
                         <span className="text-[#3c4043] font-medium text-[15px] group-hover:text-[#fb8a09]">Contact us</span>
                     </a>
-                </div>
-            </div>
-
-            {/* Section: Our Ecosystem */}
-            <div className="max-w-[1280px] mx-auto px-6 mb-24">
-                <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-4 text-center">
-                    Our Ecosystem
-                </h2>
-                <p className="text-[18px] text-[#5f6368] font-normal max-w-2xl mx-auto mb-2 text-center">
-                    Independent systems. One ecosystem.
-                </p>
-                <p className="text-[16px] text-[#5f6368] font-normal max-w-3xl mx-auto mt-6 mb-12 text-center">
-                    SOHUB develops focused technology initiatives designed to solve real-world problems. Each system addresses a specific challenge — together forming a connected ecosystem of solutions.
-                </p>
-
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                    {ecosystemItems.map((item, idx) => (
-                        <a
-                            key={idx}
-                            href={item.href}
-                            target={item.href.startsWith('http') ? '_blank' : undefined}
-                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="group flex flex-col rounded-[20px] overflow-hidden bg-[#f8f9fa] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-1"
-                        >
-                            <div className="aspect-[16/10] overflow-hidden bg-[#FDFBF7] flex items-center justify-center p-6 border-b border-gray-100">
-                                <img src={item.logo} alt={item.name} className={`${item.logoScale} h-auto object-contain`} />
-                            </div>
-                            <div className="p-5 flex flex-col flex-grow">
-                                <h3 className="text-[17px] font-normal tracking-tight text-[#202124] mb-2 group-hover:underline decoration-2 underline-offset-4">{item.name}</h3>
-                                <p className="text-[13px] text-[#3c4043] leading-relaxed mb-5 flex-grow">{item.desc}</p>
-                                <div className="mt-auto">
-                                    <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-[#fb8a09] group-hover:bg-[#fff7e6] transition-colors">
-                                        <ArrowRight className="w-4 h-4 text-[#fb8a09]" />
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    ))}
-                </div>
-            </div>
-
-            {/* Section: What We Focus On */}
-            <div className="hidden max-w-[1280px] mx-auto px-6 mb-24">
-                <div className="text-center mb-12 lg:mb-16">
-                    <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-4">
-                        What We Focus On
-                    </h2>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1 flex flex-col gap-6">
-                        {/* Smart Living */}
-                        <a href="https://home.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#E8F0FE] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 group">
-                            <div className="w-[85%] aspect-[16/10] rounded-[16px] overflow-hidden mt-4 mb-8 relative shadow-sm">
-                                {videoSources.map((src, index) => (
-                                    <video preload="none"
-                                        key={src}
-                                        ref={(el) => (videoRefs.current[index] = el)}
-                                        src={src}
-                                        autoPlay={index === 0}
-                                        muted
-                                        playsInline
-                                        onEnded={index === currentVideoIndex ? handleVideoEnded : undefined}
-                                        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentVideoIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                                    />
-                                ))}
-                            </div>
-                            <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Smart Living</span>
-                            <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
-                                Automation and intelligent systems for modern homes and buildings.
-                            </h3>
-                            <div className="mt-auto pb-2">
-                                <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-[#fb8a09] group-hover:bg-[#fff7e6] transition-colors">
-                                    <ArrowRight className="w-5 h-5 text-[#fb8a09]" />
-                                </div>
-                            </div>
-                        </a>
-
-                        {/* Security & Trust */}
-                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#FCE8E6]">
-                            <div className="mb-6 mt-6">
-                                <ShieldCheck className="w-10 h-10 text-[#C5221F]" strokeWidth={1.5} />
-                            </div>
-                            <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Security & Trust</span>
-                            <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
-                                Technologies designed to improve safety and operational reliability.
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div className="flex-1 flex flex-col gap-6">
-                        {/* Automation & AI */}
-                        <div className="flex flex-col items-center text-center p-8 rounded-[16px] bg-[#E6F4EA]">
-                            <div className="mb-6 mt-6">
-                                <Cpu className="w-10 h-10 text-[#137333]" strokeWidth={1.5} />
-                            </div>
-                            <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Automation & AI</span>
-                            <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
-                                Systems that increase speed, efficiency, and operational intelligence.
-                            </h3>
-                        </div>
-
-                        {/* Social Impact */}
-                        <div className="flex flex-col items-center text-center justify-center p-8 rounded-[16px] bg-[#FEF7E0] flex-grow">
-                            <div className="mb-6 mt-6">
-                                <Users className="w-10 h-10 text-[#E37400]" strokeWidth={1.5} />
-                            </div>
-                            <span className="text-[11px] font-bold tracking-widest text-[#5f6368] mb-4 uppercase">Social Impact</span>
-                            <h3 className="text-[16px] md:text-[18px] font-normal text-[#202124] mb-6 leading-[1.5] max-w-[95%]">
-                                Using technology to improve access to services like food and infrastructure.
-                            </h3>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -290,6 +178,44 @@ const DesktopCompanyInfo = () => {
                             <img src={imgOurStory} alt="SOHUB Our Story" className="w-[300px] hover:scale-105 transition-transform duration-500 h-auto object-contain" />
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Section: Our Ecosystem */}
+            <div className="max-w-[1280px] mx-auto px-6 mb-24">
+                <h2 className="text-[48px] font-normal tracking-[-0.01em] text-[#202124] mb-4 text-center">
+                    Our Ecosystem
+                </h2>
+                <p className="text-[18px] text-[#5f6368] font-normal max-w-2xl mx-auto mb-2 text-center">
+                    Independent systems. One ecosystem.
+                </p>
+                <p className="text-[16px] text-[#5f6368] font-normal max-w-3xl mx-auto mt-6 mb-12 text-center">
+                    SOHUB develops focused technology initiatives designed to solve real-world problems. Each system addresses a specific challenge — together forming a connected ecosystem of solutions.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {ecosystemItems.map((item, idx) => (
+                        <a
+                            key={idx}
+                            href={item.href}
+                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="group flex flex-col rounded-[20px] overflow-hidden bg-[#f8f9fa] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+                        >
+                            <div className="aspect-[16/10] overflow-hidden bg-[#FDFBF7] flex items-center justify-center p-6 border-b border-gray-100">
+                                <img src={item.logo} alt={item.name} className={`${item.logoScale} h-auto object-contain`} />
+                            </div>
+                            <div className="p-5 flex flex-col flex-grow">
+                                <h3 className="text-[17px] font-normal tracking-tight text-[#202124] mb-2 group-hover:underline decoration-2 underline-offset-4">{item.name}</h3>
+                                <p className="text-[13px] text-[#3c4043] leading-relaxed mb-5 flex-grow">{item.desc}</p>
+                                <div className="mt-auto">
+                                    <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-[#fb8a09] group-hover:bg-[#fff7e6] transition-colors">
+                                        <ArrowRight className="w-4 h-4 text-[#fb8a09]" />
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
                 </div>
             </div>
 
@@ -353,7 +279,7 @@ const MobileCompanyInfo = () => {
 
     return (
         <main className="pt-24 pb-16">
-            {/* Top Image Collage */}
+            {/* Top Image Collage - Temporarily Hidden
             <div className="w-full px-2 mb-12 overflow-hidden pt-2">
                 <div className="flex flex-col gap-2 w-full">
                     <div className="flex justify-center gap-2 h-[100px]">
@@ -380,6 +306,7 @@ const MobileCompanyInfo = () => {
                     </div>
                 </div>
             </div>
+            */}
 
             {/* Hero Mission Statement */}
             <div className="px-5 mb-16 text-center">
@@ -423,108 +350,6 @@ const MobileCompanyInfo = () => {
                 </div>
             </div>
 
-            {/* Section: Our Ecosystem */}
-            <div className="px-5 mb-16">
-                <h2 className="text-[28px] font-normal tracking-[-0.01em] text-[#202124] mb-3 text-center">
-                    Our Ecosystem
-                </h2>
-                <p className="text-[15px] text-[#5f6368] text-center mb-2">
-                    Independent systems. One ecosystem.
-                </p>
-                <p className="text-[14px] text-[#5f6368] text-center mb-8 px-2 leading-relaxed">
-                    SOHUB develops focused technology initiatives designed to solve real-world problems. Each system addresses a specific challenge — together forming a connected ecosystem of solutions.
-                </p>
-
-                <div className="grid grid-cols-3 gap-2.5">
-                    {ecosystemItems.map((item, idx) => (
-                        <a
-                            key={idx}
-                            href={item.href}
-                            target={item.href.startsWith('http') ? '_blank' : undefined}
-                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="flex flex-col rounded-[14px] overflow-hidden bg-[#f8f9fa] border border-gray-100"
-                        >
-                            <div className="aspect-[4/3] bg-[#FDFBF7] flex items-center justify-center p-3 border-b border-gray-100">
-                                <img src={item.logo} alt={item.name} className="w-[70%] h-auto object-contain" />
-                            </div>
-                            <div className="p-2.5 flex flex-col flex-grow">
-                                <h3 className="text-[11px] font-medium tracking-tight text-[#202124] mb-1 leading-snug">{item.name}</h3>
-                                <p className="text-[9px] text-[#3c4043] leading-[1.4] flex-grow">{item.desc}</p>
-                            </div>
-                        </a>
-                    ))}
-                </div>
-            </div>
-
-            {/* Section: What We Focus On */}
-            <div className="hidden px-5 mb-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-[28px] font-normal tracking-[-0.01em] text-[#202124] mb-3">
-                        What We Focus On
-                    </h2>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                    {/* Smart Living */}
-                    <a href="https://home.sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#E8F0FE]">
-                        <div className="w-full aspect-[16/10] rounded-[16px] overflow-hidden mt-2 mb-6 relative shadow-sm">
-                            {videoSources.map((src, index) => (
-                                <video preload="none"
-                                    key={src}
-                                    ref={(el) => (videoRefs.current[index] = el)}
-                                    src={src}
-                                    autoPlay={index === 0}
-                                    muted
-                                    playsInline
-                                    onEnded={index === currentVideoIndex ? handleVideoEnded : undefined}
-                                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentVideoIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                                />
-                            ))}
-                        </div>
-                        <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Smart Living</span>
-                        <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
-                            Automation and intelligent systems for modern homes and buildings.
-                        </h3>
-                        <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center mt-auto">
-                            <ArrowRight className="w-4 h-4 text-[#fb8a09]" />
-                        </div>
-                    </a>
-
-                    {/* Security & Trust */}
-                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FCE8E6]">
-                        <div className="mb-4 mt-2">
-                            <ShieldCheck className="w-8 h-8 text-[#C5221F]" strokeWidth={1.5} />
-                        </div>
-                        <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Security & Trust</span>
-                        <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
-                            Technologies designed to improve safety and operational reliability.
-                        </h3>
-                    </div>
-
-                    {/* Automation & AI */}
-                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#E6F4EA]">
-                        <div className="mb-4 mt-2">
-                            <Cpu className="w-8 h-8 text-[#137333]" strokeWidth={1.5} />
-                        </div>
-                        <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Automation & AI</span>
-                        <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
-                            Systems that increase speed, efficiency, and operational intelligence.
-                        </h3>
-                    </div>
-
-                    {/* Social Impact */}
-                    <div className="flex flex-col items-center text-center p-6 rounded-[20px] bg-[#FEF7E0]">
-                        <div className="mb-4 mt-2">
-                            <Users className="w-8 h-8 text-[#E37400]" strokeWidth={1.5} />
-                        </div>
-                        <span className="text-[10px] font-bold tracking-widest text-[#5f6368] mb-3 uppercase">Social Impact</span>
-                        <h3 className="text-[16px] font-normal text-[#202124] mb-5 leading-[1.5]">
-                            Using technology to improve access to services like food and infrastructure.
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
             {/* Section: Our Philosophy */}
             <div className="px-5 mb-16">
                 <div className="bg-[#f1f3f4] rounded-[24px] p-6 text-center">
@@ -565,6 +390,39 @@ const MobileCompanyInfo = () => {
                     <div className="flex items-center justify-center bg-[#f1f3f4] rounded-[32px] p-10 aspect-video">
                         <img src={imgOurStory} alt="SOHUB Our Story" className="w-[200px] h-auto object-contain" />
                     </div>
+                </div>
+            </div>
+
+            {/* Section: Our Ecosystem */}
+            <div className="px-5 mb-16">
+                <h2 className="text-[28px] font-normal tracking-[-0.01em] text-[#202124] mb-3 text-center">
+                    Our Ecosystem
+                </h2>
+                <p className="text-[15px] text-[#5f6368] text-center mb-2">
+                    Independent systems. One ecosystem.
+                </p>
+                <p className="text-[14px] text-[#5f6368] text-center mb-8 px-2 leading-relaxed">
+                    SOHUB develops focused technology initiatives designed to solve real-world problems. Each system addresses a specific challenge — together forming a connected ecosystem of solutions.
+                </p>
+
+                <div className="grid grid-cols-3 gap-2.5">
+                    {ecosystemItems.map((item, idx) => (
+                        <a
+                            key={idx}
+                            href={item.href}
+                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="flex flex-col rounded-[14px] overflow-hidden bg-[#f8f9fa] border border-gray-100"
+                        >
+                            <div className="aspect-[4/3] bg-[#FDFBF7] flex items-center justify-center p-3 border-b border-gray-100">
+                                <img src={item.logo} alt={item.name} className="w-[70%] h-auto object-contain" />
+                            </div>
+                            <div className="p-2.5 flex flex-col flex-grow">
+                                <h3 className="text-[11px] font-medium tracking-tight text-[#202124] mb-1 leading-snug">{item.name}</h3>
+                                <p className="text-[9px] text-[#3c4043] leading-[1.4] flex-grow">{item.desc}</p>
+                            </div>
+                        </a>
+                    ))}
                 </div>
             </div>
 

@@ -7,6 +7,7 @@ import hotscanImg from '@/assets/hotscan.png';
 import empImg from '@/assets/EMP Logo Transparent.png';
 import snackMachineImg from '@/assets/sohub-snacks-BxzlzZkJ.png';
 import oMamaImg from '@/assets/O Mama remove bg.png';
+import oMamaVideo from '@/assets/omama 1.mp4';
 
 interface Experiment {
     id: number;
@@ -37,6 +38,7 @@ const experiments: Experiment[] = [
         buttonText: "Learn more",
         buttonLink: "https://omama.sohub.com.bd/",
         image: oMamaImg,
+        video: oMamaVideo,
         imageFit: 'contain' as const,
     },
     {

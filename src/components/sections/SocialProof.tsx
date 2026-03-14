@@ -38,7 +38,7 @@ const initiatives = [
    MOBILE VERSION — completely separate layout
    ────────────────────────────────────────────── */
 const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
-    <section className="min-h-[90vh] w-full overflow-hidden bg-background pt-24 pb-0 relative flex flex-col justify-between">
+    <section id="hero" className="min-h-[90vh] w-full overflow-hidden bg-background pt-24 pb-0 relative flex flex-col justify-between">
         {/* Top Content */}
         <div className="w-full relative z-30 flex flex-col items-center">
             <div
@@ -149,7 +149,7 @@ const MobileSocialProof = ({ theme }: { theme: string | undefined }) => (
    DESKTOP VERSION — 100% original, untouched
    ────────────────────────────────────────────── */
 const DesktopSocialProof = ({ theme }: { theme: string | undefined }) => (
-    <section className="min-h-screen w-full overflow-hidden bg-background pt-24 md:pt-40 pb-0 relative flex flex-col justify-between">
+    <section id="hero" className="min-h-screen w-full overflow-hidden bg-background pt-24 md:pt-40 pb-0 relative flex flex-col justify-between">
         {/* Top Content Wrapper */}
         <div className="w-full relative z-30 flex flex-col items-center">
 

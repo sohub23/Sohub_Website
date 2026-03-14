@@ -35,8 +35,11 @@ const DesktopOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =
                     <h2
                         className="text-[48px] font-normal tracking-tight text-[#0d0925] leading-[1.15]"
                     >
-                        Our Initiatives
+                        Explore Our Initiatives
                     </h2>
+                    <p className="text-lg text-[#5f6368] max-w-2xl mx-auto mt-4 font-normal">
+                        Each initiatives solves a real problem.
+                    </p>
                 </motion.div>
 
                 {/* Grid — Google-style 4 columns */}
@@ -117,8 +120,11 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
                     <h2
                         className="text-[22px] font-medium tracking-tight text-[#0d0925] leading-[1.2]"
                     >
-                        Our Initiatives
+                        Explore Our Initiatives
                     </h2>
+                    <p className="text-sm text-[#5f6368] max-w-xs mx-auto mt-2.5 font-normal leading-relaxed">
+                        Each initiatives solves a real problem.
+                    </p>
                 </motion.div>
 
                 {/* List — single column, Google style */}
@@ -196,7 +202,7 @@ export const OurInitiatives = () => {
                     .sort((a: Initiative, b: Initiative) => a.order - b.order);
                 setInitiatives(active);
             })
-            .catch(() => {});
+            .catch(() => { });
     }, []);
 
     if (initiatives.length === 0) return null;

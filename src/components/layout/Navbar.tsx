@@ -296,9 +296,13 @@ export const Navbar = () => {
       >
         <div className="container-main flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group z-10">
+          <a
+            href="/"
+            onClick={(e) => navigateToSection('/#hero', e)}
+            className="flex items-center gap-3 group z-10"
+          >
             <img src={logoOrange} alt="SOHUB" className="h-5 sm:h-6 md:h-7 w-auto" />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">

@@ -94,9 +94,6 @@ const DesktopFooter = () => {
               </p>
               <div>
                 <img src={membershipBasis} alt="SOHUB Membership" className="h-[48px] w-auto mt-2" />
-                <p className="text-[#5f6368] text-[12px] font-medium mt-3 tracking-wide">
-                  Trade License: <span className="font-semibold text-[#202124]">TRAD/DNCC/045837/2022</span>
-                </p>
               </div>
             </div>
 
@@ -239,9 +236,6 @@ const MobileFooter = () => {
           </div>
           <div className="mt-1">
             <img src={membershipBasis} alt="SOHUB Membership" className="h-[18px] w-auto" />
-            <p className="text-[#5f6368] text-[9px] font-medium mt-2 tracking-wide">
-              Trade License: <span className="font-semibold text-[#202124]">TRAD/DNCC/045837/2022</span>
-            </p>
           </div>
         </div>
 

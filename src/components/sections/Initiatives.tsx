@@ -260,13 +260,13 @@ const MobileInitiatives = () => {
                 {/* Header */}
                 <div className="text-center mb-10">
                     <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-semibold mb-3">
-                        Our Ecosystem
+                        One connected ecosystem
                     </p>
                     <h2 className="text-[26px] font-normal tracking-tight text-foreground mb-2.5 leading-[1.2]">
-                        One ecosystem.<br />Many focused systems.
+                        Each system solves a real problem.
                     </h2>
                     <p className="text-sm text-foreground-muted max-w-xs mx-auto font-normal leading-relaxed">
-                        Explore what matters to you. From communication to commerce.
+                        Explore the initiatives shaping communication, commerce, and everyday life
                     </p>
                 </div>
 
@@ -370,13 +370,13 @@ const DesktopInitiatives = () => {
                     className="text-center mb-16 md:mb-20"
                 >
                     <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-4">
-                        Our Ecosystem
+                        One connected ecosystem
                     </p>
                     <h2 className="text-[48px] font-normal tracking-tight text-foreground mb-4">
-                        One ecosystem. Many focused systems.
+                        Each system solves a real problem.
                     </h2>
                     <p className="text-lg text-foreground-muted max-w-2xl mx-auto font-normal">
-                        Explore what matters to you. From communication to commerce.
+                        Explore the initiatives shaping communication, commerce, and everyday life
                     </p>
                 </motion.div>
 
