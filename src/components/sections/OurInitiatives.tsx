@@ -194,7 +194,7 @@ export const OurInitiatives = () => {
     }, []);
 
     useEffect(() => {
-        fetch('/api/initiatives.json')
+        fetch('/api/initiatives.json?v=1.1')
             .then((res) => res.json())
             .then((data) => {
                 const active = (data.initiatives || [])

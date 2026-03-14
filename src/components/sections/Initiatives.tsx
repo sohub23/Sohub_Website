@@ -34,7 +34,7 @@ const initiativesData = [
     },
     {
         id: 'controls',
-        label: 'SOHUB CONTROLS',
+        label: 'CONTROLS',
         title: 'Building intelligence systems',
         description: 'Integrated automation for monitoring and controlling modern & safer buildings.',
         bgColor: 'bg-[#F3E5F5]',
@@ -61,7 +61,7 @@ const initiativesData = [
     },
     {
         id: 'machine',
-        label: 'MACHINE BY SOHUB',
+        label: 'MACHINES',
         title: 'Machines that work in Bangladesh',
         description: 'A complete ecosystem — hardware, backend, payments, monitoring, and support — designed for reliable operation at scale.',
         bgColor: 'bg-[#E8F5E9]',
@@ -243,7 +243,7 @@ const MobileInitiatives = () => {
     const [apiData, setApiData] = useState<any>(null);
 
     useEffect(() => {
-        fetch('/api/initiatives.json')
+        fetch('/api/initiatives.json?v=1.1')
             .then(res => res.json())
             .then(data => setApiData(data))
             .catch(() => { });
@@ -347,7 +347,7 @@ const DesktopInitiatives = () => {
     const [apiData, setApiData] = useState<any>(null);
 
     useEffect(() => {
-        fetch('/api/initiatives.json')
+        fetch('/api/initiatives.json?v=1.1')
             .then(res => res.json())
             .then(data => setApiData(data))
             .catch(() => { });
