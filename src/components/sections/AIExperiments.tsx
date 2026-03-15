@@ -9,6 +9,8 @@ import snackMachineImg from '@/assets/sohub-snacks-BxzlzZkJ.png';
 import oMamaImg from '@/assets/O Mama remove bg.png';
 import oMamaVideo from '@/assets/omama 1.mp4';
 import clickToConnectVideoNew from '@/assets/Video Project 1 (1).mp4';
+import hotscanVideoNew from '@/assets/hotscan video.mp4';
+import empVideoNew from '@/assets/emp final.mp4';
 
 interface Experiment {
     id: number;
@@ -49,6 +51,7 @@ const experiments: Experiment[] = [
         buttonText: "Visit",
         buttonLink: "https://emp.sohub.com.bd/",
         image: empImg,
+        video: empVideoNew,
         imageFit: 'contain' as const,
     },
     {
@@ -74,7 +77,8 @@ const experiments: Experiment[] = [
         description: "Let your customers connect instantly through a QR-powered web dialer. No app. No SIM. No balance. Just internet.",
         buttonText: "Get started",
         buttonLink: "https://connect.sohub.com.bd/hotscan_qr?lang=bangla",
-        image: hotscanImg
+        image: hotscanImg,
+        video: hotscanVideoNew,
     },
 ];
 
